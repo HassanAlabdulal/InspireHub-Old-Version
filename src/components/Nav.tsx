@@ -72,22 +72,7 @@ export default function Nav() {
         />
       </svg> */}
 
-      {/* <motion.div
-        animate={{ opacity: 1, x: 0 }}
-        initial={{ opacity: 0, x: -25 }}
-        transition={{ delay: 0.35 }}
-        className="flex gap-12"
-      >
-        <img src={avatar} alt="Hua profile picture" />
-        <motion.div className="hidden items-center gap-12 xl:flex">
-          <img src={dribble} alt="Dribble Account" />
-          <img src={twitter} alt="Twitter Account" />
-          <img src={youtube} alt="Youtube Channel" />
-        </motion.div>
-      </motion.div> */}
-      {/* Title */}
-
-      <h1 className="text-xl font-bold">
+      <h1 className="text-xl font-bold tracking-wider transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
         <a href="/">InspireHub</a>
       </h1>
 
@@ -98,7 +83,7 @@ export default function Nav() {
           animate="visible"
           initial="hidden"
           className="fixed left-0 top-0  z-40 flex h-screen
-          w-full flex-col items-center  justify-center  gap-24 bg-white text-2xl font-bold"
+          w-full flex-col items-center  justify-center  gap-24 bg-white text-2xl font-bold text-center"
         >
           <NavLinks
             className=" flex flex-col gap-24 text-lg "
