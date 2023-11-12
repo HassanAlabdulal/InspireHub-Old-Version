@@ -56,10 +56,20 @@ const NavLinks = ({
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
   return (
-    <nav className=" fixed w-full top-0 z-50 bg-green-100 flex items-center justify-between mb-24 pb-6 pt-12 px-8 font-medium shadow-md md:ml-0 lg:ml-0 ">
-      <h1 className="text-xl font-bold tracking-wider transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
-        <a href="/">InspireHub</a>
-      </h1>
+    <nav className=" fixed w-full top-0 bg-green-100 flex items-center justify-between mb-24 pb-8 pt-8 px-16 max-md:px-8 font-medium shadow-md md:ml-0 lg:ml-0 ">
+      <div className="flex items-center gap-16">
+        <h1 className="text-xl font-bold tracking-wider transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
+          <a href="/">InspireHub</a>
+        </h1>
+        <motion.div
+          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -15 }}
+          transition={{ delay: 0.35 }}
+          className="hidden xl:flex xl:items-center  xl:justify-center xl:gap-12 xl:text-lg"
+        >
+          <NavLinks className="flex gap-12" isMobile={false} />
+        </motion.div>
+      </div>
 
       {/* Nav Items animating in  */}
       {toggled && (
@@ -71,7 +81,7 @@ export default function Nav() {
           w-full flex-col items-center justify-center  gap-24 bg-white text-2xl font-bold text-center"
         >
           <NavLinks
-            className=" flex flex-col gap-24 text-lg "
+            className=" flex flex-col gap-24 text-lg max-md:gap-12 "
             isMobile={true}
           />
           <motion.div
@@ -81,7 +91,7 @@ export default function Nav() {
             className="flex flex-col gap-4 w-64"
           >
             <motion.a
-              className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 w-full text-white rounded transition-all 1s h-10"
+              className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 w-full text-white rounded transition-all 1s py-1"
               href="/SignIn"
             >
               Sign in
@@ -95,23 +105,15 @@ export default function Nav() {
           </motion.div>
         </motion.div>
       )}
+
       <motion.div
         animate={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -15 }}
         transition={{ delay: 0.35 }}
-        className="hidden xl:flex xl:items-center  xl:justify-center xl:gap-12 xl:text-lg"
+        className="flex gap-3 max-xl:hidden"
       >
-        <NavLinks className="flex gap-12" isMobile={false} />
-
-        <motion.div
-          animate={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: -15 }}
-          transition={{ delay: 0.35 }}
-          className="flex gap-3 max-xl:hidden"
-        >
-          <a href="/SignIn">Sign in</a>
-          <a href="/SignUp">Sign up</a>
-        </motion.div>
+        <a href="/SignIn">Sign in </a>
+        <a href="/SignUp">Sign up</a>
       </motion.div>
 
       {/* Hamburger Toggle */}
