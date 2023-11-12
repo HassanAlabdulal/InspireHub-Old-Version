@@ -17,20 +17,23 @@ import HomePage from "../components/HomePage.tsx"
   </head>
   <body class="">
     <Nav client:load />
+    <HomePage client:load />
   </body>
 </html>
 <main>
   <slot />
-  <HomePage />
+  
 </main>
 
 <style>
 
-* {
+body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: '', sans-serif;
+    width: 100%;
 } 
+
 </style>
