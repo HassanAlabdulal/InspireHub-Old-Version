@@ -56,7 +56,7 @@ const NavLinks = ({
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
   return (
-    <nav className=" relative mx-8 mb-24 flex items-center justify-between pb-6 pt-12 font-medium md:mx-16 lg:mx-32">
+    <nav className="relative w-full mb-24 flex items-center justify-between pb-6 pt-12 px-8 font-medium shadow-md md:ml-0 lg:ml-0">
       <h1 className="text-xl font-bold tracking-wider transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
         <a href="/">InspireHub</a>
       </h1>
