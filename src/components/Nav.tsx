@@ -75,9 +75,9 @@ export default function Nav() {
             isMobile={true}
           />
           <motion.div
-            animate={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 100 }}
-            transition={{ delay: 0.75 }}
+            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -75 }}
+            transition={{ delay: 0.9 }}
             className="flex flex-col gap-4 w-64"
           >
             <motion.a
