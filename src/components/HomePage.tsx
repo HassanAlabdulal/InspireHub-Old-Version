@@ -14,7 +14,7 @@ export default function HomePage() {
       <div>
         <button
           className="flex select-none bg-indigo-600 items-center gap-2 rounded-lg py-3 px-6 mt-4 text-center align-middle
-           font-sans text-md font-bold uppercase text-white transition-all shadow:md hover:shadow-lg
+           text-md font-bold uppercase text-white transition-all shadow:md hover:shadow-lg
          hover:bg-indigo-500/100 active:bg-indigo-700 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none duration-500
          max-md:py-3 max-md:px-4 max-md:mt-3"
           type="button"
