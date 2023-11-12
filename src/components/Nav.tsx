@@ -91,13 +91,13 @@ export default function Nav() {
             className="flex flex-col gap-4 w-64"
           >
             <motion.a
-              className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 w-full text-white rounded transition-all 1s py-1"
+              className="bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300 w-full text-white rounded transition-all 1s py-1"
               href="/SignIn"
             >
               Sign in
             </motion.a>
             <motion.a
-              className="border-2 border-violet-500 hover:bg-violet-500 hover:text-white active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 w-full text-violet-500 rounded transition ease-in-out duration-750 h-10 tracking-wide"
+              className="border-2 border-indigo-500 hover:bg-indigo-500 hover:text-white active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300 w-full text-indigo-500 rounded transition ease-in-out duration-750 h-10 tracking-wide"
               href="/SignUp"
             >
               Sign up
