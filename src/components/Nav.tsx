@@ -112,8 +112,23 @@ export default function Nav() {
         transition={{ delay: 0.35 }}
         className="flex gap-3 max-xl:hidden"
       >
-        <a href="/SignIn">Sign in </a>
-        <a href="/SignUp">Sign up</a>
+        {/* <a href="/SignIn">Sign in </a>
+        <a href="/SignUp">Sign up</a> */}
+
+        <button
+          className="middle none center rounded-lg bg-indigo-600 py-2.5 px-6 text-md font-bold  text-white shadow-md
+           shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          data-ripple-light="true"
+        >
+          Sign up
+        </button>
+        <button
+          className="middle none center rounded-lg border border-indigo-600 py-2.5 px-5 text-md font-bold text-indigo-500
+           transition-all hover:opacity-75 focus:ring focus:ring-indigo-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          data-ripple-dark="true"
+        >
+          Sign in
+        </button>
       </motion.div>
 
       {/* Hamburger Toggle */}
