@@ -108,7 +108,7 @@ export default function Nav() {
         animate={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -15 }}
         transition={{ delay: 0.35 }}
-        className="flex gap-3 max-xl:text-white"
+        className="flex gap-3 max-xl:hidden"
       >
         <a href="/SignIn">Sign in</a>
         <a href="/SignUp">Sign up</a>
