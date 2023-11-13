@@ -56,7 +56,7 @@ const NavLinks = ({
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
   return (
-    <nav className=" fixed w-full top-0 bg-yellow-400 flex items-center justify-between mb-24 pb-8 pt-8 px-16 max-md:px-8 font-medium shadow-md md:ml-0 lg:ml-0 ">
+    <nav className=" fixed w-full top-0 bg-yellow-400 flex items-center justify-between mb-24 pb-4 pt-4 px-16 max-md:px-8 font-medium shadow-md md:ml-0 lg:ml-0 ">
       <div className="flex items-center gap-16">
         <h1 className="text-2xl text-indigo-600 font-bold tracking-wider transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
           <a href="/">InspireHub</a>
@@ -116,14 +116,14 @@ export default function Nav() {
         <a href="/SignUp">Sign up</a> */}
 
         <button
-          className="middle none center rounded-lg bg-indigo-600 py-2.5 px-6 text-md font-bold  text-white shadow-md
+          className="middle none center rounded-lg bg-indigo-600 py-2 px-6 text-md font-bold  text-white shadow-md
            shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-light="true"
         >
           Sign up
         </button>
         <button
-          className="middle none center rounded-lg border border-indigo-600 py-2.5 px-5 text-md font-bold text-indigo-500
+          className="middle none center rounded-lg border border-indigo-600 py-2 px-5 text-md font-bold text-indigo-500
            transition-all hover:opacity-75 focus:ring focus:ring-indigo-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-dark="true"
         >
