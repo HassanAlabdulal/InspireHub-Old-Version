@@ -45,7 +45,7 @@ const NavLinks = ({
         key={id}
         variants={isMobile ? itemMotion : itemMotionDesktop}
         href={href}
-        // className="nav-link relative inline-block text-black no-underline hover:underline"
+        // className="relative inline-block text-black no-underline nav-link hover:underline"
       >
         {name}
       </motion.a>
@@ -56,7 +56,7 @@ const NavLinks = ({
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
   return (
-    <nav className=" fixed w-full top-0  flex items-center justify-between mb-24 pb-4 pt-4 px-16 max-md:px-8 font-medium  md:ml-0 lg:ml-0 ">
+    <nav className="fixed top-0 flex items-center justify-between w-full px-16 pt-4 pb-4 mb-24 font-medium  max-md:px-8 md:ml-0 lg:ml-0">
       <div className="flex items-center gap-16">
         <h1 className="text-2xl text-[#f7f7f7] font-bold font-nunito tracking-wider transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
           <a href="/">InspireHub</a>
@@ -77,27 +77,26 @@ export default function Nav() {
           variants={navMotion}
           animate="visible"
           initial="hidden"
-          className="fixed left-0 top-0  z-40 flex h-screen
-          w-full flex-col items-center justify-center  gap-24 bg-white text-2xl font-bold text-center"
+          className="fixed top-0 left-0 z-40 flex flex-col items-center justify-center w-full h-screen gap-24 text-2xl font-bold text-center bg-white"
         >
           <NavLinks
-            className=" flex flex-col gap-24 text-lg max-md:gap-12 text-indigo-600 "
+            className="flex flex-col gap-24 text-lg text-indigo-600  max-md:gap-12"
             isMobile={true}
           />
           <motion.div
             animate={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: -75 }}
             transition={{ delay: 0.9 }}
-            className="flex flex-col gap-4 w-64"
+            className="flex flex-col w-64 gap-4"
           >
             <motion.a
-              className="bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300 w-full text-white rounded transition-all 1s py-1"
+              className="w-full py-1 text-white transition-all bg-indigo-500 rounded hover:bg-indigo-600 active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300 1s"
               href="/SignIn"
             >
               Sign in
             </motion.a>
             <motion.a
-              className="border-2 border-indigo-500 hover:bg-indigo-500 hover:text-white active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300 w-full text-indigo-500 rounded transition ease-in-out duration-750 h-10 tracking-wide"
+              className="w-full h-10 tracking-wide text-indigo-500 transition ease-in-out border-2 border-indigo-500 rounded hover:bg-indigo-500 hover:text-white active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300 duration-750"
               href="/SignUp"
             >
               Sign up
@@ -110,7 +109,7 @@ export default function Nav() {
         animate={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -15 }}
         transition={{ delay: 0.35 }}
-        className="flex gap-3  max-xl:hidden"
+        className="flex gap-3 max-xl:hidden"
       >
         {/* <a href="/SignIn">Sign in </a>
         <a href="/SignUp">Sign up</a> */}
