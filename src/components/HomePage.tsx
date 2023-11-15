@@ -4,13 +4,13 @@ export default function HomePage() {
       <div className="flex flex-col items-center justify-center">
         <h1
           className="max-w-6xl text-4xl font-extrabold tracking-tight leading-none text-center max-xl:text-5xl max-xl:max-w-5xl
-         max-md:text-4xl max-md:max-w-4xl max-sm:text-3xl max-sm:max-w-3xl mb-8 text-[#3b5382] font-nunito"
+         max-md:text-4xl max-md:max-w-4xl max-sm:text-2xl max-sm:max-w-2xl  mb-8 text-[#3b5382] font-nunito"
         >
           <span className="">InspireHub:</span>
           Where Ideas Take Flight and Creativity Meets Opportunity!
         </h1>
 
-        <p className="mb-8 text-lg font-normal text-center text-gray-300 font-roboto lg:text-xl sm:px-16 lg:px-48">
+        <p className="mb-8 text-lg font-normal text-center text-gray-300 font-roboto lg:text-xl max-sm:text-xl max-sm:max-w-sm sm:px-16 lg:px-48">
           A platform for showcasing and evolving creative projects
         </p>
       </div>
