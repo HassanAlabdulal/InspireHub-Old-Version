@@ -32,8 +32,6 @@ We believe in the power of community contribution. If you'd like to contribute t
 ## Support
 Need help? Visit our [Support Page](#) or contact us directly at support@inspirehub.com.
 
-## License
-[MIT](LICENSE.md)
 
 Join InspireHub today and be part of a community where creativity knows no bounds and every project can make an impact!
 
