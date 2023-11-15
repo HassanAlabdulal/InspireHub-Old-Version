@@ -58,14 +58,14 @@ export default function Nav() {
   return (
     <nav className=" fixed w-full top-0  flex items-center justify-between mb-24 pb-4 pt-4 px-16 max-md:px-8 font-medium  md:ml-0 lg:ml-0 ">
       <div className="flex items-center gap-16">
-        <h1 className="text-2xl text-[#f7f7f7] font-bold tracking-wider transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
+        <h1 className="text-2xl text-[#f7f7f7] font-bold font-nunito tracking-wider transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
           <a href="/">InspireHub</a>
         </h1>
         <motion.div
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -15 }}
           transition={{ delay: 0.35 }}
-          className="hidden xl:flex xl:items-center text-[#f7f7f7] xl:justify-center xl:gap-12 xl:text-lg "
+          className="hidden xl:flex xl:items-center text-[#f7f7f7] font-roboto xl:justify-center xl:gap-12 xl:text-lg "
         >
           <NavLinks className="flex gap-12" isMobile={false} />
         </motion.div>
@@ -116,14 +116,14 @@ export default function Nav() {
         <a href="/SignUp">Sign up</a> */}
 
         <button
-          className="middle none center rounded-lg bg-[#f7f7f7] py-2 px-6 text-md font-bold  text-[#3b5382] shadow-md
+          className="middle none center rounded-lg bg-[#f7f7f7]  py-2 px-6 text-md font-bold font-nunito  text-[#3b5382] shadow-md
            shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-light="true"
         >
           Sign up
         </button>
         <button
-          className="middle none center rounded-lg border border-[#f7f7f7] py-2 px-5 text-md font-bold text-[#f7f7f7]
+          className="middle none center rounded-lg border border-[#f7f7f7] py-2 px-5 text-md font-bold font-nunito  text-[#f7f7f7]
            transition-all hover:opacity-75 focus:ring focus:ring-indigo-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-dark="true"
         >

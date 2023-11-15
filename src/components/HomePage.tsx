@@ -2,11 +2,11 @@ export default function HomePage() {
   return (
     <main className=" flex items-center justify-center flex-col gap-3 mt-56 w-full max-md:mt-36 ">
       <div className=" ml-8">
-        <h1 className="font-bold tracking-wide text-2xl text-[#3b5382]">
+        <h1 className="font-bold tracking-wide text-2xl text-[#3b5382] font-nunito">
           InspireHub: Where Ideas Take Flight and Creativity Meets Opportunity!
         </h1>
 
-        <p>
+        <p className="font-roboto">
           Dive into a collaborative universe where your projects earn the
           spotlight and feedback fuels your next big leap
         </p>
@@ -14,7 +14,7 @@ export default function HomePage() {
       <div>
         <button
           className="flex select-none bg-[#3b5382] items-center gap-2 rounded-lg py-3 px-6 mt-4 text-center align-middle
-           text-md font-bold uppercase text-[#f7f7f7] transition-all shadow:md hover:shadow-lg
+           text-md font-bold font-nunito uppercase text-[#f7f7f7] transition-all shadow:md hover:shadow-lg
          hover:bg-indigo-500/100 active:bg-indigo-700 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none duration-500
          max-md:py-3 max-md:px-4 max-md:mt-3"
           type="button"
