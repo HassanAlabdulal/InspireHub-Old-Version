@@ -17,9 +17,12 @@ import Footer from "../components/Footer";
     <meta title={title} />
   </head>
   <body class="">
-    <Nav client:load />
-    <HomePage client:load />
-    <!-- <Footer client:load /> -->
+    <div class="main-page">
+      <Nav client:load />
+      <HomePage client:load />
+    </div>
+
+    <Footer client:load />
   </body>
 </html>
 <main>
@@ -29,7 +32,7 @@ import Footer from "../components/Footer";
 
 <style>
 
- html {
+ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -37,8 +40,11 @@ import Footer from "../components/Footer";
     font-family: '', sans-serif;
     width: 100%;
     /* background-color:#f7f7f7; */
-    height: 100vh;
     background-image: linear-gradient(to bottom, #3b5382, #6e789e, #9da0ba, #cbcad8, #f7f7f7);
     /* background-image: linear-gradient(to bottom, #3b5382, #445d8d, #4e6798, #5771a4, #617baf, #7388b9, #8595c2, #96a2cc, #b1b6d6, #cacbe1, #e1e0ec, #f7f7f7); */
  }
+
+.main-page{
+  height: 100vh;
+}
 </style>
