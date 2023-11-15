@@ -64,7 +64,7 @@ export default function Nav() {
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -15 }}
           transition={{ delay: 0.35 }}
-          className="hidden xl:flex xl:items-center text-[#f7f7f7] font-roboto xl:justify-center xl:gap-12 xl:text-lg "
+          className="hidden xl:flex xl:items-center text-[#f7f7f7] font-roboto xl:justify-center xl:gap-12 xl:text-lg lg:flex lg:items-center lg:justify-center lg:gap-12 lg:text-md "
         >
           <NavLinks className="flex gap-12" isMobile={false} />
         </motion.div>
@@ -108,20 +108,20 @@ export default function Nav() {
         animate={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -15 }}
         transition={{ delay: 0.35 }}
-        className="flex gap-3 max-xl:hidden"
+        className="flex gap-3 max-xl:hidden max-lg:hidden lg:flex lg:items-center lg:justify-center lg:text-sm "
       >
         {/* <a href="/SignIn">Sign in </a>
         <a href="/SignUp">Sign up</a> */}
 
         <button
-          className="middle none center rounded-lg bg-[#f7f7f7]  py-2 px-6 text-md font-bold font-nunito  text-[#3b5382] shadow-md
+          className="middle none center rounded-lg bg-[#f7f7f7]  py-2 px-6 lg:py-1.5 lg:px-3 text-md font-bold font-nunito  text-[#3b5382] shadow-md
            shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-light="true"
         >
           Sign up
         </button>
         <button
-          className="middle none center rounded-lg border border-[#f7f7f7] py-2 px-5 text-md font-bold font-nunito  text-[#f7f7f7]
+          className="middle none center rounded-lg border border-[#f7f7f7] py-2 px-5 lg:py-1.5 lg:px-4 text-md font-bold font-nunito  text-[#f7f7f7]
            transition-all hover:opacity-75 focus:ring focus:ring-indigo-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-dark="true"
         >
@@ -135,7 +135,7 @@ export default function Nav() {
         initial={{ opacity: 0, x: 25 }}
         transition={{ delay: 0.35 }}
         onClick={() => setToggled((prevToggle) => !prevToggle)}
-        className={`burger z-50 cursor-pointer space-y-1.5 xl:hidden 
+        className={`burger z-50 cursor-pointer space-y-1.5 xl:hidden lg:hidden
         `}
       >
         <motion.span
