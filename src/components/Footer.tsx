@@ -12,7 +12,7 @@ export default function Footer() {
               className="h-8"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap text-[#3b5382] ">
+            <span className="self-center text-2xl font-semibold text-black whitespace-nowrap">
               InspireHub
             </span>
           </a>

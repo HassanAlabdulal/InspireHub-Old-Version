@@ -57,14 +57,14 @@ export default function Nav() {
   return (
     <nav className="fixed top-0 flex items-center justify-between w-full px-16 pt-4 pb-4 font-medium max-md:px-8 md:ml-0 lg:ml-0">
       <div className="flex items-center gap-16">
-        <h1 className="text-2xl text-[#f7f7f7] font-bold font-nunito tracking-wider transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+        <h1 className="text-2xl font-bold tracking-wider text-black transition duration-300 ease-in-out delay-150 font-nunito hover:-translate-y-1 hover:scale-110">
           <a href="/">InspireHub</a>
         </h1>
         <motion.div
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -15 }}
           transition={{ delay: 0.35 }}
-          className="hidden xl:flex xl:items-center text-[#f7f7f7] font-roboto xl:justify-center xl:gap-12 xl:text-lg lg:flex lg:items-center lg:justify-center lg:gap-12 lg:text-md "
+          className="hidden text-black xl:flex xl:items-center font-roboto xl:justify-center xl:gap-12 xl:text-lg lg:flex lg:items-center lg:justify-center lg:gap-12 lg:text-md "
         >
           <NavLinks className="flex gap-12" isMobile={false} />
         </motion.div>
@@ -76,10 +76,10 @@ export default function Nav() {
           variants={navMotion}
           animate="visible"
           initial="hidden"
-          className="fixed top-0 left-0 z-40 flex flex-col items-center justify-center w-full h-screen gap-24 text-2xl font-bold text-center bg-[#f7f7f7]"
+          className="fixed top-0 left-0 z-40 flex flex-col items-center justify-center w-full h-screen gap-24 text-2xl font-bold text-center bg-[#f7f7f7] "
         >
           <NavLinks
-            className="flex flex-col gap-24 text-lg text-indigo-600 max-md:gap-12"
+            className="flex flex-col gap-24 text-lg text-black max-md:gap-12"
             isMobile={true}
           />
           <motion.div
@@ -114,14 +114,14 @@ export default function Nav() {
         <a href="/SignUp">Sign up</a> */}
 
         <button
-          className="middle none center rounded-lg bg-[#f7f7f7]  py-2 px-6 lg:py-1.5 lg:px-3 text-md font-bold font-nunito  text-[#3b5382] shadow-md
+          className="middle none center rounded-lg bg-black  py-2 px-6 lg:py-1.5 lg:px-3 text-md font-bold font-nunito  text-white shadow-md
            shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-light="true"
         >
           Sign up
         </button>
         <button
-          className="middle none center rounded-lg border border-[#f7f7f7] py-2 px-5 lg:py-1.5 lg:px-4 text-md font-bold font-nunito  text-[#f7f7f7]
+          className="middle none center rounded-lg border border-black py-2 px-5 lg:py-1.5 lg:px-4 text-md font-bold font-nunito  text-black
            transition-all hover:opacity-75 focus:ring focus:ring-indigo-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-dark="true"
         >
@@ -140,12 +140,12 @@ export default function Nav() {
       >
         <motion.span
           animate={{ rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0 }}
-          className="line-1 block h-0.5 w-8 bg-[#f7f7f7]"
+          className="line-1 block h-0.5 w-8 bg-black"
         ></motion.span>
 
         <motion.span
           animate={{ width: toggled ? 0 : 24 }}
-          className="line-2 block h-0.5 w-6 bg-[#f7f7f7]"
+          className="line-2 block h-0.5 w-6 bg-black"
         ></motion.span>
         <motion.span
           animate={{
@@ -153,7 +153,7 @@ export default function Nav() {
             y: toggled ? -8 : 0,
             width: toggled ? 32 : 24,
           }}
-          className="line-3 block h-0.5 w-4 bg-[#f7f7f7]"
+          className="line-3 block h-0.5 w-4 bg-black"
         ></motion.span>
       </motion.div>
     </nav>
