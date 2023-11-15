@@ -1,7 +1,7 @@
 export default function HomePage() {
   return (
-    <main className=" flex items-center justify-center flex-col gap-3 mt-56 w-full max-md:mt-36 ">
-      <div className=" ml-8">
+    <main className="flex flex-col items-center justify-center w-full gap-3 mt-56 max-md:mt-36">
+      <div className="ml-8 ">
         <h1 className="font-bold tracking-wide text-2xl text-[#3b5382] font-nunito">
           InspireHub: Where Ideas Take Flight and Creativity Meets Opportunity!
         </h1>
@@ -28,7 +28,7 @@ export default function HomePage() {
             stroke-width="2"
             stroke="currentColor"
             aria-hidden="true"
-            className="h-5 w-5"
+            className="w-5 h-5"
           >
             <path
               stroke-linecap="round"
