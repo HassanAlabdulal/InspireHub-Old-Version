@@ -1,20 +1,20 @@
 export default function HomePage() {
   return (
     <main className="flex flex-col items-center justify-center w-full gap-3 mt-56 max-md:mt-36">
-      <div className="ml-8 ">
-        <h1 className="font-bold tracking-wide text-2xl text-[#3b5382] font-nunito">
-          InspireHub: Where Ideas Take Flight and Creativity Meets Opportunity!
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="max-w-6xl text-4xl font-extrabold tracking-tight leading-none text-center md:text-5xl xl:text-6xl mb-8 text-[#3b5382] font-nunito">
+          <span className="">InspireHub:</span>
+          Where Ideas Take Flight and Creativity Meets Opportunity!
         </h1>
 
-        <p className="font-roboto">
-          Dive into a collaborative universe where your projects earn the
-          spotlight and feedback fuels your next big leap
+        <p className="mb-8 text-lg font-normal text-center text-gray-300 font-roboto lg:text-xl sm:px-16 lg:px-48">
+          A platform for showcasing and evolving creative projects
         </p>
       </div>
-      <div>
+      <div className="flex items-center gap-3">
         <button
-          className="flex select-none bg-[#3b5382] items-center gap-2 rounded-lg py-3 px-6 mt-4 text-center align-middle
-           text-md font-bold font-nunito uppercase text-[#f7f7f7] transition-all shadow:md hover:shadow-lg
+          className="flex select-none bg-[#3b5382] items-center gap-2 rounded-lg py-3 px-4  text-center align-middle
+           text-md font-bold font-nunito  text-[#f7f7f7] transition-all shadow:md hover:shadow-lg
          hover:bg-indigo-500/100 active:bg-indigo-700 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none duration-500
          max-md:py-3 max-md:px-4 max-md:mt-3"
           type="button"
@@ -36,6 +36,10 @@ export default function HomePage() {
               d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
             ></path>
           </svg>
+        </button>
+
+        <button className="inline-flex items-center justify-center px-5 py-3  text-base font-bold  align-middle text-center text-[#f7f7f7] border border-[#f7f7f7] rounded-lg hover:text-[#3b5382] hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 transition-all duration-500">
+          Learn More
         </button>
       </div>
     </main>
