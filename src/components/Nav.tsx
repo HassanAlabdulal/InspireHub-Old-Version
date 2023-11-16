@@ -114,7 +114,7 @@ export default function Nav() {
         <a href="/SignUp">Sign up</a> */}
 
         <button
-          className="middle none center rounded-lg bg-black  py-2 px-6 lg:py-1.5 lg:px-3 text-md font-bold font-nunito  text-white shadow-sm
+          className="middle none center rounded-lg bg-black  py-2 px-4.5 lg:py-1.5 lg:px-3.5 text-md font-bold font-nunito  text-white shadow-sm
            shadow-black transition-all hover:shadow-lg hover:shadow-indigo-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-light="true"
         >
