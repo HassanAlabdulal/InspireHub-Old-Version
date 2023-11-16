@@ -4,7 +4,7 @@ import animationData from "../assets/Homapage-Animation.json";
 export default function HomePage() {
   return (
     <main className="flex flex-col items-center justify-center w-full gap-3 max-md:mt-30">
-      <div className="mt-6 w-96 h-96">
+      <div className="mt-6 w-96 h-96 max-sm:mt-16">
         <Lottie animationData={animationData} />
       </div>
       <div className="flex flex-col items-center justify-center">
