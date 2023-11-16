@@ -1,14 +1,14 @@
 import Lottie from "lottie-react";
 import animationData from "../assets/Homapage-Animation.json";
+// import { useRef } from "react";
 
 export default function HomePage() {
+  // const animationRef = useRef()
   return (
-    <main className="flex flex-col items-center justify-center w-full gap-3 mt-36 max-md:mt-30">
-      <div>
-        <Lottie animationData={animationData} />
-      </div>
-
+    <main className="flex flex-col items-center justify-center w-full gap-3 max-md:mt-30">
       <div className="flex flex-col items-center justify-center">
+        <Lottie animationData={animationData} />
+
         <h1 className="max-w-6xl mb-8 text-6xl font-extrabold leading-none tracking-tight text-center max-xl:text-5xl max-xl:max-w-5xl max-md:text-4xl max-md:max-w-4xl max-sm:text-2xl max-sm:max-w-2xl text-blcak font-nunito">
           <span className="">InspireHub:</span>
           Where Ideas Take Flight and Creativity Meets Opportunity!
