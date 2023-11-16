@@ -1,9 +1,7 @@
 import Lottie from "lottie-react";
 import animationData from "../assets/Homapage-Animation.json";
-// import { useRef } from "react";
 
 export default function HomePage() {
-  // const animationRef = useRef()
   return (
     <main className="flex flex-col items-center justify-center w-full gap-3 max-md:mt-30">
       <div className=" w-96 h-96">
