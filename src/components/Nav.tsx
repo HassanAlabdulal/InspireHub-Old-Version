@@ -64,7 +64,7 @@ export default function Nav() {
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -15 }}
           transition={{ delay: 0.35 }}
-          className="hidden text-[#5f7fbf] xl:flex xl:items-center font-roboto xl:justify-center xl:gap-12 xl:text-lg lg:flex lg:items-center lg:justify-center lg:gap-12 lg:text-md "
+          className="hidden text-[#121212] xl:flex xl:items-center font-roboto xl:justify-center xl:gap-12 xl:text-lg lg:flex lg:items-center lg:justify-center lg:gap-12 lg:text-md "
         >
           <NavLinks className="flex gap-12" isMobile={false} />
         </motion.div>
@@ -114,14 +114,14 @@ export default function Nav() {
         <a href="/SignUp">Sign up</a> */}
 
         <button
-          className="middle none center rounded-lg bg-[#3e60a3]  py-2 px-4.5 lg:py-1.5 lg:px-3.5 text-md font-bold font-nunito  text-white shadow-sm
+          className="middle none center rounded-lg bg-[#5f7fbf]  py-2 px-4.5 lg:py-1.5 lg:px-3.5 text-md font-bold font-nunito  text-white shadow-sm
            shadow-black transition-all hover:shadow-lg hover:shadow-indigo-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-light="true"
         >
           Sign up
         </button>
         <button
-          className="middle none center rounded-lg border border-[#3e60a3] py-2 px-5 lg:py-1.5 lg:px-4 text-md font-bold font-nunito  text-[#5f7fbf]
+          className="middle none center rounded-lg border-2 border-[#5f7fbf] py-2 px-5 lg:py-1.5 lg:px-4 text-md font-bold font-nunito  text-[#5f7fbf]
            transition-all hover:opacity-75 focus:ring focus:ring-indigo-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-dark="true"
         >

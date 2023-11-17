@@ -10,19 +10,19 @@ export default function HomePage() {
       <div className="flex flex-col items-center justify-center">
         <h1
           className="max-w-6xl mb-8 text-6xl font-extrabold leading-none tracking-tight text-center text-[#bfa260]
-         max-xl:text-5xl max-xl:max-w-5xl max-md:text-4xl max-md:max-w-4xl max-sm:text-2xl max-sm:max-w-2xl text-blcak font-nunito"
+         max-xl:text-5xl max-xl:max-w-5xl max-md:text-4xl max-md:max-w-4xl max-sm:text-2xl max-sm:max-w-2xl text-blcak font-roboto"
         >
-          <span className="">InspireHub: </span>
+          <span className="font-arial">InspireHub: </span>
           Where Ideas Take Flight and Creativity Meets Opportunity!
         </h1>
 
-        <p className="mb-8 text-2xl font-normal text-center text-[#5f7fbf] font-roboto lg:text-xl max-sm:text-xl max-sm:max-w-sm sm:px-16 lg:px-48">
+        <p className="mb-8 text-2xl font-normal text-center text-[#121212] font-roboto lg:text-xl max-sm:text-xl max-sm:max-w-sm sm:px-16 lg:px-48">
           A platform for showcasing and evolving creative projects
         </p>
       </div>
       <div className="flex items-center gap-3">
         <button
-          className="flex select-none bg-[#3e60a3] items-center gap-2 rounded-lg py-3 px-4  text-center align-middle
+          className="flex select-none bg-[#5f7fbf] items-center gap-2 rounded-lg py-3 px-4  text-center align-middle
            text-md font-bold font-nunito  text-[#f7f7f7] transition-all shadow:md hover:shadow-lg
          hover:bg-indigo-500/100 active:bg-indigo-700 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none duration-500
          max-md:py-3 max-md:px-4 max-md:mt-3"
@@ -47,7 +47,7 @@ export default function HomePage() {
           </svg>
         </button>
 
-        <button className="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center text-[#5f7fbf] align-middle transition-all duration-500 border border-[#3e60a3] rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 max-md:py-3 max-md:px-4 max-md:mt-3">
+        <button className="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center text-[#5f7fbf] align-middle transition-all duration-500 border-2 border-[#5f7fbf] rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 max-md:py-3 max-md:px-4 max-md:mt-3">
           Learn More
         </button>
       </div>

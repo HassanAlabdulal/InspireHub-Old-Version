@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ["Roboto", "sans-serif"],
         nunito: ["Nunito", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
     },
   },
