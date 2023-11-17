@@ -57,14 +57,14 @@ export default function Nav() {
   return (
     <nav className="fixed top-0 flex items-center justify-between w-full px-16 pt-4 pb-4 font-medium max-md:px-8 md:ml-0 lg:ml-0">
       <div className="flex items-center gap-16">
-        <h1 className="text-2xl font-bold tracking-wider text-black transition duration-300 ease-in-out delay-150 font-nunito hover:-translate-y-1 hover:scale-110">
+        <h1 className="text-2xl font-bold tracking-wider text-[#3e60a3] transition duration-300 ease-in-out delay-150 font-nunito hover:-translate-y-1 hover:scale-110">
           <a href="/">InspireHub</a>
         </h1>
         <motion.div
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -15 }}
           transition={{ delay: 0.35 }}
-          className="hidden text-black xl:flex xl:items-center font-roboto xl:justify-center xl:gap-12 xl:text-lg lg:flex lg:items-center lg:justify-center lg:gap-12 lg:text-md "
+          className="hidden text-[#5f7fbf] xl:flex xl:items-center font-roboto xl:justify-center xl:gap-12 xl:text-lg lg:flex lg:items-center lg:justify-center lg:gap-12 lg:text-md "
         >
           <NavLinks className="flex gap-12" isMobile={false} />
         </motion.div>
@@ -114,14 +114,14 @@ export default function Nav() {
         <a href="/SignUp">Sign up</a> */}
 
         <button
-          className="middle none center rounded-lg bg-black  py-2 px-4.5 lg:py-1.5 lg:px-3.5 text-md font-bold font-nunito  text-white shadow-sm
+          className="middle none center rounded-lg bg-[#3e60a3]  py-2 px-4.5 lg:py-1.5 lg:px-3.5 text-md font-bold font-nunito  text-white shadow-sm
            shadow-black transition-all hover:shadow-lg hover:shadow-indigo-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-light="true"
         >
           Sign up
         </button>
         <button
-          className="middle none center rounded-lg border border-black py-2 px-5 lg:py-1.5 lg:px-4 text-md font-bold font-nunito  text-black
+          className="middle none center rounded-lg border border-[#3e60a3] py-2 px-5 lg:py-1.5 lg:px-4 text-md font-bold font-nunito  text-[#5f7fbf]
            transition-all hover:opacity-75 focus:ring focus:ring-indigo-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-dark="true"
         >
