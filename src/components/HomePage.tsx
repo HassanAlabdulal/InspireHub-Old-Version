@@ -47,7 +47,7 @@ export default function HomePage() {
           </svg>
         </button>
 
-        <button className="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center text-[#3e60a3] align-middle transition-all duration-500 border border-[#3e60a3] rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 max-md:py-3 max-md:px-4 max-md:mt-3">
+        <button className="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center text-[#5f7fbf] align-middle transition-all duration-500 border border-[#3e60a3] rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 max-md:py-3 max-md:px-4 max-md:mt-3">
           Learn More
         </button>
       </div>
