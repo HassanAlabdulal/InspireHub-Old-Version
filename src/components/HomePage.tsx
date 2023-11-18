@@ -21,11 +21,8 @@ export default function HomePage() {
         </p>
       </div>
       <div className="flex items-center gap-3">
-        <button
-          className="flex select-none bg-[#5f7fbf] items-center gap-2 rounded-lg py-3 px-4  text-center align-middle
-           text-md font-bold font-nunito  text-[#f7f7f7] transition-all shadow:md hover:shadow-lg
-         hover:bg-indigo-500/100 active:bg-indigo-700 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none duration-500
-         max-md:py-3 max-md:px-4 max-md:mt-3"
+        <a
+          className="flex select-none items-center justify-center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] px-3 py-2.5 text-base font-bold text-white align-middle transition-all duration-500 shadow-md hover:shadow-lg hover:bg-indigo-500/100 active:bg-indigo-700 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           type="button"
           data-ripple-dark="true"
         >
@@ -34,22 +31,22 @@ export default function HomePage() {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="2"
+            strokeWidth="2"
             stroke="currentColor"
             aria-hidden="true"
-            className="w-5 h-5"
+            className="w-5 h-5 ml-2"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
             ></path>
           </svg>
-        </button>
+        </a>
 
-        <button className="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-center text-[#5f7fbf] align-middle transition-all duration-500 border-2 border-[#5f7fbf] rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 max-md:py-3 max-md:px-4 max-md:mt-3">
+        <a className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf] px-[1.623rem] py-2.5 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
           Learn More
-        </button>
+        </a>
       </div>
     </main>
   );
