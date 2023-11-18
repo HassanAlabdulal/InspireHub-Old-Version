@@ -10,13 +10,13 @@ export default function HomePage() {
         </div>
         <h1
           className="max-w-6xl mb-8 text-6xl font-extrabold leading-none tracking-tight text-center text-[#bfa260]
-         max-xl:text-5xl max-xl:max-w-5xl max-md:text-4xl max-md:max-w-4xl max-sm:text-2xl max-sm:max-w-2xl text-blcak font-roboto"
+         max-xl:text-5xl max-xl:max-w-5xl max-md:text-4xl max-md:max-w-4xl max-sm:text-2xl max-sm:max-w-lg text-blcak font-roboto"
         >
           <span className="font-arial">InspireHub: </span>
           Where Ideas Take Flight and Creativity Meets Opportunity!
         </h1>
 
-        <p className="mb-8 text-2xl font-normal text-center text-[#121212] font-roboto lg:text-xl max-sm:text-xl max-sm:max-w-sm sm:px-16 lg:px-48">
+        <p className="mb-8 text-2xl font-normal text-center text-[#121212] font-roboto lg:text-xl max-sm:text-lg max-sm:max-w-sm sm:px-16 lg:px-48">
           A platform for showcasing and evolving creative projects
         </p>
       </div>
