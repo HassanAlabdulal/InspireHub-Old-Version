@@ -44,7 +44,6 @@ const NavLinks = ({
         key={id}
         variants={isMobile ? itemMotion : itemMotionDesktop}
         href={href}
-        // className="relative inline-block text-black no-underline nav-link hover:underline"
       >
         {name}
       </motion.a>
@@ -54,6 +53,7 @@ const NavLinks = ({
 
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
+
   return (
     <nav className="fixed top-0 flex items-center justify-between w-full px-16 pt-4 pb-4 font-medium max-md:px-8 md:ml-0 lg:ml-0">
       <div className="flex items-center gap-16">
@@ -110,9 +110,6 @@ export default function Nav() {
         transition={{ delay: 0.35 }}
         className="flex gap-3 max-xl:hidden max-lg:hidden lg:flex lg:items-center lg:justify-center lg:text-sm "
       >
-        {/* <a href="/SignIn">Sign in </a>
-        <a href="/SignUp">Sign up</a> */}
-
         <button
           className="middle none center rounded-lg bg-[#5f7fbf]  py-2 px-4.5 lg:py-1.5 lg:px-3.5 text-md font-bold font-nunito  text-white shadow-sm
            shadow-black transition-all hover:shadow-lg hover:shadow-indigo-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"

@@ -4,10 +4,10 @@ import animationData from "../assets/Homapage-Animation.json";
 export default function HomePage() {
   return (
     <main className="flex flex-col items-center justify-center w-full gap-3 max-md:mt-30">
-      <div className="mt-6 w-96 h-96 max-sm:mt-16">
-        <Lottie animationData={animationData} />
-      </div>
       <div className="flex flex-col items-center justify-center">
+        <div className="mt-6 w-96 h-96 max-sm:mt-16 ">
+          <Lottie animationData={animationData} />
+        </div>
         <h1
           className="max-w-6xl mb-8 text-6xl font-extrabold leading-none tracking-tight text-center text-[#bfa260]
          max-xl:text-5xl max-xl:max-w-5xl max-md:text-4xl max-md:max-w-4xl max-sm:text-2xl max-sm:max-w-2xl text-blcak font-roboto"
