@@ -5,18 +5,18 @@ export default function HomePage() {
   return (
     <main className="flex flex-col items-center justify-center w-full gap-3 max-md:mt-30">
       <div className="flex flex-col items-center justify-center">
-        <div className="mt-6 w-96 h-96 max-xl:w-80 max-xl:h-80 max-sm:mt-16 ">
+        <div className="mt-6 w-96 h-96 max-xl:w-80 max-xl:h-80 max-sm:mt-16 max-lg:mt-24 ">
           <Lottie animationData={animationData} />
         </div>
         <h1
-          className="max-w-6xl mb-8 text-6xl font-extrabold leading-none tracking-tight text-center text-[#bfa260]
-         max-xl:text-5xl max-xl:max-w-5xl max-md:text-4xl max-md:max-w-4xl max-sm:text-2xl max-sm:max-w-lg text-blcak font-roboto"
+          className="max-w-6xl mb-8 text-6xl max-xl:text-5xl max-xl:max-w-4xl max-lg:text-4xl max-lg:max-w-3xl max-sm:text-3xl max-sm:max-w-2xl
+           font-extrabold leading-none tracking-tight text-center text-[#bfa260] font-roboto"
         >
           <span className="font-arial">InspireHub: </span>
           Where Ideas Take Flight and Creativity Meets Opportunity!
         </h1>
 
-        <p className="mb-8 text-2xl font-normal text-center text-[#121212] font-roboto lg:text-xl max-sm:text-lg max-sm:max-w-sm sm:px-16 lg:px-48">
+        <p className="mb-8 text-2xl font-normal text-center text-[#121212] font-roboto max-md:text-3xl max-md:max-w-2xl max-sm:text-xl max-sm:max-w-sm sm:px-16 lg:px-48">
           A platform for showcasing and evolving creative projects
         </p>
       </div>
