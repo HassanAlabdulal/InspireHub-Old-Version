@@ -67,7 +67,12 @@ export default function HomePage() {
             </svg>
           </a>
 
-          <a className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf] px-[1.623rem] py-2.5 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
+          <a
+            className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf]
+           px-[1.623rem] py-2.5 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
+            hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
+            href="/learnMorePage"
+          >
             Learn More
           </a>
         </div>
