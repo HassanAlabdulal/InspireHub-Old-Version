@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
-    <main className="flex items-center justify-center w-full gap-3 mt-10 max-md:mt-30">
+    <main className="flex items-center justify-center w-full h-screen gap-3 mt-10 max-md:mt-30">
       <div className="flex flex-col items-center justify-center">
         <div className=" w-96 h-96 max-xl:w-80 max-xl:h-80 max-sm:mt-16 max-lg:mt-24">
           <Lottie animationData={animationData} />
@@ -71,7 +71,7 @@ export default function HomePage() {
             className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf]
            px-[1.623rem] py-2.5 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
             hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
-            href="/learnMorePage"
+            href="#learn-more"
           >
             Learn More
           </a>
