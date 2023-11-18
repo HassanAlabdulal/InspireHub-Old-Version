@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <main className="flex flex-col items-center justify-center w-full gap-3 max-md:mt-30">
       <div className="flex flex-col items-center justify-center">
-        <div className="mt-6 w-96 h-96 max-sm:mt-16 ">
+        <div className="mt-6 w-96 h-96 max-xl:w-80 max-xl:h-80 max-sm:mt-16 ">
           <Lottie animationData={animationData} />
         </div>
         <h1
