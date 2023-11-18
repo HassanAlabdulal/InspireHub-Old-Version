@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col items-center justify-center w-full gap-3 max-md:mt-30">
+    <main className="flex flex-col items-center justify-center w-full h-screen gap-3 max-md:mt-30">
       <div className="flex flex-col items-center justify-center">
-        <div className="mt-6 w-96 h-96 max-xl:w-80 max-xl:h-80 max-sm:mt-16 max-lg:mt-24 ">
+        <div className=" w-96 h-96 max-xl:w-80 max-xl:h-80 max-sm:mt-16 max-lg:mt-24">
           <Lottie animationData={animationData} />
         </div>
         <motion.div
@@ -33,7 +33,6 @@ export default function HomePage() {
                 hidden: { opacity: 0, y: 50 },
               }}
               transition={{ type: "spring", stiffness: 50 }}
-              // className="inline-block text-5xl max-xl:max-w-4xl font-extrabold text-[#bfa260] font-roboto"
             >
               {char}
             </motion.span>
