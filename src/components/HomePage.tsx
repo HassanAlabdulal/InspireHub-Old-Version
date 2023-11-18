@@ -1,5 +1,6 @@
 import Lottie from "lottie-react";
 import animationData from "../assets/Homapage-Animation.json";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
@@ -8,13 +9,36 @@ export default function HomePage() {
         <div className="mt-6 w-96 h-96 max-xl:w-80 max-xl:h-80 max-sm:mt-16 max-lg:mt-24 ">
           <Lottie animationData={animationData} />
         </div>
-        <h1
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            visible: {
+              transition: {
+                staggerChildren: 0.03,
+              },
+            },
+            hidden: {},
+          }}
           className="max-w-6xl mb-8 text-6xl max-xl:text-5xl max-xl:max-w-4xl max-lg:text-4xl max-lg:max-w-3xl max-sm:text-3xl max-sm:max-w-2xl
            font-extrabold leading-none tracking-tight text-center text-[#bfa260] font-roboto"
         >
-          <span className="font-arial">InspireHub: </span>
-          Where Ideas Take Flight and Creativity Meets Opportunity!
-        </h1>
+          {Array.from(
+            "InspireHub:Where Ideas Take Flight and Creativity Meets Opportunity!"
+          ).map((char, index) => (
+            <motion.span
+              key={index}
+              variants={{
+                visible: { opacity: 1, y: 0 },
+                hidden: { opacity: 0, y: 50 },
+              }}
+              transition={{ type: "spring", stiffness: 50 }}
+              // className="inline-block text-5xl max-xl:max-w-4xl font-extrabold text-[#bfa260] font-roboto"
+            >
+              {char}
+            </motion.span>
+          ))}
+        </motion.div>
 
         <p className="mb-8 text-2xl font-normal text-center text-[#121212] font-roboto max-md:text-3xl max-md:max-w-2xl max-sm:text-xl max-sm:max-w-sm sm:px-16 lg:px-48">
           A platform for showcasing and evolving creative projects
