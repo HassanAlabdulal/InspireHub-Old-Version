@@ -15,19 +15,17 @@ import Footer from "../components/Footer";
     <meta title={title} />
   </head>
   <body >
-    <div >
+    <main class="main-page">
       <Nav client:load />
+      <slot />
       
-    </div>
-
+     
+    </main>
+    <Footer client:load />
   </body>
 </html>
-<main class="main-page">
-  <slot />
-  
- 
-</main>
-<Footer client:load />
+
+
 <style>
 
  body {
