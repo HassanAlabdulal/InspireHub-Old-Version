@@ -60,7 +60,7 @@ export default function LearnMore() {
                 {/* Timeline entries */}
                 <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
                   <div className="order-1 w-5/12"></div>
-                  <div className="order-1 w-5/12 px-1 py-4 text-right">
+                  <div className="order-1 w-5/12 px-1 py-4 text-left">
                     <h4 className="mb-3 text-lg font-bold md:text-2xl">
                       Showcase Your Genius
                     </h4>
@@ -87,7 +87,7 @@ export default function LearnMore() {
 
                 <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
                   <div className="order-1 w-5/12"></div>
-                  <div className="order-1 w-5/12 px-1 py-4 text-right">
+                  <div className="order-1 w-5/12 px-1 py-4 text-left">
                     <h4 className="mb-3 text-lg font-bold md:text-2xl">
                       Fuel Your Creativity
                     </h4>
