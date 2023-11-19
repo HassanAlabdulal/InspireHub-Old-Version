@@ -14,19 +14,34 @@ export default function LearnMore() {
             <p className="mb-2 text-3xl leading-normal md:text-4xl md:leading-relaxed">
               What is InspireHub?
             </p>
-            <p className="mb-4 text-sm text-black md:text-base">
+            <p className="mb-16 text-sm text-black md:text-base">
               InspireHub is not just a platform; it's a community pulsating with
               innovative ideas, where students and creative minds bring their
               visions to life. It's a space where your projects leap off the
               screen and into the world, where feedback becomes the forge for
               excellence, and where AI meets human ingenuity to spark new ideas.
             </p>
+            <p className="mb-2 text-3xl leading-normal md:text-4xl md:leading-relaxed">
+              Our Mission
+            </p>
+            <p className="mb-4 text-sm text-black md:text-base">
+              To catalyze collaboration that turns innovative ideas into
+              reality, foster an ecosystem of feedback that nurtures growth, and
+              unlock opportunities that connect talent with the market.
+            </p>
+            <p className="mb-2 text-3xl leading-normal md:text-4xl md:leading-relaxed">
+              Join Us
+            </p>
+            <p className="mb-4 text-sm text-black md:text-base">
+              Are you ready to be inspired and to inspire others? Sign up today
+              and start your journey.
+            </p>
             <a
               href="#"
               className="px-4 py-2 mr-auto text-[#5f7fbf] bg-transparent border-2 border-[#5f7fbf]
                rounded shadow hover:bg-[#5f7fbf] hover:text-white hover:shadow-lg transition-all duration-500"
             >
-              Explore Now
+              Sign up
             </a>
           </div>
 
