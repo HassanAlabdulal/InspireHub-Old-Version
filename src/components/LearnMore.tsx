@@ -13,9 +13,6 @@ export default function LearnMore() {
         <div className="container flex flex-col items-start mx-auto my-12 md:flex-row md:my-24">
           {/* Left side content */}
           <div className="relative top-0 flex flex-col w-full px-8 mt-2 lg:w-1/3 md:mt-12">
-            {/* <p className="ml-2 text-[#5f7fbf] tracking-loose">
-              Welcome to InspireHub, where creativity meets opportunity.
-            </p> */}
             <p className="mb-2 text-3xl leading-normal md:text-4xl md:leading-relaxed">
               What is InspireHub?
             </p>
@@ -64,9 +61,6 @@ export default function LearnMore() {
                 <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-right">
-                    {/* <p className="mb-3 text-base text-[#5f7fbf]">
-                      1-6 May, 2021
-                    </p> */}
                     <h4 className="mb-3 text-lg font-bold md:text-2xl">
                       Showcase Your Genius
                     </h4>
@@ -81,9 +75,6 @@ export default function LearnMore() {
                 <div className="flex items-center justify-between w-full mb-8 right-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-left">
-                    {/* <p className="mb-3 text-base text-[#5f7fbf]">
-                      6-9 May, 2021
-                    </p> */}
                     <h4 className="mb-3 text-lg font-bold md:text-2xl">
                       Thrive on Collaboration
                     </h4>
@@ -97,9 +88,6 @@ export default function LearnMore() {
                 <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-right">
-                    {/* <p className="mb-3 text-base text-[#5f7fbf]">
-                      10 May, 2021
-                    </p> */}
                     <h4 className="mb-3 text-lg font-bold md:text-2xl">
                       Fuel Your Creativity
                     </h4>
@@ -113,9 +101,6 @@ export default function LearnMore() {
                 <div className="flex items-center justify-between w-full mb-8 right-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4">
-                    {/* <p className="mb-3 text-base text-[#5f7fbf]">
-                      12 May, 2021
-                    </p> */}
                     <h4 className="mb-3 text-lg font-bold text-left md:text-2xl">
                       Rise to the Top
                     </h4>
