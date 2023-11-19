@@ -15,7 +15,7 @@ export default function HomePage() {
           variants={{
             visible: {
               transition: {
-                staggerChildren: 0.03,
+                staggerChildren: 0.02,
               },
             },
             hidden: {},
