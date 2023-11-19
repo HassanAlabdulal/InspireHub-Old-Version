@@ -12,7 +12,7 @@ export default function LearnMore() {
         </h1>
         <div className="container flex flex-col items-start mx-auto my-12 md:flex-row md:my-24">
           {/* Left side content */}
-          <div className="sticky top-0 flex flex-col w-full px-8 mt-2 lg:w-1/3 md:mt-12">
+          <div className="relative top-0 flex flex-col w-full px-8 mt-2 lg:w-1/3 md:mt-12">
             {/* <p className="ml-2 text-[#5f7fbf] tracking-loose">
               Welcome to InspireHub, where creativity meets opportunity.
             </p> */}
