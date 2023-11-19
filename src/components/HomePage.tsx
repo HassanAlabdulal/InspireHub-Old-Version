@@ -1,8 +1,13 @@
 import Lottie from "lottie-react";
 import animationData from "../assets/Homapage-Animation.json";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function HomePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="flex items-center justify-center w-full h-screen gap-3 max-md:mt-30 bg-[#f7f7f7]">
       <div className="flex flex-col items-center justify-center">

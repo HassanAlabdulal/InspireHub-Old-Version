@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 export default function LearnMore() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section id="learn-more">
       <div className="py-8 text-[#bfa260] bg-[#f7f7f7] font-roboto">
