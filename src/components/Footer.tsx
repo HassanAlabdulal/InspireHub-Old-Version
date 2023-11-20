@@ -23,7 +23,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline me-4 md:me-6">
+              <a href="http://localhost:4321/PolicyPage" className="hover:underline me-4 md:me-6">
                 Privacy Policy
               </a>
             </li>
