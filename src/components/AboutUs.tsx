@@ -9,7 +9,7 @@ const AccordionSection = ({ title, children }) => {
                 className="flex items-center text-[#bfa260] font-roboto font-semibold text-xl mb-2 text-left focus:outline-none"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <span className={`mr-2 transform transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}>
+                <span className={`mr-2 transform transition-transform duration-200 ${isOpen ? 'rotate-33' : ''}`}>
                     {isOpen ? '▼' : '►'}
                 </span>
                 {title}
@@ -53,12 +53,12 @@ const TableComponent = () => (
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://twitter.com/" target="_blank">
-                                        <img title="X" src="src/assets/x_icon.jpg" class="inline-block w-6 h-6" />
+                                        <img title="X" src="src/assets/x_icon.jpg" className="inline-block w-6 h-6" />
                                     </a>
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://github.com/" target="_blank">
-                                        <img title="Github" src="src/assets/Git_icon.png" class="inline-block w-6 h-6" />
+                                        <img title="Github" src="src/assets/Git_icon.png" className="inline-block w-6 h-6" />
                                     </a>
                                 </td>
                             </tr>
@@ -68,12 +68,12 @@ const TableComponent = () => (
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://twitter.com/aamhaamm" target="_blank">
-                                        <img title="X" src="src/assets/x_icon.jpg" class="inline-block w-6 h-6" />
+                                        <img title="X" src="src/assets/x_icon.jpg" className="inline-block w-6 h-6" />
                                     </a>
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://github.com/aamhaamm" target="_blank">
-                                        <img title="Github" src="src/assets/Git_icon.png" class="inline-block w-6 h-6" />
+                                        <img title="Github" src="src/assets/Git_icon.png" className="inline-block w-6 h-6" />
                                     </a>
                                 </td>
                             </tr>
@@ -83,12 +83,12 @@ const TableComponent = () => (
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://twitter.com/7assan_abdulaal" target="_blank">
-                                        <img title="X" src="src/assets/x_icon.jpg" class="inline-block w-6 h-6" />
+                                        <img title="X" src="src/assets/x_icon.jpg" className="inline-block w-6 h-6" />
                                     </a>
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://github.com/HassanAlabdulal" target="_blank">
-                                        <img title="Github" src="src/assets/Git_icon.png" class="inline-block w-6 h-6" />
+                                        <img title="Github" src="src/assets/Git_icon.png" className="inline-block w-6 h-6" />
                                     </a>
                                 </td>
                             </tr>
@@ -98,12 +98,12 @@ const TableComponent = () => (
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://twitter.com/l3b3al" target="_blank">
-                                        <img title="X" src="src/assets/x_icon.jpg" class="inline-block w-6 h-6" />
+                                        <img title="X" src="src/assets/x_icon.jpg" className="inline-block w-6 h-6" />
                                     </a>
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://github.com/l3b3al" target="_blank">
-                                        <img title="Github" src="src/assets/Git_icon.png" class="inline-block w-6 h-6" />
+                                        <img title="Github" src="src/assets/Git_icon.png" className="inline-block w-6 h-6" />
                                     </a>
                                 </td>
                             </tr>
@@ -113,12 +113,12 @@ const TableComponent = () => (
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://twitter.com/7ussainLz" target="_blank">
-                                        <img title="X" src="src/assets/x_icon.jpg" class="inline-block w-6 h-6" />
+                                        <img title="X" src="src/assets/x_icon.jpg" className="inline-block w-6 h-6" />
                                     </a>
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://github.com/7ussainLZ" target="_blank">
-                                        <img title="Github" src="src/assets/Git_icon.png" class="inline-block w-6 h-6" />
+                                        <img title="Github" src="src/assets/Git_icon.png" className="inline-block w-6 h-6" />
                                     </a>
                                 </td>
                             </tr>
