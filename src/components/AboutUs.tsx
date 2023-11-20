@@ -33,23 +33,15 @@ const TableComponent = () => (
             <div className="p-3">
                 <div className="overflow-x-auto">
                     <table className="table-auto w-full">
-                        <thead className="text-xs font-semibold uppercase text-[#D0B880]">
-                            <tr>
-                                <th className="p-2 whitespace-nowrap text-center">
-                                    <div className="font-semibold">Name</div>
-                                </th>
-                                <th className="p-2 whitespace-nowrap text-center">
-                                    <div className="font-semibold">X</div>
-                                </th>
-                                <th className="p-2 whitespace-nowrap text-center">
-                                    <div className="font-semibold">Github</div>
-                                </th>
-                            </tr>
-                        </thead>
                         <tbody className="text-sm divide-y divide-gray-100">
                         <tr>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     ALI ALSHAIKH
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://www.linkedin.com/in/" target="_blank">
+                                        <img title="Linkedin" src="src/assets/Linked_icon.png" className="inline-block w-6 h-6" />
+                                    </a>
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://twitter.com/" target="_blank">
@@ -67,6 +59,11 @@ const TableComponent = () => (
                                     ABDULLAH AL MATAWAH
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://www.linkedin.com/in/abdullah-al-matawah-b6036a231/" target="_blank">
+                                        <img title="Linkedin" src="src/assets/Linked_icon.png" className="inline-block w-6 h-6" />
+                                    </a>
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://twitter.com/aamhaamm" target="_blank">
                                         <img title="X" src="src/assets/x_icon.jpg" className="inline-block w-6 h-6" />
                                     </a>
@@ -80,6 +77,11 @@ const TableComponent = () => (
                             <tr>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     HASSAN ALABDULAL
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://www.linkedin.com/in/" target="_blank">
+                                        <img title="Linkedin" src="src/assets/Linked_icon.png" className="inline-block w-6 h-6" />
+                                    </a>
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://twitter.com/7assan_abdulaal" target="_blank">
@@ -97,6 +99,11 @@ const TableComponent = () => (
                                     ALI ALABDULAAL
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://www.linkedin.com/in/" target="_blank">
+                                        <img title="Linkedin" src="src/assets/Linked_icon.png" className="inline-block w-6 h-6" />
+                                    </a>
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://twitter.com/l3b3al" target="_blank">
                                         <img title="X" src="src/assets/x_icon.jpg" className="inline-block w-6 h-6" />
                                     </a>
@@ -110,6 +117,11 @@ const TableComponent = () => (
                             <tr>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     HUSSAIN ALZAYER
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://www.linkedin.com/in/" target="_blank">
+                                        <img title="Linkedin" src="src/assets/Linked_icon.png" className="inline-block w-6 h-6" />
+                                    </a>
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://twitter.com/7ussainLz" target="_blank">
