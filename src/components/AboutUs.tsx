@@ -2,34 +2,33 @@ import React, { useState } from 'react';
 
 const AccordionSection = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
-  
-    return (
-      <div>
-        <button
-          className="flex items-center text-[#bfa260] font-roboto font-semibold text-xl mb-2 text-left"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <span className="mr-2 transform transition-transform duration-200">
-            {isOpen ? '▼' : '►'}
-          </span>
-          {title}
-        </button>
-        {isOpen && (
-          <div className="p-4 mb-4 rounded-md bg-white shadow-md">
-            {children}
-          </div>
-        )}
-      </div>
-    );
-  };
-  
-  
 
+    return (
+        <div>
+            <button
+                className="flex items-center text-[#bfa260] font-roboto font-semibold text-xl mb-2 text-left focus:outline-none"
+                onClick={() => setIsOpen(!isOpen)}
+            >
+                <span className={`mr-2 transform transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}>
+                    {isOpen ? '▼' : '►'}
+                </span>
+                {title}
+            </button>
+            {isOpen && (
+                <div className={`p-4 mb-4 rounded-md bg-[#f7f7f7] transition-shadow duration-100 ${isOpen ? 'shadow-lg' : 'shadow-sm'}`}>
+                    {children}
+                </div>
+            )}
+        </div>
+    );
+};
+  
+  
 const TableComponent = () => (
     <div className="w-full lg:w-1/3">
         <div className="bg-[#f7f7f7] shadow-lg rounded-sm border border-gray-200">
             <header className="px-5 py-4 border-b">
-                <h2 className="font-semibold text-[#bfa260] text-center">Who we are?</h2>
+                <h2 className="font-semibold text-[#bfa260] text-center">Developer team</h2>
             </header>
             <div className="p-3">
                 <div className="overflow-x-auto">
@@ -48,9 +47,24 @@ const TableComponent = () => (
                             </tr>
                         </thead>
                         <tbody className="text-sm divide-y divide-gray-100">
+                        <tr>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    ALI ALSHAIKH
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://twitter.com/" target="_blank">
+                                        <img title="X" src="src/assets/x_icon.jpg" class="inline-block w-6 h-6" />
+                                    </a>
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://github.com/" target="_blank">
+                                        <img title="Github" src="src/assets/Git_icon.png" class="inline-block w-6 h-6" />
+                                    </a>
+                                </td>
+                            </tr>
                             <tr>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
-                                    Abdullah Al Matawah
+                                    ABDULLAH AL MATAWAH
                                 </td>
                                 <td className="p-2 whitespace-nowrap text-center align-middle">
                                     <a href="https://twitter.com/aamhaamm" target="_blank">
@@ -63,7 +77,51 @@ const TableComponent = () => (
                                     </a>
                                 </td>
                             </tr>
-                            {/* More rows as needed */}
+                            <tr>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    HASSAN ALABDULAL
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://twitter.com/7assan_abdulaal" target="_blank">
+                                        <img title="X" src="src/assets/x_icon.jpg" class="inline-block w-6 h-6" />
+                                    </a>
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://github.com/HassanAlabdulal" target="_blank">
+                                        <img title="Github" src="src/assets/Git_icon.png" class="inline-block w-6 h-6" />
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    ALI ALABDULAAL
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://twitter.com/l3b3al" target="_blank">
+                                        <img title="X" src="src/assets/x_icon.jpg" class="inline-block w-6 h-6" />
+                                    </a>
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://github.com/l3b3al" target="_blank">
+                                        <img title="Github" src="src/assets/Git_icon.png" class="inline-block w-6 h-6" />
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    HUSSAIN ALZAYER
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://twitter.com/7ussainLz" target="_blank">
+                                        <img title="X" src="src/assets/x_icon.jpg" class="inline-block w-6 h-6" />
+                                    </a>
+                                </td>
+                                <td className="p-2 whitespace-nowrap text-center align-middle">
+                                    <a href="https://github.com/7ussainLZ" target="_blank">
+                                        <img title="Github" src="src/assets/Git_icon.png" class="inline-block w-6 h-6" />
+                                    </a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
