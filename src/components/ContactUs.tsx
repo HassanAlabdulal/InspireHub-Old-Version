@@ -24,7 +24,7 @@ export default function ContactUs() {
               required
               type="text"
               placeholder="Name"
-              className="w-full px-4 py-3 leading-tight border rounded form-input focus:outline-none focus:shadow-outline"
+              className="w-full px-4 py-3 leading-tight transition-all duration-300 border rounded focus:px-5 focus:outline-0"
             />
           </div>
           <div className="w-full px-3 md:w-1/2">
@@ -32,7 +32,7 @@ export default function ContactUs() {
               required
               type="email"
               placeholder="Email"
-              className="w-full px-4 py-3 leading-tight border rounded form-input focus:outline-none focus:shadow-outline"
+              className="w-full px-4 py-3 leading-tight transition-all duration-300 border rounded focus:px-5 focus:outline-0"
             />
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function ContactUs() {
         <div className="mb-6">
           <textarea
             placeholder="We are here for you! How can we help?"
-            className="w-full px-4 py-3 leading-tight border rounded form-textarea focus:outline-none focus:shadow-outline"
+            className="w-full px-4 py-3 leading-tight transition-all duration-300 border rounded focus:px-5 focus:outline-0"
           ></textarea>
         </div>
 
