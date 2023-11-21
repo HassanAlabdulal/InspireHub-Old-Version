@@ -214,7 +214,7 @@ const TableComponent = () => (
   </div>
 );
 
-export default function AddProject() {
+export default function AboutUs() {
   return (
     <div className="bg-[#f7f7f7] mt-[70px] pl-[60px] pr-[20px] flex justify-center items-start min-h-screen">
       <div className="flex flex-col flex-1 pr-8 space-y-6">
