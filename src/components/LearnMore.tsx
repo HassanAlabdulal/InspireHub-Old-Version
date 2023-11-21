@@ -87,10 +87,10 @@ export default function LearnMore() {
                 <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-left">
-                    <h4 className="mb-3 text-lg font-bold md:text-2xl">
+                    <h4 className="mb-3 text-lg font-bold text-center md:text-2xl">
                       Showcase Your Genius
                     </h4>
-                    <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
+                    <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
                       Your projects deserve an audience. Upload your work and
                       let it shine in a space visited by peers, mentors, and
                       industry leaders.
@@ -102,10 +102,10 @@ export default function LearnMore() {
                   <div></div>
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-left">
-                    <h4 className="mb-3 text-lg font-bold md:text-2xl">
+                    <h4 className="mb-3 text-lg font-bold text-center md:text-2xl">
                       Thrive on Collaboration
                     </h4>
-                    <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
+                    <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
                       Dive into a sea of feedback that polishes your ideas to
                       perfection.
                     </p>
@@ -115,10 +115,10 @@ export default function LearnMore() {
                 <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-left">
-                    <h4 className="mb-3 text-lg font-bold md:text-2xl">
+                    <h4 className="mb-3 text-lg font-bold text-center md:text-2xl">
                       Fuel Your Creativity
                     </h4>
-                    <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
+                    <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
                       Let our AI suggest your next big idea, tailored to the
                       latest trends and your personal interests.
                     </p>
@@ -128,10 +128,10 @@ export default function LearnMore() {
                 <div className="flex items-center justify-between w-full mb-8 right-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4">
-                    <h4 className="mb-3 text-lg font-bold text-left md:text-2xl">
+                    <h4 className="mb-3 text-lg font-bold text-center md:text-2xl">
                       Rise to the Top
                     </h4>
-                    <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
+                    <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
                       Climb the ranks with our rating system and stand out to
                       potential employers.
                     </p>
