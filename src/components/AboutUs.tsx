@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const AccordionSection = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ const AccordionSection = ({ title, children }) => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <span
-          className={`mr-2 transform transition-transform duration-200 ${
+          className={`mr-2 transform transition-transform duration-400 ${
             isOpen ? "rotate-33" : ""
           }`}
         >
@@ -20,8 +21,8 @@ const AccordionSection = ({ title, children }) => {
       </button>
       {isOpen && (
         <div
-          className={`p-4 mb-4 rounded-md bg-[#f7f7f7] transition-shadow duration-100 ${
-            isOpen ? "shadow-lg" : "shadow-sm"
+          className={`p-4 mb-4 rounded-md bg-[#f7f7f7] transition-all duration-1000 ${
+            isOpen ? "shadow-md hover:shadow-lg" : "shadow-sm"
           }`}
         >
           {children}
