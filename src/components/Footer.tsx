@@ -28,7 +28,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="http://localhost:4321/ContactUsPage" className="hover:underline">
                 Contact us
               </a>
             </li>
