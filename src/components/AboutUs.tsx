@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const AccordionSection = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Variants for animating the open/close state
+  const variants = {
+    open: { opacity: 1, height: "auto" },
+    collapsed: { opacity: 0, height: 0 },
+  };
 
   return (
     <div>
@@ -10,24 +16,30 @@ const AccordionSection = ({ title, children }) => {
         className="flex items-center text-[#bfa260] font-roboto font-semibold text-xl mb-2 text-left focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span
-          className={`mr-2 transform transition-transform duration-400 ${
-            isOpen ? "rotate-33" : ""
-          }`}
+        <motion.span
+          className="mr-2 transition-transform transform duration-400"
+          animate={{ rotate: isOpen ? 1 : 0 }}
         >
           {isOpen ? "▼" : "►"}
-        </span>
+        </motion.span>
         {title}
       </button>
-      {isOpen && (
-        <div
-          className={`p-4 mb-4 rounded-md bg-[#f7f7f7] transition-all duration-1000 ${
-            isOpen ? "shadow-md hover:shadow-lg" : "shadow-sm"
-          }`}
-        >
-          {children}
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={variants}
+            transition={{ duration: 0.7 }}
+            className="overflow-hidden"
+          >
+            <div className="p-4 mb-4 rounded-md bg-[#f7f7f7] shadow-sm hover:shadow-md transition-all duration-700">
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
