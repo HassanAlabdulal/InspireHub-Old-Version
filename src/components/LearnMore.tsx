@@ -10,7 +10,7 @@ export default function LearnMore() {
         <h1 className="ml-2 mb-10 mt-24 text-[#bfa260] text-3xl font-extrabold uppercase tracking-loose text-center ">
           Discover. Collaborate. Innovate.
         </h1>
-        <div className="flex items-center justify-center mx-auto my-12 max-md:flex-col md:my-24">
+        <div className="flex items-center justify-center my-12 ml-28 md:flex-row md:my-24 ">
           {/* Left side content */}
           <div className="relative top-0 flex flex-col w-1/2 px-8 mt-2 lg:w-1/3 md:mt-12">
             <p className="mb-2 text-3xl leading-normal md:text-4xl md:leading-relaxed">
@@ -34,17 +34,10 @@ export default function LearnMore() {
             <p className="mb-2 text-3xl leading-normal md:text-4xl md:leading-relaxed">
               Join Us
             </p>
-            <p className="mb-4 text-sm text-black md:text-base">
+            <p className="text-sm text-black mb-7 md:text-base">
               Are you ready to be inspired and to inspire others? Sign up today
               and start your journey.
             </p>
-            {/* <a
-              href="#"
-              className="px-4 py-2 mr-auto text-[#5f7fbf] bg-transparent border-2 border-[#5f7fbf]
-               rounded shadow hover:bg-[#5f7fbf] hover:text-white hover:shadow-lg transition-all duration-500"
-            >
-              Sign up
-            </a> */}
             <div className="flex items-center gap-3">
               <a
                 className="flex select-none items-center justify-center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] px-[1.693rem]  py-2 text-base font-bold text-white align-middle transition-all duration-500 shadow-md hover:shadow-lg hover:bg-indigo-500/100 active:bg-indigo-700 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -56,9 +49,9 @@ export default function LearnMore() {
 
               <a
                 className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf]
-           px-2 py-2 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
-            hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
-                href="#learn-more"
+                px-2 py-2 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
+                 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
+                href="#features"
               >
                 Our Features
               </a>
@@ -73,75 +66,86 @@ export default function LearnMore() {
             />
           </div>
         </div>
+
+        <div
+          id="features"
+          className="flex flex-col items-center justify-center mb-10 mt-96"
+        >
+          <h1 className="ml-2 mb-24 mt-24 text-[#bfa260] text-3xl font-extrabold uppercase tracking-loose text-center ">
+            Our Features
+          </h1>
+          <div className="relative ml-0 md:ml-12 lg:w-2/3">
+            <div className="container w-full h-full mx-auto">
+              <div className="relative h-full p-10 overflow-hidden wrap">
+                {/* Vertical line */}
+                <div
+                  className="absolute transform -translate-x-1/2 border-[#5f7fbf] left-1/2"
+                  style={{ height: "100%", top: "0", borderLeftWidth: "2px" }}
+                ></div>
+
+                {/* Timeline entries */}
+                <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
+                  <div className="order-1 w-5/12"></div>
+                  <div className="order-1 w-5/12 px-1 py-4 text-left">
+                    <h4 className="mb-3 text-lg font-bold md:text-2xl">
+                      Showcase Your Genius
+                    </h4>
+                    <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
+                      Your projects deserve an audience. Upload your work and
+                      let it shine in a space visited by peers, mentors, and
+                      industry leaders.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between w-full mb-8 right-timeline">
+                  <div></div>
+                  <div className="order-1 w-5/12"></div>
+                  <div className="order-1 w-5/12 px-1 py-4 text-left">
+                    <h4 className="mb-3 text-lg font-bold md:text-2xl">
+                      Thrive on Collaboration
+                    </h4>
+                    <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
+                      Dive into a sea of feedback that polishes your ideas to
+                      perfection.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
+                  <div className="order-1 w-5/12"></div>
+                  <div className="order-1 w-5/12 px-1 py-4 text-left">
+                    <h4 className="mb-3 text-lg font-bold md:text-2xl">
+                      Fuel Your Creativity
+                    </h4>
+                    <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
+                      Let our AI suggest your next big idea, tailored to the
+                      latest trends and your personal interests.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between w-full mb-8 right-timeline">
+                  <div className="order-1 w-5/12"></div>
+                  <div className="order-1 w-5/12 px-1 py-4">
+                    <h4 className="mb-3 text-lg font-bold text-left md:text-2xl">
+                      Rise to the Top
+                    </h4>
+                    <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
+                      Climb the ranks with our rating system and stand out to
+                      potential employers.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img
+              className="mx-auto -mt-36 md:-mt-36"
+              src="https://user-images.githubusercontent.com/54521023/116968861-ef21a000-acd2-11eb-95ac-a34b5b490265.png"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
 }
-
-// {/* <div className="relative ml-0 md:ml-12 lg:w-2/3">
-//   <div className="container w-full h-full mx-auto">
-//     <div className="relative h-full p-10 overflow-hidden wrap">
-//       {/* Vertical line */}
-//       <div
-//         className="absolute transform -translate-x-1/2 border-[#5f7fbf] left-1/2"
-//         style={{ height: "100%", top: "0", borderLeftWidth: "2px" }}
-//       ></div>
-
-//       {/* Timeline entries */}
-//       <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
-//         <div className="order-1 w-5/12"></div>
-//         <div className="order-1 w-5/12 px-1 py-4 text-left">
-//           <h4 className="mb-3 text-lg font-bold md:text-2xl">
-//             Showcase Your Genius
-//           </h4>
-//           <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
-//             Your projects deserve an audience. Upload your work and let it shine
-//             in a space visited by peers, mentors, and industry leaders.
-//           </p>
-//         </div>
-//       </div>
-
-//       <div className="flex items-center justify-between w-full mb-8 right-timeline">
-//         <div className="order-1 w-5/12"></div>
-//         <div className="order-1 w-5/12 px-1 py-4 text-left">
-//           <h4 className="mb-3 text-lg font-bold md:text-2xl">
-//             Thrive on Collaboration
-//           </h4>
-//           <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
-//             Dive into a sea of feedback that polishes your ideas to perfection.
-//           </p>
-//         </div>
-//       </div>
-
-//       <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
-//         <div className="order-1 w-5/12"></div>
-//         <div className="order-1 w-5/12 px-1 py-4 text-left">
-//           <h4 className="mb-3 text-lg font-bold md:text-2xl">
-//             Fuel Your Creativity
-//           </h4>
-//           <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
-//             Let our AI suggest your next big idea, tailored to the latest trends
-//             and your personal interests.
-//           </p>
-//         </div>
-//       </div>
-
-//       <div className="flex items-center justify-between w-full mb-8 right-timeline">
-//         <div className="order-1 w-5/12"></div>
-//         <div className="order-1 w-5/12 px-1 py-4">
-//           <h4 className="mb-3 text-lg font-bold text-left md:text-2xl">
-//             Rise to the Top
-//           </h4>
-//           <p className="text-sm leading-snug text-black text-opacity-100 md:text-base">
-//             Climb the ranks with our rating system and stand out to potential
-//             employers.
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-//   <img
-//     className="mx-auto -mt-36 md:-mt-36"
-//     src="https://user-images.githubusercontent.com/54521023/116968861-ef21a000-acd2-11eb-95ac-a34b5b490265.png"
-//   />
-// </div>; */}
