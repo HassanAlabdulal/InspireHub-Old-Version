@@ -1,16 +1,16 @@
 export default function ContactUs() {
   return (
-    <div className="bg-[#f7f7f7] mt-[70px] pl-[60px] pr-[20px] flex justify-center items-center min-h-screen">
+    <div className="bg-[#f7f7f7] mt-16 pl-[60px] pr-[20px] flex justify-center items-center min-h-screen">
       <div className="w-full max-w-4xl px-6 py-8 bg-[#f7f7f7] shadow-lg rounded">
         <h2 className="text-[#bfa260] font-roboto font-bold text-3xl mb-6 text-center">
-          Contact Us
+          Get In Touch
         </h2>
-        <p className="text-[#D0B880] font-roboto font-normal text-center">
+        <p className="text-center font-roboto">
           For further questions, including partnership opportunities, please
           email us at <br />
           <a
             href="mailto:support@inspirehub.com"
-            className="text-gray-600 hover:underline"
+            className="text-[#5f7fbf] font-bold hover:underline"
           >
             {" "}
             support@inspirehub.com{" "}
@@ -39,7 +39,7 @@ export default function ContactUs() {
 
         <div className="mb-6">
           <textarea
-            placeholder="What can we help you with"
+            placeholder="We are here for you! How can we help?"
             className="w-full px-4 py-3 leading-tight border rounded form-textarea focus:outline-none focus:shadow-outline"
           ></textarea>
         </div>
