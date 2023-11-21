@@ -1,8 +1,8 @@
 export default function ContactUs() {
   return (
     <div className="bg-[#f7f7f7] mt-16 h-screen">
-      <div className="flex items-center justify-center px-36 ">
-        <div className="w-full max-w-4xl px-6 py-8 bg-[#f7f7f7] shadow-lg rounded">
+      <div className="flex items-center justify-between px-36 ">
+        <div className="w-full max-w-4xl mr-10 px-6 py-8 bg-[#f7f7f7] shadow-lg rounded">
           <h2 className="text-[#bfa260] font-roboto font-bold text-3xl mb-6 text-center">
             Get In Touch
           </h2>
@@ -66,6 +66,14 @@ export default function ContactUs() {
               Send Message
             </a>
           </div>
+        </div>
+
+        <div>
+          <img
+            className="h-[50rem] w-[50rem]"
+            src="src/assets/ContactUs.png"
+            alt="Contact us image"
+          />
         </div>
       </div>
     </div>
