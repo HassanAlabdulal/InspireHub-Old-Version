@@ -37,7 +37,7 @@ const TableComponent = () => (
     <div className="border border-gray-200 rounded-sm shadow-lg ">
       <header className="px-5 py-4 border-b">
         <h2 className="font-semibold text-[#bfa260] text-center">
-          Developer team
+          Developers Team
         </h2>
       </header>
       <div className="p-3">
@@ -53,7 +53,7 @@ const TableComponent = () => (
                     <img
                       title="Linkedin"
                       src="src/assets/Linked_icon.png"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -62,7 +62,7 @@ const TableComponent = () => (
                     <img
                       title="X"
                       src="src/assets/x_icon.jpg"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -71,7 +71,7 @@ const TableComponent = () => (
                     <img
                       title="Github"
                       src="src/assets/Git_icon.png"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -88,7 +88,7 @@ const TableComponent = () => (
                     <img
                       title="Linkedin"
                       src="src/assets/Linked_icon.png"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -97,7 +97,7 @@ const TableComponent = () => (
                     <img
                       title="X"
                       src="src/assets/x_icon.jpg"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -106,7 +106,7 @@ const TableComponent = () => (
                     <img
                       title="Github"
                       src="src/assets/Git_icon.png"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -120,7 +120,7 @@ const TableComponent = () => (
                     <img
                       title="Linkedin"
                       src="src/assets/Linked_icon.png"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -129,7 +129,7 @@ const TableComponent = () => (
                     <img
                       title="X"
                       src="src/assets/x_icon.jpg"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -138,7 +138,7 @@ const TableComponent = () => (
                     <img
                       title="Github"
                       src="src/assets/Git_icon.png"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -152,7 +152,7 @@ const TableComponent = () => (
                     <img
                       title="Linkedin"
                       src="src/assets/Linked_icon.png"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -161,7 +161,7 @@ const TableComponent = () => (
                     <img
                       title="X"
                       src="src/assets/x_icon.jpg"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -170,7 +170,7 @@ const TableComponent = () => (
                     <img
                       title="Github"
                       src="src/assets/Git_icon.png"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -184,7 +184,7 @@ const TableComponent = () => (
                     <img
                       title="Linkedin"
                       src="src/assets/Linked_icon.png"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -193,7 +193,7 @@ const TableComponent = () => (
                     <img
                       title="X"
                       src="src/assets/x_icon.jpg"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -202,7 +202,7 @@ const TableComponent = () => (
                     <img
                       title="Github"
                       src="src/assets/Git_icon.png"
-                      className="inline-block w-6 h-6"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                     />
                   </a>
                 </td>
@@ -217,7 +217,7 @@ const TableComponent = () => (
 
 export default function AboutUs() {
   return (
-    <div className="bg-[#f7f7f7] mt-[70px] pl-[60px] pr-[20px] flex justify-center items-start min-h-screen">
+    <div className="bg-[#f7f7f7] mt-[70px] pl-[60px] pr-[20px] flex justify-center items-start h-screen">
       <div className="flex flex-col flex-1 pr-8 space-y-6">
         <h1 className="text-[#bfa260] font-roboto font-bold text-3xl mb-4 text-center">
           About Us
@@ -273,7 +273,7 @@ export default function AboutUs() {
 
         <AccordionSection title="Join Our Story">
           {/* <h2 className="text-[#bfa260] font-roboto font-semibold text-xl mb-2">Join Our Story</h2> */}
-          <p className="text-black] font-roboto font-normal">
+          <p className="font-normal text-black font-roboto">
             Every member of our community, every user who shares a project, and
             every feedback given adds a page to the Inspirehub story. We invite
             you to be a part of this journey. Share your projects, your ideas,
