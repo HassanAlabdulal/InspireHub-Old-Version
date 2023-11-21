@@ -38,13 +38,31 @@ export default function LearnMore() {
               Are you ready to be inspired and to inspire others? Sign up today
               and start your journey.
             </p>
-            <a
+            {/* <a
               href="#"
               className="px-4 py-2 mr-auto text-[#5f7fbf] bg-transparent border-2 border-[#5f7fbf]
                rounded shadow hover:bg-[#5f7fbf] hover:text-white hover:shadow-lg transition-all duration-500"
             >
               Sign up
-            </a>
+            </a> */}
+            <div className="flex items-center gap-3">
+              <a
+                className="flex select-none items-center justify-center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] px-[1.693rem]  py-2 text-base font-bold text-white align-middle transition-all duration-500 shadow-md hover:shadow-lg hover:bg-indigo-500/100 active:bg-indigo-700 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button"
+                data-ripple-dark="true"
+              >
+                Sign up
+              </a>
+
+              <a
+                className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf]
+           px-2 py-2 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
+            hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
+                href="#learn-more"
+              >
+                Our Features
+              </a>
+            </div>
           </div>
           {/* Right side timeline */}
           <div className="flex items-center justify-center w-1/2">
