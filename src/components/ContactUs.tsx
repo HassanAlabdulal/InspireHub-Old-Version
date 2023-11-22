@@ -41,7 +41,7 @@ export default function ContactUs() {
           <div className="mb-6">
             <textarea
               placeholder="We are here for you! How can we help?"
-              className="w-full px-4 py-3 leading-tight transition-all duration-300 border rounded focus:px-5 focus:outline-0"
+              className="w-full px-4 py-3 leading-tight transition-all duration-300 border rounded focus:px-5 focus:outline-0 resize-none"
             ></textarea>
           </div>
 
