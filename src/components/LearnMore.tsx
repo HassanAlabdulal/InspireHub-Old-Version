@@ -5,9 +5,12 @@ export default function LearnMore() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <section id="learn-more">
-      <div className="py-8 text-[#bfa260] bg-[#f7f7f7] font-roboto">
-        <h1 className="mt-24 mb-10 text-3xl font-extrabold text-center uppercase tracking-loose ">
+    <section>
+      <div
+        id="learn-more"
+        className="py-8 text-[#bfa260] bg-[#f7f7f7] font-roboto"
+      >
+        <h1 className="mt-16 mb-10 text-3xl font-extrabold text-center uppercase tracking-loose ">
           Discover. Collaborate. Innovate.
         </h1>
         <div className="flex flex-col items-center justify-center my-12 md:flex-row md:my-24 md:px-4 lg:px-8">
