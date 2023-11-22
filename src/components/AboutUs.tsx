@@ -242,7 +242,7 @@ const TableComponent = () => (
 
 export default function AboutUs() {
   return (
-    <div className="bg-[#f7f7f7] mt-16 pl-[60px] pr-[20px] flex justify-center items-start h-screen">
+    <div className="bg-[#f7f7f7] mt-16 pl-[60px] pr-[20px] flex justify-center items-start min-h-screen">
       <div className="flex flex-col flex-1 pr-8 space-y-6">
         <h1 className="text-[#bfa260] font-roboto font-bold text-3xl mb-4 text-center">
           About Us
