@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import type { ReactNode } from "react"; // Corrected type import for ReactNode
 import { motion, AnimatePresence } from "framer-motion";
 
-const AccordionSection = ({ title, children }) => {
+// Define a type for the AccordionSection props
+type AccordionSectionProps = {
+  title: string;
+  children: ReactNode;
+};
+
+const AccordionSection = ({ title, children }: AccordionSectionProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Variants for animating the open/close state
