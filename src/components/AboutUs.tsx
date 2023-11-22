@@ -1,12 +1,12 @@
 import { useState } from "react";
-import type { ReactNode } from "react"; // Corrected type import for ReactNode
+import type { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
   faXTwitter,
   faLinkedin,
-} from "@fortawesome/free-brands-svg-icons"; // Import specific icons
+} from "@fortawesome/free-brands-svg-icons";
 
 // Define a type for the AccordionSection props
 type AccordionSectionProps = {
@@ -249,7 +249,6 @@ export default function AboutUs() {
         </h1>
 
         <AccordionSection title="Inspirehub: A Journey of Passion and Innovation">
-          {/* <h2 className="text-[#bfa260] font-roboto font-semibold text-xl mb-2">Inspirehub: A Journey of Passion and Innovation</h2> */}
           <p className="font-normal text-black font-roboto">
             We are a team of dreamers, innovators, and educators united by a
             common passion: to empower and inspire the next generation of
@@ -260,7 +259,6 @@ export default function AboutUs() {
         </AccordionSection>
 
         <AccordionSection title="Our Inspiration">
-          {/* <h2 className="text-[#bfa260] font-roboto font-semibold text-xl mb-2">Our Inspiration</h2> */}
           <p className="font-normal text-black font-roboto">
             Each member of our team has walked the path of discovery, facing
             challenges and embracing opportunities. We've experienced firsthand
@@ -271,7 +269,6 @@ export default function AboutUs() {
         </AccordionSection>
 
         <AccordionSection title="Our Commitment">
-          {/* <h2 className="text-[#bfa260] font-roboto font-semibold text-xl mb-2">Our Commitment</h2> */}
           <p className="font-normal text-black font-roboto">
             At Inspirehub, we are committed to fostering a nurturing
             environment. We believe in the power of feedback, the importance of
@@ -282,7 +279,6 @@ export default function AboutUs() {
         </AccordionSection>
 
         <AccordionSection title="Our Values">
-          {/* <h2 className="text-[#bfa260] font-roboto font-semibold text-xl mb-2">Our Values</h2> */}
           <p className="font-normal text-black font-roboto">
             Empathy and Support: We understand the journey of innovation and
             strive to offer the support and guidance needed to navigate it.{" "}
@@ -297,7 +293,6 @@ export default function AboutUs() {
         </AccordionSection>
 
         <AccordionSection title="Join Our Story">
-          {/* <h2 className="text-[#bfa260] font-roboto font-semibold text-xl mb-2">Join Our Story</h2> */}
           <p className="font-normal text-black font-roboto">
             Every member of our community, every user who shares a project, and
             every feedback given adds a page to the Inspirehub story. We invite
