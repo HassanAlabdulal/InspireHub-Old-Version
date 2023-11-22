@@ -7,16 +7,16 @@ export default function LearnMore() {
   return (
     <section id="learn-more">
       <div className="py-8 text-[#bfa260] bg-[#f7f7f7] font-roboto">
-        <h1 className="ml-2 mb-10 mt-24 text-[#bfa260] text-3xl font-extrabold uppercase tracking-loose text-center ">
+        <h1 className="mt-24 mb-10 text-3xl font-extrabold text-center uppercase tracking-loose ">
           Discover. Collaborate. Innovate.
         </h1>
-        <div className="flex items-center justify-center my-12 ml-28 md:flex-row md:my-24 ">
+        <div className="flex flex-col items-center justify-center my-12 md:flex-row md:my-24 md:px-4 lg:px-8">
           {/* Left side content */}
-          <div className="relative top-0 flex flex-col w-1/2 px-8 mt-2 lg:w-1/3 md:mt-12">
-            <p className="mb-2 text-3xl leading-normal md:text-4xl md:leading-relaxed">
+          <div className="flex flex-col w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4">
+            <p className="mb-2 text-2xl leading-normal md:text-3xl lg:text-4xl">
               What is InspireHub?
             </p>
-            <p className="mb-16 text-sm text-black md:text-base">
+            <p className="mb-16 text-sm text-black md:text-base lg:text-lg">
               InspireHub is not just a platform; it's a community pulsating with
               innovative ideas, where students and creative minds bring their
               visions to life. It's a space where your projects leap off the
@@ -60,11 +60,11 @@ export default function LearnMore() {
               </a>
             </div>
           </div>
-          {/* Right side timeline */}
-          <div className="flex items-center justify-center w-1/2">
+          {/* Right side image */}
+          <div className="w-full px-4 mt-16 md:w-1/2">
             <img
-              className="w-2/3 h-2/3"
-              src="src/assets/Website-Creator.png"
+              className="w-full h-auto mx-auto max-md:max-w-md md:w-2/3 md:h-2/3" // Adjust image size here
+              src="src/assets/Website-Creator.png" // Update the path accordingly
               alt="Project Creator"
             />
           </div>
