@@ -63,7 +63,7 @@ export default function LearnMore() {
           {/* Right side image */}
           <div className="w-full px-4 mt-16 md:w-1/2">
             <img
-              className="w-full h-auto mx-auto max-md:max-w-md md:w-2/3 md:h-2/3" // Adjust image size here
+              className="w-full h-auto mx-auto max-md:max-w-md md:w-5/6 md:h-5/6" // Adjust image size here
               src="src/assets/Website-Creator.png" // Update the path accordingly
               alt="Project Creator"
             />
