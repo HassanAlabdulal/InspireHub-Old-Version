@@ -75,28 +75,28 @@ const TableComponent = () => (
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://www.linkedin.com/in/" target="_blank">
-                    <img
-                      title="Linkedin"
-                      src="src/assets/Linked_icon.png"
-                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                    <FontAwesomeIcon
+                      title="linkedin"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
+                      icon={faLinkedin}
                     />
                   </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://twitter.com/" target="_blank">
-                    <img
+                    <FontAwesomeIcon
                       title="X"
-                      src="src/assets/x_icon.jpg"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                      icon={faXTwitter}
                     />
                   </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://github.com/" target="_blank">
-                    <img
-                      title="Github"
-                      src="src/assets/Git_icon.png"
+                    <FontAwesomeIcon
+                      title="GitHub"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                      icon={faGithub}
                     />
                   </a>
                 </td>
@@ -110,28 +110,28 @@ const TableComponent = () => (
                     href="https://www.linkedin.com/in/abdullah-al-matawah-b6036a231/"
                     target="_blank"
                   >
-                    <img
-                      title="Linkedin"
-                      src="src/assets/Linked_icon.png"
-                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                    <FontAwesomeIcon
+                      title="linkedin"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
+                      icon={faLinkedin}
                     />
                   </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://twitter.com/aamhaamm" target="_blank">
-                    <img
+                    <FontAwesomeIcon
                       title="X"
-                      src="src/assets/x_icon.jpg"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                      icon={faXTwitter}
                     />
                   </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://github.com/aamhaamm" target="_blank">
-                    <img
-                      title="Github"
-                      src="src/assets/Git_icon.png"
+                    <FontAwesomeIcon
+                      title="GitHub"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                      icon={faGithub}
                     />
                   </a>
                 </td>
@@ -142,27 +142,28 @@ const TableComponent = () => (
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://www.linkedin.com/in/" target="_blank">
-                    <img
-                      title="Linkedin"
-                      src="src/assets/Linked_icon.png"
-                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                    <FontAwesomeIcon
+                      title="linkedin"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
+                      icon={faLinkedin}
                     />
                   </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://twitter.com/7assan_abdulaal" target="_blank">
-                    <img
+                    <FontAwesomeIcon
                       title="X"
-                      src="src/assets/x_icon.jpg"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                      icon={faXTwitter}
                     />
                   </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://github.com/HassanAlabdulal" target="_blank">
                     <FontAwesomeIcon
+                      title="GitHub"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
-                      icon={faXTwitter}
+                      icon={faGithub}
                     />
                   </a>
                 </td>
@@ -173,28 +174,28 @@ const TableComponent = () => (
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://www.linkedin.com/in/" target="_blank">
-                    <img
-                      title="Linkedin"
-                      src="src/assets/Linked_icon.png"
-                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                    <FontAwesomeIcon
+                      title="linkedin"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
+                      icon={faLinkedin}
                     />
                   </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://twitter.com/l3b3al" target="_blank">
-                    <img
+                    <FontAwesomeIcon
                       title="X"
-                      src="src/assets/x_icon.jpg"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                      icon={faXTwitter}
                     />
                   </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://github.com/l3b3al" target="_blank">
-                    <img
-                      title="Github"
-                      src="src/assets/Git_icon.png"
+                    <FontAwesomeIcon
+                      title="GitHub"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                      icon={faGithub}
                     />
                   </a>
                 </td>
@@ -205,28 +206,28 @@ const TableComponent = () => (
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://www.linkedin.com/in/" target="_blank">
-                    <img
-                      title="Linkedin"
-                      src="src/assets/Linked_icon.png"
-                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                    <FontAwesomeIcon
+                      title="linkedin"
+                      className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
+                      icon={faLinkedin}
                     />
                   </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://twitter.com/7ussainLz" target="_blank">
-                    <img
+                    <FontAwesomeIcon
                       title="X"
-                      src="src/assets/x_icon.jpg"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                      icon={faXTwitter}
                     />
                   </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://github.com/7ussainLZ" target="_blank">
-                    <img
-                      title="Github"
-                      src="src/assets/Git_icon.png"
+                    <FontAwesomeIcon
+                      title="GitHub"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
+                      icon={faGithub}
                     />
                   </a>
                 </td>
