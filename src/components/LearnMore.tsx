@@ -40,8 +40,11 @@ export default function LearnMore() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                className="flex select-none items-center justify-center cursor-pointer rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] px-[1.693rem]  py-2 text-base font-bold text-white align-middle transition-all duration-500 shadow-md hover:shadow-lg hover:bg-indigo-500/100 active:bg-indigo-700 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                type="button"
+                className="flex select-none items-center justify-center cursor-pointer
+                 rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] px-[1.693rem]
+                   py-2 text-base font-bold text-white align-middle
+                   transition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+               disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 data-ripple-dark="true"
               >
                 Sign up

@@ -89,7 +89,8 @@ export default function Nav() {
             className="flex flex-col w-64 gap-4"
           >
             <motion.a
-              className="w-full py-1 text-white transition-all bg-indigo-500 rounded hover:bg-indigo-600 active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300 1s"
+              className="w-full py-1 text-white  bg-[#5f7fbf] roundedtransition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+              disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               href="/SignIn"
             >
               Sign in
@@ -111,14 +112,15 @@ export default function Nav() {
         className="flex gap-3 max-xl:hidden max-lg:hidden lg:flex lg:items-center lg:justify-center lg:text-sm "
       >
         <a
-          className="middle none center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf]  py-2 px-4.5 lg:py-1.5 lg:px-3.5 text-md font-bold font-nunito  text-white shadow-sm
-           shadow-black transition-all hover:shadow-lg hover:shadow-indigo-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          className="middle none center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf]  py-2 px-4.5 lg:py-1.5 lg:px-3.5 text-md font-bold font-nunito  text-white 
+           roundedtransition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+           disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none cursor-pointer"
           data-ripple-light="true"
         >
           Sign up
         </a>
         <a
-          className="middle none center rounded-lg border-2 border-[#5f7fbf] py-2 px-5 lg:py-1.5 lg:px-4 text-md font-bold font-nunito  text-[#5f7fbf]
+          className="middle none center rounded-lg border-2 border-[#5f7fbf] py-2 px-5 lg:py-1.5 lg:px-4 text-md font-bold font-nunito cursor-pointer  text-[#5f7fbf]
            transition-all hover:opacity-75 focus:ring focus:ring-indigo-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-dark="true"
         >
