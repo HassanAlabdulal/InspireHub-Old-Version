@@ -154,11 +154,12 @@ const TableComponent = () => (
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://github.com/HassanAlabdulal" target="_blank">
-                    <img
+                    {/* <img
                       title="Github"
                       src="src/assets/Git_icon.png"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
-                    />
+                    /> */}
+                    <FontAwesomeIcon icon="fa-brands fa-github" />
                   </a>
                 </td>
               </tr>
