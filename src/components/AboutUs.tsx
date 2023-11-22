@@ -1,6 +1,12 @@
 import { useState } from "react";
 import type { ReactNode } from "react"; // Corrected type import for ReactNode
 import { motion, AnimatePresence } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faXTwitter,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons"; // Import specific icons
 
 // Define a type for the AccordionSection props
 type AccordionSectionProps = {
@@ -154,12 +160,10 @@ const TableComponent = () => (
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
                   <a href="https://github.com/HassanAlabdulal" target="_blank">
-                    {/* <img
-                      title="Github"
-                      src="src/assets/Git_icon.png"
+                    <FontAwesomeIcon
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
-                    /> */}
-                    <FontAwesomeIcon icon="fa-brands fa-github" />
+                      icon={faXTwitter}
+                    />
                   </a>
                 </td>
               </tr>
