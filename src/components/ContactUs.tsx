@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ContactUs() {
   return (
     <div className="bg-[#f7f7f7] min-h-screen flex flex-col font-roboto">
