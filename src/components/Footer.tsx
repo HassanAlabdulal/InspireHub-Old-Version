@@ -18,17 +18,17 @@ export default function Footer() {
           </a>
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
             <li>
-              <a href="http://localhost:4321/AboutUsPage" className="hover:underline me-4 md:me-6">
+              <a href="AboutUsPage" className="hover:underline me-4 md:me-6">
                 About us
               </a>
             </li>
             <li>
-              <a href="http://localhost:4321/PolicyPage" className="hover:underline me-4 md:me-6">
+              <a href="PolicyPage" className="hover:underline me-4 md:me-6">
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="http://localhost:4321/ContactUsPage" className="hover:underline">
+              <a href="ContactUsPage" className="hover:underline">
                 Contact us
               </a>
             </li>
