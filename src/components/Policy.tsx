@@ -1,12 +1,12 @@
 export default function Policy() {
   return (
-    <div className="bg-[#f7f7f7] pt-[65px] flex flex-col items-center min-h-screen">
-      <h1 className="text-[#bfa260] font-roboto font-bold text-3xl mb-4">
+    <div className="bg-[#f7f7f7] pt-[65px] flex flex-col items-center min-h-screen font-roboto">
+      <h1 className="text-[#bfa260] font-roboto font-bold text-3xl mb-6">
         Privacy Policy
       </h1>
 
       <div
-        className="w-full max-w-5xl bg-[#f7f7f7] shadow-2xl transition-shadow duration-500 ease-in-out overflow-auto p-6"
+        className="w-full max-w-5xl bg-[#f7f7f7] rounded-lg shadow-lg transition-shadow duration-500 ease-in-out overflow-auto px-6 py-10"
         style={{ maxHeight: "70vh" }}
       >
         <section className="mb-6 space-y-4">
@@ -85,7 +85,7 @@ export default function Policy() {
             If you have questions about this policy, please contact us through
             <a
               href="mailto:support@inspirehub.com"
-              className="text-[#5f7fbf] font-bold hover:underline"
+              className="text-[#5f7fbf] font-extrabold hover:underline"
             >
               {" "}
               email{" "}
@@ -93,7 +93,7 @@ export default function Policy() {
             or using our
             <a
               href="ContactUsPage"
-              className="text-[#5f7fbf] font-bold hover:underline"
+              className="text-[#5f7fbf] font-extrabold hover:underline"
             >
               {" "}
               contact page
