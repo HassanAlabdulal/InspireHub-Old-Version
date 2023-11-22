@@ -94,9 +94,11 @@ export default function LearnMore() {
                       Showcase Your Genius
                     </h4>
                     <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
-                      Your projects deserve an audience. Upload your work and
-                      let it shine in a space visited by peers, mentors, and
-                      industry leaders.
+                      Unveil your creative prowess on InspireHub, where each
+                      project is a beacon to industry pioneers and visionaries.
+                      Share your work, captivate an audience of leaders, and let
+                      your ideas resonate in a space that celebrates and
+                      amplifies ingenuity.
                     </p>
                   </div>
                 </div>
@@ -109,8 +111,11 @@ export default function LearnMore() {
                       Thrive on Collaboration
                     </h4>
                     <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
-                      Dive into a sea of feedback that polishes your ideas to
-                      perfection.
+                      Thrive on Collaboration Dive into a collaborative oasis
+                      where feedback refines and perfects. Engage with a
+                      community where each critique enriches your work, ensuring
+                      your projects not only shine but evolve through a dynamic
+                      exchange of ideas.
                     </p>
                   </div>
                 </div>
@@ -122,8 +127,11 @@ export default function LearnMore() {
                       Fuel Your Creativity
                     </h4>
                     <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
-                      Let our AI suggest your next big idea, tailored to the
-                      latest trends and your personal interests.
+                      Spark your imagination with our AI-driven muse, crafting
+                      bespoke project suggestions that marry your interests with
+                      the pulse of current trends. It's the creative catalyst
+                      you need to ignite new ideas and venture into uncharted
+                      territories of innovation.
                     </p>
                   </div>
                 </div>
@@ -135,8 +143,11 @@ export default function LearnMore() {
                       Rise to the Top
                     </h4>
                     <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
-                      Climb the ranks with our rating system and stand out to
-                      potential employers.
+                      Rise to the Top Ascend the creative ladder with our
+                      intuitive rating system, designed to showcase your
+                      project's impact and propel your work into the spotlight.
+                      It's more than recognition—it's a chance to be discovered
+                      by potential employers and become a paragon of excellence.
                     </p>
                   </div>
                 </div>
