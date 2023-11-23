@@ -64,8 +64,8 @@ export default function AddProject() {
   };
   
   return (
-    <div className="bg-[#f7f7f7] mt-16 pl-10 pr-10 flex justify-center items-start h-auto min-h-screen">
-      <div className="bg-[#f7f7f7] p-10 shadow-2xl rounded max-w-4xl w-full">
+    <div className="bg-[#f7f7f7] mt-16 px-4 sm:px-10 md:pl-10 md:pr-10 flex justify-center items-start h-auto min-h-screen">
+    <div className="bg-[#f7f7f7] p-10 shadow-2xl rounded max-w-4xl w-full">
         <h1 className="text-[#bfa260] font-roboto font-bold text-3xl mb-6 text-center">
           Upload Project
         </h1>
@@ -190,61 +190,61 @@ export default function AddProject() {
 
           <label className="block text-[#bfa260] mb-2">Team member:</label>
 
-          <div>
-            {teamMembers.map((member, index) => (
-              <div key={index} className="flex items-center mb-2">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="flex-1 px-4 py-2 border rounded"
-                  value={member.name}
-                  onChange={(e) => {
-                    const newTeamMembers = [...teamMembers];
-                    newTeamMembers[index].name = e.target.value;
-                    setTeamMembers(newTeamMembers);
-                  }}
-                />
-                <input
-                  type="text"
-                  placeholder="LinkedIn"
-                  className="flex-1 px-4 py-2 border rounded"
-                  value={member.linkedIn}
-                  onChange={(e) => {
-                    const newTeamMembers = [...teamMembers];
-                    newTeamMembers[index].linkedIn = e.target.value;
-                    setTeamMembers(newTeamMembers);
-                  }}
-                />
-                <input
-                  type="text"
-                  placeholder="Twitter"
-                  className="flex-1 px-4 py-2 border rounded"
-                  value={member.twitter}
-                  onChange={(e) => {
-                    const newTeamMembers = [...teamMembers];
-                    newTeamMembers[index].twitter = e.target.value;
-                    setTeamMembers(newTeamMembers);
-                  }}
-                />
+          {teamMembers.map((member, index) => (
+          <div key={index} className="flex flex-wrap items-center mb-2">
+              <input
+                type="text"
+                placeholder="Name"
+                className="flex-1 px-4 py-2 border rounded"
+                value={member.name}
+                onChange={(e) => {
+                  const newTeamMembers = [...teamMembers];
+                  newTeamMembers[index].name = e.target.value;
+                  setTeamMembers(newTeamMembers);
+                }}
+              />
+              <input
+                type="text"
+                placeholder="LinkedIn"
+                className="flex-1 px-4 py-2 border rounded"
+                value={member.linkedIn}
+                onChange={(e) => {
+                  const newTeamMembers = [...teamMembers];
+                  newTeamMembers[index].linkedIn = e.target.value;
+                  setTeamMembers(newTeamMembers);
+                }}
+              />
+              <input
+                type="text"
+                placeholder="Twitter"
+                className="flex-1 px-4 py-2 border rounded"
+                value={member.twitter}
+                onChange={(e) => {
+                  const newTeamMembers = [...teamMembers];
+                  newTeamMembers[index].twitter = e.target.value;
+                  setTeamMembers(newTeamMembers);
+                }}
+              />
+              {index !== 0 && (
                 <button
                   type="button"
                   onClick={() => handleRemoveTeamMember(index)}
-                  className="flex items-center justify-center w-8 h-8 p-2 ml-2 text-white bg-red-500 rounded-full"
+                  className="flex items-center justify-center w-8 h-8 p-2 m-2 text-white bg-red-500 rounded-full"
                 >
-                  X
+                  x
                 </button>
-              </div>
-            ))}
-            <div className="flex justify-center mt-2">
-              <button
-                type="button"
-                onClick={handleAddTeamMember}
-                className="rounded-full bg-[#5f7fbf] p-3 text-white flex justify-center items-center h-10 w-10"
-              >
-                +
-              </button>
+              )}
+              {index === 0 && (
+                <button
+                  type="button"
+                  onClick={handleAddTeamMember}
+                  className="flex items-center justify-center w-8 h-8 p-2 m-2 text-white bg-[#5f7fbf] rounded-full"
+                >
+                  +
+                </button>
+              )}
             </div>
-          </div>
+    ))}
 
           <div>
             <label className="block text-[#bfa260] mb-2">Features:</label>
