@@ -213,7 +213,7 @@ export default function SignIn() {
           </div>
           <div className="w-full px-5 py-10 md:w-1/2 md:px-10">
             <div className="mb-10 text-center">
-              <h1 className="text-3xl font-bold text-[#bfa260] mb-1">
+              <h1 className="text-4xl font-bold text-[#bfa260] mb-1">
                 Sign in
               </h1>
               <p>Enter your information to sign in</p>
@@ -237,7 +237,7 @@ export default function SignIn() {
                 </div>
               </div>
               <div className="flex -mx-3">
-                <div className="w-full px-3 mb-12">
+                <div className="w-full px-3 mb-3">
                   <label className="px-1 text-xs font-semibold">Password</label>
                   <div className="flex">
                     <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
@@ -254,6 +254,15 @@ export default function SignIn() {
                 </div>
               </div>
 
+              <div className="mb-20 text-right ">
+                <a
+                  href="/"
+                  className="inline-block text-[#809bd0] hover:text-[#3e60a3] hover:underline transition-all duration-500"
+                >
+                  Forgot password?
+                </a>
+              </div>
+
               <div className="flex flex-col -mx-3">
                 <div className="w-full px-3 mb-5">
                   <button
@@ -267,7 +276,7 @@ export default function SignIn() {
                 <div className="w-full px-3">
                   <p className="w-full max-w-xs px-3 mx-auto text-center text-black">
                     Don't have an account?{" "}
-                    <span className="text-[#809bd0] hover:text-[#3e60a3] transition-all duration-700">
+                    <span className="text-[#809bd0] hover:text-[#3e60a3] hover:underline transition-all duration-500">
                       <a href="/">Sign up</a>
                     </span>
                   </p>
