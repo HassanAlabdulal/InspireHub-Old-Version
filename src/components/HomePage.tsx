@@ -26,10 +26,10 @@ export default function HomePage() {
             hidden: {},
           }}
           className="max-w-6xl mb-16 text-6xl max-xl:text-5xl max-xl:max-w-4xl max-lg:text-4xl max-lg:max-w-3xl max-sm:text-3xl max-sm:max-w-2xl
-           font-extrabold leading-none tracking-tight text-center text-[#bfa260] font-roboto"
+           font-extrabold leading-none tracking-tight text-center text-[#bfa260] font-nunito"
         >
           {Array.from(
-            "InspireHub:Where Ideas Take Flight and Creativity Meets Opportunity!"
+            "InspireHub: Where Ideas Take Flight and Creativity Meets Opportunity!"
           ).map((char, index) => (
             <motion.span
               key={index}

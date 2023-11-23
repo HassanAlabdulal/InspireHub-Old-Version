@@ -8,28 +8,28 @@ export default function LearnMore() {
     <section>
       <div
         id="learn-more"
-        className="py-8 text-[#bfa260] bg-[#f7f7f7] font-roboto"
+        className="py-8 text-[#bfa260] bg-[#f7f7f7] font-nunito"
       >
-        <h1 className="mt-16 mb-10 text-3xl font-extrabold text-center uppercase tracking-loose ">
-          Discover. Collaborate. Innovate.
+        <h1 className="mt-24 text-4xl font-black text-center uppercase tracking-loose">
+          Discover, Collaborate, & Innovate
         </h1>
         <div className="flex flex-col items-center justify-center my-12 md:flex-row md:my-24 md:px-4 lg:px-8">
           {/* Left side content */}
           <div className="flex flex-col w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4">
-            <p className="mb-2 text-2xl leading-normal md:text-3xl lg:text-4xl">
+            <p className="mb-2 text-2xl leading-normal md:text-3xl lg:text-4xl font-semibold">
               What is InspireHub?
             </p>
-            <p className="mb-16 text-sm text-black md:text-base lg:text-lg">
+            <p className="mb-6 font-roboto text-sm text-[#121212] md:text-base lg:text-lg">
               InspireHub is not just a platform; it's a community pulsating with
               innovative ideas, where students and creative minds bring their
               visions to life. It's a space where your projects leap off the
               screen and into the world, where feedback becomes the forge for
               excellence, and where AI meets human ingenuity to spark new ideas.
             </p>
-            <p className="mb-2 text-3xl leading-normal md:text-4xl md:leading-relaxed">
+            <p className="mb-2 text-2xl leading-normal md:text-3xl md:leading-relaxed lg:text-4xl font-semibold">
               Our Mission
             </p>
-            <p className="mb-4 text-sm text-black md:text-base">
+            <p className="mb-6 font-roboto text-sm text-[#121212] md:text-base">
               To catalyze collaboration that turns innovative ideas into
               reality, foster an ecosystem of feedback that nurtures growth, and
               unlock opportunities that connect talent with the market.
