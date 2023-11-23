@@ -50,6 +50,7 @@ export default function HomePage() {
 
         <div className="flex items-center gap-3">
           <a
+            href="MainPage"
             className="flex select-none items-center cursor-pointer justify-center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] px-3 py-2.5
              text-base font-bold text-white align-middle transition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
                disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"

@@ -26,7 +26,7 @@ const itemMotionDesktop = {
 };
 
 const navLinks = [
-  { name: "Home", href: "/", id: 1 },
+  { name: "Home", href: "MainPage", id: 1 },
   { name: "AI", href: "/AI", id: 2 },
   { name: "About us", href: "/About", id: 3 },
 ];
@@ -91,7 +91,7 @@ export default function Nav() {
             <motion.a
               className="w-full py-1 text-white  bg-[#5f7fbf] roundedtransition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
               disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              href="/SignIn"
+              href="SignIn"
             >
               Sign in
             </motion.a>
