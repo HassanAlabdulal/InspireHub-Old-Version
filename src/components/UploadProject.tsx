@@ -75,14 +75,14 @@ export default function AddProject() {
         {/* Photo Upload Section */}
         <div className="mb-6">
           <div
-            className="relative flex items-center justify-center p-4 mb-4 border border-gray-400 border-dashed rounded"
-            style={{ minHeight: "200px" }}
+            className="relative flex items-center justify-center p-4 mb-4 border border-gray-400 border-dashed rounded image-container"
+            style={{ minHeight: "500px" }}
           >
             {images.length > 0 ? (
               <img
                 src={images[selectedIndex]}
                 alt="Uploaded"
-                className="max-w-full max-h-full"
+                className="absolute top-0 left-0 object-contain w-full h-full"
               />
             ) : (
               <span>Click on a + card to upload and display an image</span>
