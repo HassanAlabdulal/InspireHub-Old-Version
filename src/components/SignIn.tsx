@@ -274,7 +274,7 @@ export default function SignIn() {
                   </button>
                 </div>
                 <div className="w-full px-3">
-                  <p className="w-full max-w-xs px-3 mx-auto text-center text-black">
+                  <p className="w-full max-w-xs px-3 mx-auto text-center text-[#121212]">
                     Don't have an account?{" "}
                     <span className="text-[#809bd0] hover:text-[#3e60a3] hover:underline transition-all duration-500">
                       <a href="/">Sign up</a>
