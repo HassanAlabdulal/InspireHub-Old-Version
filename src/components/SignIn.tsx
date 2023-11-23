@@ -231,7 +231,7 @@ export default function SignIn() {
                     <input
                       type="email"
                       className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-indigo-500"
-                      placeholder="johnsmith@example.com"
+                      placeholder="inspirehub@example.com"
                     />
                   </div>
                 </div>
@@ -255,7 +255,11 @@ export default function SignIn() {
               </div>
               <div className="flex -mx-3">
                 <div className="w-full px-3 mb-5">
-                  <button className="block w-full max-w-xs px-3 py-3 mx-auto font-semibold text-white uppercase bg-indigo-500 rounded-lg hover:bg-indigo-700 focus:bg-indigo-700">
+                  <button
+                    className="block w-full max-w-xs px-3 py-3 mx-auto font-semibold text-xl text-white rounded-lg uppercase bg-[#5f7fbf] border-2 border-[#5f7fbf] font-roboto 
+           roundedtransition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+           disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none cursor-pointer"
+                  >
                     Sign in
                   </button>
                 </div>
