@@ -25,6 +25,7 @@ export default function AddProject() {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [fileName, setFileName] = useState<string>("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -111,11 +112,19 @@ export default function AddProject() {
     event.preventDefault();
     // Perform the submit logic here
     setIsSubmitted(true);
+    setSubmitMessage("Thank you! Your project has been uploaded successfully.");
 
-    // Remove the checkmark after a delay
+    // Remove the checkmark and message after a delay
     setTimeout(() => {
       setIsSubmitted(false);
-    }, 2000);
+      setSubmitMessage("");
+    }, 4000); // Extend the time if needed
+  };
+
+  // Variants for Framer Motion animations
+  const checkmarkVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
   };
 
   return (
@@ -385,7 +394,7 @@ export default function AddProject() {
             ></textarea>
           </div>
 
-          <div className="flex justify-center mt-6">
+          <div className="flex flex-col items-center mt-6">
             <button
               type="submit"
               className="bg-[#5f7fbf] text-white px-20 py-3 rounded font-bold align-middle
@@ -394,21 +403,33 @@ export default function AddProject() {
             >
               Submit
             </button>
+            <AnimatePresence>
+              {isSubmitted && (
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={checkmarkVariants}
+                  transition={{ duration: 0.5 }}
+                  className="flex flex-col items-center mt-4"
+                >
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    size="xl"
+                    className="text-green-500"
+                  />
+                  <motion.span
+                    className="mt-2 text-green-600 text-md"
+                    variants={checkmarkVariants}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
+                    {submitMessage}
+                  </motion.span>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </form>
-        <AnimatePresence>
-          {isSubmitted && (
-            <motion.div
-              className="success-checkmark"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            >
-              <FontAwesomeIcon icon={faCheck} size="3x" color="green" />
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </motion.div>
   );
