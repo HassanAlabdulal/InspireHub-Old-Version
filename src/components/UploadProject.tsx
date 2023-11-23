@@ -360,7 +360,9 @@ export default function AddProject() {
           <div className="flex justify-center mt-6">
             <button
               type="submit"
-              className="bg-[#5f7fbf] text-white px-6 py-3 rounded-full"
+              className="bg-[#5f7fbf] text-white px-20 py-3 rounded font-bold align-middle
+              transition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+          disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             >
               Submit
             </button>
