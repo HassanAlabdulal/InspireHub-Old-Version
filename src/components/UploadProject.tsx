@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,6 +8,7 @@ import {
   faPlus,
   faFileUpload,
   faTimesCircle,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
 interface TeamMember {
@@ -23,15 +24,7 @@ export default function AddProject() {
   const [images, setImages] = useState<string[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [fileName, setFileName] = useState<string>("");
-
-  const containerVariants = {
-    hidden: { x: "100vw", opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { type: "spring", stiffness: 120 },
-    },
-  };
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -105,7 +98,7 @@ export default function AddProject() {
     fileInput.dispatchEvent(event);
   };
 
-  const Variants = {
+  const containerVariants = {
     hidden: { x: "100vw", opacity: 0 },
     visible: {
       x: 0,
@@ -114,10 +107,21 @@ export default function AddProject() {
     },
   };
 
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Perform the submit logic here
+    setIsSubmitted(true);
+
+    // Remove the checkmark after a delay
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 2000);
+  };
+
   return (
     <motion.div
       className="bg-[#f7f7f7] mt-16 px-4 sm:px-10 md:pl-10 md:pr-10 flex justify-center items-start h-auto min-h-screen"
-      variants={Variants}
+      variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
@@ -193,7 +197,7 @@ export default function AddProject() {
             />
           </div>
         </div>
-        <form className="mt-6 space-y-6">
+        <form onSubmit={handleSubmit} className="mt-6 space-y-6">
           <div>
             <label className="block text-[#bfa260] mb-2">Title:</label>
             <input
@@ -392,6 +396,19 @@ export default function AddProject() {
             </button>
           </div>
         </form>
+        <AnimatePresence>
+          {isSubmitted && (
+            <motion.div
+              className="success-checkmark"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            >
+              <FontAwesomeIcon icon={faCheck} size="3x" color="green" />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.div>
   );
