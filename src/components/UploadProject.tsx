@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleXmark,
+  faCloudArrowUp,
+} from "@fortawesome/free-solid-svg-icons";
 
 interface TeamMember {
   name: string;
@@ -92,7 +97,7 @@ export default function AddProject() {
               {images.map((_, index) => (
                 <span
                   key={index}
-                  className={`inline-block h-3 w-3 mx-1 rounded-full cursor-pointer ${
+                  className={`inline-block h-4 w-4 mx-1 rounded-full cursor-pointer ${
                     selectedIndex === index ? "bg-blue-500" : "bg-white"
                   }`}
                   onClick={() => setSelectedIndex(index)}
@@ -104,20 +109,20 @@ export default function AddProject() {
             {images.map((image, index) => (
               <div
                 key={index}
-                className="relative p-1 border border-gray-400 rounded"
+                className="relative flex items-center justify-center p-1 border border-gray-400 rounded"
                 style={{ width: "100px", height: "100px" }} // Fixed size container
               >
                 <img
                   src={image}
                   alt={`Uploaded ${index}`}
-                  className="object-cover w-full h-full" // Object-fit to cover the container
+                  className="absolute object-cover w-full h-full" // Object-fit to cover the container
                   onClick={() => setSelectedIndex(index)}
                 />
                 <button
                   onClick={() => removeImage(index)}
-                  className="absolute top-0 right-0 p-1 text-xs text-white bg-red-500 rounded-full"
+                  className="absolute inset-0 flex items-center justify-center m-auto text-red-700"
                 >
-                  X
+                  <FontAwesomeIcon icon={faCircleXmark} size="2xl" />
                 </button>
               </div>
             ))}
@@ -126,7 +131,9 @@ export default function AddProject() {
               className="flex items-center justify-center p-1 border border-gray-400 rounded cursor-pointer"
               style={{ width: "100px", height: "100px" }}
             >
-              <div className="text-center">+</div>
+              <div className="text-center text-[#3e60a3] hover:scale-110 transition-all duration-700 ">
+                <FontAwesomeIcon icon={faCloudArrowUp} size="2x" />
+              </div>
             </label>
             <input
               id="image-upload"
@@ -143,7 +150,7 @@ export default function AddProject() {
             <input
               type="text"
               placeholder="InspireHub"
-              className="w-full px-4 py-2 border rounded"
+              className="w-full px-4 py-2 transition-all duration-300 border rounded focus:px-5 focus:outline-0"
             />
           </div>
 
@@ -173,9 +180,9 @@ export default function AddProject() {
               <input
                 type="number"
                 placeholder="5000"
-                className="flex-1 px-4 py-2 border rounded-l"
+                className="flex-1 px-4 py-2 transition-all duration-300 border rounded rounded-l focus:px-5 focus:outline-0"
               />
-              <select className="px-4 py-2 border-t border-b border-r rounded-r h-[40px]">
+              <select className="px-4 py-2 border-t border-b border-r rounded-r outline-0">
                 <option value="SAR">SAR</option>
                 <option value="USD">USD</option>
               </select>
