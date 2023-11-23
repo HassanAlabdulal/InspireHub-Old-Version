@@ -230,7 +230,7 @@ export default function SignIn() {
                     </div>
                     <input
                       type="email"
-                      className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-indigo-500"
+                      className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                       placeholder="inspirehub@example.com"
                     />
                   </div>
@@ -247,21 +247,30 @@ export default function SignIn() {
                     </div>
                     <input
                       type="password"
-                      className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-indigo-500"
+                      className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                       placeholder="************"
                     />
                   </div>
                 </div>
               </div>
-              <div className="flex -mx-3">
+
+              <div className="flex flex-col -mx-3">
                 <div className="w-full px-3 mb-5">
                   <button
-                    className="block w-full max-w-xs px-3 py-3 mx-auto font-semibold text-xl text-white rounded-lg uppercase bg-[#5f7fbf] border-2 border-[#5f7fbf] font-roboto 
+                    className="block w-full max-w-xs px-3 py-3 mx-auto font-semibold text-lg text-white rounded-lg uppercase bg-[#5f7fbf] border-2 border-[#5f7fbf] font-roboto 
            roundedtransition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
            disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none cursor-pointer"
                   >
                     Sign in
                   </button>
+                </div>
+                <div className="w-full px-3">
+                  <p className="w-full max-w-xs px-3 mx-auto text-center text-black">
+                    Don't have an account?{" "}
+                    <span className="text-[#809bd0] hover:text-[#3e60a3] transition-all duration-700">
+                      <a href="/">Sign up</a>
+                    </span>
+                  </p>
                 </div>
               </div>
             </div>
