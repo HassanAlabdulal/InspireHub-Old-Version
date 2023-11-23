@@ -1,11 +1,17 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
+interface TeamMember {
+  name: string;
+  linkedIn: string;
+  twitter: string;
+}
 
 export default function AddProject() {
-  const [teamMembers, setTeamMembers] = useState([
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([
     { name: "", linkedIn: "", twitter: "" },
   ]);
-  const [images, setImages] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [images, setImages] = useState<string[]>([]);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,37 +24,45 @@ export default function AddProject() {
     setTeamMembers([...teamMembers, { name: "", linkedIn: "", twitter: "" }]);
   };
 
-  const handleRemoveTeamMember = (index) => {
+  const handleRemoveTeamMember = (index: number) => {
     const newTeamMembers = [...teamMembers];
     newTeamMembers.splice(index, 1);
     setTeamMembers(newTeamMembers);
   };
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-      setImages([...images, reader.result]);
-      // Reset the input field
-      event.target.value = null;
-    };
-
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     if (file) {
+      const reader = new FileReader();
+  
+      reader.onloadend = () => {
+        setImages((prevImages) => {
+          // Set selected index to new image
+          const newImages = [...prevImages, reader.result as string];
+          if (newImages.length === 1) {
+            // If it's the first image, ensure that the selectedIndex is updated to show it
+            setSelectedIndex(0);
+          }
+          return newImages;
+        });
+      };
+  
       reader.readAsDataURL(file);
     }
   };
 
-  const removeImage = (index) => {
-    const filteredImages = images.filter((_, i) => i !== index);
-    setImages(filteredImages);
-    if (selectedIndex >= filteredImages.length) {
+  const removeImage = (index: number) => {
+    setImages(images.filter((_, i) => i !== index));
+    if (selectedIndex >= images.length - 1) {
       setSelectedIndex(0);
     }
-    // Reset the file input, if necessary
-    document.getElementById("image-upload").value = null;
+  
+    const inputElement = document.getElementById("image-upload") as HTMLInputElement;
+    if (inputElement) {
+      inputElement.value = "";
+    }
   };
-
+  
   return (
     <div className="bg-[#f7f7f7] mt-16 pl-10 pr-10 flex justify-center items-start h-auto min-h-screen">
       <div className="bg-[#f7f7f7] p-10 shadow-2xl rounded max-w-4xl w-full">
@@ -85,25 +99,25 @@ export default function AddProject() {
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-start gap-4">
-            {images.map((image, index) => (
-              <div
+          {images.map((image, index) => (
+            <div
                 key={index}
                 className="relative p-1 border border-gray-400 rounded"
-                style={{ width: "100px", height: "100px" }}
-              >
+                style={{ width: "100px", height: "100px" }} // Fixed size container
+            >
                 <img
-                  src={image}
-                  alt={`Uploaded ${index}`}
-                  className="object-cover w-full h-full"
-                  onClick={() => setSelectedIndex(index)}
+                src={image}
+                alt={`Uploaded ${index}`}
+                className="object-cover w-full h-full" // Object-fit to cover the container
+                onClick={() => setSelectedIndex(index)}
                 />
                 <button
-                  onClick={() => removeImage(index)}
-                  className="absolute top-0 right-0 p-1 text-xs text-white bg-red-500 rounded-full"
+                onClick={() => removeImage(index)}
+                className="absolute top-0 right-0 p-1 text-xs text-white bg-red-500 rounded-full"
                 >
-                  X
+                X
                 </button>
-              </div>
+            </div>
             ))}
             <label
               htmlFor="image-upload"
@@ -124,28 +138,54 @@ export default function AddProject() {
         <form className="mt-6 space-y-6">
           <div>
             <label className="block text-[#bfa260] mb-2">Title:</label>
-            <input type="text" className="w-full px-4 py-2 border rounded" />
+            <input
+              type="text"
+              placeholder="InspireHub"
+              className="w-full px-4 py-2 border rounded"
+            />
           </div>
 
           <div className="flex justify-between">
             <div className="flex-1 mr-2">
-              <label className="block text-[#bfa260]">Date of project:</label>
-              <input type="date" className="px-3 py-2 border rounded" />
+              <label className="block text-[#bfa260] mb-2">Date of project:</label>
+              <input type="date" className="w-full px-4 py-2 border rounded" />
             </div>
 
-            <div className="flex-1 ml-[240px]">
-              <label className="block text-[#bfa260]">Budget:</label>
-              <input type="number" className="px-3 py-2 border rounded" />
-              <select className="px-3 py-2 border rounded h-[40px]">
-                <option value="option1">SAR</option>
-                <option value="option2">USD</option>
+            <div className="flex-1 ml-2">
+              <label className="block text-[#bfa260] mb-2">Category:</label> 
+              <select className="w-full px-4 py-2 border rounded h-[40px]">
+                <option value="">Select Category</option>
+                <option value="technology">Technology</option>
+                <option value="marketing">Marketing</option>
+                <option value="design">Design</option>
+                <option value="business">Business</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="flex-1 mr-2">
+            <label className="block text-[#bfa260] mb-2">Budget:</label>
+            <div className="flex">
+              <input
+                type="number"
+                placeholder="5000"
+                className="flex-1 px-4 py-2 border rounded-l"
+              />
+              <select className="px-4 py-2 border-t border-b border-r rounded-r h-[40px]">
+                <option value="SAR">SAR</option>
+                <option value="USD">USD</option>
               </select>
             </div>
           </div>
 
           <div>
+            <label className="block text-[#bfa260] mb-2">Description:</label>
+            <textarea placeholder="It is a website that is a hub for inspiring and innovative project ideas..." className="w-full px-4 py-2 border rounded resize-none"></textarea>
+          </div>
+
+          <div>
             <label className="block text-[#bfa260] mb-2">Motivation:</label>
-            <textarea className="w-full px-4 py-2 border rounded resize-none"></textarea>
+            <textarea placeholder="The primary motivation behind InspireHub is to address a significant challenge..." className="w-full px-4 py-2 border rounded resize-none"></textarea>
           </div>
 
           <label className="block text-[#bfa260] mb-2">Team member:</label>
@@ -208,18 +248,32 @@ export default function AddProject() {
 
           <div>
             <label className="block text-[#bfa260] mb-2">Features:</label>
-            <textarea className="w-full px-4 py-2 border rounded resize-none"></textarea>
+            <textarea placeholder="Easy to use, Suitable for everyone ..." 
+            className="w-full px-4 py-2 border rounded resize-none"></textarea>
           </div>
 
           <div>
             <label className="block text-[#bfa260] mb-2">Resources:</label>
-            <textarea className="w-full px-4 py-2 border rounded resize-none"></textarea>
+            <textarea placeholder="https://github.com/InspireHub" className="w-full px-4 py-2 border rounded resize-none"></textarea>
           </div>
 
           <div>
             <label className="block text-[#bfa260] mb-2">Tools:</label>
-            <textarea className="w-full px-4 py-2 border rounded resize-none"></textarea>
+            <textarea placeholder="React, Astro ..." className="w-full px-4 py-2 border rounded resize-none"></textarea>
           </div>
+
+          <div>
+            <label className="block text-[#bfa260] mb-2">Document:</label>
+            <input
+                type="file" className="px-4 py-2 border rounded"/>
+            </div>
+
+            <div>
+            <label className="block text-[#bfa260] mb-2">Others:</label>
+            <textarea placeholder="This is the first version, we are working to update it as soon as depending on your suggestions..." 
+            className="w-full px-4 py-2 border rounded resize-none"></textarea>
+            </div>
+
 
           <div className="flex justify-center mt-6">
             <button
