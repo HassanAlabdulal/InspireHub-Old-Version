@@ -120,6 +120,7 @@ export default function Nav() {
           Sign up
         </a>
         <a
+          href="SignInPage"
           className="middle none center rounded-lg border-2 border-[#5f7fbf] py-2 px-5 lg:py-1.5 lg:px-4 text-md font-bold font-nunito cursor-pointer  text-[#5f7fbf]
            transition-all hover:opacity-75 focus:ring focus:ring-indigo-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           data-ripple-dark="true"
