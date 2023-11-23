@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+
 export default function SignIn() {
   return (
     <div className="flex items-center justify-center min-h-screen px-5 py-5 bg-[#f7f7f7] min-w-screen font-roboto">
@@ -210,7 +213,9 @@ export default function SignIn() {
           </div>
           <div className="w-full px-5 py-10 md:w-1/2 md:px-10">
             <div className="mb-10 text-center">
-              <h1 className="text-3xl font-bold text-[#bfa260]">Sign In</h1>
+              <h1 className="text-3xl font-bold text-[#bfa260] mb-1">
+                Sign in
+              </h1>
               <p>Enter your information to sign in</p>
             </div>
             <div>
@@ -219,7 +224,9 @@ export default function SignIn() {
                   <label className="px-1 text-xs font-semibold">Email</label>
                   <div className="flex">
                     <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
-                      <i className="text-lg text-gray-400 mdi mdi-email-outline"></i>
+                      <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                        <FontAwesomeIcon icon={faEnvelope} />
+                      </i>
                     </div>
                     <input
                       type="email"
@@ -234,7 +241,9 @@ export default function SignIn() {
                   <label className="px-1 text-xs font-semibold">Password</label>
                   <div className="flex">
                     <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
-                      <i className="text-lg text-gray-400 mdi mdi-lock-outline"></i>
+                      <i className="text-lg text-gray-400 mdi mdi-lock-outline">
+                        <FontAwesomeIcon icon={faLock} />
+                      </i>
                     </div>
                     <input
                       type="password"
@@ -246,8 +255,8 @@ export default function SignIn() {
               </div>
               <div className="flex -mx-3">
                 <div className="w-full px-3 mb-5">
-                  <button className="block w-full max-w-xs px-3 py-3 mx-auto font-semibold text-white bg-indigo-500 rounded-lg hover:bg-indigo-700 focus:bg-indigo-700">
-                    REGISTER NOW
+                  <button className="block w-full max-w-xs px-3 py-3 mx-auto font-semibold text-white uppercase bg-indigo-500 rounded-lg hover:bg-indigo-700 focus:bg-indigo-700">
+                    Sign in
                   </button>
                 </div>
               </div>
