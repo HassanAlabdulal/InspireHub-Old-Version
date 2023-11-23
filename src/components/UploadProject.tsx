@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleXmark,
   faCloudArrowUp,
+  faPlus,
+  faFileUpload,
+  faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 interface TeamMember {
@@ -68,6 +71,28 @@ export default function AddProject() {
     if (inputElement) {
       inputElement.value = "";
     }
+  };
+
+  const [fileName, setFileName] = useState<string>("");
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setFileName(file.name);
+    } else {
+      setFileName("");
+    }
+  };
+
+  const handleFileDelete = () => {
+    setFileName("");
+    // Trigger a synthetic event to reset the file input
+    const event = new Event("input", { bubbles: true });
+    const fileInput = document.getElementById(
+      "file-upload"
+    ) as HTMLInputElement;
+    fileInput.value = "";
+    fileInput.dispatchEvent(event);
   };
 
   return (
@@ -193,26 +218,26 @@ export default function AddProject() {
             <label className="block text-[#bfa260] mb-2">Description:</label>
             <textarea
               placeholder="It is a website that is a hub for inspiring and innovative project ideas..."
-              className="w-full px-4 py-2 border rounded resize-none"
+              className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
             ></textarea>
           </div>
 
           <div>
-            <label className="block text-[#bfa260] mb-2">Motivation:</label>
+            <label className="block text-[#bfa260] mb-2 ">Motivation:</label>
             <textarea
               placeholder="The primary motivation behind InspireHub is to address a significant challenge..."
-              className="w-full px-4 py-2 border rounded resize-none"
+              className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
             ></textarea>
           </div>
 
           <label className="block text-[#bfa260] mb-2">Team member:</label>
 
           {teamMembers.map((member, index) => (
-            <div key={index} className="flex flex-wrap items-center mb-2">
+            <div key={index} className="flex flex-wrap items-center mb-2 ">
               <input
                 type="text"
                 placeholder="Name"
-                className="flex-1 px-4 py-2 border rounded"
+                className="flex-1 px-4 py-2 border rounded outline-0"
                 value={member.name}
                 onChange={(e) => {
                   const newTeamMembers = [...teamMembers];
@@ -223,7 +248,7 @@ export default function AddProject() {
               <input
                 type="text"
                 placeholder="LinkedIn"
-                className="flex-1 px-4 py-2 border rounded"
+                className="flex-1 px-4 py-2 border rounded outline-0"
                 value={member.linkedIn}
                 onChange={(e) => {
                   const newTeamMembers = [...teamMembers];
@@ -234,7 +259,7 @@ export default function AddProject() {
               <input
                 type="text"
                 placeholder="Twitter"
-                className="flex-1 px-4 py-2 border rounded"
+                className="flex-1 px-4 py-2 border rounded outline-0"
                 value={member.twitter}
                 onChange={(e) => {
                   const newTeamMembers = [...teamMembers];
@@ -246,9 +271,9 @@ export default function AddProject() {
                 <button
                   type="button"
                   onClick={() => handleRemoveTeamMember(index)}
-                  className="flex items-center justify-center w-8 h-8 p-2 m-2 text-white bg-red-500 rounded-full"
+                  className="flex items-center justify-center w-8 h-8 p-2 m-2 text-red-700 rounded-full"
                 >
-                  x
+                  <FontAwesomeIcon icon={faCircleXmark} size="2xl" />
                 </button>
               )}
               {index === 0 && (
@@ -257,7 +282,7 @@ export default function AddProject() {
                   onClick={handleAddTeamMember}
                   className="flex items-center justify-center w-8 h-8 p-2 m-2 text-white bg-[#5f7fbf] rounded-full"
                 >
-                  +
+                  <FontAwesomeIcon icon={faPlus} />
                 </button>
               )}
             </div>
@@ -267,7 +292,7 @@ export default function AddProject() {
             <label className="block text-[#bfa260] mb-2">Features:</label>
             <textarea
               placeholder="Easy to use, Suitable for everyone ..."
-              className="w-full px-4 py-2 border rounded resize-none"
+              className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
             ></textarea>
           </div>
 
@@ -275,7 +300,7 @@ export default function AddProject() {
             <label className="block text-[#bfa260] mb-2">Resources:</label>
             <textarea
               placeholder="https://github.com/InspireHub"
-              className="w-full px-4 py-2 border rounded resize-none"
+              className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
             ></textarea>
           </div>
 
@@ -283,20 +308,52 @@ export default function AddProject() {
             <label className="block text-[#bfa260] mb-2">Tools:</label>
             <textarea
               placeholder="React, Astro ..."
-              className="w-full px-4 py-2 border rounded resize-none"
+              className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
             ></textarea>
           </div>
 
-          <div>
+          {/* <div>
             <label className="block text-[#bfa260] mb-2">Document:</label>
             <input type="file" className="px-4 py-2 border rounded" />
+          </div> */}
+
+          <div>
+            <label className="block text-[#bfa260] mb-2">Document:</label>
+            <div className="flex items-center px-4 py-2 text-gray-700 bg-white border rounded cursor-pointer">
+              <label
+                htmlFor="file-upload"
+                className="flex items-center cursor-pointer"
+              >
+                <FontAwesomeIcon
+                  icon={faFileUpload}
+                  className="mr-2 text-[#3e60a3]"
+                />
+                <span className="text-sm">{fileName || "Choose File"}</span>
+              </label>
+              {fileName && (
+                <button
+                  type="button"
+                  onClick={handleFileDelete}
+                  className="ml-2 text-red-600"
+                  title="Remove file"
+                >
+                  <FontAwesomeIcon icon={faTimesCircle} />
+                </button>
+              )}
+              <input
+                type="file"
+                className="hidden"
+                onChange={handleFileChange}
+                id="file-upload"
+              />
+            </div>
           </div>
 
           <div>
             <label className="block text-[#bfa260] mb-2">Others:</label>
             <textarea
               placeholder="This is the first version, we are working to update it as soon as depending on your suggestions..."
-              className="w-full px-4 py-2 border rounded resize-none"
+              className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
             ></textarea>
           </div>
 
