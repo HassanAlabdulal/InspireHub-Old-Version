@@ -34,7 +34,7 @@ export default function AddProject() {
     const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
-  
+
       reader.onloadend = () => {
         setImages((prevImages) => {
           // Set selected index to new image
@@ -46,7 +46,7 @@ export default function AddProject() {
           return newImages;
         });
       };
-  
+
       reader.readAsDataURL(file);
     }
   };
@@ -56,16 +56,18 @@ export default function AddProject() {
     if (selectedIndex >= images.length - 1) {
       setSelectedIndex(0);
     }
-  
-    const inputElement = document.getElementById("image-upload") as HTMLInputElement;
+
+    const inputElement = document.getElementById(
+      "image-upload"
+    ) as HTMLInputElement;
     if (inputElement) {
       inputElement.value = "";
     }
   };
-  
+
   return (
     <div className="bg-[#f7f7f7] mt-16 px-4 sm:px-10 md:pl-10 md:pr-10 flex justify-center items-start h-auto min-h-screen">
-    <div className="bg-[#f7f7f7] p-10 shadow-2xl rounded max-w-4xl w-full">
+      <div className="bg-[#f7f7f7] p-10 shadow-2xl rounded max-w-4xl w-full">
         <h1 className="text-[#bfa260] font-roboto font-bold text-3xl mb-6 text-center">
           Upload Project
         </h1>
@@ -99,25 +101,25 @@ export default function AddProject() {
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-start gap-4">
-          {images.map((image, index) => (
-            <div
+            {images.map((image, index) => (
+              <div
                 key={index}
                 className="relative p-1 border border-gray-400 rounded"
                 style={{ width: "100px", height: "100px" }} // Fixed size container
-            >
+              >
                 <img
-                src={image}
-                alt={`Uploaded ${index}`}
-                className="object-cover w-full h-full" // Object-fit to cover the container
-                onClick={() => setSelectedIndex(index)}
+                  src={image}
+                  alt={`Uploaded ${index}`}
+                  className="object-cover w-full h-full" // Object-fit to cover the container
+                  onClick={() => setSelectedIndex(index)}
                 />
                 <button
-                onClick={() => removeImage(index)}
-                className="absolute top-0 right-0 p-1 text-xs text-white bg-red-500 rounded-full"
+                  onClick={() => removeImage(index)}
+                  className="absolute top-0 right-0 p-1 text-xs text-white bg-red-500 rounded-full"
                 >
-                X
+                  X
                 </button>
-            </div>
+              </div>
             ))}
             <label
               htmlFor="image-upload"
@@ -147,12 +149,14 @@ export default function AddProject() {
 
           <div className="flex justify-between">
             <div className="flex-1 mr-2">
-              <label className="block text-[#bfa260] mb-2">Date of project:</label>
+              <label className="block text-[#bfa260] mb-2">
+                Date of project:
+              </label>
               <input type="date" className="w-full px-4 py-2 border rounded" />
             </div>
 
             <div className="flex-1 ml-2">
-              <label className="block text-[#bfa260] mb-2">Category:</label> 
+              <label className="block text-[#bfa260] mb-2">Category:</label>
               <select className="w-full px-4 py-2 border rounded h-[40px]">
                 <option value="">Select Category</option>
                 <option value="technology">Technology</option>
@@ -180,18 +184,24 @@ export default function AddProject() {
 
           <div>
             <label className="block text-[#bfa260] mb-2">Description:</label>
-            <textarea placeholder="It is a website that is a hub for inspiring and innovative project ideas..." className="w-full px-4 py-2 border rounded resize-none"></textarea>
+            <textarea
+              placeholder="It is a website that is a hub for inspiring and innovative project ideas..."
+              className="w-full px-4 py-2 border rounded resize-none"
+            ></textarea>
           </div>
 
           <div>
             <label className="block text-[#bfa260] mb-2">Motivation:</label>
-            <textarea placeholder="The primary motivation behind InspireHub is to address a significant challenge..." className="w-full px-4 py-2 border rounded resize-none"></textarea>
+            <textarea
+              placeholder="The primary motivation behind InspireHub is to address a significant challenge..."
+              className="w-full px-4 py-2 border rounded resize-none"
+            ></textarea>
           </div>
 
           <label className="block text-[#bfa260] mb-2">Team member:</label>
 
           {teamMembers.map((member, index) => (
-          <div key={index} className="flex flex-wrap items-center mb-2">
+            <div key={index} className="flex flex-wrap items-center mb-2">
               <input
                 type="text"
                 placeholder="Name"
@@ -244,36 +254,44 @@ export default function AddProject() {
                 </button>
               )}
             </div>
-    ))}
+          ))}
 
           <div>
             <label className="block text-[#bfa260] mb-2">Features:</label>
-            <textarea placeholder="Easy to use, Suitable for everyone ..." 
-            className="w-full px-4 py-2 border rounded resize-none"></textarea>
+            <textarea
+              placeholder="Easy to use, Suitable for everyone ..."
+              className="w-full px-4 py-2 border rounded resize-none"
+            ></textarea>
           </div>
 
           <div>
             <label className="block text-[#bfa260] mb-2">Resources:</label>
-            <textarea placeholder="https://github.com/InspireHub" className="w-full px-4 py-2 border rounded resize-none"></textarea>
+            <textarea
+              placeholder="https://github.com/InspireHub"
+              className="w-full px-4 py-2 border rounded resize-none"
+            ></textarea>
           </div>
 
           <div>
             <label className="block text-[#bfa260] mb-2">Tools:</label>
-            <textarea placeholder="React, Astro ..." className="w-full px-4 py-2 border rounded resize-none"></textarea>
+            <textarea
+              placeholder="React, Astro ..."
+              className="w-full px-4 py-2 border rounded resize-none"
+            ></textarea>
           </div>
 
           <div>
             <label className="block text-[#bfa260] mb-2">Document:</label>
-            <input
-                type="file" className="px-4 py-2 border rounded"/>
-            </div>
+            <input type="file" className="px-4 py-2 border rounded" />
+          </div>
 
-            <div>
+          <div>
             <label className="block text-[#bfa260] mb-2">Others:</label>
-            <textarea placeholder="This is the first version, we are working to update it as soon as depending on your suggestions..." 
-            className="w-full px-4 py-2 border rounded resize-none"></textarea>
-            </div>
-
+            <textarea
+              placeholder="This is the first version, we are working to update it as soon as depending on your suggestions..."
+              className="w-full px-4 py-2 border rounded resize-none"
+            ></textarea>
+          </div>
 
           <div className="flex justify-center mt-6">
             <button
