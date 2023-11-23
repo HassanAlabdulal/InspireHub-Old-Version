@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleXmark,
@@ -20,6 +22,16 @@ export default function AddProject() {
   ]);
   const [images, setImages] = useState<string[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [fileName, setFileName] = useState<string>("");
+
+  const containerVariants = {
+    hidden: { x: "100vw", opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 120 },
+    },
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -73,8 +85,6 @@ export default function AddProject() {
     }
   };
 
-  const [fileName, setFileName] = useState<string>("");
-
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -95,8 +105,22 @@ export default function AddProject() {
     fileInput.dispatchEvent(event);
   };
 
+  const Variants = {
+    hidden: { x: "100vw", opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 120 },
+    },
+  };
+
   return (
-    <div className="bg-[#f7f7f7] mt-16 px-4 sm:px-10 md:pl-10 md:pr-10 flex justify-center items-start h-auto min-h-screen">
+    <motion.div
+      className="bg-[#f7f7f7] mt-16 px-4 sm:px-10 md:pl-10 md:pr-10 flex justify-center items-start h-auto min-h-screen"
+      variants={Variants}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="bg-[#f7f7f7] p-10 shadow-2xl rounded max-w-4xl w-full">
         <h1 className="text-[#bfa260] font-roboto font-bold text-3xl mb-6 text-center">
           Upload Project
@@ -369,6 +393,6 @@ export default function AddProject() {
           </div>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 }
