@@ -1,246 +1,118 @@
-import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-function SignUp() {
-  const formArray = [1, 2, 3];
-  const [formNo, setFormNo] = useState(formArray[0]);
-  const [state, setState] = useState({
-    name: "",
-    dept: "",
-    batch: "",
-    varsity: "",
-    session: "",
-    address: "",
-    district: "",
-    thana: "",
-    post: "",
-  });
-  const inputHandle = (e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const next = () => {
-    if (formNo === 1 && state.name && state.dept && state.batch) {
-      setFormNo(formNo + 1);
-    } else if (
-      formNo === 2 &&
-      state.varsity &&
-      state.session &&
-      state.address
-    ) {
-      setFormNo(formNo + 1);
-    } else {
-      toast.error("Please fillup all input field");
-    }
-  };
-  const pre = () => {
-    setFormNo(formNo - 1);
-  };
-  const finalSubmit = () => {
-    if (state.district && state.thana && state.post) {
-      toast.success("form submit success");
-    } else {
-      toast.error("Please fillup all input field");
-    }
+import { useState } from "react";
+
+const SignUp = () => {
+  const [formStep, setFormStep] = useState(0);
+  const completeFormStep = () => {
+    setFormStep((currentStep) => currentStep + 1);
   };
   return (
-    <div className="flex items-center justify-center w-screen h-screen bg-slate-300">
-      <ToastContainer />
-      <div className="card w-[370px] rounded-md shadow-md bg-white p-5">
-        <div className="flex items-center justify-center">
-          {formArray.map((v, i) => (
-            <>
-              <div
-                className={`w-[35px] my-3 text-white rounded-full ${
-                  formNo - 1 === i ||
-                  formNo - 1 === i + 1 ||
-                  formNo === formArray.length
-                    ? "bg-blue-500"
-                    : "bg-slate-400"
-                } h-[35px] flex justify-center items-center`}
-              >
-                {v}
-              </div>
-              {i !== formArray.length - 1 && (
-                <div
-                  className={`w-[85px] h-[2px] ${
-                    formNo === i + 2 || formNo === formArray.length
-                      ? "bg-blue-500"
-                      : "bg-slate-400"
-                  }`}
-                ></div>
-              )}
-            </>
-          ))}
+    <div className="relative flex flex-col items-start min-h-screen antialiased text-gray-900 bg-[#f7f7f7]">
+      <div
+        style={{
+          clipPath: "polygon(0 0, 100% 0, 100% 80%, 0% 100%)",
+          height: "34rem",
+        }}
+        className="absolute inset-x-0 top-0 bg-[#5f7fbf]"
+      ></div>
+      <div className="z-10 mx-auto mt-48 text-center">
+        <h1 className="text-5xl font-semibold text-white">
+          Welcome to{" "}
+          <span className="text-[#bfa260] font-bold">InspireHub</span>
+        </h1>
+        <p className="mt-2 text-[#121212]">
+          Become a new member in 3 easy steps
+        </p>
+      </div>
+      <div className="z-10 w-full max-w-xl mx-auto mt-24 mb-24 overflow-hidden bg-white rounded-lg shadow-2xl">
+        <div className="px-16 py-10">
+          <form>
+            {formStep === 0 && (
+              <section>
+                <h2 className="mb-8 text-3xl font-semibold">
+                  Personal Information
+                </h2>
+                <label htmlFor="username" className="mb-2">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  className="text-input"
+                />
+              </section>
+            )}
+
+            {formStep === 1 && (
+              <section>
+                <h2 className="mb-8 text-3xl font-semibold">
+                  Billing Information
+                </h2>
+                <label htmlFor="address">Address</label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  className="text-input"
+                />
+              </section>
+            )}
+
+            {formStep === 2 && (
+              <section>
+                <h2 className="mb-8 text-3xl font-semibold">
+                  Legal Information
+                </h2>
+                <div className="block mt-6">
+                  <input
+                    name="toc"
+                    className="p-3 mr-3 text-green-600 border-2 border-gray-300 rounded cursor-pointer ring-0 focus:ring-0 focus:ring-offset-0 focus:border-0"
+                    type="checkbox"
+                  />
+                  <span>
+                    I accept the{" "}
+                    <a className="text-blue-400 underline" href="/">
+                      Terms and Conditions
+                    </a>
+                    .
+                  </span>
+                </div>
+                <div className="block mt-6">
+                  <input
+                    name="pp"
+                    className="p-3 mr-3 text-green-600 border-2 border-gray-300 rounded cursor-pointer ring-0 focus:ring-0 focus:ring-offset-0 focus:border-0"
+                    type="checkbox"
+                  />
+                  <span>
+                    I accept the{" "}
+                    <a className="text-blue-400 underline" href="/">
+                      Privacy Policy
+                    </a>
+                    .
+                  </span>
+                </div>
+              </section>
+            )}
+
+            {formStep === 3 && (
+              <section>
+                <h2 className="mb-8 text-3xl font-semibold">
+                  You have created your account succsecfuly
+                </h2>
+              </section>
+            )}
+            <button
+              onClick={completeFormStep}
+              type="button"
+              className="w-full px-8 py-6 mt-6 text-white bg-green-600 rounded disabled:bg-gray-400 disabled:cursor-not-allowed"
+            >
+              Next Step
+            </button>
+          </form>
         </div>
-        {formNo === 1 && (
-          <div>
-            <div className="flex flex-col mb-2">
-              <label htmlFor="name">Name</label>
-              <input
-                value={state.name}
-                onChange={inputHandle}
-                className="p-2 mt-1 border rounded-md border-slate-400 outline-0 focus:border-blue-500"
-                type="text"
-                name="name"
-                placeholder="name"
-                id="name"
-              />
-            </div>
-            <div className="flex flex-col mb-2">
-              <label htmlFor="dept">Dept</label>
-              <input
-                value={state.dept}
-                onChange={inputHandle}
-                className="p-2 mt-1 border rounded-md border-slate-400 outline-0 focus:border-blue-500"
-                type="text"
-                name="dept"
-                placeholder="dept name"
-                id="dept"
-              />
-            </div>
-            <div className="flex flex-col mb-2">
-              <label htmlFor="batch">Batch</label>
-              <input
-                value={state.batch}
-                onChange={inputHandle}
-                className="p-2 mt-1 border rounded-md border-slate-400 outline-0 focus:border-blue-500"
-                type="number"
-                name="batch"
-                placeholder="batch"
-              />
-            </div>
-            <div className="flex items-center justify-center mt-4">
-              <button
-                onClick={next}
-                className="w-full px-3 py-2 text-lg text-white bg-blue-500 rounded-md"
-              >
-                Next
-              </button>
-            </div>
-          </div>
-        )}
-
-        {formNo === 2 && (
-          <div>
-            <div className="flex flex-col mb-2">
-              <label className="text-slate-500" htmlFor="varsity">
-                Varsity
-              </label>
-              <input
-                value={state.varsity}
-                onChange={inputHandle}
-                className="p-2 mt-1 border rounded-md border-slate-400 outline-0 text-slate-500 focus:border-blue-500"
-                type="text"
-                name="varsity"
-                placeholder="varsity name"
-                id="varsity"
-              />
-            </div>
-            <div className="flex flex-col mb-2">
-              <label className="text-slate-500" htmlFor="session">
-                session
-              </label>
-              <input
-                value={state.session}
-                onChange={inputHandle}
-                className="p-2 mt-1 border rounded-md border-slate-400 outline-0 text-slate-500 focus:border-blue-500"
-                type="text"
-                name="session"
-                placeholder="session"
-                id="session"
-              />
-            </div>
-            <div className="flex flex-col mb-2">
-              <label className="text-slate-500" htmlFor="address">
-                Address
-              </label>
-              <textarea
-                value={state.address}
-                onChange={inputHandle}
-                row="10"
-                className="p-2 mt-1 border rounded-md border-slate-400 outline-0 text-slate-500 focus:border-blue-500"
-                type="number"
-                name="address"
-                placeholder="address"
-              ></textarea>
-            </div>
-            <div className="flex items-center justify-center gap-3 mt-4">
-              <button
-                onClick={pre}
-                className="w-full px-3 py-2 text-lg text-white bg-blue-500 rounded-md"
-              >
-                Previous
-              </button>
-              <button
-                onClick={next}
-                className="w-full px-3 py-2 text-lg text-white bg-blue-500 rounded-md"
-              >
-                Next
-              </button>
-            </div>
-          </div>
-        )}
-
-        {formNo === 3 && (
-          <div>
-            <div className="flex flex-col mb-2">
-              <label htmlFor="district">District</label>
-              <input
-                value={state.district}
-                onChange={inputHandle}
-                className="p-2 mt-1 border rounded-md border-slate-400 outline-0 focus:border-blue-500"
-                type="text"
-                name="district"
-                placeholder="district name"
-                id="district"
-              />
-            </div>
-            <div className="flex flex-col mb-2">
-              <label htmlFor="thana">Thana</label>
-              <input
-                value={state.thana}
-                onChange={inputHandle}
-                className="p-2 mt-1 border rounded-md border-slate-400 outline-0 focus:border-blue-500"
-                type="text"
-                name="thana"
-                placeholder="thana"
-                id="thana"
-              />
-            </div>
-            <div className="flex flex-col mb-2">
-              <label htmlFor="post">Post</label>
-              <input
-                value={state.post}
-                onChange={inputHandle}
-                className="p-2 mt-1 border rounded-md border-slate-400 outline-0 focus:border-blue-500"
-                type="text"
-                name="post"
-                placeholder="post"
-                id="post"
-              />
-            </div>
-            <div className="flex items-center justify-center gap-3 mt-4">
-              <button
-                onClick={pre}
-                className="w-full px-3 py-2 text-lg text-white bg-blue-500 rounded-md"
-              >
-                Previous
-              </button>
-              <button
-                onClick={finalSubmit}
-                className="w-full px-3 py-2 text-lg text-white bg-blue-500 rounded-md"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
-}
+};
 
 export default SignUp;
