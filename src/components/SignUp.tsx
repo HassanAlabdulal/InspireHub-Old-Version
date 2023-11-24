@@ -64,10 +64,9 @@ const SignUp = () => {
       ></div>
       <div className="z-10 mx-auto mt-48 text-center">
         <h1 className="text-5xl font-semibold text-white">
-          Welcome to{" "}
-          <span className="text-[#bfa260] font-bold">InspireHub</span>
+          Welcome to <span className="font-bold ">InspireHub</span>
         </h1>
-        <p className="mt-2 text-[#121212]">
+        <p className="mt-3 text-[#121212]">
           Become a new member in 4 easy steps
         </p>
       </div>
