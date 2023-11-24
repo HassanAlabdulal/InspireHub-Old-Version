@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Radio } from "@material-tailwind/react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -182,10 +183,10 @@ const SignUp = () => {
                     placeholder="********"
                   />
                 </div> */}
-                {/* <div className="flex gap-10">
+                <div className="flex gap-10">
                   <Radio name="type" label="Ripple Effect On" ripple={true} />
                   <Radio name="type" label="Ripple Effect Off" ripple={false} />
-                </div> */}
+                </div>
               </section>
             )}
 
