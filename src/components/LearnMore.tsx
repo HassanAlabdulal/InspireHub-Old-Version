@@ -16,7 +16,7 @@ export default function LearnMore() {
         <div className="flex flex-col items-center justify-center my-12 md:flex-row md:my-24 md:px-4 lg:px-8">
           {/* Left side content */}
           <div className="flex flex-col w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4">
-            <p className="mb-2 text-2xl leading-normal md:text-3xl lg:text-4xl font-semibold">
+            <p className="mb-1 text-2xl leading-normal md:text-3xl md:leading-relaxed lg:text-4xl font-semibold">
               What is InspireHub?
             </p>
             <p className="mb-6 font-roboto text-sm text-[#121212] md:text-base lg:text-lg">
@@ -26,18 +26,18 @@ export default function LearnMore() {
               screen and into the world, where feedback becomes the forge for
               excellence, and where AI meets human ingenuity to spark new ideas.
             </p>
-            <p className="mb-2 text-2xl leading-normal md:text-3xl md:leading-relaxed lg:text-4xl font-semibold">
+            <p className="mb-1 text-2xl leading-normal md:text-3xl md:leading-relaxed lg:text-4xl font-semibold">
               Our Mission
             </p>
-            <p className="mb-6 font-roboto text-sm text-[#121212] md:text-base">
+            <p className="mb-6 font-roboto text-sm text-[#121212] md:text-base lg:text-lg">
               To catalyze collaboration that turns innovative ideas into
               reality, foster an ecosystem of feedback that nurtures growth, and
               unlock opportunities that connect talent with the market.
             </p>
-            <p className="mb-2 text-3xl leading-normal md:text-4xl md:leading-relaxed">
+            <p className="mb-1 text-2xl leading-normal md:text-3xl md:leading-relaxed lg:text-4xl font-semibold">
               Join Us
             </p>
-            <p className="text-sm text-black mb-7 md:text-base">
+            <p className="mb-6 font-roboto text-sm text-[#121212] md:text-base lg:text-lg">
               Are you ready to be inspired and to inspire others? Sign up today
               and start your journey.
             </p>
