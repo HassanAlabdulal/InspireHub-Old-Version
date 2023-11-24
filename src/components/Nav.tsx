@@ -91,13 +91,13 @@ export default function Nav() {
             <motion.a
               className="w-full py-1 text-white  bg-[#5f7fbf] roundedtransition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
               disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              href="SignIn"
+              href="SignInPage"
             >
               Sign in
             </motion.a>
             <motion.a
               className="w-full h-10 tracking-wide text-indigo-500 transition ease-in-out border-2 border-indigo-500 rounded hover:bg-indigo-500 hover:text-white active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300 duration-750"
-              href="/SignUp"
+              href="SignUpPage"
             >
               Sign up
             </motion.a>
@@ -112,6 +112,7 @@ export default function Nav() {
         className="flex gap-3 max-xl:hidden max-lg:hidden lg:flex lg:items-center lg:justify-center lg:text-sm "
       >
         <a
+          href="SignUpPage"
           className="middle none center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf]  py-2 px-4.5 lg:py-1.5 lg:px-3.5 text-md font-bold font-nunito  text-white 
            roundedtransition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
            disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none cursor-pointer"
