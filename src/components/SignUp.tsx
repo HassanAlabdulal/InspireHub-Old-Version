@@ -1,5 +1,13 @@
 import { useState } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelope,
+  faLock,
+  faUser,
+  faBook,
+} from "@fortawesome/free-solid-svg-icons";
+
 const SignUp = () => {
   const [formStep, setFormStep] = useState(0);
   const completeFormStep = () => {
@@ -49,74 +57,135 @@ const SignUp = () => {
           Become a new member in 3 easy steps
         </p>
       </div>
-      <div className="z-10 w-full max-w-xl mx-auto mt-24 mb-24 overflow-hidden bg-white rounded-lg shadow-2xl">
+      <div className="z-10 w-full max-w-xl mx-auto mt-24 mb-24 overflow-hidden bg-[#f3f4f6] rounded-lg shadow-2xl">
         <div className="px-16 py-10">
           <form>
             {formStep === 0 && (
-              <section>
-                <h2 className="mb-8 text-3xl font-semibold">
+              <section className="flex flex-col">
+                <h2 className="mb-8 text-3xl font-semibold ">
                   Personal Information
                 </h2>
-                <label htmlFor="username" className="mb-2">
-                  Username
+                <label className="px-1 mb-2 text-xs font-semibold">
+                  First name
                 </label>
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  className="text-input"
-                />
+                <div className="flex mb-3">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faUser} />
+                    </i>
+                  </div>
+                  <input
+                    type="text"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="Hassan"
+                  />
+                </div>
+                <label className="px-1 mb-2 text-xs font-semibold">
+                  Last name
+                </label>
+                <div className="flex">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faUser} />
+                    </i>
+                  </div>
+                  <input
+                    type="text"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="Alabdulal"
+                  />
+                </div>
               </section>
             )}
 
             {formStep === 1 && (
-              <section>
-                <h2 className="mb-8 text-3xl font-semibold">
-                  Billing Information
+              <section className="flex flex-col">
+                <h2 className="mb-8 text-3xl font-semibold ">
+                  Personal Information
                 </h2>
-                <label htmlFor="address">Address</label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  className="text-input"
-                />
+                <label className="px-1 mb-2 text-xs font-semibold">Email</label>
+                <div className="flex mb-3">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faEnvelope} />
+                    </i>
+                  </div>
+                  <input
+                    type="email"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="inspirehub@example.com"
+                  />
+                </div>
+                <label className="px-1 mb-2 text-xs font-semibold">
+                  Password
+                </label>
+                <div className="flex mb-3">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faLock} />
+                    </i>
+                  </div>
+                  <input
+                    type="password"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="********"
+                  />
+                </div>
+                <label className="px-1 mb-2 text-xs font-semibold">
+                  Confirm Password
+                </label>
+                <div className="flex">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faLock} />
+                    </i>
+                  </div>
+                  <input
+                    type="password"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="********"
+                  />
+                </div>
               </section>
             )}
 
             {formStep === 2 && (
-              <section>
-                <h2 className="mb-8 text-3xl font-semibold">
-                  Legal Information
+              <section className="flex flex-col">
+                <h2 className="mb-8 text-3xl font-semibold ">
+                  Academic Information
                 </h2>
-                <div className="block mt-6">
+                <label className="px-1 mb-2 text-xs font-semibold">Major</label>
+                <div className="flex mb-3">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faBook} />
+                    </i>
+                  </div>
                   <input
-                    name="toc"
-                    className="p-3 mr-3 text-green-600 border-2 border-gray-300 rounded cursor-pointer ring-0 focus:ring-0 focus:ring-offset-0 focus:border-0"
-                    type="checkbox"
+                    type="text"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="Software Engineering"
                   />
-                  <span>
-                    I accept the{" "}
-                    <a className="text-blue-400 underline" href="/">
-                      Terms and Conditions
-                    </a>
-                    .
-                  </span>
                 </div>
-                <div className="block mt-6">
+                {/* <label className="px-1 mb-2 text-xs font-semibold">
+                  Password
+                </label>
+                <div className="flex mb-3">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faLock} />
+                    </i>
+                  </div>
                   <input
-                    name="pp"
-                    className="p-3 mr-3 text-green-600 border-2 border-gray-300 rounded cursor-pointer ring-0 focus:ring-0 focus:ring-offset-0 focus:border-0"
-                    type="checkbox"
+                    type="password"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="********"
                   />
-                  <span>
-                    I accept the{" "}
-                    <a className="text-blue-400 underline" href="/">
-                      Privacy Policy
-                    </a>
-                    .
-                  </span>
-                </div>
+                </div> */}
+                {/* <div className="flex gap-10">
+                  <Radio name="type" label="Ripple Effect On" ripple={true} />
+                  <Radio name="type" label="Ripple Effect Off" ripple={false} />
+                </div> */}
               </section>
             )}
 
