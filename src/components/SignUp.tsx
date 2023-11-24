@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Radio } from "@material-tailwind/react";
 
+const MAX_STEPS = 4;
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
   faLock,
   faUser,
   faBook,
+  faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 const SignUp = () => {
@@ -46,6 +49,10 @@ const SignUp = () => {
       );
     }
   };
+
+  const goToPreviousStep = () => {
+    setFormStep((currentStep) => currentStep - 1);
+  };
   return (
     <div className="relative flex flex-col items-start min-h-screen antialiased text-[#121212] bg-[#f7f7f7]">
       <div
@@ -67,6 +74,22 @@ const SignUp = () => {
       <div className="z-10 w-full max-w-xl mx-auto mt-24 mb-24 overflow-hidden bg-[#f3f4f6] rounded-lg shadow-2xl">
         <div className="px-16 py-10">
           <form>
+            {formStep < MAX_STEPS && (
+              <div className="flex items-center mb-2">
+                {formStep > 0 && (
+                  <button
+                    onClick={goToPreviousStep}
+                    type="button"
+                    className="w-6 text-gray-400 transition-all duration-200 hover:text-gray-600"
+                  >
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                  </button>
+                )}
+                <p className="mr-2 text-sm text-gray-700 ">
+                  Step {formStep + 1} of {MAX_STEPS}
+                </p>
+              </div>
+            )}
             {formStep === 0 && (
               <section className="flex flex-col">
                 <h2 className="mb-8 text-3xl font-semibold ">
