@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { Radio } from "@material-tailwind/react";
 import { Radio } from "@material-tailwind/react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,7 +7,6 @@ import {
   faLock,
   faUser,
   faBook,
-  faGraduationCap,
 } from "@fortawesome/free-solid-svg-icons";
 
 const SignUp = () => {
