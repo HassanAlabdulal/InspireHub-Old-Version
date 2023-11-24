@@ -5,19 +5,29 @@ import {
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
+import React from "react";
+
+type Project = {
+  id: number;
+  title: string;
+  date: string;
+  rate: number;
+  author: string;
+  description: string;
+  imageUrl: string;
+};
 
 export default function Main() {
-  const projects = [
+  const projects: Project[] = [
     {
       id: 1,
-      title: "InspreHub",
+      title: "InspireHub",
       date: "2023-12-15",
       rate: 5,
       author: "Hassan Alabdulal",
       description: "It is a website that is a hub... ",
       imageUrl: "src/assets/ContactUs.png",
     },
-
     {
       id: 2,
       title: "Second Project",
@@ -29,11 +39,10 @@ export default function Main() {
     },
   ];
 
-  const renderStars = (rate) => {
-    let stars = [];
+  const renderStars = (rate: number) => {
+    let stars: JSX.Element[] = [];
     for (let i = 1; i <= 5; i++) {
       if (i <= rate) {
-        // Full star
         stars.push(
           <FontAwesomeIcon
             key={`full_${i}`}
@@ -42,7 +51,6 @@ export default function Main() {
           />
         );
       } else if (i === Math.ceil(rate) && rate % 1 !== 0) {
-        // Half star
         stars.push(
           <FontAwesomeIcon
             key={`half_${i}`}
@@ -51,7 +59,6 @@ export default function Main() {
           />
         );
       } else {
-        // Empty star
         stars.push(
           <FontAwesomeIcon
             key={`empty_${i}`}
@@ -64,11 +71,9 @@ export default function Main() {
     return stars;
   };
 
-  const navigateToProjectDetails = (projectId) => {
-    // Insert navigation logic here, e.g., using react-router's useHistory
+  const navigateToProjectDetails = (projectId: number) => {
     console.log(`Navigate to details of project with id: ${projectId}`);
   };
-
   return (
     <div className="bg-[#f7f7f7] pt-[65px] flex flex-col items-center min-h-screen font-roboto">
       <h1 className="text-[#bfa260] font-roboto font-bold text-3xl mb-6">
