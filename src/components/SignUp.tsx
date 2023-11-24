@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import { Radio } from "@material-tailwind/react";
 import { Radio } from "@material-tailwind/react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +8,7 @@ import {
   faLock,
   faUser,
   faBook,
+  faGraduationCap,
 } from "@fortawesome/free-solid-svg-icons";
 
 const SignUp = () => {
@@ -16,9 +18,9 @@ const SignUp = () => {
   };
 
   const renderButton = () => {
-    if (formStep > 2) {
+    if (formStep > 3) {
       return undefined;
-    } else if (formStep === 2) {
+    } else if (formStep === 3) {
       return (
         <button
           onClick={completeFormStep}
@@ -156,7 +158,7 @@ const SignUp = () => {
                   Academic Information
                 </h2>
                 <label className="px-1 mb-2 text-xs font-semibold">Major</label>
-                <div className="flex mb-3">
+                <div className="flex mb-4">
                   <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
                     <i className="text-lg text-gray-400 mdi mdi-email-outline">
                       <FontAwesomeIcon icon={faBook} />
@@ -168,29 +170,51 @@ const SignUp = () => {
                     placeholder="Software Engineering"
                   />
                 </div>
-                {/* <label className="px-1 mb-2 text-xs font-semibold">
-                  Password
+                <label className="px-1 mb-2 text-xs font-semibold">
+                  Academic Level
                 </label>
-                <div className="flex mb-3">
-                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
-                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
-                      <FontAwesomeIcon icon={faLock} />
-                    </i>
+                <div className="flex flex-row gap-4">
+                  <div className="flex items-center">
+                    <Radio name="type" ripple={true} crossOrigin={undefined} />
+
+                    <span className="ml-2">Undergraduate</span>
                   </div>
-                  <input
-                    type="password"
-                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
-                    placeholder="********"
-                  />
-                </div> */}
-                <div className="flex gap-10">
-                  <Radio name="type" label="Ripple Effect On" ripple={true} />
-                  <Radio name="type" label="Ripple Effect Off" ripple={false} />
+
+                  <div className="flex items-center">
+                    <Radio name="type" ripple={true} crossOrigin={undefined} />
+
+                    <span className="ml-2">Graduate</span>
+                  </div>
+
+                  <div className="flex items-center">
+                    <Radio name="type" ripple={true} crossOrigin={undefined} />
+
+                    <span className="ml-2">Employer</span>
+                  </div>
                 </div>
               </section>
             )}
 
             {formStep === 3 && (
+              <section>
+                <h2 className="mb-8 text-3xl font-semibold ">
+                  Legal Information
+                </h2>
+                <div className="flex items-center">
+                  <Radio name="type" ripple={true} crossOrigin={undefined} />
+
+                  <span className="ml-2">
+                    I agree with{" "}
+                    <span>
+                      <a href="PolicyPage" className="text-[#809bd0] underline">
+                        privcy and policy
+                      </a>
+                    </span>{" "}
+                  </span>
+                </div>
+              </section>
+            )}
+            {formStep === 4 && (
               <section>
                 <h2 className="mb-8 text-3xl font-semibold">
                   Your account has been successfully created!
