@@ -23,7 +23,10 @@ const SignUp = () => {
         <button
           onClick={completeFormStep}
           type="button"
-          className="w-full px-8 py-6 mt-6 text-white bg-green-600 rounded disabled:bg-gray-400 disabled:cursor-not-allowed"
+          className="w-full px-8 py-6 mt-6 text-white  disabled:bg-gray-400 disabled:cursor-not-allowed flex select-none items-center
+           cursor-pointer justify-center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf]text-base font-bold align-middle transition-all
+            duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+            disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         >
           Create Account
         </button>
@@ -33,7 +36,10 @@ const SignUp = () => {
         <button
           onClick={completeFormStep}
           type="button"
-          className="w-full px-8 py-6 mt-6 text-white bg-green-600 rounded disabled:bg-gray-400 disabled:cursor-not-allowed"
+          className="w-full px-8 py-6 mt-6 text-white  disabled:bg-gray-400 disabled:cursor-not-allowed flex select-none items-center
+          cursor-pointer justify-center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf]text-base font-bold align-middle transition-all
+           duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+           disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         >
           Next Step
         </button>
@@ -55,7 +61,7 @@ const SignUp = () => {
           <span className="text-[#bfa260] font-bold">InspireHub</span>
         </h1>
         <p className="mt-2 text-[#121212]">
-          Become a new member in 3 easy steps
+          Become a new member in 4 easy steps
         </p>
       </div>
       <div className="z-10 w-full max-w-xl mx-auto mt-24 mb-24 overflow-hidden bg-[#f3f4f6] rounded-lg shadow-2xl">
