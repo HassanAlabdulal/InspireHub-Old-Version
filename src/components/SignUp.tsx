@@ -5,6 +5,32 @@ const SignUp = () => {
   const completeFormStep = () => {
     setFormStep((currentStep) => currentStep + 1);
   };
+
+  const renderButton = () => {
+    if (formStep > 2) {
+      return undefined;
+    } else if (formStep === 2) {
+      return (
+        <button
+          onClick={completeFormStep}
+          type="button"
+          className="w-full px-8 py-6 mt-6 text-white bg-green-600 rounded disabled:bg-gray-400 disabled:cursor-not-allowed"
+        >
+          Create Account
+        </button>
+      );
+    } else {
+      return (
+        <button
+          onClick={completeFormStep}
+          type="button"
+          className="w-full px-8 py-6 mt-6 text-white bg-green-600 rounded disabled:bg-gray-400 disabled:cursor-not-allowed"
+        >
+          Next Step
+        </button>
+      );
+    }
+  };
   return (
     <div className="relative flex flex-col items-start min-h-screen antialiased text-gray-900 bg-[#f7f7f7]">
       <div
@@ -97,17 +123,11 @@ const SignUp = () => {
             {formStep === 3 && (
               <section>
                 <h2 className="mb-8 text-3xl font-semibold">
-                  You have created your account succsecfuly
+                  Your account has been successfully created!
                 </h2>
               </section>
             )}
-            <button
-              onClick={completeFormStep}
-              type="button"
-              className="w-full px-8 py-6 mt-6 text-white bg-green-600 rounded disabled:bg-gray-400 disabled:cursor-not-allowed"
-            >
-              Next Step
-            </button>
+            {renderButton()}
           </form>
         </div>
       </div>
