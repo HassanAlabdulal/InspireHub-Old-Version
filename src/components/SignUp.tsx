@@ -47,7 +47,7 @@ const SignUp = () => {
     }
   };
   return (
-    <div className="relative flex flex-col items-start min-h-screen antialiased text-gray-900 bg-[#f7f7f7]">
+    <div className="relative flex flex-col items-start min-h-screen antialiased text-[#121212] bg-[#f7f7f7]">
       <div
         style={{
           clipPath: "polygon(0 0, 100% 0, 100% 80%, 0% 100%)",
