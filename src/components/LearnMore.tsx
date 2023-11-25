@@ -75,14 +75,14 @@ export default function LearnMore() {
 
         <div
           id="features"
-          className="flex flex-col items-center justify-center mb-10 mt-96"
+          className="flex flex-col items-center justify-center mt-32 mb-8"
         >
-          <h1 className="ml-2 mb-24 mt-24 text-[#bfa260] text-3xl font-extrabold uppercase tracking-loose text-center ">
+          <h1 className="mt-24 mb-16 mx-6 text-2xl md:text-3xl xl:text-4xl font-extrabold text-center uppercase tracking-loose">
             Our Features
           </h1>
-          <div className="relative ml-0 md:ml-12 lg:w-2/3">
+          <div className="relative ml-0 md:my-8 lg:w-10/12">
             <div className="container w-full h-full mx-auto">
-              <div className="relative h-full p-10 overflow-hidden wrap">
+              <div className="relative h-full p-8 overflow-hidden wrap">
                 {/* Vertical line */}
                 <div
                   className="absolute transform -translate-x-1/2 border-[#5f7fbf] left-1/2"
@@ -93,10 +93,10 @@ export default function LearnMore() {
                 <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-left">
-                    <h4 className="mb-3 text-lg font-bold text-center md:text-2xl">
+                    <h4 className="mb-1 text-2xl leading-normal font-semibold text-left md:text-center md:text-3xl md:leading-relaxed lg:text-4xl lg:mb-2">
                       Showcase Your Genius
                     </h4>
-                    <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
+                    <p className="text-base leading-snug font-roboto text-left md:text-center text-black text-opacity-100 md:text-lg lg:text-xl">
                       Unveil your creative prowess on InspireHub, where each
                       project is a beacon to industry pioneers and visionaries.
                       Share your work, captivate an audience of leaders, and let
@@ -110,10 +110,10 @@ export default function LearnMore() {
                   <div></div>
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-left">
-                    <h4 className="mb-3 text-lg font-bold text-center md:text-2xl">
+                    <h4 className="mb-1 text-2xl leading-normal font-semibold text-left md:text-center md:text-3xl md:leading-relaxed lg:text-4xl lg:mb-2">
                       Thrive on Collaboration
                     </h4>
-                    <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
+                    <p className="text-base leading-snug font-roboto text-left md:text-center text-black text-opacity-100 md:text-lg lg:text-xl">
                       Thrive on Collaboration Dive into a collaborative oasis
                       where feedback refines and perfects. Engage with a
                       community where each critique enriches your work, ensuring
@@ -126,10 +126,10 @@ export default function LearnMore() {
                 <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-left">
-                    <h4 className="mb-3 text-lg font-bold text-center md:text-2xl">
+                    <h4 className="mb-1 text-2xl leading-normal font-semibold text-left md:text-center md:text-3xl md:leading-relaxed lg:text-4xl lg:mb-2">
                       Fuel Your Creativity
                     </h4>
-                    <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
+                    <p className="text-base leading-snug font-roboto text-left md:text-center text-black text-opacity-100 md:text-lg lg:text-xl">
                       Spark your imagination with our AI-driven muse, crafting
                       bespoke project suggestions that marry your interests with
                       the pulse of current trends. It's the creative catalyst
@@ -142,10 +142,10 @@ export default function LearnMore() {
                 <div className="flex items-center justify-between w-full mb-8 right-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4">
-                    <h4 className="mb-3 text-lg font-bold text-center md:text-2xl">
+                    <h4 className="mb-1 text-2xl leading-normal font-semibold text-left md:text-center md:text-3xl md:leading-relaxed lg:text-4xl lg:mb-2">
                       Rise to the Top
                     </h4>
-                    <p className="text-sm leading-snug text-center text-black text-opacity-100 md:text-base">
+                    <p className="text-base leading-snug font-roboto text-left md:text-center text-black text-opacity-100 md:text-lg lg:text-xl">
                       Rise to the Top Ascend the creative ladder with our
                       intuitive rating system, designed to showcase your
                       project's impact and propel your work into the spotlight.
@@ -157,8 +157,8 @@ export default function LearnMore() {
               </div>
             </div>
             <img
-              className="mx-auto -mt-36 md:-mt-36"
-              src="https://user-images.githubusercontent.com/54521023/116968861-ef21a000-acd2-11eb-95ac-a34b5b490265.png"
+              className="mx-auto -mt-10 w-6/12"
+              src="src/assets/undraw_launching_re_tomg.svg"
             />
           </div>
         </div>
