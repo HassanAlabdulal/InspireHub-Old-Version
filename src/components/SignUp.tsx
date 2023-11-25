@@ -16,19 +16,28 @@ import {
 const SignUp = () => {
   const [formStep, setFormStep] = useState(0);
   const [showPolicy, setShowPolicy] = useState(false);
+  const [showReturnButton, setShowReturnButton] = useState(false);
 
+  const handlePolicyClick = () => {
+    setShowPolicy(true);
+    setShowReturnButton(true); // show the return button when policy is clicked
+  };
+
+  const closePolicy = () => {
+    setShowPolicy(false);
+    setShowReturnButton(false); // hide the return button when policy is closed
+  };
   const completeFormStep = () => {
     setFormStep((currentStep) => currentStep + 1);
   };
 
-  const handlePolicyClick = () => {
-    setShowPolicy(!showPolicy);
-  };
+  //   const handlePolicyClick = () => {
+  //     setShowPolicy(!showPolicy);
+  //   };
 
-  // This function is added to close the policy and restore the opacity of the sign-up page
-  const closePolicy = () => {
-    setShowPolicy(false);
-  };
+  //   const closePolicy = () => {
+  //     setShowPolicy(false);
+  //   };
 
   const renderButton = () => {
     if (formStep > 3) {
@@ -273,7 +282,10 @@ const SignUp = () => {
 
                 {/* The Policy component should be at full opacity when shown */}
                 <div className="z-50 p-4 bg-white rounded-lg shadow-lg opacity-100">
-                  <Policy />
+                  <Policy
+                    onClose={closePolicy}
+                    showReturnButton={showReturnButton}
+                  />
                 </div>
               </div>
             )}

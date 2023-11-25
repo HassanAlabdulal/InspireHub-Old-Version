@@ -1,4 +1,9 @@
-export default function Policy() {
+interface PolicyProps {
+  onClose: () => void;
+  showReturnButton: boolean;
+}
+
+export default function Policy({ onClose, showReturnButton }: PolicyProps) {
   return (
     <div className="bg-[#f7f7f7] pt-[65px] flex flex-col items-center min-h-screen font-roboto">
       <h1 className="text-[#bfa260] font-roboto font-bold text-3xl mb-6">
@@ -102,6 +107,12 @@ export default function Policy() {
           </p>
         </section>
       </div>
+
+      {showReturnButton && (
+        <button onClick={onClose} className="return-to-sign-up-button">
+          Return to Sign Up
+        </button>
+      )}
     </div>
   );
 }
