@@ -215,7 +215,7 @@ const SignUp = () => {
                 <label className="px-1 mb-2 text-xs font-semibold">
                   Academic Level
                 </label>
-                <div className="flex flex-row gap-4">
+                <div className="flex flex-col gap-4 md:flex-row">
                   <div className="flex items-center">
                     <Radio name="type" ripple={true} crossOrigin={undefined} />
 
@@ -267,7 +267,9 @@ const SignUp = () => {
                 <div
                   className="absolute inset-0 bg-black bg-opacity-50"
                   onClick={closePolicy}
-                ></div>
+                >
+                  {/* <button onClick={closePolicy}>Return</button> */}
+                </div>
 
                 {/* The Policy component should be at full opacity when shown */}
                 <div className="z-50 p-4 bg-white rounded-lg shadow-lg opacity-100">
