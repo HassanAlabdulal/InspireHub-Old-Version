@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Radio } from "@material-tailwind/react";
+import Policy from "../components/Policy.tsx";
 
 const MAX_STEPS = 4;
 
@@ -14,8 +15,19 @@ import {
 
 const SignUp = () => {
   const [formStep, setFormStep] = useState(0);
+  const [showPolicy, setShowPolicy] = useState(false);
+
   const completeFormStep = () => {
     setFormStep((currentStep) => currentStep + 1);
+  };
+
+  const handlePolicyClick = () => {
+    setShowPolicy(!showPolicy);
+  };
+
+  // This function is added to close the policy and restore the opacity of the sign-up page
+  const closePolicy = () => {
+    setShowPolicy(false);
   };
 
   const renderButton = () => {
@@ -70,7 +82,11 @@ const SignUp = () => {
           Become a new member in 4 easy steps
         </p>
       </div>
-      <div className="z-10 w-full max-w-xl mx-auto mt-24 mb-24 overflow-hidden bg-[#f3f4f6] rounded-lg shadow-2xl">
+      <div
+        className={`z-10 w-full max-w-xl mx-auto mt-24 mb-24 overflow-hidden bg-[#f3f4f6] rounded-lg shadow-2xl ${
+          showPolicy ? "opacity-100" : "opacity-100"
+        }`}
+      >
         <div className="px-16 py-10">
           <form>
             {formStep < MAX_STEPS && (
@@ -232,14 +248,34 @@ const SignUp = () => {
                   <span className="ml-2">
                     I agree with{" "}
                     <span>
-                      <a href="PolicyPage" className="text-[#809bd0] underline">
-                        privcy and policy
+                      <a
+                        onClick={handlePolicyClick}
+                        className="text-[#809bd0] underline cursor-pointer"
+                      >
+                        privacy and policy
                       </a>
                     </span>{" "}
                   </span>
                 </div>
               </section>
             )}
+
+            {/* Render Policy component conditionally */}
+            {showPolicy && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center">
+                {/* This div now has an onClick event to close the policy */}
+                <div
+                  className="absolute inset-0 bg-black bg-opacity-50"
+                  onClick={closePolicy}
+                ></div>
+
+                {/* The Policy component should be at full opacity when shown */}
+                <div className="z-50 p-4 bg-white rounded-lg shadow-lg opacity-100">
+                  <Policy />
+                </div>
+              </div>
+            )}
+
             {formStep === 4 && (
               <section>
                 <h2 className="mb-8 text-3xl font-semibold">
