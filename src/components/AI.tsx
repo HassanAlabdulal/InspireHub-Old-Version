@@ -59,7 +59,7 @@ const AI: React.FC = () => {
   };
 
   return (
-    <div className="flex items-start justify-around min-h-screen p-10 bg-gray-100">
+    <div className="flex items-start justify-around min-h-screen p-10 bg-[#f7f7f7]">
       <div className="flex-1">
         <h2 className="mb-4 text-lg font-semibold text-center">
           User Interests
