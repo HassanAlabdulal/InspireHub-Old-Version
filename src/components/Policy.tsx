@@ -109,8 +109,13 @@ export default function Policy({ onClose, showReturnButton }: PolicyProps) {
       </div>
 
       {showReturnButton && (
-        <button onClick={onClose} className="return-to-sign-up-button">
-          Return to Sign Up
+        <button
+          onClick={onClose}
+          className="block w-1/2 max-w-xs mt-5 max-md:mt-0 px-3 py-3 max-md:px-1 max-md:py-2  mx-auto font-semibold text-lg text-white rounded-lg uppercase bg-[#5f7fbf] border-2 border-[#5f7fbf] font-roboto 
+        roundedtransition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+        disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none cursor-pointer"
+        >
+          Return
         </button>
       )}
     </div>
