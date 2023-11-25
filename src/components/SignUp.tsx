@@ -1,4 +1,16 @@
 import { useState } from "react";
+import { Radio } from "@material-tailwind/react";
+
+const MAX_STEPS = 4;
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelope,
+  faLock,
+  faUser,
+  faBook,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 const SignUp = () => {
   const [formStep, setFormStep] = useState(0);
@@ -7,14 +19,17 @@ const SignUp = () => {
   };
 
   const renderButton = () => {
-    if (formStep > 2) {
+    if (formStep > 3) {
       return undefined;
-    } else if (formStep === 2) {
+    } else if (formStep === 3) {
       return (
         <button
           onClick={completeFormStep}
           type="button"
-          className="w-full px-8 py-6 mt-6 text-white bg-green-600 rounded disabled:bg-gray-400 disabled:cursor-not-allowed"
+          className="w-full px-8 py-6 mt-6 text-white  disabled:bg-gray-400 disabled:cursor-not-allowed flex select-none items-center
+           cursor-pointer justify-center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf]text-base font-bold align-middle transition-all
+            duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+            disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         >
           Create Account
         </button>
@@ -24,15 +39,22 @@ const SignUp = () => {
         <button
           onClick={completeFormStep}
           type="button"
-          className="w-full px-8 py-6 mt-6 text-white bg-green-600 rounded disabled:bg-gray-400 disabled:cursor-not-allowed"
+          className="w-full px-8 py-6 mt-6 text-white  disabled:bg-gray-400 disabled:cursor-not-allowed flex select-none items-center
+          cursor-pointer justify-center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf]text-base font-bold align-middle transition-all
+           duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+           disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         >
           Next Step
         </button>
       );
     }
   };
+
+  const goToPreviousStep = () => {
+    setFormStep((currentStep) => currentStep - 1);
+  };
   return (
-    <div className="relative flex flex-col items-start min-h-screen antialiased text-gray-900 bg-[#f7f7f7]">
+    <div className="relative flex flex-col items-start min-h-screen antialiased text-[#121212] bg-[#f7f7f7]">
       <div
         style={{
           clipPath: "polygon(0 0, 100% 0, 100% 80%, 0% 100%)",
@@ -42,85 +64,183 @@ const SignUp = () => {
       ></div>
       <div className="z-10 mx-auto mt-48 text-center">
         <h1 className="text-5xl font-semibold text-white">
-          Welcome to{" "}
-          <span className="text-[#bfa260] font-bold">InspireHub</span>
+          Welcome to <span className="font-bold ">InspireHub</span>
         </h1>
-        <p className="mt-2 text-[#121212]">
-          Become a new member in 3 easy steps
+        <p className="mt-3 text-[#121212]">
+          Become a new member in 4 easy steps
         </p>
       </div>
-      <div className="z-10 w-full max-w-xl mx-auto mt-24 mb-24 overflow-hidden bg-white rounded-lg shadow-2xl">
+      <div className="z-10 w-full max-w-xl mx-auto mt-24 mb-24 overflow-hidden bg-[#f3f4f6] rounded-lg shadow-2xl">
         <div className="px-16 py-10">
           <form>
+            {formStep < MAX_STEPS && (
+              <div className="flex items-center mb-2">
+                {formStep > 0 && (
+                  <button
+                    onClick={goToPreviousStep}
+                    type="button"
+                    className="w-6 text-gray-400 transition-all duration-200 hover:text-gray-600"
+                  >
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                  </button>
+                )}
+                <p className="mr-2 text-sm text-gray-700 ">
+                  Step {formStep + 1} of {MAX_STEPS}
+                </p>
+              </div>
+            )}
             {formStep === 0 && (
-              <section>
-                <h2 className="mb-8 text-3xl font-semibold">
+              <section className="flex flex-col">
+                <h2 className="mb-8 text-3xl font-semibold ">
                   Personal Information
                 </h2>
-                <label htmlFor="username" className="mb-2">
-                  Username
+                <label className="px-1 mb-2 text-xs font-semibold">
+                  First name
                 </label>
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  className="text-input"
-                />
+                <div className="flex mb-3">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faUser} />
+                    </i>
+                  </div>
+                  <input
+                    type="text"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="Hassan"
+                  />
+                </div>
+                <label className="px-1 mb-2 text-xs font-semibold">
+                  Last name
+                </label>
+                <div className="flex">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faUser} />
+                    </i>
+                  </div>
+                  <input
+                    type="text"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="Alabdulal"
+                  />
+                </div>
               </section>
             )}
 
             {formStep === 1 && (
-              <section>
-                <h2 className="mb-8 text-3xl font-semibold">
-                  Billing Information
+              <section className="flex flex-col">
+                <h2 className="mb-8 text-3xl font-semibold ">
+                  Personal Information
                 </h2>
-                <label htmlFor="address">Address</label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  className="text-input"
-                />
+                <label className="px-1 mb-2 text-xs font-semibold">Email</label>
+                <div className="flex mb-3">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faEnvelope} />
+                    </i>
+                  </div>
+                  <input
+                    type="email"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="inspirehub@example.com"
+                  />
+                </div>
+                <label className="px-1 mb-2 text-xs font-semibold">
+                  Password
+                </label>
+                <div className="flex mb-3">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faLock} />
+                    </i>
+                  </div>
+                  <input
+                    type="password"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="********"
+                  />
+                </div>
+                <label className="px-1 mb-2 text-xs font-semibold">
+                  Confirm Password
+                </label>
+                <div className="flex">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faLock} />
+                    </i>
+                  </div>
+                  <input
+                    type="password"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="********"
+                  />
+                </div>
               </section>
             )}
 
             {formStep === 2 && (
-              <section>
-                <h2 className="mb-8 text-3xl font-semibold">
-                  Legal Information
+              <section className="flex flex-col">
+                <h2 className="mb-8 text-3xl font-semibold ">
+                  Academic Information
                 </h2>
-                <div className="block mt-6">
+                <label className="px-1 mb-2 text-xs font-semibold">Major</label>
+                <div className="flex mb-4">
+                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
+                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
+                      <FontAwesomeIcon icon={faBook} />
+                    </i>
+                  </div>
                   <input
-                    name="toc"
-                    className="p-3 mr-3 text-green-600 border-2 border-gray-300 rounded cursor-pointer ring-0 focus:ring-0 focus:ring-offset-0 focus:border-0"
-                    type="checkbox"
+                    type="text"
+                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="Software Engineering"
                   />
-                  <span>
-                    I accept the{" "}
-                    <a className="text-blue-400 underline" href="/">
-                      Terms and Conditions
-                    </a>
-                    .
-                  </span>
                 </div>
-                <div className="block mt-6">
-                  <input
-                    name="pp"
-                    className="p-3 mr-3 text-green-600 border-2 border-gray-300 rounded cursor-pointer ring-0 focus:ring-0 focus:ring-offset-0 focus:border-0"
-                    type="checkbox"
-                  />
-                  <span>
-                    I accept the{" "}
-                    <a className="text-blue-400 underline" href="/">
-                      Privacy Policy
-                    </a>
-                    .
-                  </span>
+                <label className="px-1 mb-2 text-xs font-semibold">
+                  Academic Level
+                </label>
+                <div className="flex flex-row gap-4">
+                  <div className="flex items-center">
+                    <Radio name="type" ripple={true} crossOrigin={undefined} />
+
+                    <span className="ml-2">Undergraduate</span>
+                  </div>
+
+                  <div className="flex items-center">
+                    <Radio name="type" ripple={true} crossOrigin={undefined} />
+
+                    <span className="ml-2">Graduate</span>
+                  </div>
+
+                  <div className="flex items-center">
+                    <Radio name="type" ripple={true} crossOrigin={undefined} />
+
+                    <span className="ml-2">Employer</span>
+                  </div>
                 </div>
               </section>
             )}
 
             {formStep === 3 && (
+              <section>
+                <h2 className="mb-8 text-3xl font-semibold ">
+                  Legal Information
+                </h2>
+                <div className="flex items-center">
+                  <Radio name="type" ripple={true} crossOrigin={undefined} />
+
+                  <span className="ml-2">
+                    I agree with{" "}
+                    <span>
+                      <a href="PolicyPage" className="text-[#809bd0] underline">
+                        privcy and policy
+                      </a>
+                    </span>{" "}
+                  </span>
+                </div>
+              </section>
+            )}
+            {formStep === 4 && (
               <section>
                 <h2 className="mb-8 text-3xl font-semibold">
                   Your account has been successfully created!
