@@ -10,34 +10,34 @@ export default function LearnMore() {
         id="learn-more"
         className="py-8 text-[#bfa260] bg-[#f7f7f7] font-nunito"
       >
-        <h1 className="mt-24 text-4xl font-black text-center uppercase tracking-loose">
+        <h1 className="mt-16 mx-6 text-2xl md:text-3xl xl:text-4xl font-extrabold text-center uppercase tracking-loose">
           Discover, Collaborate, & Innovate
         </h1>
-        <div className="flex flex-col items-center justify-center my-12 md:flex-row md:my-24 md:px-4 lg:px-8">
+        <div className="px-4 py-0 flex flex-col-reverse items-center justify-center md:flex-row md:px-6 md:py-12 lg:px-8">
           {/* Left side content */}
-          <div className="flex flex-col w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4">
-            <p className="mb-1 text-2xl leading-normal md:text-3xl md:leading-relaxed lg:text-4xl font-semibold">
+          <div className="flex flex-col w-full px-4 md:w-6/12 lg:w-5/12 xl:w-4/12">
+            <p className="mb-1 text-2xl leading-normal md:text-3xl md:leading-relaxed lg:text-4xl lg:mb-2 font-semibold">
               What is InspireHub?
             </p>
-            <p className="mb-6 font-roboto text-sm text-[#121212] md:text-base lg:text-lg">
+            <p className="mb-6 font-roboto text-base text-[#121212] md:text-lg lg:text-xl">
               InspireHub is not just a platform; it's a community pulsating with
               innovative ideas, where students and creative minds bring their
               visions to life. It's a space where your projects leap off the
               screen and into the world, where feedback becomes the forge for
               excellence, and where AI meets human ingenuity to spark new ideas.
             </p>
-            <p className="mb-1 text-2xl leading-normal md:text-3xl md:leading-relaxed lg:text-4xl font-semibold">
+            <p className="mb-1 text-2xl leading-normal md:text-3xl md:leading-relaxed lg:text-4xl lg:mb-2 font-semibold">
               Our Mission
             </p>
-            <p className="mb-6 font-roboto text-sm text-[#121212] md:text-base lg:text-lg">
+            <p className="mb-6 font-roboto text-base text-[#121212] md:text-lg lg:text-xl">
               To catalyze collaboration that turns innovative ideas into
               reality, foster an ecosystem of feedback that nurtures growth, and
               unlock opportunities that connect talent with the market.
             </p>
-            <p className="mb-1 text-2xl leading-normal md:text-3xl md:leading-relaxed lg:text-4xl font-semibold">
+            <p className="mb-1 text-2xl leading-normal md:text-3xl md:leading-relaxed lg:text-4xl lg:mb-2 font-semibold">
               Join Us
             </p>
-            <p className="mb-6 font-roboto text-sm text-[#121212] md:text-base lg:text-lg">
+            <p className="mb-6 font-roboto text-base text-[#121212] md:text-lg lg:text-xl">
               Are you ready to be inspired and to inspire others? Sign up today
               and start your journey.
             </p>

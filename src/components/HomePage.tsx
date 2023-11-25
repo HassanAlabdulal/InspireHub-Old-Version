@@ -25,8 +25,8 @@ export default function HomePage() {
             },
             hidden: {},
           }}
-          className="max-w-6xl mb-16 text-6xl max-xl:text-5xl max-xl:max-w-4xl max-lg:text-4xl max-lg:max-w-3xl max-sm:text-3xl max-sm:max-w-2xl
-           font-extrabold leading-none tracking-tight text-center text-[#bfa260] font-nunito"
+          className="my-16 mx-6 text-3xl max-w-2xl sm:text-4xl sm:max-w-3xl lg:text-5xl lg:max-w-4xl  xl:text-6xl xl:max-w-6xl
+           font-black leading-none tracking-tight text-center text-[#bfa260] font-nunito"
         >
           {Array.from(
             "InspireHub: Where Ideas Take Flight and Creativity Meets Opportunity!"
