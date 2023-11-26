@@ -128,7 +128,26 @@ const AI: React.FC = () => {
             { value: "development", label: "Development" },
             { value: "research", label: "Research" },
             { value: "entrepreneurship", label: "Entrepreneurship" },
-            // More options...
+            { value: "social_impact", label: "Social Impact" },
+            { value: "educational", label: "Educational" },
+            { value: "creative_arts", label: "Creative Arts" },
+            { value: "technology_innovation", label: "Technology Innovation" },
+            { value: "scientific_inquiry", label: "Scientific Inquiry" },
+            { value: "community_service", label: "Community Service" },
+            {
+              value: "environmental_conservation",
+              label: "Environmental Conservation",
+            },
+            { value: "health_and_wellness", label: "Health and Wellness" },
+            { value: "data_analysis", label: "Data Analysis" },
+            { value: "software_development", label: "Software Development" },
+            { value: "product_design", label: "Product Design" },
+            { value: "market_research", label: "Market Research" },
+            { value: "business_strategy", label: "Business Strategy" },
+            { value: "engineering", label: "Engineering" },
+            { value: "multimedia_production", label: "Multimedia Production" },
+            { value: "event_planning", label: "Event Planning" },
+            { value: "policy_development", label: "Policy Development" },
           ]}
           onSelect={(value) =>
             setInterests({ ...interests, projectType: value })
