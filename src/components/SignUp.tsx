@@ -61,7 +61,7 @@ const SignUp = () => {
           onClick={completeFormStep}
           type="button"
           className="w-full px-8 py-6 mt-6 text-white  disabled:bg-gray-400 disabled:cursor-not-allowed flex select-none items-center
-          cursor-pointer justify-center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf]text-base font-bold align-middle transition-all
+          cursor-pointer justify-center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] text-base font-bold align-middle transition-all
            duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
            disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         >
