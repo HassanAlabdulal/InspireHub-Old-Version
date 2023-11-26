@@ -71,7 +71,7 @@ const AI: React.FC = () => {
       <div className="container p-8 mx-auto bg-white rounded-lg md:mt-9 ">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3 max-md:mt-16">
           <div className="p-6 bg-[#f7f7f7] rounded-lg shadow-md flex flex-col justify-center">
-            <h2 className="mb-4 md:mb-8 md:-mt-8 text-xl font-bold text-[#bfa260] text-center ">
+            <h2 className="mb-4 md:mb-16 md:-mt-10 text-2xl font-bold text-[#bfa260] text-center ">
               User Interests
             </h2>
             <Input
@@ -181,7 +181,7 @@ const AI: React.FC = () => {
             <button
               onClick={getProjectIdeas}
               className="px-4 py-2 mt-6 font-bold text-white  disabled:bg-gray-400 disabled:cursor-not-allowed 
-              cursor-pointer rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] text-base transition-all
+              cursor-pointer rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] text-xl transition-all
                duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
                disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             >
@@ -190,7 +190,7 @@ const AI: React.FC = () => {
           </div>
 
           <div className="p-6 bg-[#f7f7f7] rounded-lg shadow-md flex flex-col justify-center">
-            <h2 className="mb-4 md:mb-8 md:-mt-8 text-xl font-bold text-[#bfa260] text-center ">
+            <h2 className="mb-4 md:mb-8 md:-mt-8 text-2xl font-bold text-[#bfa260] text-center ">
               User Preferences
             </h2>
 
