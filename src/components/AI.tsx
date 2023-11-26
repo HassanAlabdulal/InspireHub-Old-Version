@@ -180,7 +180,7 @@ const AI: React.FC = () => {
             />
             <button
               onClick={getProjectIdeas}
-              className="px-4 py-2 mt-4 font-bold text-white  disabled:bg-gray-400 disabled:cursor-not-allowed 
+              className="px-4 py-2 mt-6 font-bold text-white  disabled:bg-gray-400 disabled:cursor-not-allowed 
               cursor-pointer rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] text-base transition-all
                duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
                disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
