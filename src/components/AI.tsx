@@ -68,7 +68,7 @@ const AI: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] flex justify-center items-center">
-      <div className="container p-8 mx-auto bg-white rounded-lg ">
+      <div className="container p-8 mx-auto bg-white rounded-lg md:mt-9 ">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3 max-md:mt-16">
           <div className="p-6 bg-[#f7f7f7] rounded-lg shadow-md flex flex-col justify-center">
             <h2 className="mb-4 md:mb-8 md:-mt-8 text-xl font-bold text-[#bfa260] text-center ">
@@ -169,13 +169,13 @@ const AI: React.FC = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center p-6 bg-[#f7f7f7] rounded-lg shadow-md md:col-span-1">
-            <div className="w-full h-full max-xl:w-80 max-xl:h-80 max-lg:mt-24">
+            <div className="w-full h-full max-xl:w-80 max-xl:h-80">
               <Lottie animationData={animationData} />
             </div>
             <textarea
               value={generatedIdeas}
               onChange={(e) => setGeneratedIdeas(e.target.value)}
-              className="w-full h-32 p-4 border rounded shadow resize-none"
+              className="w-full h-40 p-4 border rounded shadow resize-none"
               placeholder="Generated project ideas will appear here..."
             />
             <button
