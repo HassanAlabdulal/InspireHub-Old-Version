@@ -26,7 +26,7 @@ export default function EditProfile() {
         <div className="md:w-1/2 bg-[#f7f7f7] flex flex-col items-center p-8">
           <div className="w-64 h-64 rounded-full mb-4 overflow-hidden"> 
             <img
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
               src={imagePreviewUrl || 'src/assets/photo.png'} 
               alt="Profile"
             />
