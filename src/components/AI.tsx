@@ -17,7 +17,7 @@ const Input: React.FC<InputProps> = ({ label, placeholder, onChange }) => (
       type="text"
       placeholder={placeholder}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+      className="w-full px-3 py-2 leading-tight text-gray-700 transition-all duration-300 border rounded shadow focus:px-5 focus:outline-0"
     />
   </div>
 );
