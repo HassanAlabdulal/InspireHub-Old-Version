@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import animationData from "../assets/Homapage-Animation.json";
+import animationData from "../assets/Animations/Homapage-Animation.json";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
