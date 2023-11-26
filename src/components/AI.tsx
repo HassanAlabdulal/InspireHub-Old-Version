@@ -76,14 +76,14 @@ const AI: React.FC = () => {
             </h2>
             <Input
               label="Areas of Interest"
-              placeholder="Specific domains you are interested in, technology, health, etc.."
+              placeholder="Interest areas (e.g., tech, health)"
               onChange={(value) =>
                 setInterests({ ...interests, areasOfInterest: value })
               }
             />
             <Input
               label="Skills or Technologies"
-              placeholder="Skills or technologies you're proficient in or wish to explore"
+              placeholder="Skills/interests (e.g., project management, education)"
               onChange={(value) =>
                 setInterests({ ...interests, skillsOrTechnologies: value })
               }
@@ -196,7 +196,7 @@ const AI: React.FC = () => {
 
             <Input
               label="Preferred Tools"
-              placeholder=" Write down the tools or frameworks you prefer to use"
+              placeholder="Preferred tools/frameworks"
               onChange={(value) =>
                 setPreferences({ ...preferences, PreferredTools: value })
               }
