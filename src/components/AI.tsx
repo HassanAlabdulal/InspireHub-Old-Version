@@ -71,7 +71,7 @@ const AI: React.FC = () => {
       <div className="container p-8 mx-auto bg-white rounded-lg md:mt-9 ">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3 max-md:mt-16">
           <div className="p-6 bg-[#f7f7f7] rounded-lg shadow-md flex flex-col justify-center">
-            <h2 className="mb-4 md:mb-16 md:-mt-10 text-2xl font-bold text-[#bfa260] text-center ">
+            <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center ">
               User Interests
             </h2>
             <Input
@@ -190,7 +190,7 @@ const AI: React.FC = () => {
           </div>
 
           <div className="p-6 bg-[#f7f7f7] rounded-lg shadow-md flex flex-col justify-center">
-            <h2 className="mb-4 md:mb-8 md:-mt-8 text-2xl font-bold text-[#bfa260] text-center ">
+            <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center ">
               User Preferences
             </h2>
 
