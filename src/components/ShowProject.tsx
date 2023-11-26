@@ -47,30 +47,30 @@ export default function ShowProject() {
             Project Details
           </h2>
           <div className="text-black">
-            <p className="mb-2"><strong>Date of project:</strong> {projectData.date}</p>
-            <p className="mb-2"><strong>Category:</strong> {projectData.category}</p>
-            <p className="mb-2"><strong>Budget:</strong> {`${projectData.budget} ${projectData.currency}`}</p>
-            <p className="mb-2"><strong>Description:</strong> {projectData.description}</p>
-            <p className="mb-2"><strong>Motivation:</strong> {projectData.motivation}</p>
-            <p className="mb-2"><strong>Features:</strong> {projectData.features}</p>
-            <p className="mb-2"><strong>Resources:</strong> <a href={projectData.resources} target="_blank" rel="noopener noreferrer">{projectData.resources}</a></p>
-            <p className="mb-2"><strong>Tools:</strong> {projectData.tools}</p>
-            <p className="mb-2"><strong>Others:</strong> {projectData.others}</p>
-          </div>
-  
-          {/* Team Members Section */}
-          <h3 className="text-[#bfa260] font-bold text-xl mb-4 mt-6">Team Members</h3>
-          {projectData.teamMembers.map((member, index) => (
+            <p className="mb-2"><strong className="text-[#bfa260]" >Date of project:</strong> <br /> {projectData.date}</p>
+            <p className="mb-2"><strong className="text-[#bfa260]">Category:</strong> <br /> {projectData.category}</p>
+            <p className="mb-2"><strong className="text-[#bfa260]">Budget:</strong> <br /> {`${projectData.budget} ${projectData.currency}`}</p>
+            <p className="mb-2"><strong className="text-[#bfa260]">Description:</strong> <br /> {projectData.description}</p>
+            <p className="mb-2"><strong className="text-[#bfa260]">Motivation:</strong> <br /> {projectData.motivation}</p>
+            <p className="mb-2"><strong className="text-[#bfa260]">Team member:</strong> <br /> 
+            {projectData.teamMembers.map((member, index) => (
               <div key={index} className="mb-2">
-                <p><strong>Name:</strong> {member.name}</p>
+                <p><strong className="text-[#bfa260]">Name:</strong> {member.name}</p>
                 <p>
-                  <strong>LinkedIn:</strong> <a href={`https://${member.linkedIn}`} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                  <strong className="text-[#bfa260]">LinkedIn:</strong> <a href={`https://${member.linkedIn}`} className="text-[#5f7fbf] font-bold hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
                 </p>
                 <p>
-                  <strong>Twitter:</strong> <a href={`https://${member.twitter}`} target="_blank" rel="noopener noreferrer">Twitter Profile</a>
+                  <strong className="text-[#bfa260]">Twitter:</strong> <a href={`https://${member.twitter}`} className="text-[#5f7fbf] font-bold hover:underline" target="_blank" rel="noopener noreferrer">Twitter Profile</a>
                 </p>
               </div>
           ))}
+          </p>
+            <p className="mb-2"><strong className="text-[#bfa260]">Features:</strong> <br /> {projectData.features}</p>
+            <p className="mb-2"><strong className="text-[#bfa260]">Resources:</strong> <br /> <a href={projectData.resources} target="_blank" rel="noopener noreferrer">{projectData.resources}</a></p>
+            <p className="mb-2"><strong className="text-[#bfa260]">Tools:</strong> <br /> {projectData.tools}</p>
+            <p className="mb-2"><strong className="text-[#bfa260]">Others:</strong> <br /> {projectData.others}</p>
+          </div>
+  
         </div>
       </div>
     );
