@@ -70,7 +70,7 @@ const AI: React.FC = () => {
     <div className="min-h-screen bg-[#f7f7f7] flex justify-center items-center">
       <div className="container p-8 mx-auto bg-white rounded-lg md:mt-9 ">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3 max-md:mt-16">
-          <div className="p-6 bg-[#f7f7f7] rounded-lg shadow-md flex flex-col justify-center">
+          <div className="p-6 bg-[#f7f7f7] rounded-lg shadow-md flex flex-col justify-center order-1">
             <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center ">
               User Interests
             </h2>
@@ -168,7 +168,7 @@ const AI: React.FC = () => {
             />
           </div>
 
-          <div className="flex flex-col items-center justify-center p-6 bg-[#f7f7f7] rounded-lg shadow-md md:col-span-1">
+          <div className="flex flex-col items-center justify-center p-6 bg-[#f7f7f7] rounded-lg shadow-md md:order-2 order-3">
             <div className="w-full h-full max-xl:w-80 max-xl:h-80">
               <Lottie animationData={animationData} />
             </div>
@@ -189,7 +189,7 @@ const AI: React.FC = () => {
             </button>
           </div>
 
-          <div className="p-6 bg-[#f7f7f7] rounded-lg shadow-md flex flex-col justify-center">
+          <div className="p-6 bg-[#f7f7f7] rounded-lg shadow-md flex flex-col justify-center md:order-3 order-2">
             <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center ">
               User Preferences
             </h2>
