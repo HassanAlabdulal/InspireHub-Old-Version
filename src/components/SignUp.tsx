@@ -268,7 +268,9 @@ const SignUp = () => {
                 <div
                   className="absolute inset-0 bg-black bg-opacity-50"
                   onClick={closePolicy}
-                ></div>
+                >
+                  {/* <button onClick={closePolicy}>Return</button> */}
+                </div>
 
                 {/* The Policy component should be at full opacity when shown */}
                 <div className="z-50 p-4 bg-white rounded-lg shadow-lg opacity-100">
