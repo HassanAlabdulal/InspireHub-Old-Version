@@ -164,7 +164,7 @@ const AI: React.FC = () => {
         <textarea
           value={generatedIdeas}
           onChange={(e) => setGeneratedIdeas(e.target.value)}
-          className="w-full h-32 p-4 border rounded shadow"
+          className="w-full h-32 p-4 border rounded shadow resize-none"
           placeholder="Generated project ideas will appear here..."
         />
         <button
