@@ -180,6 +180,13 @@ const AI: React.FC = () => {
           User Preferences
         </h2>
 
+        <Input
+          label="Preferred Tools"
+          placeholder=" Write down the tools or frameworks you prefer to use"
+          onChange={(value) =>
+            setPreferences({ ...preferences, PreferredTools: value })
+          }
+        />
         <Dropdown
           label="Time Commitment"
           options={[
@@ -214,14 +221,6 @@ const AI: React.FC = () => {
           ]}
           onSelect={(value) =>
             setPreferences({ ...preferences, DifficultyLevel: value })
-          }
-        />
-
-        <Input
-          label="Preferred Tools"
-          placeholder=" Write down the tools or frameworks you prefer to use"
-          onChange={(value) =>
-            setPreferences({ ...preferences, PreferredTools: value })
           }
         />
       </div>
