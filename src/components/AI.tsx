@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Lottie from "lottie-react";
+import animationData from "../assets/Animations/AI-Animation.json";
 
 interface InputProps {
   label: string;
@@ -156,11 +158,9 @@ const AI: React.FC = () => {
       </div>
 
       <div className="flex-1 text-center">
-        <img
-          src="src/assets/Website-Creator.png"
-          alt="Centerpiece"
-          className="mx-auto mb-4"
-        />
+        <div className="w-full h-full max-xl:w-80 max-xl:h-80 max-lg:mt-24">
+          <Lottie animationData={animationData} />
+        </div>
         <textarea
           value={generatedIdeas}
           onChange={(e) => setGeneratedIdeas(e.target.value)}
