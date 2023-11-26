@@ -31,14 +31,6 @@ const SignUp = () => {
     setFormStep((currentStep) => currentStep + 1);
   };
 
-  //   const handlePolicyClick = () => {
-  //     setShowPolicy(!showPolicy);
-  //   };
-
-  //   const closePolicy = () => {
-  //     setShowPolicy(false);
-  //   };
-
   const renderButton = () => {
     if (formStep > 3) {
       return undefined;
@@ -276,9 +268,7 @@ const SignUp = () => {
                 <div
                   className="absolute inset-0 bg-black bg-opacity-50"
                   onClick={closePolicy}
-                >
-                  {/* <button onClick={closePolicy}>Return</button> */}
-                </div>
+                ></div>
 
                 {/* The Policy component should be at full opacity when shown */}
                 <div className="z-50 p-4 bg-white rounded-lg shadow-lg opacity-100">
