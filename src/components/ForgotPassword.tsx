@@ -7,7 +7,7 @@ export default function ForgotPassword() {
       <div className="w-2/3 overflow-hidden text-gray-500 bg-gray-100 shadow-xl rounded-3xl">
         <div className="w-full md:flex">
           <div className="hidden w-1/2 px-10 py-10 bg-[#5f7fbf] md:block">
-            {/* SVG or Image here */}
+            <img src="src/assets/Forgot password.png" alt="Forgot Password" />
           </div>
 
           <div className="w-full px-5 py-10 md:w-1/2 md:px-10">
