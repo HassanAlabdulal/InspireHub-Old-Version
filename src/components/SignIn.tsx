@@ -256,7 +256,7 @@ export default function SignIn() {
 
               <div className="mb-20 text-right ">
                 <a
-                  href="/"
+                  href="ForgotPasswordPage"
                   className="inline-block text-[#809bd0] hover:text-[#3e60a3] hover:underline transition-all duration-500"
                 >
                   Forgot password?
@@ -277,7 +277,7 @@ export default function SignIn() {
                   <p className="w-full max-w-xs px-3 mx-auto text-center text-[#121212]">
                     Don't have an account?{" "}
                     <span className="text-[#809bd0] hover:text-[#3e60a3] hover:underline transition-all duration-500">
-                      <a href="/">Sign up</a>
+                      <a href="SignUpPage">Sign up</a>
                     </span>
                   </p>
                 </div>
