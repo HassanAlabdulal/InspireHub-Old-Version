@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 
 export default function EditProfile() {
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>('');
+  const [inputKey, setInputKey] = useState<number | string>(Date.now());
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     const reader = new FileReader();
-    const file = event.target.files?.[0]; 
+    const file = event.target.files?.[0];
 
     if (file) {
       reader.onloadend = () => {
@@ -18,20 +19,35 @@ export default function EditProfile() {
     }
   };
 
+  const handleRemoveImage = () => {
+    setImagePreviewUrl('');
+    setInputKey(Date.now()); // Reset the key to a new value
+  };
+
   return (
     <div className="bg-[#f7f7f7] pt-[65px] flex flex-col items-center min-h-screen font-roboto">
       <div className="w-full max-w-4xl m-auto bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row">
         
         {/* Left Column for Profile Photo */}
         <div className="md:w-1/2 bg-[#f7f7f7] flex flex-col items-center p-8">
-          <div className="w-64 h-64 rounded-full mb-4 overflow-hidden"> 
+          <div className="w-64 h-64 rounded-full mb-4 overflow-hidden relative">
             <img
-              className="w-full h-full object-contain"
-              src={imagePreviewUrl || 'src/assets/photo.png'} 
+              className="w-full h-full object-cover"
+              src={imagePreviewUrl || 'src/assets/photo.png'}
               alt="Profile"
             />
+            {imagePreviewUrl && (
+              <button
+                onClick={handleRemoveImage}
+                className="absolute top-5 right-12 bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center shadow-lg border-2 border-white text-xl cursor-pointer"
+                aria-label="Remove photo"
+              >
+                &times;
+              </button>
+            )}
           </div>
           <input
+            key={inputKey}
             type="file"
             accept="image/*"
             className="hidden"
