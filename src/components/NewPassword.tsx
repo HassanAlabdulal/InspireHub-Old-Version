@@ -61,7 +61,7 @@ const NewPassword: React.FC = () => {
           <div className="hidden w-1/2 bg-[#5f7fbf] md:block">
             <img src="src/assets/Reset password.png" alt="Reset Password" />
           </div>
-          <div className="w-full px-5 py-10 md:w-1/2 md:px-10">
+          <div className="w-full px-5 py-36 md:w-1/2 md:px-10">
             <div className="mb-10 text-center">
               <h1 className="text-4xl font-bold text-[#bfa260] whitespace-nowrap">
                 Set New Password
@@ -69,7 +69,7 @@ const NewPassword: React.FC = () => {
               <p>Please enter your new password</p>
             </div>
             <div className="flex flex-col -mx-3">
-              <div className="w-full px-3 mb-5">
+              <div className="w-full px-3 mt-5">
                 <label className="px-1 text-xs font-semibold">
                   New Password
                 </label>
@@ -80,7 +80,7 @@ const NewPassword: React.FC = () => {
                   value={newPassword}
                   onChange={handleNewPasswordChange}
                 />
-                <div className="mt-2">
+                <div className="w-1/2 mt-2">
                   <PasswordStrengthIndicator strength={passwordStrength} />
                   <p className="mt-1 text-xs text-gray-600">
                     Password strength indicator
@@ -88,7 +88,7 @@ const NewPassword: React.FC = () => {
                 </div>
               </div>
 
-              <div className="w-full px-3 mb-5">
+              <div className="w-full px-3 mt-5 mb-5">
                 <label className="px-1 text-xs font-semibold">
                   Confirm New Password
                 </label>
@@ -103,7 +103,7 @@ const NewPassword: React.FC = () => {
             </div>
 
             <div className="flex flex-col -mx-3">
-              <div className="w-full px-3 mb-5">
+              <div className="w-full px-3 mt-10">
                 <button className="block w-full max-w-xs mx-auto bg-[#5f7fbf] text-white font-roboto font-semibold text-lg rounded-lg px-3 py-3 uppercase shadow-md hover:shadow-xl transition-all duration-700 focus:outline-none hover:bg-[#3e60a3]">
                   Set New Password
                 </button>
