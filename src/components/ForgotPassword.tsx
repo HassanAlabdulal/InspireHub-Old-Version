@@ -10,7 +10,7 @@ export default function ForgotPassword() {
             <img src="src/assets/Forgot password.png" alt="Forgot Password" />
           </div>
 
-          <div className="w-full px-5 py-10 md:w-1/2 md:px-10">
+          <div className="w-full px-5 py-36 md:w-1/2 md:px-10">
             <div className="mb-10 text-center">
               <h1 className="text-4xl font-bold text-[#bfa260] mb-1">
                 Forgot Password
@@ -35,7 +35,7 @@ export default function ForgotPassword() {
               </div>
 
               <div className="flex flex-col -mx-3">
-                <div className="w-full px-3 mb-5">
+                <div className="w-full px-3 mt-10">
                   <a
                     href="NewPasswordPage"
                     className="block w-full max-w-xs px-3 py-3 mx-auto text-center font-semibold text-lg text-white rounded-lg uppercase
