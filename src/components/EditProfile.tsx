@@ -36,15 +36,6 @@ export default function EditProfile() {
               src={imagePreviewUrl || 'src/assets/photo.png'}
               alt="Profile"
             />
-            {imagePreviewUrl && (
-              <button
-                onClick={handleRemoveImage}
-                className="absolute top-5 right-12 bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center shadow-lg border-2 border-white text-xl cursor-pointer"
-                aria-label="Remove photo"
-              >
-                &times;
-              </button>
-            )}
           </div>
           <input
             key={inputKey}
@@ -54,13 +45,28 @@ export default function EditProfile() {
             id="fileInput"
             onChange={handleImageChange}
           />
-          <label
-            htmlFor="fileInput"
-            className="bg-[#5f7fbf] text-white font-bold py-2 px-4 rounded cursor-pointer hover:bg-[#3e60a3] transition-all duration-700"
-          >
-            Upload Photo
-          </label>
+
+          {/* Upload Button */}
+          {!imagePreviewUrl && (
+            <label
+              htmlFor="fileInput"
+              className="bg-[#5f7fbf] text-white font-bold py-2 px-4 rounded cursor-pointer hover:bg-[#3e60a3] transition-all duration-700 min-w-[120px]"
+            >
+              Upload Photo
+            </label>
+          )}
+
+          {/* Delete Button */}
+          {imagePreviewUrl && (
+            <button
+              onClick={handleRemoveImage}
+              className="bg-red-600 text-white font-bold py-2 px-4 rounded cursor-pointer hover:bg-red-700 transition duration-300 min-w-[135px]"
+            >
+              Delete Photo
+            </button>
+          )}
         </div>
+
           {/* Right Column for Form */}
           <div className="md:w-2/3 p-8">
             <div className="flex flex-wrap -mx-3 mb-6">
