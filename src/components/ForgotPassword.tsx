@@ -12,7 +12,7 @@ export default function ForgotPassword() {
 
           <div className="w-full px-5 py-36 md:w-1/2 md:px-10">
             <div className="mb-10 text-center">
-              <h1 className="text-4xl font-bold text-[#bfa260] mb-1">
+              <h1 className="text-4xl font-bold text-[#bfa260] mb-2">
                 Forgot Password
               </h1>
               <p>Enter your email to reset your password</p>
