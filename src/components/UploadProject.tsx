@@ -337,7 +337,7 @@ export default function AddProject() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <FontAwesomeIcon icon={faTimesCircle} />
+                    <FontAwesomeIcon icon={faTimesCircle} size="2xl" />
                   </motion.button>
                 )}
               </motion.div>
