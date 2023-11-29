@@ -1,4 +1,5 @@
 import React from "react";
+import { renderStars } from "../utils/renderStars";
 
 interface TeamMember {
   name: string;
@@ -47,15 +48,36 @@ const projectData: ProjectData = {
 
 const ShowProject: React.FC = () => {
   return (
-    <div className="min-h-screen p-6 mx-auto bg-[#f7f7f7]">
+    <div className="min-h-screen p-6 mx-auto bg-[#f7f7f7] text-[#121212]">
       <div className="mt-32">
         <div className="w-1/4 h-full ">
-          <header className="text-center ">
+          <header className="mb-5 text-center ">
             <h1 className="mb-6 text-4xl font-bold text-[#bfa260]">
               {projectData.title}
             </h1>
-            <hr />
+            <hr className="h-px my-8 bg-gray-200 border-0" />
           </header>
+          <div className="flex items-center justify-center text-xl">
+            Rate: {renderStars(projectData.rate)}
+            <span className="ml-1">{projectData.rate} of 5</span>
+          </div>
+
+          <dl className="max-w-md mt-24 text-gray-900 divide-y divide-gray-200 ">
+            <div className="flex flex-col items-center pb-5">
+              <dt className="mb-1 text-gray-500 md:text-lg ">Category</dt>
+              <dd className="text-lg font-semibold">{projectData.category}</dd>
+            </div>
+            <div className="flex flex-col items-center py-5">
+              <dt className="mb-1 text-gray-500 md:text-lg ">Budget</dt>
+              <dd className="text-lg font-semibold">
+                {projectData.budget} <span>{projectData.currency}</span>
+              </dd>
+            </div>
+            <div className="flex flex-col items-center pt-5">
+              <dt className="mb-1 text-gray-500 md:text-lg ">Date</dt>
+              <dd className="text-lg font-semibold">{projectData.date}</dd>
+            </div>
+          </dl>
 
           {/* <section className="mb-6">
           <div className="flex flex-wrap justify-center gap-4">
