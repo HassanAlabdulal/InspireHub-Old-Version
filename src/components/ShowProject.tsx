@@ -181,17 +181,17 @@ const ShowProject: React.FC = () => {
               <div className="pb-24 h-1/2">
                 <div className="flex flex-row justify-center gap-10">
                   <CardWithImage
-                    image="src/assets/ContactUs.png"
+                    image="src/assets/Description.png"
                     title="Description"
                     description={projectData.description}
                   />
                   <CardWithImage
-                    image="src/assets/ContactUs.png"
+                    image="src/assets/Motivation.png"
                     title="Motivation"
                     description={projectData.motivation}
                   />
                   <CardWithImage
-                    image="src/assets/ContactUs.png"
+                    image="src/assets/Features.png"
                     title="Features"
                     description={projectData.features}
                   />
