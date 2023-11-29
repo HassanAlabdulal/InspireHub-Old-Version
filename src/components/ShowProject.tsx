@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { renderStars } from "../utils/renderStars";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-
+import {
+  faAngleLeft,
+  faAngleRight,
+  faCircle,
+} from "@fortawesome/free-solid-svg-icons";
 interface TeamMember {
   name: string;
   linkedIn: string;
@@ -47,12 +50,43 @@ const projectData: ProjectData = {
   others:
     "This is the first version, we are working to update it as soon as depending on your suggestions...",
 };
+type Slide = {
+  url: string;
+};
+
+const slides: Slide[] = [
+  {
+    url: "src/assets/Reset password.png",
+  },
+  {
+    url: "src/assets/Forgot password.png",
+  },
+  {
+    url: "src/assets/ContactUs.png",
+  },
+];
 
 const ShowProject: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const goToPrevious = (): void => {
+    const isFirstSlide: boolean = currentIndex === 0;
+    const newIndex: number = isFirstSlide
+      ? slides.length - 1
+      : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToNext = (): void => {
+    const isLastSlide: boolean = currentIndex === slides.length - 1;
+    const newIndex: number = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
   return (
     <div className="min-h-screen p-6 mx-auto bg-[#f7f7f7] text-[#121212]">
-      <div className="mt-28">
-        <section className="w-1/4 h-full ">
+      <div className="flex flex-col gap-8 mt-24 md:flex-row">
+        <section className="w-1/4 h-screen pt-5 bg-gray-100 rounded-lg shadow-md ">
           <header className="mb-5 text-center">
             <h1 className="mb-6 text-4xl font-bold text-[#bfa260]">
               {projectData.title}
@@ -92,44 +126,57 @@ const ShowProject: React.FC = () => {
           </dl>
         </section>
 
-        {/* <section className="mb-6">
-          <div className="flex flex-wrap justify-center gap-4">
-            {projectData.images.map((imageSrc, index) => (
-              <img
-                key={index}
-                className="rounded-lg shadow-lg h-96 w-96"
-                src={imageSrc}
-                alt={`Project ${projectData.title}`}
+        <section className="flex items-center justify-center w-3/4 h-full pt-5 bg-gray-100 rounded-lg shadow-md ">
+          <div className="w-2/3 ">
+            <div className="relative w-full h-64 md:h-96">
+              {/* Slider Images */}
+              {slides.map((slide, index) => (
+                <img
+                  key={slide.url}
+                  src={slide.url}
+                  alt={`Slide ${index}`}
+                  className={`w-full h-full object-contain rounded-xl absolute transition-opacity duration-700 ease-in-out ${
+                    index === currentIndex ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
+
+              {/* Slider Controls */}
+              <FontAwesomeIcon
+                icon={faAngleLeft}
+                onClick={goToPrevious}
+                className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] bg-opacity-50 hover:bg-opacity-100 transition-all duration-200 cursor-pointer rounded-xl left-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
               />
-            ))}
+
+              <FontAwesomeIcon
+                icon={faAngleRight}
+                onClick={goToNext}
+                className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] hover:bg-opacity-100 transition-all duration-200 bg-opacity-50 cursor-pointer rounded-xl right-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
+              />
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center mt-4 space-x-2">
+              {slides.map((_, index) => (
+                <span
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`inline-block cursor-pointer rounded-full p-2 ${
+                    index === currentIndex ? "bg-[#5f7fbf]" : "bg-white"
+                  }`}
+                ></span>
+              ))}
+            </div>
+            <hr className="h-px my-8 bg-gray-300 border-0" />
           </div>
+
+          <div className="h-2/3"></div>
         </section>
 
-        <section className="mb-6">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div>
-              <p className="font-semibold">
-                Date: <span className="font-normal">{projectData.date}</span>
-              </p>
-            </div>
-            <div>
-              <p className="font-semibold">
-                Category:{" "}
-                <span className="font-normal">{projectData.category}</span>
-              </p>
-            </div>
-            <div>
-              <p className="font-semibold">
-                Budget:{" "}
-                <span className="font-normal">{`${projectData.budget} ${projectData.currency}`}</span>
-              </p>
-            </div>
-          </div>
-          <p className="mt-4">{projectData.description}</p>
-          <p className="mt-4">
-            <strong>Motivation:</strong> {projectData.motivation}
-          </p>
-        </section>
+        {/* 
+
+        
+            
 
         <section className="mb-6">
           <h2 className="mb-4 text-2xl font-semibold">Team Members</h2>
@@ -142,32 +189,7 @@ const ShowProject: React.FC = () => {
               </div>
             ))}
           </div>
-        </section>
-
-        <section className="mb-6">
-          <h2 className="mb-4 text-2xl font-semibold">Features</h2>
-          <p>{projectData.features}</p>
-        </section>
-
-        <section className="mb-6">
-          <h2 className="mb-4 text-2xl font-semibold">Resources</h2>
-          <a
-            href={projectData.resources}
-            className="text-blue-600 hover:text-blue-800"
-          >
-            {projectData.resources}
-          </a>
-        </section>
-
-        <section className="mb-6">
-          <h2 className="mb-4 text-2xl font-semibold">Tools Used</h2>
-          <p>{projectData.tools}</p>
-        </section>
-
-        <section className="mb-6">
-          <h2 className="mb-4 text-2xl font-semibold">Other Information</h2>
-          <p>{projectData.others}</p>
-        </section> */}
+        </section>*/}
       </div>
     </div>
   );
