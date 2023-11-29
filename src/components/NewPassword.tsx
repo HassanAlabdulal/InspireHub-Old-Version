@@ -18,21 +18,27 @@ const PasswordStrengthIndicator: React.FC<PasswordStrengthIndicatorProps> = ({
   return (
     <div className="w-full h-2 bg-gray-300 rounded-full">
       <div
-        className={getColor(strength) + " h-2 rounded-full"}
+        className={`${getColor(strength)} h-2 rounded-full`}
         style={{ width: getWidth(strength) }}
       ></div>
     </div>
   );
 };
 
+// Placeholder icons. Replace these with actual icon components from your icon library.
+const ShowIcon = () => <span>👁️</span>;
+const HideIcon = () => <span>🚫</span>;
+
 const NewPassword: React.FC = () => {
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [passwordStrength, setPasswordStrength] = useState<number>(0);
+  const [showNewPassword, setShowNewPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
 
   const checkPasswordStrength = (password: string): number => {
     let strength = 0;
-    if (password.length > 5) strength += 1;
+    if (password.length >= 8) strength += 1;
     if (password.match(/(?=.*[0-9])/)) strength += 1;
     if (password.match(/(?=.*[!@#$%^&*])/)) strength += 1;
     if (password.match(/(?=.*[a-z])/)) strength += 1;
@@ -59,11 +65,12 @@ const NewPassword: React.FC = () => {
       <div className="w-2/3 overflow-hidden text-gray-500 bg-gray-100 shadow-xl rounded-3xl">
         <div className="w-full md:flex">
           <div className="hidden w-1/2 bg-[#5f7fbf] md:block">
+            {/* Image src should be updated to the correct path */}
             <img src="src/assets/Reset password.png" alt="Reset Password" />
           </div>
           <div className="w-full px-5 py-36 md:w-1/2 md:px-10">
             <div className="mb-10 text-center">
-              <h1 className="text-4xl mb-2 font-bold text-[#bfa260] whitespace-nowrap">
+              <h1 className="text-4xl mb-2 font-bold text-[#bfa260]">
                 Set New Password
               </h1>
               <p>Please enter your new password</p>
@@ -73,13 +80,22 @@ const NewPassword: React.FC = () => {
                 <label className="px-1 text-xs font-semibold">
                   New Password
                 </label>
-                <input
-                  type="password"
-                  className="w-full py-2 pl-3 pr-3 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
-                  placeholder="New Password"
-                  value={newPassword}
-                  onChange={handleNewPasswordChange}
-                />
+                <div className="relative">
+                  <input
+                    type={showNewPassword ? "text" : "password"}
+                    className="w-full py-2 pl-3 pr-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="New Password"
+                    value={newPassword}
+                    onChange={handleNewPasswordChange}
+                  />
+                  <button
+                    onClick={() => setShowNewPassword(!showNewPassword)}
+                    className="absolute inset-y-0 right-0 px-3 flex items-center text-sm leading-5"
+                    type="button"
+                  >
+                    {showNewPassword ? <HideIcon /> : <ShowIcon />}
+                  </button>
+                </div>
                 <div className="w-1/2 mt-2">
                   <PasswordStrengthIndicator strength={passwordStrength} />
                   <p className="mt-1 text-xs text-gray-600">
@@ -92,13 +108,22 @@ const NewPassword: React.FC = () => {
                 <label className="px-1 text-xs font-semibold">
                   Confirm New Password
                 </label>
-                <input
-                  type="password"
-                  className="w-full py-2 pl-3 pr-3 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
-                  placeholder="Confirm New Password"
-                  value={confirmPassword}
-                  onChange={handleConfirmPasswordChange}
-                />
+                <div className="relative">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    className="w-full py-2 pl-3 pr-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    placeholder="Confirm New Password"
+                    value={confirmPassword}
+                    onChange={handleConfirmPasswordChange}
+                  />
+                  <button
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute inset-y-0 right-0 px-3 flex items-center text-sm leading-5"
+                    type="button"
+                  >
+                    {showConfirmPassword ? <HideIcon /> : <ShowIcon />}
+                  </button>
+                </div>
               </div>
             </div>
 
