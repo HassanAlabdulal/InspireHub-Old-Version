@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { renderStars } from "../utils/renderStars";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleLeft,
-  faAngleRight,
-  faCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 interface TeamMember {
   name: string;
   linkedIn: string;
@@ -76,6 +72,17 @@ const ShowProject: React.FC = () => {
       : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
+
+  useEffect(() => {
+    // Set up a timer
+    const timer = setInterval(() => {
+      // Proceed to next slide
+      goToNext();
+    }, 2500); // Change the slide every 2 seconds
+
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(timer);
+  }, [currentIndex]); // Runs every time currentIndex changes
 
   const goToNext = (): void => {
     const isLastSlide: boolean = currentIndex === slides.length - 1;
