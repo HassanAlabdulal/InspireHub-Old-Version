@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { renderStars } from "../utils/renderStars";
+import { CardWithIcon } from "../components/UI/Card.tsx";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 interface TeamMember {
@@ -89,7 +91,7 @@ const ShowProject: React.FC = () => {
 
   return (
     <div className="min-h-screen p-6 mx-auto bg-[#f7f7f7] text-[#121212]">
-      <div className="flex flex-col gap-8 mt-24 md:flex-row">
+      <div className="flex flex-col gap-8 mt-12 md:flex-row">
         <section className="w-1/4 h-screen pt-5 bg-gray-100 rounded-lg shadow-md ">
           <header className="mb-5 text-center">
             <h1 className="mb-6 text-4xl font-bold text-[#bfa260]">
@@ -132,49 +134,86 @@ const ShowProject: React.FC = () => {
 
         <section className="flex items-center justify-center w-3/4 h-full pt-5 bg-gray-100 rounded-lg shadow-md ">
           <div className="w-2/3 ">
-            <div className="relative w-full h-64 md:h-96">
-              {/* Slider Images */}
-              {slides.map((slide, index) => (
-                <img
-                  key={slide.url}
-                  src={slide.url}
-                  alt={`Slide ${index}`}
-                  className={`w-full h-full object-contain rounded-xl absolute transition-opacity duration-700 ease-in-out ${
-                    index === currentIndex ? "opacity-100" : "opacity-0"
-                  }`}
+            <div>
+              <div className="relative w-full h-64 md:h-96">
+                {/* Slider Images */}
+                {slides.map((slide, index) => (
+                  <img
+                    key={slide.url}
+                    src={slide.url}
+                    alt={`Slide ${index}`}
+                    className={`w-full h-full object-contain rounded-xl absolute transition-opacity duration-700 ease-in-out ${
+                      index === currentIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                ))}
+
+                {/* Slider Controls */}
+                <FontAwesomeIcon
+                  icon={faAngleLeft}
+                  onClick={goToPrevious}
+                  className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] bg-opacity-50 hover:bg-opacity-100 transition-all duration-200 cursor-pointer rounded-xl left-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
                 />
-              ))}
 
-              {/* Slider Controls */}
-              <FontAwesomeIcon
-                icon={faAngleLeft}
-                onClick={goToPrevious}
-                className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] bg-opacity-50 hover:bg-opacity-100 transition-all duration-200 cursor-pointer rounded-xl left-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
-              />
+                <FontAwesomeIcon
+                  icon={faAngleRight}
+                  onClick={goToNext}
+                  className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] hover:bg-opacity-100 transition-all duration-200 bg-opacity-50 cursor-pointer rounded-xl right-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
+                />
+              </div>
 
-              <FontAwesomeIcon
-                icon={faAngleRight}
-                onClick={goToNext}
-                className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] hover:bg-opacity-100 transition-all duration-200 bg-opacity-50 cursor-pointer rounded-xl right-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
-              />
+              {/* Dots Indicator */}
+              <div className="flex justify-center mt-4 space-x-2">
+                {slides.map((_, index) => (
+                  <span
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`inline-block cursor-pointer rounded-full p-2 ${
+                      index === currentIndex ? "bg-[#5f7fbf]" : "bg-white"
+                    }`}
+                  ></span>
+                ))}
+              </div>
+              <hr className="h-px my-8 bg-gray-300 border-0" />
             </div>
 
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-4 space-x-2">
-              {slides.map((_, index) => (
-                <span
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`inline-block cursor-pointer rounded-full p-2 ${
-                    index === currentIndex ? "bg-[#5f7fbf]" : "bg-white"
-                  }`}
-                ></span>
-              ))}
+            <div className="flex flex-col justify-center h-2/3">
+              <div className="pb-24 h-1/2">
+                <div className="flex flex-row justify-center gap-10">
+                  <CardWithIcon
+                    icon={
+                      <FontAwesomeIcon
+                        icon={faAngleRight}
+                        className="w-12 h-12 mb-4 text-gray-900"
+                      />
+                    }
+                    title="Coffee Break"
+                    description="Take a break and enjoy a cup of coffee!"
+                  />
+                  <CardWithIcon
+                    icon={
+                      <FontAwesomeIcon
+                        icon={faAngleRight}
+                        className="w-12 h-12 mb-4 text-gray-900"
+                      />
+                    }
+                    title="Coffee Break"
+                    description="Take a break and enjoy a cup of coffee!"
+                  />
+                  <CardWithIcon
+                    icon={
+                      <FontAwesomeIcon
+                        icon={faAngleRight}
+                        className="w-12 h-12 mb-4 text-gray-900"
+                      />
+                    }
+                    title="Coffee Break"
+                    description="Take a break and enjoy a cup of coffee!"
+                  />
+                </div>
+              </div>
             </div>
-            <hr className="h-px my-8 bg-gray-300 border-0" />
           </div>
-
-          <div className="h-2/3"></div>
         </section>
 
         {/* 
