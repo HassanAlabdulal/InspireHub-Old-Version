@@ -31,7 +31,7 @@ const projectData: ProjectData = {
   title: "InspireHub",
   images: ["src/assets/ContactUs.png"],
   date: "2023-01-01",
-  rate: 5,
+  rate: 3.5,
   category: "Technology",
   budget: "5000",
   currency: "SAR",
