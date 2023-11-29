@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { renderStars } from "../utils/renderStars";
-import { CardWithIcon } from "../components/UI/Card.tsx";
+import CardWithImage from "../components/UI/Card.tsx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
@@ -180,33 +180,18 @@ const ShowProject: React.FC = () => {
             <div className="flex flex-col justify-center h-2/3">
               <div className="pb-24 h-1/2">
                 <div className="flex flex-row justify-center gap-10">
-                  <CardWithIcon
-                    icon={
-                      <FontAwesomeIcon
-                        icon={faAngleRight}
-                        className="w-12 h-12 mb-4 text-gray-900"
-                      />
-                    }
+                  <CardWithImage
+                    image="src/assets/ContactUs.png"
                     title="Description"
                     description={projectData.description}
                   />
-                  <CardWithIcon
-                    icon={
-                      <FontAwesomeIcon
-                        icon={faAngleRight}
-                        className="w-12 h-12 mb-4 text-gray-900"
-                      />
-                    }
+                  <CardWithImage
+                    image="src/assets/ContactUs.png"
                     title="Motivation"
                     description={projectData.motivation}
                   />
-                  <CardWithIcon
-                    icon={
-                      <FontAwesomeIcon
-                        icon={faAngleRight}
-                        className="w-12 h-12 mb-4 text-gray-900"
-                      />
-                    }
+                  <CardWithImage
+                    image="src/assets/ContactUs.png"
                     title="Features"
                     description={projectData.features}
                   />

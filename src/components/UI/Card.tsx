@@ -1,18 +1,21 @@
-import React from "react";
 import { Card, CardBody, Typography } from "@material-tailwind/react";
 
 // Define the type for the component's props
 interface cardProps {
-  icon: React.ReactNode;
+  image: string;
   title: string;
   description: string;
 }
 
-export function CardWithIcon({ icon, title, description }: cardProps) {
+export default function CardWithImage({
+  image,
+  title,
+  description,
+}: cardProps) {
   return (
     <Card className="mt-6 w-96 bg-[#f7f7f7] hover:shadow-lg hover:scale-105 transition-all duration-500">
       <CardBody className="text-center">
-        {icon}
+        <img src={image} alt={title} className="w-12 h-12 mb-4 text-gray-900" />
         <Typography variant="h5" color="blue-gray" className="mb-2">
           {title}
         </Typography>
