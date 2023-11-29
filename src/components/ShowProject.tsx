@@ -74,15 +74,12 @@ const ShowProject: React.FC = () => {
   };
 
   useEffect(() => {
-    // Set up a timer
     const timer = setInterval(() => {
-      // Proceed to next slide
       goToNext();
-    }, 2500); // Change the slide every 2 seconds
+    }, 2500);
 
-    // Clear the interval when the component is unmounted
     return () => clearInterval(timer);
-  }, [currentIndex]); // Runs every time currentIndex changes
+  }, [currentIndex]);
 
   const goToNext = (): void => {
     const isLastSlide: boolean = currentIndex === slides.length - 1;
