@@ -187,8 +187,8 @@ const ShowProject: React.FC = () => {
                         className="w-12 h-12 mb-4 text-gray-900"
                       />
                     }
-                    title="Coffee Break"
-                    description="Take a break and enjoy a cup of coffee!"
+                    title="Description"
+                    description={projectData.description}
                   />
                   <CardWithIcon
                     icon={
@@ -197,8 +197,8 @@ const ShowProject: React.FC = () => {
                         className="w-12 h-12 mb-4 text-gray-900"
                       />
                     }
-                    title="Coffee Break"
-                    description="Take a break and enjoy a cup of coffee!"
+                    title="Motivation"
+                    description={projectData.motivation}
                   />
                   <CardWithIcon
                     icon={
@@ -207,8 +207,8 @@ const ShowProject: React.FC = () => {
                         className="w-12 h-12 mb-4 text-gray-900"
                       />
                     }
-                    title="Coffee Break"
-                    description="Take a break and enjoy a cup of coffee!"
+                    title="Features"
+                    description={projectData.features}
                   />
                 </div>
               </div>

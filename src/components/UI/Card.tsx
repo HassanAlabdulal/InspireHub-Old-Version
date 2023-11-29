@@ -10,9 +10,8 @@ interface cardProps {
 
 export function CardWithIcon({ icon, title, description }: cardProps) {
   return (
-    <Card className="mt-6 w-96">
+    <Card className="mt-6 w-96 bg-[#f7f7f7] hover:shadow-lg hover:scale-105 transition-all duration-500">
       <CardBody className="text-center">
-        {/* Here we render the icon that is passed as a prop */}
         {icon}
         <Typography variant="h5" color="blue-gray" className="mb-2">
           {title}
