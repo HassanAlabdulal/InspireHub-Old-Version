@@ -1,5 +1,7 @@
 import React from "react";
 import { renderStars } from "../utils/renderStars";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
 interface TeamMember {
   name: string;
@@ -49,37 +51,48 @@ const projectData: ProjectData = {
 const ShowProject: React.FC = () => {
   return (
     <div className="min-h-screen p-6 mx-auto bg-[#f7f7f7] text-[#121212]">
-      <div className="mt-32">
-        <div className="w-1/4 h-full ">
-          <header className="mb-5 text-center ">
+      <div className="mt-28">
+        <section className="w-1/4 h-full ">
+          <header className="mb-5 text-center">
             <h1 className="mb-6 text-4xl font-bold text-[#bfa260]">
               {projectData.title}
             </h1>
-            <hr className="h-px my-8 bg-gray-200 border-0" />
+            <hr className="h-px my-8 bg-gray-300 border-0" />
           </header>
-          <div className="flex items-center justify-center text-xl">
-            Rate: {renderStars(projectData.rate)}
-            <span className="ml-1">{projectData.rate} of 5</span>
+
+          <div className="flex items-center justify-center mb-32 text-xl">
+            <span className="font-medium text-gray-700">Rate:</span>
+            <span className="flex items-center ml-2">
+              {renderStars(projectData.rate)}
+            </span>
+            <span className="ml-1 text-gray-600">{projectData.rate} of 5</span>
           </div>
 
-          <dl className="max-w-md mt-24 text-gray-900 divide-y divide-gray-200 ">
-            <div className="flex flex-col items-center pb-5">
-              <dt className="mb-1 text-gray-500 md:text-lg ">Category</dt>
+          <dl className="max-w-md mx-auto mt-10 text-gray-900 divide-y divide-gray-300">
+            <div className="flex flex-col items-center pb-12">
+              <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
+                Category
+              </dt>
               <dd className="text-lg font-semibold">{projectData.category}</dd>
             </div>
-            <div className="flex flex-col items-center py-5">
-              <dt className="mb-1 text-gray-500 md:text-lg ">Budget</dt>
+            <div className="flex flex-col items-center py-12">
+              <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
+                Budget
+              </dt>
               <dd className="text-lg font-semibold">
                 {projectData.budget} <span>{projectData.currency}</span>
               </dd>
             </div>
-            <div className="flex flex-col items-center pt-5">
-              <dt className="mb-1 text-gray-500 md:text-lg ">Date</dt>
+            <div className="flex flex-col items-center pt-12">
+              <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
+                Date
+              </dt>
               <dd className="text-lg font-semibold">{projectData.date}</dd>
             </div>
           </dl>
+        </section>
 
-          {/* <section className="mb-6">
+        {/* <section className="mb-6">
           <div className="flex flex-wrap justify-center gap-4">
             {projectData.images.map((imageSrc, index) => (
               <img
@@ -155,7 +168,6 @@ const ShowProject: React.FC = () => {
           <h2 className="mb-4 text-2xl font-semibold">Other Information</h2>
           <p>{projectData.others}</p>
         </section> */}
-        </div>
       </div>
     </div>
   );
