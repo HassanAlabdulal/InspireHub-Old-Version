@@ -34,7 +34,7 @@ const Icon: React.FC<IconProps> = ({ id, open }) => {
 interface AccordionItemProps {
   id: number;
   header: string;
-  icon?: JSX.Element; // Make icon optional to ensure compatibility with existing usage without an icon
+  icon?: JSX.Element;
   children: React.ReactNode;
 }
 
@@ -55,9 +55,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
         className="flex items-center text-[#bfa260] text-2xl"
       >
         <div className="flex items-center">
-          {icon} {/* Render the icon here */}
+          {icon}
           <span className="ml-1">{header}</span>{" "}
-          {/* Adjust the margin-left as needed */}
         </div>
       </AccordionHeader>
       <AccordionBody className="text-lg text-[#121212]">

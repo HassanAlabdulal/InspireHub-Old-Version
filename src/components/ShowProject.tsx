@@ -256,7 +256,7 @@ const ShowProject: React.FC = () => {
                       icon={faScrewdriverWrench}
                       className="text-[#121212] mr-2"
                     />
-                  } // Pass the icon here
+                  }
                 >
                   <h1>{projectData.tools}</h1>
                 </AccordionItem>
