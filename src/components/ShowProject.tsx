@@ -189,7 +189,7 @@ const ShowProject: React.FC = () => {
           </div>
         </section>
 
-        <section className="flex items-center justify-center w-3/4 h-full pt-5 bg-gray-100 rounded-lg shadow-md ">
+        <section className="flex items-center justify-center w-3/4 min-h-screen pt-5 bg-gray-100 rounded-lg shadow-md ">
           <div className="w-2/3 ">
             <div>
               <div className="relative w-full h-64 md:h-96">
