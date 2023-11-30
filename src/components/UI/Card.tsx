@@ -1,6 +1,5 @@
 import { Card, CardBody, Typography } from "@material-tailwind/react";
 
-// Define the type for the component's props
 interface cardProps {
   image: string;
   title: string;
