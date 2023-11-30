@@ -7,6 +7,7 @@ import {
   faAngleLeft,
   faAngleRight,
   faScrewdriverWrench,
+  faPeopleGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
@@ -144,7 +145,16 @@ const ShowProject: React.FC = () => {
           </dl>
 
           <div className="flex flex-col items-center justify-center px-20 mt-36 ">
-            <AccordionItem id={1} header="Team Members">
+            <AccordionItem
+              id={1}
+              header="Team Members"
+              icon={
+                <FontAwesomeIcon
+                  icon={faPeopleGroup}
+                  className="text-[#121212] mr-2"
+                />
+              }
+            >
               <div className="space-y-4">
                 {" "}
                 {projectData.teamMembers.map((member, index) => (
