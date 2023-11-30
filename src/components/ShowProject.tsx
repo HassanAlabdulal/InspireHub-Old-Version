@@ -10,13 +10,9 @@ import {
   faPeopleGroup,
   faBook,
   faTags,
-  faBoxOpen,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faXTwitter,
-  faLinkedin,
-  faSourcetree,
-} from "@fortawesome/free-brands-svg-icons";
+import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 // TeamMember interface
 interface TeamMember {
   name: string;
@@ -120,7 +116,6 @@ const ShowProject: React.FC = () => {
           </header>
 
           <div className="flex flex-col items-center justify-center gap-2 mb-32 text-xl">
-            {/* <span className="font-medium text-gray-700">Rate:</span> */}
             <span className="flex items-center ml-2">
               {renderStars(projectData.rate)}
             </span>
