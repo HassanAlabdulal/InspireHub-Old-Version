@@ -1,8 +1,89 @@
 ---
-import MainLayout from "../layouts/main-layout.astro"
-import ContactUs from "../components/ContactUs.tsx"
+import MainLayout from "../layouts/main-layout.astro";
 ---
 
 <MainLayout title="Contact US">
-  <ContactUs client:load/>
+  <div class="bg-[#f7f7f7] min-h-screen flex flex-col font-roboto">
+    <div class="flex items-center justify-center flex-grow p-4">
+      <div
+        class="w-full max-w-6xl m-auto overflow-hidden bg-white rounded-lg shadow-lg"
+      >
+        <div class="flex flex-col-reverse md:flex-row">
+          <div class="p-8 md:pb-5 md:w-1/2">
+            <h2
+              class="text-[#bfa260] font-roboto font-bold text-3xl mb-6 text-center"
+            >
+              Get In Touch
+            </h2>
+            <p class="text-center font-roboto">
+              For further questions, including partnership opportunities, please
+              email us at{" "}
+              <a
+                href="mailto:support@inspirehub.com"
+                class="text-[#5f7fbf] font-bold hover:underline"
+              >
+                support@inspirehub.com
+              </a>{" "}
+               or contact us using our contact form.
+            </p>
+            {/* Form fields */}
+            <div class="mt-3 mb-6 -mx-3">
+              <div class="mb-6">
+                <input
+                  required
+                  type="text"
+                  placeholder="Name"
+                  class="w-full px-4 py-3 leading-tight transition-all duration-300 border rounded focus:px-5 focus:outline-0"
+                />
+              </div>
+              <div class="mb-6">
+                <input
+                  required
+                  type="email"
+                  placeholder="Email"
+                  class="w-full px-4 py-3 leading-tight transition-all duration-300 border rounded focus:px-5 focus:outline-0"
+                />
+              </div>
+              <div class="mb-6">
+                <textarea
+                  placeholder="We are here for you! How can we help?"
+                  class="w-full px-4 py-3 leading-tight transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0 focus:"
+                ></textarea>
+              </div>
+              <div class="flex items-center justify-between">
+                <label class="flex items-center">
+                  <input type="checkbox" class="form-checkbox" />
+                  <span class="ml-2 text-sm text-gray-700">
+                    You agree to our{" "}
+                    <a href="PolicyPage" class="text-[#bfa260] hover:underline">
+                      Privacy Policy
+                    </a>
+                     .
+                  </span>
+                </label>
+              </div>
+              {/* Submit button */}
+              <div class="flex justify-center mt-6">
+                <button
+                  class="rounded-lg bg-[#5f7fbf] px-5 py-2.5 text-base font-bold text-white
+                   transition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl"
+                  type="submit"
+                >
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center justify-center p-8 md:w-1/2">
+            <img
+              class="max-w-full max-h-full"
+              src="src/assets/ContactUs.png"
+              alt="Contact us"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-4">{/* Footer content here */}</div>
+  </div>
 </MainLayout>
