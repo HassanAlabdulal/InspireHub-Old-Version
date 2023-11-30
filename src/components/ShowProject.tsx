@@ -43,8 +43,12 @@ const projectData: ProjectData = {
   motivation:
     "The primary motivation behind InspireHub is to address a significant challenge...",
   teamMembers: [
-    { name: "Abdullah", linkedIn: "aamhaamm", twitter: "aamhaamm" },
-    { name: "Hassan", linkedIn: "HassanAlabdulal", twitter: "HassanAlabdulal" },
+    { name: "Abdullah Almatawah", linkedIn: "aamhaamm", twitter: "aamhaamm" },
+    {
+      name: "Hassan Alabdulal",
+      linkedIn: "HassanAlabdulal",
+      twitter: "HassanAlabdulal",
+    },
   ],
   features: "Easy to use, Suitable for everyone ...",
   resources: "https://github.com/InspireHub",
@@ -182,7 +186,7 @@ const ShowProject: React.FC = () => {
             </div>
 
             <div className="flex flex-col justify-center h-2/3">
-              <div className="pb-24 h-1/2">
+              <div className="pb-12 h-1/2">
                 <div className="flex flex-row justify-center gap-10">
                   <CardWithImage
                     image="src/assets/Description.png"
@@ -202,7 +206,9 @@ const ShowProject: React.FC = () => {
                 </div>
               </div>
 
-              <div className="">
+              <hr className="h-px my-8 bg-gray-300 border-0" />
+
+              <div className="flex flex-col">
                 {projectData.teamMembers.map((member, index) => (
                   <AccordionItem key={index} id={index} header={member.name}>
                     <TeamMemberDetails
