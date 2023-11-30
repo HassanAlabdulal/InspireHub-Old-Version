@@ -4,7 +4,7 @@ import CardWithImage from "../components/UI/Card.tsx";
 import AccordionItem from "../components/UI/Accordion.tsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { TeamMemberDetails } from "../components/UI/TeamMemberDetails.tsx"; // Import the TeamMemberDetails component
+import { TeamMemberDetails } from "../utils/TeamMemberDetails.tsx"; // Import the TeamMemberDetails component
 
 // Updated TeamMember interface
 interface TeamMember {

@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export interface TeamMember {
   name: string;
@@ -29,7 +29,7 @@ export const TeamMemberDetails: React.FC<{ member: TeamMember }> = ({
           rel="noopener noreferrer"
           className="mx-2 text-blue-400 hover:text-blue-600"
         >
-          <FontAwesomeIcon icon={faTwitter} size="lg" />
+          <FontAwesomeIcon icon={faXTwitter} size="lg" />
         </a>
       </div>
     </div>
