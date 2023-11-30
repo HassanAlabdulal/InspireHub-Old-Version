@@ -59,7 +59,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
           <span className="ml-1">{header}</span>{" "}
         </div>
       </AccordionHeader>
-      <AccordionBody className="text-lg text-[#121212]">
+      <AccordionBody className="text-md text-[#121212]">
         {children}
       </AccordionBody>
     </Accordion>
