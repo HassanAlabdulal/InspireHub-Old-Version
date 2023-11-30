@@ -6,8 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
-// import { TeamMemberDetails } from "../utils/TeamMemberDetails.tsx";
-
 // TeamMember interface
 interface TeamMember {
   name: string;
@@ -214,7 +212,6 @@ const ShowProject: React.FC = () => {
                 <AccordionItem id={1} header="Team Members">
                   <div className="space-y-4">
                     {" "}
-                    {/* Add some vertical spacing between items */}
                     {projectData.teamMembers.map((member, index) => (
                       <div
                         key={index}
