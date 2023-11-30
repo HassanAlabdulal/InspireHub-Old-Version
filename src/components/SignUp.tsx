@@ -12,11 +12,21 @@ import {
   faBook,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import { createSupabaseBrowser } from "../utils/supabase.ts";
 
 const SignUp = () => {
   const [formStep, setFormStep] = useState(0);
   const [showPolicy, setShowPolicy] = useState(false);
   const [showReturnButton, setShowReturnButton] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignUp = async () => {
+    const supabase = createSupabaseBrowser();
+    const { data, error } = await supabase.auth.signUp({ email, password });
+    if (error) return console.error(error);
+    if (data) return console.log(data);
+  };
 
   const handlePolicyClick = () => {
     setShowPolicy(true);
@@ -33,6 +43,7 @@ const SignUp = () => {
 
   const renderButton = () => {
     if (formStep > 3) {
+      handleSignUp();
       return undefined;
     } else if (formStep === 3) {
       return (
@@ -158,6 +169,8 @@ const SignUp = () => {
                   </div>
                   <input
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="inspirehub@example.com"
                   />
@@ -173,6 +186,8 @@ const SignUp = () => {
                   </div>
                   <input
                     type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="********"
                   />
