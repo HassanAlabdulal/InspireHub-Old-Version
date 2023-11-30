@@ -138,6 +138,40 @@ const ShowProject: React.FC = () => {
               <dd className="text-lg font-semibold">{projectData.date}</dd>
             </div>
           </dl>
+
+          <div className="flex flex-col items-center justify-center px-20 mt-36 ">
+            <AccordionItem id={1} header="Team Members">
+              <div className="space-y-4">
+                {" "}
+                {projectData.teamMembers.map((member, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between"
+                  >
+                    <span>{member.name}</span>
+                    <div>
+                      <a
+                        href={`https://twitter.com/${member.twitter}`}
+                        target="_blank"
+                        className="mx-2 text-xl text-gray-800 hover:text-[#121212] transition-all duration-300"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon icon={faXTwitter} size="lg" />
+                      </a>
+                      <a
+                        href={`https://www.linkedin.com/in/${member.linkedIn}`}
+                        target="_blank"
+                        className="mx-2 text-xl text-[#5f7fbf] hover:text-[#3a60a3] transition-all duration-300"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon icon={faLinkedin} size="lg" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AccordionItem>
+          </div>
         </section>
 
         <section className="flex items-center justify-center w-3/4 h-full pt-5 bg-gray-100 rounded-lg shadow-md ">
@@ -207,40 +241,6 @@ const ShowProject: React.FC = () => {
               </div>
 
               <hr className="h-px my-8 bg-gray-300 border-0" />
-
-              <div className="flex flex-col">
-                <AccordionItem id={1} header="Team Members">
-                  <div className="space-y-4">
-                    {" "}
-                    {projectData.teamMembers.map((member, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center justify-between"
-                      >
-                        <span>{member.name}</span>
-                        <div>
-                          <a
-                            href={`https://twitter.com/${member.twitter}`}
-                            target="_blank"
-                            className="mx-2 text-xl text-gray-800 hover:text-[#121212] transition-all duration-300"
-                            rel="noopener noreferrer"
-                          >
-                            <FontAwesomeIcon icon={faXTwitter} size="lg" />
-                          </a>
-                          <a
-                            href={`https://www.linkedin.com/in/${member.linkedIn}`}
-                            target="_blank"
-                            className="mx-2 text-xl text-[#5f7fbf] hover:text-[#3a60a3] transition-all duration-300"
-                            rel="noopener noreferrer"
-                          >
-                            <FontAwesomeIcon icon={faLinkedin} size="lg" />
-                          </a>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </AccordionItem>
-              </div>
             </div>
           </div>
         </section>
