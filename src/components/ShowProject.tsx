@@ -4,12 +4,12 @@ import CardWithImage from "../components/UI/Card.tsx";
 import AccordionItem from "../components/UI/Accordion.tsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { TeamMemberDetails } from "../utils/TeamMemberDetails.tsx"; // Import the TeamMemberDetails component
+import { TeamMemberDetails } from "../utils/TeamMemberDetails.tsx";
 
-// Updated TeamMember interface
+// TeamMember interface
 interface TeamMember {
   name: string;
-  linkedIn: string; // Keep the original property names from projectData
+  linkedIn: string;
   twitter: string;
 }
 
@@ -208,8 +208,8 @@ const ShowProject: React.FC = () => {
                     <TeamMemberDetails
                       member={{
                         name: member.name,
-                        linkedInUsername: member.linkedIn, // Assuming linkedIn contains the username
-                        twitterUsername: member.twitter, // Assuming twitter contains the username
+                        linkedInUsername: member.linkedIn,
+                        twitterUsername: member.twitter,
                       }}
                     />
                   </AccordionItem>
@@ -218,24 +218,6 @@ const ShowProject: React.FC = () => {
             </div>
           </div>
         </section>
-
-        {/* 
-
-        
-            
-
-        <section className="mb-6">
-          <h2 className="mb-4 text-2xl font-semibold">Team Members</h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {projectData.teamMembers.map((member, index) => (
-              <div key={index} className="p-4 bg-white rounded-lg shadow-lg">
-                <p className="font-semibold">{member.name}</p>
-                <p>LinkedIn: {member.linkedIn}</p>
-                <p>Twitter: {member.twitter}</p>
-              </div>
-            ))}
-          </div>
-        </section>*/}
       </div>
     </div>
   );
