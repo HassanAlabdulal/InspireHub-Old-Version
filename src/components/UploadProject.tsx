@@ -17,6 +17,12 @@ interface TeamMember {
   twitter: string;
 }
 
+const teamMemberVariants = {
+  hidden: { opacity: 0, height: 0, overflow: "hidden" },
+  visible: { opacity: 1, height: "auto", transition: { duration: 0.5 } },
+  exit: { opacity: 0, transition: { duration: 0.3 } },
+};
+
 export default function AddProject() {
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([
     { name: "", linkedIn: "", twitter: "" },
@@ -269,61 +275,74 @@ export default function AddProject() {
 
           <label className="block text-[#bfa260] mb-2">Team member:</label>
 
-          {teamMembers.map((member, index) => (
-            <div key={index} className="flex flex-wrap items-center mb-2 ">
-              <input
-                type="text"
-                placeholder="Name"
-                className="flex-1 px-4 py-2 border rounded outline-0"
-                value={member.name}
-                onChange={(e) => {
-                  const newTeamMembers = [...teamMembers];
-                  newTeamMembers[index].name = e.target.value;
-                  setTeamMembers(newTeamMembers);
-                }}
-              />
-              <input
-                type="text"
-                placeholder="LinkedIn"
-                className="flex-1 px-4 py-2 border rounded outline-0"
-                value={member.linkedIn}
-                onChange={(e) => {
-                  const newTeamMembers = [...teamMembers];
-                  newTeamMembers[index].linkedIn = e.target.value;
-                  setTeamMembers(newTeamMembers);
-                }}
-              />
-              <input
-                type="text"
-                placeholder="Twitter"
-                className="flex-1 px-4 py-2 border rounded outline-0"
-                value={member.twitter}
-                onChange={(e) => {
-                  const newTeamMembers = [...teamMembers];
-                  newTeamMembers[index].twitter = e.target.value;
-                  setTeamMembers(newTeamMembers);
-                }}
-              />
-              {index !== 0 && (
-                <button
-                  type="button"
-                  onClick={() => handleRemoveTeamMember(index)}
-                  className="flex items-center justify-center w-8 h-8 p-2 m-2 text-red-700 rounded-full"
-                >
-                  <FontAwesomeIcon icon={faCircleXmark} size="2xl" />
-                </button>
-              )}
-              {index === 0 && (
-                <button
-                  type="button"
-                  onClick={handleAddTeamMember}
-                  className="flex items-center justify-center w-8 h-8 p-2 m-2 text-white bg-[#5f7fbf] rounded-full"
-                >
-                  <FontAwesomeIcon icon={faPlus} />
-                </button>
-              )}
-            </div>
-          ))}
+          <AnimatePresence>
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={index}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={teamMemberVariants}
+                layout
+                className="flex items-center mb-2"
+              >
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="flex-1 px-4 py-2 border rounded outline-0"
+                  value={member.name}
+                  onChange={(e) => {
+                    const newTeamMembers = [...teamMembers];
+                    newTeamMembers[index].name = e.target.value;
+                    setTeamMembers(newTeamMembers);
+                  }}
+                />
+                <input
+                  type="text"
+                  placeholder="LinkedIn"
+                  className="flex-1 px-4 py-2 border rounded outline-0"
+                  value={member.linkedIn}
+                  onChange={(e) => {
+                    const newTeamMembers = [...teamMembers];
+                    newTeamMembers[index].linkedIn = e.target.value;
+                    setTeamMembers(newTeamMembers);
+                  }}
+                />
+                <input
+                  type="text"
+                  placeholder="Twitter"
+                  className="flex-1 px-4 py-2 border rounded outline-0"
+                  value={member.twitter}
+                  onChange={(e) => {
+                    const newTeamMembers = [...teamMembers];
+                    newTeamMembers[index].twitter = e.target.value;
+                    setTeamMembers(newTeamMembers);
+                  }}
+                />
+                {index === 0 ? (
+                  <motion.button
+                    type="button"
+                    onClick={handleAddTeamMember}
+                    className="flex items-center justify-center w-8 h-8 p-2 m-2 text-white bg-[#5f7fbf] rounded-full"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <FontAwesomeIcon icon={faPlus} />
+                  </motion.button>
+                ) : (
+                  <motion.button
+                    type="button"
+                    onClick={() => handleRemoveTeamMember(index)}
+                    className="flex items-center justify-center w-8 h-8 p-2 m-2 text-red-700 rounded-full"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <FontAwesomeIcon icon={faTimesCircle} size="2xl" />
+                  </motion.button>
+                )}
+              </motion.div>
+            ))}
+          </AnimatePresence>
 
           <div>
             <label className="block text-[#bfa260] mb-2">Features:</label>

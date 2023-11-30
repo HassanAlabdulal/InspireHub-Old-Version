@@ -1,10 +1,9 @@
+import { renderStars } from "../utils/renderStars";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStar as solidStar,
   faStarHalfAlt,
   faArrowRight,
-  faSliders,
-  faS
 } from "@fortawesome/free-solid-svg-icons";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 import React from "react";
@@ -41,72 +40,38 @@ export default function Main() {
     },
   ];
 
-  const renderStars = (rate: number) => {
-    let stars: JSX.Element[] = [];
-    for (let i = 1; i <= 5; i++) {
-      if (i <= rate) {
-        stars.push(
-          <FontAwesomeIcon
-            key={`full_${i}`}
-            icon={solidStar}
-            className="text-yellow-500"
-          />
-        );
-      } else if (i === Math.ceil(rate) && rate % 1 !== 0) {
-        stars.push(
-          <FontAwesomeIcon
-            key={`half_${i}`}
-            icon={faStarHalfAlt}
-            className="text-yellow-500"
-          />
-        );
-      } else {
-        stars.push(
-          <FontAwesomeIcon
-            key={`empty_${i}`}
-            icon={regularStar}
-            className="text-yellow-500"
-          />
-        );
-      }
-    }
-    return stars;
-  };
-
   const navigateToProjectDetails = (projectId: number) => {
     console.log(`Navigate to details of project with id: ${projectId}`);
   };
   return (
     <div className="bg-[#f7f7f7] pt-20 flex flex-col items-center min-h-screen font-roboto">
-      <div className="flex flex-col items-center w-full">
-        <div className="flex flex-col">
-          <label htmlFor="name" className="text-center block text-xl font-bold font-nunito text-[#bfa260]">
-            Search Projects
-          </label>
-          <div className="flex flex-row mt-3 items-center gap-2">
-            <div className="w-full relative">
-              <input
-                type="text"
-                name="name"
-                id="name"
-                className="shadow-sm focus:ring-[#3e60a3] focus:border-[#3e60a3] block w-60 h-12 text-base border-gray-300 px-4 rounded-full"
-                placeholder="Project"
-              />
-              <a className="bg-[#5f7fbf] pt-2 pl-[10px] w-10 h-10 rounded-full absolute right-0 mr-1 -mt-11
-              transition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl"
-              >
-                <FontAwesomeIcon icon={faArrowRight} size="lg" className="text-[#f7f7f7]" />
-              </a>
+      <div className="flex flex-col items-center">
+        <h1 className="mx-6 text-2xl font-bold font-nunito text-center md:text-3xl xl:text-4xl tracking-loose">
+          Search Projects
+        </h1>
+
+        <form>
+          <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+          <div className="relative">
+            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+              </svg>
             </div>
-            <div>
-              <a
-                className="w-10 h-10 px-2 py-2 rounded-full border-2 border-[#5f7fbf] transition-all duration-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
-              >
-                <FontAwesomeIcon icon={faSliders} size="lg" className="text-[#5f7fbf]" />
-              </a>
-            </div>
+            <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required />
+            <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
           </div>
-        </div>
+        </form>
+
+      </div>
+      <div className="flex items-center justify-end w-full px-6">
+        <a
+          href="UploadProjectPage"
+          className="rounded-lg bg-[#5f7fbf] px-5 py-2 text-base font-bold text-white
+              transition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl"
+        >
+          Add Project
+        </a>
       </div>
 
       {/* Filters Section */}

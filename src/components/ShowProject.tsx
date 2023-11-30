@@ -1,77 +1,311 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { renderStars } from "../utils/renderStars";
+import CardWithImage from "../components/UI/Card.tsx";
+import AccordionItem from "../components/UI/Accordion.tsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faScrewdriverWrench,
+  faPeopleGroup,
+  faBook,
+  faTags,
+} from "@fortawesome/free-solid-svg-icons";
+import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
-const projectData = {
+// TeamMember interface
+interface TeamMember {
+  name: string;
+  linkedIn: string;
+  twitter: string;
+}
+
+interface ProjectData {
+  title: string;
+  images: string[];
+  date: string;
+  rate: number;
+  category: string;
+  budget: string;
+  currency: string;
+  description: string;
+  motivation: string;
+  teamMembers: TeamMember[];
+  features: string;
+  resources: string;
+  tools: string;
+  others: string;
+}
+
+const projectData: ProjectData = {
   title: "InspireHub",
-  images: [
-    "src/assets/ContactUs.png", 
-  ],
+  images: ["src/assets/ContactUs.png"],
   date: "2023-01-01",
+  rate: 3.5,
   category: "Technology",
   budget: "5000",
   currency: "SAR",
-  description: "It is a website that is a hub for inspiring and innovative project ideas...",
-  motivation: "The primary motivation behind InspireHub is to address a significant challenge...",
+  description:
+    "It is a website that is a hub for inspiring and innovative project ideas...",
+  motivation:
+    "The primary motivation behind InspireHub is to address a significant challenge...",
   teamMembers: [
-    { name: "Abdullah", linkedIn: "aamhaamm", twitter: "aamhaamm" },
+    { name: "Abdullah Almatawah", linkedIn: "aamhaamm", twitter: "aamhaamm" },
+    {
+      name: "Hassan Alabdulal",
+      linkedIn: "HassanAlabdulal",
+      twitter: "HassanAlabdulal",
+    },
   ],
   features: "Easy to use, Suitable for everyone ...",
   resources: "https://github.com/InspireHub",
   tools: "React, Astro ...",
-  others: "This is the first version, we are working to update it as soon as depending on your suggestions...",
+  others:
+    "This is the first version, we are working to update it as soon as depending on your suggestions...",
+};
+type Slide = {
+  url: string;
 };
 
+const slides: Slide[] = [
+  {
+    url: "src/assets/Reset password.png",
+  },
+  {
+    url: "src/assets/Forgot password.png",
+  },
+  {
+    url: "src/assets/ContactUs.png",
+  },
+];
 
-export default function ShowProject() {
-    return (
-      <div className="bg-[#f7f7f7] pt-[65px] flex flex-col items-center min-h-screen font-roboto">
-        <div className="bg-[#f7f7f7] p-10 shadow-2xl rounded max-w-4xl w-full">
-          {/* Title Section */}
-          <h1 className="text-[#bfa260] font-bold text-3xl mb-6 text-center">
-            {projectData.title}
-          </h1>
-  
-          {/* Image Section */}
-          {projectData.images.length > 0 && (
-            <div className="mb-6">
-              <img
-                src={projectData.images[0]}
-                alt="Project"
-                className="w-full object-cover"
-                style={{ maxHeight: '500px' }}
-              />
-            </div>
-          )}
-  
-          {/* Project Details Section */}
-          <h2 className="text-[#bfa260] font-bold text-2xl mb-4">
-            Project Details
-          </h2>
-          <div className="text-black">
-            <p className="mb-2"><strong className="text-[#bfa260]" >Date of project:</strong> <br /> {projectData.date}</p>
-            <p className="mb-2"><strong className="text-[#bfa260]">Category:</strong> <br /> {projectData.category}</p>
-            <p className="mb-2"><strong className="text-[#bfa260]">Budget:</strong> <br /> {`${projectData.budget} ${projectData.currency}`}</p>
-            <p className="mb-2"><strong className="text-[#bfa260]">Description:</strong> <br /> {projectData.description}</p>
-            <p className="mb-2"><strong className="text-[#bfa260]">Motivation:</strong> <br /> {projectData.motivation}</p>
-            <p className="mb-2"><strong className="text-[#bfa260]">Team member:</strong> <br /> 
-            {projectData.teamMembers.map((member, index) => (
-              <div key={index} className="mb-2">
-                <p><strong className="text-[#bfa260]">Name:</strong> {member.name}</p>
-                <p>
-                  <strong className="text-[#bfa260]">LinkedIn:</strong> <a href={`https://${member.linkedIn}`} className="text-[#5f7fbf] font-bold hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
-                </p>
-                <p>
-                  <strong className="text-[#bfa260]">Twitter:</strong> <a href={`https://${member.twitter}`} className="text-[#5f7fbf] font-bold hover:underline" target="_blank" rel="noopener noreferrer">Twitter Profile</a>
-                </p>
-              </div>
-          ))}
-          </p>
-            <p className="mb-2"><strong className="text-[#bfa260]">Features:</strong> <br /> {projectData.features}</p>
-            <p className="mb-2"><strong className="text-[#bfa260]">Resources:</strong> <br /> <a href={projectData.resources} target="_blank" rel="noopener noreferrer">{projectData.resources}</a></p>
-            <p className="mb-2"><strong className="text-[#bfa260]">Tools:</strong> <br /> {projectData.tools}</p>
-            <p className="mb-2"><strong className="text-[#bfa260]">Others:</strong> <br /> {projectData.others}</p>
+const ShowProject: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const goToPrevious = (): void => {
+    const isFirstSlide: boolean = currentIndex === 0;
+    const newIndex: number = isFirstSlide
+      ? slides.length - 1
+      : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      goToNext();
+    }, 2500);
+
+    return () => clearInterval(timer);
+  }, [currentIndex]);
+
+  const goToNext = (): void => {
+    const isLastSlide: boolean = currentIndex === slides.length - 1;
+    const newIndex: number = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
+  return (
+    <div className="min-h-screen p-6 mx-auto bg-[#f7f7f7] text-[#121212]">
+      <div className="flex gap-8 mt-12 max-md:flex-col">
+        <section className="w-1/4 min-h-screen pt-5 bg-gray-100 rounded-lg shadow-md max-md:w-full ">
+          <header className="mb-5 text-center">
+            <h1 className="mb-6 text-4xl font-bold text-[#bfa260]">
+              {projectData.title}
+            </h1>
+            <hr className="h-px my-8 bg-gray-300 border-0" />
+          </header>
+
+          <div className="flex flex-col items-center justify-center gap-2 mb-32 text-xl">
+            <span className="flex items-center ml-2">
+              {renderStars(projectData.rate)}
+            </span>
+            <span className="ml-1 text-gray-600">{projectData.rate} of 5</span>
           </div>
-  
-        </div>
+
+          <dl className="max-w-md mx-auto mt-10 text-gray-900 divide-y divide-gray-300">
+            <div className="flex flex-col items-center pb-12">
+              <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
+                Category
+              </dt>
+              <dd className="text-lg font-semibold">{projectData.category}</dd>
+            </div>
+            <div className="flex flex-col items-center py-12">
+              <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
+                Budget
+              </dt>
+              <dd className="text-lg font-semibold">
+                {projectData.budget} <span>{projectData.currency}</span>
+              </dd>
+            </div>
+            <div className="flex flex-col items-center pt-12">
+              <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
+                Date
+              </dt>
+              <dd className="text-lg font-semibold">{projectData.date}</dd>
+            </div>
+          </dl>
+
+          <div className="flex flex-col items-center justify-center px-20 mt-36 ">
+            <AccordionItem
+              id={1}
+              header="Team Members"
+              icon={
+                <FontAwesomeIcon
+                  icon={faPeopleGroup}
+                  className="text-[#121212] mr-2"
+                />
+              }
+            >
+              <div className="space-y-4">
+                {" "}
+                {projectData.teamMembers.map((member, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between"
+                  >
+                    <span>{member.name}</span>
+                    <div>
+                      <a
+                        href={`https://twitter.com/${member.twitter}`}
+                        target="_blank"
+                        className="mx-2 text-xl text-gray-800 hover:text-[#121212] transition-all duration-300"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon icon={faXTwitter} size="lg" />
+                      </a>
+                      <a
+                        href={`https://www.linkedin.com/in/${member.linkedIn}`}
+                        target="_blank"
+                        className="mx-2 text-xl text-[#5f7fbf] hover:text-[#3a60a3] transition-all duration-300"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon icon={faLinkedin} size="lg" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AccordionItem>
+          </div>
+        </section>
+
+        <section className="flex items-center justify-center w-3/4 min-h-screen pt-5 bg-gray-100 rounded-lg shadow-md max-md:w-full ">
+          <div className="w-2/3 ">
+            <div>
+              <div className="relative w-full h-64 md:h-96">
+                {/* Slider Images */}
+                {slides.map((slide, index) => (
+                  <img
+                    key={slide.url}
+                    src={slide.url}
+                    alt={`Slide ${index}`}
+                    className={`w-full h-full object-contain rounded-xl absolute transition-opacity duration-700 ease-in-out ${
+                      index === currentIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                ))}
+
+                {/* Slider Controls */}
+                <FontAwesomeIcon
+                  icon={faAngleLeft}
+                  onClick={goToPrevious}
+                  className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] bg-opacity-50 hover:bg-opacity-100 transition-all duration-200 cursor-pointer rounded-xl left-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
+                />
+
+                <FontAwesomeIcon
+                  icon={faAngleRight}
+                  onClick={goToNext}
+                  className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] hover:bg-opacity-100 transition-all duration-200 bg-opacity-50 cursor-pointer rounded-xl right-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
+                />
+              </div>
+
+              {/* Dots Indicator */}
+              <div className="flex justify-center mt-4 space-x-2">
+                {slides.map((_, index) => (
+                  <span
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`inline-block cursor-pointer rounded-full p-2 ${
+                      index === currentIndex ? "bg-[#5f7fbf]" : "bg-white"
+                    }`}
+                  ></span>
+                ))}
+              </div>
+              <hr className="h-px my-8 bg-gray-300 border-0" />
+            </div>
+
+            <div className="flex flex-col justify-center">
+              <div className="pb-12">
+                <div className="grid items-stretch min-h-0 grid-cols-1 gap-10 md:grid-cols-3">
+                  <CardWithImage
+                    image="src/assets/Description.png"
+                    title="Description"
+                    description={projectData.description}
+                  />
+                  <CardWithImage
+                    image="src/assets/Motivation.png"
+                    title="Motivation"
+                    description={projectData.motivation}
+                  />
+                  <CardWithImage
+                    image="src/assets/Features.png"
+                    title="Features"
+                    description={projectData.features}
+                  />
+                </div>
+              </div>
+
+              <hr className="h-px my-8 bg-gray-300 border-0" />
+            </div>
+            <div className="text-[#121212] font-bold flex flex-col">
+              <div className="flex items-center justify-center">
+                <AccordionItem
+                  id={1}
+                  header="Tools"
+                  icon={
+                    <FontAwesomeIcon
+                      icon={faScrewdriverWrench}
+                      className="text-[#121212] mr-2"
+                    />
+                  }
+                >
+                  <h1>{projectData.tools}</h1>
+                </AccordionItem>
+              </div>
+              <div className="flex items-center justify-center">
+                <AccordionItem
+                  id={1}
+                  header="Resources"
+                  icon={
+                    <FontAwesomeIcon
+                      icon={faBook}
+                      className="text-[#121212] mr-2"
+                    />
+                  }
+                >
+                  <h1>{projectData.resources}</h1>
+                </AccordionItem>
+              </div>
+              <div className="flex items-center justify-center">
+                <AccordionItem
+                  id={1}
+                  header="Others"
+                  icon={
+                    <FontAwesomeIcon
+                      icon={faTags}
+                      className="text-[#121212] mr-2"
+                    />
+                  }
+                >
+                  <h1>{projectData.others}</h1>
+                </AccordionItem>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    );
-  }
+    </div>
+  );
+};
+
+export default ShowProject;
