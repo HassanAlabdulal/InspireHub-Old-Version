@@ -4,8 +4,6 @@ import {
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 // Icon component
 interface IconProps {
@@ -36,7 +34,7 @@ const Icon: React.FC<IconProps> = ({ id, open }) => {
 interface AccordionItemProps {
   id: number;
   header: string;
-  children: React.ReactNode; // This should be the only props expected, aside from `id` and `header`.
+  children: React.ReactNode;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = ({
@@ -62,34 +60,5 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
     </Accordion>
   );
 };
-
-// // TeamMemberDetails component (can be in the same file or separate)
-// interface TeamMember {
-//   name: string;
-//   linkedInUsername: string; // Correct these property names
-//   twitterUsername: string;
-// }
-
-// const TeamMemberDetails: React.FC<{ member: TeamMember }> = ({ member }) => {
-//   return (
-//     <div className="flex items-center space-x-4">
-//       <div>{member.name}</div>
-//       <a
-//         href={`https://www.linkedin.com/in/${member.linkedInUsername}`}
-//         target="_blank"
-//         rel="noopener noreferrer"
-//       >
-//         <FontAwesomeIcon icon={faLinkedin} />
-//       </a>
-//       <a
-//         href={`https://twitter.com/${member.twitterUsername}`}
-//         target="_blank"
-//         rel="noopener noreferrer"
-//       >
-//         <FontAwesomeIcon icon={faTwitter} />
-//       </a>
-//     </div>
-//   );
-// };
 
 export default AccordionItem;
