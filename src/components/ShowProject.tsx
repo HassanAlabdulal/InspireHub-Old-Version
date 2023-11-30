@@ -110,12 +110,12 @@ const ShowProject: React.FC = () => {
             <hr className="h-px my-8 bg-gray-300 border-0" />
           </header>
 
-          <div className="flex items-center justify-center mb-32 text-xl">
+          <div className="flex flex-col items-center justify-center gap-2 mb-32 text-xl">
             {/* <span className="font-medium text-gray-700">Rate:</span> */}
             <span className="flex items-center ml-2">
               {renderStars(projectData.rate)}
             </span>
-            {/* <span className="ml-1 text-gray-600">{projectData.rate} of 5</span> */}
+            <span className="ml-1 text-gray-600">{projectData.rate} of 5</span>
           </div>
 
           <dl className="max-w-md mx-auto mt-10 text-gray-900 divide-y divide-gray-300">
