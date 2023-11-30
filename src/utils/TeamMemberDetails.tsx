@@ -19,7 +19,7 @@ export const TeamMemberDetails: React.FC<{ member: TeamMember }> = ({
           href={`https://www.linkedin.com/in/${member.linkedInUsername}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-2 text-blue-600 hover:text-blue-800"
+          className="mx-2 text-xl text-[#5f7fbf] hover:text-[#3a60a3] transition-all duration-300"
         >
           <FontAwesomeIcon icon={faLinkedin} size="lg" />
         </a>
@@ -27,7 +27,7 @@ export const TeamMemberDetails: React.FC<{ member: TeamMember }> = ({
           href={`https://twitter.com/${member.twitterUsername}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-2 text-blue-400 hover:text-blue-600"
+          className="mx-2 text-xl text-gray-800 hover:text-[#121212] transition-all duration-300"
         >
           <FontAwesomeIcon icon={faXTwitter} size="lg" />
         </a>
