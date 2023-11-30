@@ -8,9 +8,15 @@ import {
   faAngleRight,
   faScrewdriverWrench,
   faPeopleGroup,
+  faBook,
+  faTags,
+  faBoxOpen,
 } from "@fortawesome/free-solid-svg-icons";
-import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-
+import {
+  faXTwitter,
+  faLinkedin,
+  faSourcetree,
+} from "@fortawesome/free-brands-svg-icons";
 // TeamMember interface
 interface TeamMember {
   name: string;
@@ -269,6 +275,34 @@ const ShowProject: React.FC = () => {
                   }
                 >
                   <h1>{projectData.tools}</h1>
+                </AccordionItem>
+              </div>
+              <div className="flex items-center justify-center">
+                <AccordionItem
+                  id={1}
+                  header="Resources"
+                  icon={
+                    <FontAwesomeIcon
+                      icon={faBook}
+                      className="text-[#121212] mr-2"
+                    />
+                  }
+                >
+                  <h1>{projectData.resources}</h1>
+                </AccordionItem>
+              </div>
+              <div className="flex items-center justify-center">
+                <AccordionItem
+                  id={1}
+                  header="Others"
+                  icon={
+                    <FontAwesomeIcon
+                      icon={faTags}
+                      className="text-[#121212] mr-2"
+                    />
+                  }
+                >
+                  <h1>{projectData.others}</h1>
                 </AccordionItem>
               </div>
             </div>
