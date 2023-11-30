@@ -12,13 +12,15 @@ export default function CardWithImage({
   description,
 }: cardProps) {
   return (
-    <Card className="mt-6 w-96 bg-[#f7f7f7] hover:shadow-lg hover:scale-105 transition-all duration-500">
-      <CardBody className="flex flex-col items-center justify-center text-center">
-        <img src={image} alt={title} className="w-36 h-36 " />
-        <Typography variant="h5" className="mb-2 text-[#bfa260]">
-          {title}
-        </Typography>
-        <Typography>{description}</Typography>
+    <Card className="bg-[#f7f7f7] hover:shadow-lg hover:scale-105 transition-all duration-500">
+      <CardBody className="flex flex-col items-center justify-center text-center p-6 min-h-[20rem]">
+        <img src={image} alt={title} className="mb-4 w-36 h-36" />
+        <div className="flex flex-col flex-grow w-full">
+          <Typography variant="h5" className="mb-2 text-[#bfa260]">
+            {title}
+          </Typography>
+          <Typography className="flex-grow">{description}</Typography>
+        </div>
       </CardBody>
     </Card>
   );

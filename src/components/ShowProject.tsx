@@ -234,9 +234,9 @@ const ShowProject: React.FC = () => {
               <hr className="h-px my-8 bg-gray-300 border-0" />
             </div>
 
-            <div className="flex flex-col justify-center h-2/3">
-              <div className="pb-12 h-1/2">
-                <div className="flex flex-row items-center justify-center gap-10 max-md:flex-col">
+            <div className="flex flex-col justify-center">
+              <div className="pb-12">
+                <div className="grid items-stretch min-h-0 grid-cols-1 gap-10 md:grid-cols-3">
                   <CardWithImage
                     image="src/assets/Description.png"
                     title="Description"
