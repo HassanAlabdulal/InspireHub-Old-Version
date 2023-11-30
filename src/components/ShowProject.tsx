@@ -4,7 +4,9 @@ import CardWithImage from "../components/UI/Card.tsx";
 import AccordionItem from "../components/UI/Accordion.tsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { TeamMemberDetails } from "../utils/TeamMemberDetails.tsx";
+import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
+// import { TeamMemberDetails } from "../utils/TeamMemberDetails.tsx";
 
 // TeamMember interface
 interface TeamMember {
@@ -209,17 +211,38 @@ const ShowProject: React.FC = () => {
               <hr className="h-px my-8 bg-gray-300 border-0" />
 
               <div className="flex flex-col">
-                {projectData.teamMembers.map((member, index) => (
-                  <AccordionItem key={index} id={index} header={member.name}>
-                    <TeamMemberDetails
-                      member={{
-                        name: member.name,
-                        linkedInUsername: member.linkedIn,
-                        twitterUsername: member.twitter,
-                      }}
-                    />
-                  </AccordionItem>
-                ))}
+                <AccordionItem id={1} header="Team Members">
+                  <div className="space-y-4">
+                    {" "}
+                    {/* Add some vertical spacing between items */}
+                    {projectData.teamMembers.map((member, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between"
+                      >
+                        <span>{member.name}</span>
+                        <div>
+                          <a
+                            href={`https://twitter.com/${member.twitter}`}
+                            target="_blank"
+                            className="mx-2 text-xl text-gray-800 hover:text-[#121212] transition-all duration-300"
+                            rel="noopener noreferrer"
+                          >
+                            <FontAwesomeIcon icon={faXTwitter} size="lg" />
+                          </a>
+                          <a
+                            href={`https://www.linkedin.com/in/${member.linkedIn}`}
+                            target="_blank"
+                            className="mx-2 text-xl text-[#5f7fbf] hover:text-[#3a60a3] transition-all duration-300"
+                            rel="noopener noreferrer"
+                          >
+                            <FontAwesomeIcon icon={faLinkedin} size="lg" />
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </AccordionItem>
               </div>
             </div>
           </div>
