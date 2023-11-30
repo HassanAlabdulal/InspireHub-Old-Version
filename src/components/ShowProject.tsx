@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { renderStars } from "../utils/renderStars";
 import CardWithImage from "../components/UI/Card.tsx";
-
+import AccordionItem from "../components/UI/Accordion.tsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { TeamMemberDetails } from "../components/UI/TeamMemberDetails.tsx"; // Import the TeamMemberDetails component
+
+// Updated TeamMember interface
 interface TeamMember {
   name: string;
-  linkedIn: string;
+  linkedIn: string; // Keep the original property names from projectData
   twitter: string;
 }
 
@@ -41,6 +44,7 @@ const projectData: ProjectData = {
     "The primary motivation behind InspireHub is to address a significant challenge...",
   teamMembers: [
     { name: "Abdullah", linkedIn: "aamhaamm", twitter: "aamhaamm" },
+    { name: "Hassan", linkedIn: "HassanAlabdulal", twitter: "HassanAlabdulal" },
   ],
   features: "Easy to use, Suitable for everyone ...",
   resources: "https://github.com/InspireHub",
@@ -196,6 +200,20 @@ const ShowProject: React.FC = () => {
                     description={projectData.features}
                   />
                 </div>
+              </div>
+
+              <div className="">
+                {projectData.teamMembers.map((member, index) => (
+                  <AccordionItem key={index} id={index} header={member.name}>
+                    <TeamMemberDetails
+                      member={{
+                        name: member.name,
+                        linkedInUsername: member.linkedIn, // Assuming linkedIn contains the username
+                        twitterUsername: member.twitter, // Assuming twitter contains the username
+                      }}
+                    />
+                  </AccordionItem>
+                ))}
               </div>
             </div>
           </div>
