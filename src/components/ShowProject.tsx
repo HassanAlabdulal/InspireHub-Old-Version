@@ -3,7 +3,11 @@ import { renderStars } from "../utils/renderStars";
 import CardWithImage from "../components/UI/Card.tsx";
 import AccordionItem from "../components/UI/Accordion.tsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faScrewdriverWrench,
+} from "@fortawesome/free-solid-svg-icons";
 import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 // TeamMember interface
@@ -241,6 +245,22 @@ const ShowProject: React.FC = () => {
               </div>
 
               <hr className="h-px my-8 bg-gray-300 border-0" />
+            </div>
+            <div className="text-[#121212] font-bold flex flex-col">
+              <div className="flex items-center justify-center">
+                <AccordionItem
+                  id={1}
+                  header="Tools"
+                  icon={
+                    <FontAwesomeIcon
+                      icon={faScrewdriverWrench}
+                      className="text-[#121212] mr-2"
+                    />
+                  } // Pass the icon here
+                >
+                  <h1>{projectData.tools}</h1>
+                </AccordionItem>
+              </div>
             </div>
           </div>
         </section>

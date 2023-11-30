@@ -34,12 +34,14 @@ const Icon: React.FC<IconProps> = ({ id, open }) => {
 interface AccordionItemProps {
   id: number;
   header: string;
+  icon?: JSX.Element; // Make icon optional to ensure compatibility with existing usage without an icon
   children: React.ReactNode;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = ({
   id,
   header,
+  icon,
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,9 +52,13 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
     <Accordion open={isOpen} icon={<Icon id={id} open={isOpen} />}>
       <AccordionHeader
         onClick={toggleIsOpen}
-        className="text-[#bfa260] text-2xl"
+        className="flex items-center text-[#bfa260] text-2xl"
       >
-        {header}
+        <div className="flex items-center">
+          {icon} {/* Render the icon here */}
+          <span className="ml-1">{header}</span>{" "}
+          {/* Adjust the margin-left as needed */}
+        </div>
       </AccordionHeader>
       <AccordionBody className="text-lg text-[#121212]">
         {children}
