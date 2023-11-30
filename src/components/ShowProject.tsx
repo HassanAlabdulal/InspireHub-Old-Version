@@ -107,7 +107,7 @@ const ShowProject: React.FC = () => {
   return (
     <div className="min-h-screen p-6 mx-auto bg-[#f7f7f7] text-[#121212]">
       <div className="flex flex-col gap-8 mt-12 md:flex-row">
-        <section className="w-1/4 h-screen pt-5 bg-gray-100 rounded-lg shadow-md ">
+        <section className="w-1/4 min-h-screen pt-5 bg-gray-100 rounded-lg shadow-md ">
           <header className="mb-5 text-center">
             <h1 className="mb-6 text-4xl font-bold text-[#bfa260]">
               {projectData.title}
