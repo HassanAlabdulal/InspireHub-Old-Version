@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Lottie from "lottie-react";
 import animationData from "../assets/Animations/AI-Animation.json";
+import { createSuggestion } from "../utils/createSuggestion";
 
 interface InputProps {
   label: string;
@@ -61,9 +62,15 @@ const AI: React.FC = () => {
   });
   const [generatedIdeas, setGeneratedIdeas] = useState<string>("");
 
-  const getProjectIdeas = () => {
+  const getProjectIdeas = async () => {
     // Simulate API call and set generated ideas
-    setGeneratedIdeas("Here are some AI generated project ideas...");
+    // setGeneratedIdeas("Here are some AI generated project ideas...");
+    const suggestion = await createSuggestion({
+      ...preferences,
+      ...interests,
+    });
+    
+    setGeneratedIdeas(suggestion!);
   };
 
   return (
