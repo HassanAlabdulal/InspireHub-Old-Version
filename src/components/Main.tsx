@@ -57,7 +57,7 @@ export default function Main() {
                 type="text"
                 name="name"
                 id="name"
-                className="shadow-sm focus:ring-[#3e60a3] focus:border-[#3e60a3] block w-60 h-12 text-base border-gray-300 px-4 rounded-full"
+                className="shadow-sm focus:ring-[#3e60a3] focus:border-[#3e60a3] block w-60 h-12 text-base border-gray-300 pl-4 pr-14 rounded-full"
                 placeholder="Project"
               />
               <a className="bg-[#5f7fbf] pt-2 pl-[10px] w-10 h-10 rounded-full absolute right-0 mr-1 -mt-11
