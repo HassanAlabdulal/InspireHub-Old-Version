@@ -65,11 +65,12 @@ const AI: React.FC = () => {
   const getProjectIdeas = async () => {
     // Simulate API call and set generated ideas
     // setGeneratedIdeas("Here are some AI generated project ideas...");
+
     const suggestion = await createSuggestion({
       ...preferences,
       ...interests,
     });
-    
+
     setGeneratedIdeas(suggestion!);
   };
 
