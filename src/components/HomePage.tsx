@@ -1,5 +1,5 @@
-// import Lottie from "lottie-react";
-// import animationData from "../assets/Animations/Homapage-Animation.json";
+import Lottie from "lottie-react";
+import animationData from "../assets/Animations/Homapage-Animation.json";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
@@ -12,7 +12,7 @@ export default function HomePage() {
     <main className="flex items-center justify-center w-full h-screen gap-3 max-md:mt-30 bg-[#f7f7f7]">
       <div className="flex flex-col items-center justify-center">
         <div className="w-1/2 h-1/2 max-xl:w-80 max-xl:h-80 max-lg:mt-24">
-          {/* <Lottie animationData={animationData} /> */}
+          <Lottie animationData={animationData} />
         </div>
         <motion.div
           initial="hidden"
