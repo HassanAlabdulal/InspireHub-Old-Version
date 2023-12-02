@@ -148,35 +148,6 @@ export default function Main() {
         </div>
       </div>
 
-      {/* Filters Section */}
-      <div className="flex items-center justify-center my-6">
-        <div className="p-3 mx-2 border rounded">
-          <label htmlFor="category" className="mx-2">
-            Category:
-          </label>
-          <select
-            id="category"
-            className="px-2 py-1 border rounded cursor-pointer"
-          >
-            <option value="">Select Category</option>
-            <option value="Technology">Technology</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Business">Business</option>
-            <option value="Design">Design</option>
-          </select>
-        </div>
-        <div className="p-3 mx-2 border rounded">
-          <label htmlFor="sort" className="mx-2">
-            Sort:
-          </label>
-          <select id="sort" className="px-2 py-1 border rounded cursor-pointer">
-            <option value="">Select Sort</option>
-            <option value="most_rate">Most Rate</option>
-            <option value="last_added">Last Added</option>
-          </select>
-        </div>
-      </div>
-
       {/* Projects Section */}
       <div className="flex flex-wrap justify-center w-full px-6">
         {projects.map((project) => (
