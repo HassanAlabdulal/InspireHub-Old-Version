@@ -30,12 +30,12 @@ const SignUp = () => {
 
   const handlePolicyClick = () => {
     setShowPolicy(true);
-    setShowReturnButton(true); // show the return button when policy is clicked
+    setShowReturnButton(true);
   };
 
   const closePolicy = () => {
     setShowPolicy(false);
-    setShowReturnButton(false); // hide the return button when policy is closed
+    setShowReturnButton(false);
   };
   const completeFormStep = () => {
     setFormStep((currentStep) => currentStep + 1);
@@ -279,15 +279,11 @@ const SignUp = () => {
             {/* Render Policy component conditionally */}
             {showPolicy && (
               <div className="fixed inset-0 z-50 flex items-center justify-center">
-                {/* This div now has an onClick event to close the policy */}
                 <div
                   className="absolute inset-0 bg-black bg-opacity-50"
                   onClick={closePolicy}
-                >
-                  {/* <button onClick={closePolicy}>Return</button> */}
-                </div>
+                ></div>
 
-                {/* The Policy component should be at full opacity when shown */}
                 <div className="z-50 p-4 bg-white rounded-lg shadow-lg opacity-100">
                   <Policy
                     onClose={closePolicy}
