@@ -233,21 +233,39 @@ const SignUp = () => {
                 </label>
                 <div className="flex flex-col gap-4 md:flex-row">
                   <div className="flex items-center">
-                    <Radio name="type" ripple={true} crossOrigin={undefined} />
-
-                    <span className="ml-2">Undergraduate</span>
+                    <input
+                      type="radio"
+                      name="academicLevel"
+                      value="Undergraduate"
+                      id="undergraduate"
+                    />
+                    <label htmlFor="undergraduate" className="ml-2">
+                      Undergraduate
+                    </label>
                   </div>
 
                   <div className="flex items-center">
-                    <Radio name="type" ripple={true} crossOrigin={undefined} />
-
-                    <span className="ml-2">Graduate</span>
+                    <input
+                      type="radio"
+                      name="academicLevel"
+                      value="Graduate"
+                      id="graduate"
+                    />
+                    <label htmlFor="graduate" className="ml-2">
+                      Graduate
+                    </label>
                   </div>
 
                   <div className="flex items-center">
-                    <Radio name="type" ripple={true} crossOrigin={undefined} />
-
-                    <span className="ml-2">Employer</span>
+                    <input
+                      type="radio"
+                      name="academicLevel"
+                      value="Employer"
+                      id="employer"
+                    />
+                    <label htmlFor="employer" className="ml-2">
+                      Employer
+                    </label>
                   </div>
                 </div>
               </section>
@@ -259,7 +277,7 @@ const SignUp = () => {
                   Legal Information
                 </h2>
                 <div className="flex items-center">
-                  <Radio name="type" ripple={true} crossOrigin={undefined} />
+                  <input type="radio" />
 
                   <span className="ml-2">
                     I agree with{" "}
