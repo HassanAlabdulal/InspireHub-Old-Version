@@ -22,9 +22,10 @@ type Project = {
   imageUrl: string;
 };
 
-const people = [
-  { id: 1, name: 'Leslie Alexander' },
-  // More users...
+const Sorts = [
+  { id: 1, sortBy: 'Highest Rating' },
+  { id: 2, sortBy: 'Highest Budget' },
+  { id: 3, sortBy: 'Lowest Budget' },
 ]
 
 function classNames(...classes: any[]) {
@@ -58,23 +59,23 @@ export default function Main() {
   };
 
   const [query, setQuery] = useState('')
-  const [selectedPerson, setSelectedPerson] = useState()
+  const [selectedSort, setSelectedSort] = useState()
 
-  const filteredPeople =
+  const filteredSorts =
     query === ''
-      ? people
-      : people.filter((person) => {
-        return person.name.toLowerCase().includes(query.toLowerCase())
+      ? Sorts
+      : Sorts.filter((Sorts) => {
+        return Sorts.sortBy.toLowerCase().includes(query.toLowerCase())
       })
 
   return (
     <div className="bg-[#f7f7f7] pt-20 flex flex-col items-center min-h-screen font-roboto">
-      <div className="flex flex-col items-center w-full">
-        <div className="flex flex-col">
+      <div className="flex flex-col items-center w-full gap-6">
+        <div className="flex flex-col gap-3">
           <label htmlFor="name" className="text-center block text-xl font-bold font-nunito text-[#bfa260]">
             Search Projects
           </label>
-          <div className="flex flex-row mt-3 items-center gap-2">
+          <div className="flex flex-row items-center gap-2">
             <div className="w-full relative">
               <input
                 type="text"
@@ -98,55 +99,54 @@ export default function Main() {
             </div>
           </div>
         </div>
-      </div>
-
-      <Combobox as="div" value={selectedPerson} onChange={setSelectedPerson}>
-        <Combobox.Label className="block text-sm font-medium text-gray-700">Assigned to</Combobox.Label>
-        <div className="relative mt-1">
-          <Combobox.Input
-            className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
-            onChange={(event) => setQuery(event.target.value)}
-            displayValue={(person) => person.name}
-          />
-          <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
-            <ChevronDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-          </Combobox.Button>
-
-          {filteredPeople.length > 0 && (
-            <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {filteredPeople.map((person) => (
-                <Combobox.Option
-                  key={person.id}
-                  value={person}
-                  className={({ active }) =>
-                    classNames(
-                      'relative cursor-default select-none py-2 pl-8 pr-4',
-                      active ? 'bg-indigo-600 text-white' : 'text-gray-900'
-                    )
-                  }
-                >
-                  {({ active, selected }) => (
-                    <>
-                      <span className={classNames('block truncate', selected && 'font-semibold')}>{person.name}</span>
-
-                      {selected && (
-                        <span
-                          className={classNames(
-                            'absolute inset-y-0 left-0 flex items-center pl-1.5',
-                            active ? 'text-white' : 'text-indigo-600'
+        <div>
+          <Combobox as="div" value={selectedSort} onChange={setSelectedSort}>
+            <Combobox.Label className="block text-base font-medium text-gray-900">Sort by:</Combobox.Label>
+            <div className="relative mt-1">
+              <Combobox.Input
+                className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-[#3e60a3] focus:outline-none focus:ring-1 focus:ring-[#3e60a3] sm:text-sm"
+                onChange={(event) => setQuery(event.target.value)}
+                displayValue={(sort: { sortBy: string }) => sort.sortBy}
+              />
+              <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
+                <ChevronDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+              </Combobox.Button>
+              {filteredSorts.length > 0 && (
+                <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                  {filteredSorts.map((sort) => (
+                    <Combobox.Option
+                      key={sort.id}
+                      value={sort}
+                      className={({ active }) =>
+                        classNames(
+                          'relative cursor-default select-none py-2 pl-8 pr-4',
+                          active ? 'bg-[#3e60a3] text-[#f7f7f7]' : 'text-[#121212]'
+                        )
+                      }
+                    >
+                      {({ active, selected }) => (
+                        <>
+                          <span className={classNames('block truncate', selected && 'font-semibold')}>{sort.sortBy}</span>
+                          {selected && (
+                            <span
+                              className={classNames(
+                                'absolute inset-y-0 left-0 flex items-center pl-1.5',
+                                active ? 'text-[#f7f7f7]' : 'text-[#3e60a3]'
+                              )}
+                            >
+                              <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                            </span>
                           )}
-                        >
-                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                        </span>
+                        </>
                       )}
-                    </>
-                  )}
-                </Combobox.Option>
-              ))}
-            </Combobox.Options>
-          )}
+                    </Combobox.Option>
+                  ))}
+                </Combobox.Options>
+              )}
+            </div>
+          </Combobox>
         </div>
-      </Combobox>
+      </div>
 
       {/* Filters Section */}
       <div className="flex items-center justify-center my-6">
