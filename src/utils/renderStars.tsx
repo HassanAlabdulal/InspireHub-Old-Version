@@ -14,7 +14,7 @@ export const renderStars = (rate: number) => {
         <FontAwesomeIcon
           key={`full_${i}`}
           icon={solidStar}
-          className="text-yellow-500"
+          className="text-[#AA8A41]"
         />
       );
     } else if (i === Math.ceil(rate) && rate % 1 !== 0) {
@@ -24,7 +24,7 @@ export const renderStars = (rate: number) => {
         <FontAwesomeIcon
           key={`half_${i}`}
           icon={faStarHalfAlt}
-          className="text-yellow-500"
+          className="text-[#AA8A41]"
         />
       );
     } else {
@@ -33,7 +33,7 @@ export const renderStars = (rate: number) => {
         <FontAwesomeIcon
           key={`empty_${i}`}
           icon={regularStar}
-          className="text-yellow-500"
+          className="text-[#AA8A41]"
         />
       );
     }
