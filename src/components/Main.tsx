@@ -28,6 +28,19 @@ const Sorts = [
   { id: 3, sortBy: 'Lowest Budget' },
 ]
 
+const people = [
+  {
+    name: 'Jane Cooper',
+    title: 'Paradigm Representative',
+    role: 'Admin',
+    email: 'janecooper@example.com',
+    telephone: '+1-202-555-0170',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+  },
+  // More people...
+]
+
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ')
 }
@@ -69,7 +82,7 @@ export default function Main() {
       })
 
   return (
-    <div className="bg-[#f7f7f7] pt-20 flex flex-col items-center min-h-screen font-roboto">
+    <div className="bg-[#f7f7f7] pt-20 flex flex-col items-center min-h-screen font-roboto gap-12">
       <div className="flex flex-col items-center w-full gap-6">
         <div className="flex flex-col gap-3">
           <label htmlFor="name" className="text-center block text-xl font-bold font-nunito text-[#bfa260]">
@@ -101,7 +114,7 @@ export default function Main() {
         </div>
         <div>
           <Combobox as="div" value={selectedSort} onChange={setSelectedSort}>
-            <Combobox.Label className="block text-base font-medium text-gray-900">Sort by:</Combobox.Label>
+            <Combobox.Label className="block text-base font-normal text-[#bfa260]">Sort by:</Combobox.Label>
             <div className="relative mt-1">
               <Combobox.Input
                 className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-[#3e60a3] focus:outline-none focus:ring-1 focus:ring-[#3e60a3] sm:text-sm"
@@ -149,6 +162,52 @@ export default function Main() {
       </div>
 
       {/* Projects Section */}
+      <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {people.map((person) => (
+          <li
+            key={person.email}
+            className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200"
+          >
+            <div className="flex-1 flex flex-col p-8">
+              <img className="w-32 h-32 flex-shrink-0 mx-auto rounded-full" src={person.imageUrl} alt="" />
+              <h3 className="mt-6 text-gray-900 text-sm font-medium">{person.name}</h3>
+              <dl className="mt-1 flex-grow flex flex-col justify-between">
+                <dt className="sr-only">Title</dt>
+                <dd className="text-gray-500 text-sm">{person.title}</dd>
+                <dt className="sr-only">Role</dt>
+                <dd className="mt-3">
+                  <span className="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
+                    {person.role}
+                  </span>
+                </dd>
+              </dl>
+            </div>
+            <div>
+              <div className="-mt-px flex divide-x divide-gray-200">
+                <div className="w-0 flex-1 flex">
+                  <a
+                    href={`mailto:${person.email}`}
+                    className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
+                  >
+                    <CheckIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
+                    <span className="ml-3">Email</span>
+                  </a>
+                </div>
+                <div className="-ml-px w-0 flex-1 flex">
+                  <a
+                    href={`tel:${person.telephone}`}
+                    className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500"
+                  >
+                    <CheckIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
+                    <span className="ml-3">Call</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+
       <div className="flex flex-wrap justify-center w-full px-6">
         {projects.map((project) => (
           <div
