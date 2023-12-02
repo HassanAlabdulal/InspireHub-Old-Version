@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Radio } from "@material-tailwind/react";
 import Policy from "../components/Policy.tsx";
 
 const MAX_STEPS = 4;
