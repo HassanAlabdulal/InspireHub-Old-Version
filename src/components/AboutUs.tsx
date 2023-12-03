@@ -8,7 +8,6 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-// Define a type for the AccordionSection props
 type AccordionSectionProps = {
   title: string;
   children: ReactNode;
