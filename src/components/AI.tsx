@@ -63,12 +63,16 @@ const AI: React.FC = () => {
   const [generatedIdeas, setGeneratedIdeas] = useState<string>("");
 
   const getProjectIdeas = async () => {
-    const suggestion = await createSuggestion({
-      ...preferences,
-      ...interests,
-    });
-
-    setGeneratedIdeas(suggestion!);
+    try {
+      const suggestion = await createSuggestion({
+        ...preferences,
+        ...interests,
+      });
+      setGeneratedIdeas(suggestion!);
+    } catch (error) {
+      console.error("Failed to get project ideas:", error);
+      // Handle the error appropriately in your UI
+    }
   };
 
   return (
