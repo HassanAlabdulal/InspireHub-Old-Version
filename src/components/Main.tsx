@@ -36,22 +36,76 @@ export default function Main() {
   const projects: Project[] = [
     {
       id: 1,
-      title: "InspireHub",
-      date: "2023-12-15",
-      rate: 5,
-      creator: "Hassan Alabdulal",
-      description: "It is a website that is a hub... ",
+      title: "E-commerce Website Redesign",
+      date: "2023-05-15",
+      rate: 4.5,
+      creator: "John Doe",
+      description: "Redesign and modernize our e-commerce platform to improve user experience, increase conversion rates, and enhance security.",
       imageUrl: "src/assets/ContactUs.png",
     },
     {
       id: 2,
-      title: "Second Project",
-      date: "2023-11-23",
-      rate: 1.5,
-      creator: "Omar Hammad",
-      description: "This is the my project description...",
-      imageUrl: "src/assets/Git_icon.png",
+      title: "AI-Powered Chatbot Development",
+      date: "2023-08-20",
+      rate: 4.2,
+      creator: "Jane Smith",
+      description: "Develop an AI-powered chatbot to provide instant customer support, answer inquiries, and streamline communication.",
+      imageUrl: "src/assets/ContactUs.png",
     },
+    {
+      id: 3,
+      title: "Market Expansion Strategy",
+      date: "2023-04-10",
+      rate: 4.8,
+      creator: "Michael Johnson",
+      description: "Develop a comprehensive strategy to expand our market presence in emerging economies, focusing on growth and profitability.",
+      imageUrl: "src/assets/ContactUs.png",
+    },
+    {
+      id: 4,
+      title: "Financial Modeling and Forecasting",
+      date: "2023-06-30",
+      rate: 4.6,
+      creator: "Emily Brown",
+      description: "Create financial models and forecasts to aid in decision-making, budgeting, and financial planning for the next fiscal year.",
+      imageUrl: "src/assets/ContactUs.png",
+    },
+    {
+      id: 5,
+      title: "Bridge Rehabilitation Project",
+      date: "2023-09-25",
+      rate: 4.9,
+      creator: "David Wilson",
+      description: "Rehabilitate an aging bridge to ensure structural integrity, safety, and longevity, incorporating modern engineering practices.",
+      imageUrl: "src/assets/ContactUs.png",
+    },
+    {
+      id: 6,
+      title: "Advanced Robotics System Design",
+      date: "2023-07-12",
+      rate: 4.7,
+      creator: "Sophia Lee",
+      description: "Design and develop advanced robotics systems for industrial automation, improving efficiency and reducing production costs.",
+      imageUrl: "src/assets/ContactUs.png",
+    },
+    {
+      id: 7,
+      title: "Brand Identity Redesign",
+      date: "2023-03-02",
+      rate: 4.4,
+      creator: "Daniel Clark",
+      description: "Redesign the brand identity, including logo, color scheme, and visual elements, to reflect our evolving brand image.",
+      imageUrl: "src/assets/ContactUs.png",
+    },
+    {
+      id: 8,
+      title: "User Interface (UI) Redesign",
+      date: "2023-10-15",
+      rate: 4.3,
+      creator: "Olivia Taylor",
+      description: "Revamp the user interface of our mobile app to enhance user-friendliness, aesthetics, and overall user satisfaction.",
+      imageUrl: "src/assets/ContactUs.png",
+    }
   ];
 
   const navigateToProjectDetails = (projectId: number) => {
@@ -159,12 +213,14 @@ export default function Main() {
           >
             <div className="flex-1 flex flex-col p-8">
               <img className="w-full h-auto mx-auto rounded-lg" src={project.imageUrl} alt={project.title} />
-              <h3 className="mt-6 text-gray-900 text-sm font-medium">{project.creator}</h3>
-              <dl className="mt-1 flex-grow flex flex-col justify-between">
-                <dt className="sr-only">Title</dt>
-                <dd className="text-gray-500 text-sm">{project.title}</dd>
-                <dt className="sr-only">Role</dt>
-                <dd className="mt-3">
+              <h3 className="mt-6 text-[#bfa260] text-base font-nunito font-bold">{project.title}</h3>
+              <dl className="mt-1 flex-grow flex flex-col justify-between gap-3">
+                <dt className="sr-only">Creator</dt>
+                <dd className="text-gray-500 text-sm">by {project.creator}</dd>
+                <dt className="sr-only">Description</dt>
+                <dd className="text-gray-500 text-sm">{project.description}</dd>
+                <dt className="sr-only">Rating</dt>
+                <dd className="mt-1">
                   <span className="px-2 py-1 text-[#AA8A41] text-xs font-medium bg-amber-100 rounded-full">
                     {renderStars(project.rate)} {project.rate} / 5
                   </span>
