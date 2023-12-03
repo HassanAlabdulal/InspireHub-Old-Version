@@ -13,6 +13,7 @@ type Project = {
   creator: string;
   description: string;
   imageUrl: string;
+  category: string;
 };
 
 const Sorts = [
@@ -36,6 +37,7 @@ export default function Main() {
       description:
         "Redesign and modernize our e-commerce platform to improve user experience, increase conversion rates, and enhance security.",
       imageUrl: "src/assets/ContactUs.png",
+      category: "Tech",
     },
     {
       id: 2,
@@ -46,6 +48,7 @@ export default function Main() {
       description:
         "Develop an AI-powered chatbot to provide instant customer support, answer inquiries, and streamline communication.",
       imageUrl: "src/assets/ContactUs.png",
+      category: "Tech",
     },
     {
       id: 3,
@@ -56,6 +59,7 @@ export default function Main() {
       description:
         "Develop a comprehensive strategy to expand our market presence in emerging economies, focusing on growth and profitability.",
       imageUrl: "src/assets/ContactUs.png",
+      category: "Business",
     },
     {
       id: 4,
@@ -66,6 +70,7 @@ export default function Main() {
       description:
         "Create financial models and forecasts to aid in decision-making, budgeting, and financial planning for the next fiscal year.",
       imageUrl: "src/assets/ContactUs.png",
+      category: "Business",
     },
     {
       id: 5,
@@ -76,6 +81,7 @@ export default function Main() {
       description:
         "Rehabilitate an aging bridge to ensure structural integrity, safety, and longevity, incorporating modern engineering practices.",
       imageUrl: "src/assets/ContactUs.png",
+      category: "Engineering",
     },
     {
       id: 6,
@@ -86,6 +92,7 @@ export default function Main() {
       description:
         "Design and develop advanced robotics systems for industrial automation, improving efficiency and reducing production costs.",
       imageUrl: "src/assets/ContactUs.png",
+      category: "Engineering",
     },
     {
       id: 7,
@@ -96,6 +103,7 @@ export default function Main() {
       description:
         "Redesign the brand identity, including logo, color scheme, and visual elements, to reflect our evolving brand image.",
       imageUrl: "src/assets/ContactUs.png",
+      category: "Design",
     },
     {
       id: 8,
@@ -106,6 +114,7 @@ export default function Main() {
       description:
         "Revamp the user interface of our mobile app to enhance user-friendliness, aesthetics, and overall user satisfaction.",
       imageUrl: "src/assets/ContactUs.png",
+      category: "Design",
     },
   ];
 
@@ -121,8 +130,8 @@ export default function Main() {
     query === ""
       ? Sorts
       : Sorts.filter((Sorts) => {
-          return Sorts.sortBy.toLowerCase().includes(query.toLowerCase());
-        });
+        return Sorts.sortBy.toLowerCase().includes(query.toLowerCase());
+      });
 
   return (
     <div className="bg-[#f7f7f7] pt-20 flex flex-col items-center min-h-screen font-roboto gap-12">
@@ -140,12 +149,12 @@ export default function Main() {
                 type="text"
                 name="name"
                 id="name"
-                className="shadow-sm focus:ring-[#3e60a3] focus:border-[#3e60a3] block w-60 h-12 text-base border-gray-300 pl-4 pr-14 rounded-full"
+                className="shadow-sm focus:ring-[#3e60a3] focus:border-[#3e60a3] block w-60 sm:w-80 md:w-96 h-12 text-base border-gray-300 pl-4 pr-14 rounded-full"
                 placeholder="Project"
               />
               <a
                 className="bg-[#5f7fbf] pt-2 pl-[10px] w-10 h-10 rounded-full absolute right-0 mr-1 -mt-11
-              transition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl"
+              transition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl cursor-pointer"
               >
                 <FontAwesomeIcon
                   icon={faArrowRight}
@@ -155,7 +164,7 @@ export default function Main() {
               </a>
             </div>
             <div>
-              <a className="w-10 h-10 px-2 py-2 rounded-full border-2 border-[#5f7fbf] transition-all duration-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
+              <a className="w-10 h-10 px-2 py-2 rounded-full border-2 border-[#5f7fbf] transition-all duration-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 cursor-pointer shadow-md hover:shadow-xl">
                 <FontAwesomeIcon
                   icon={faSliders}
                   size="lg"
@@ -244,7 +253,7 @@ export default function Main() {
           >
             <div className="flex flex-col flex-1 p-8">
               <img
-                className="w-full h-auto mx-auto rounded-lg"
+                className="w-3/4 h-auto mx-auto rounded-lg"
                 src={project.imageUrl}
                 alt={project.title}
               />
@@ -253,10 +262,16 @@ export default function Main() {
               </h3>
               <dl className="flex flex-col justify-between flex-grow gap-3 mt-1">
                 <dt className="sr-only">Creator</dt>
-                <dd className="text-sm text-gray-500">by {project.creator}</dd>
+                <dd className="text-sm text-gray-500">by <em className="text-gray-600">{project.creator}</em> on {project.date}</dd>
                 <dt className="sr-only">Description</dt>
-                <dd className="text-[#121212] text-sm line-clamp-3">
+                <dd className="text-[#121212] text-sm line-clamp-2">
                   {project.description}
+                </dd>
+                <dt className="sr-only">Category</dt>
+                <dd className="mt-1">
+                  <span className="px-2 py-1 text-[#3e60a3] text-xs font-medium bg-blue-100 rounded-full">
+                    {project.category}
+                  </span>
                 </dd>
                 <dt className="sr-only">Rating</dt>
                 <dd className="mt-1">
