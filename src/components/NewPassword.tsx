@@ -130,9 +130,12 @@ const NewPassword: React.FC = () => {
 
             <div className="flex flex-col -mx-3">
               <div className="w-full px-3 mt-10">
-                <button className="block w-full max-w-xs mx-auto bg-[#5f7fbf] text-white font-roboto font-semibold text-lg rounded-lg px-3 py-3 uppercase shadow-md hover:shadow-xl transition-all duration-700 focus:outline-none hover:bg-[#3e60a3]">
+                <a
+                  href="SignInPage"
+                  className="block w-full max-w-xs text-center mx-auto bg-[#5f7fbf] text-white font-roboto font-semibold text-lg rounded-lg px-3 py-3 uppercase shadow-md hover:shadow-xl transition-all duration-700 focus:outline-none hover:bg-[#3e60a3]"
+                >
                   Set New Password
-                </button>
+                </a>
               </div>
             </div>
           </div>
