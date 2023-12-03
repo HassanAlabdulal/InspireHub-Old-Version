@@ -132,8 +132,8 @@ export default function Main() {
     query === ""
       ? Sorts
       : Sorts.filter((Sorts) => {
-          return Sorts.sortBy.toLowerCase().includes(query.toLowerCase());
-        });
+        return Sorts.sortBy.toLowerCase().includes(query.toLowerCase());
+      });
 
   return (
     <div className="bg-[#f7f7f7] pt-20 flex flex-col items-center min-h-screen font-roboto gap-12">
@@ -228,10 +228,10 @@ export default function Main() {
                       </button>
                     </div>
                     <div className="sm:flex sm:items-start">
-                      <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
+                      <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-blue-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
                         <FontAwesomeIcon
                           icon={faSliders}
-                          className="w-6 h-6 text-red-600"
+                          className="w-6 h-6 text-[#3e60a3]"
                           aria-hidden="true"
                         />
                       </div>
@@ -240,32 +240,95 @@ export default function Main() {
                           as="h3"
                           className="text-lg font-medium leading-6 text-gray-900"
                         >
-                          Deactivate account
+                          Apply Filters
                         </Dialog.Title>
-                        <div className="mt-2">
-                          <p className="text-sm text-gray-500">
-                            Are you sure you want to deactivate your account?
-                            All of your data will be permanently removed from
-                            our servers forever. This action cannot be undone.
-                          </p>
+                        <div className="my-12">
+                          <Combobox as="div" value={selectedSort} onChange={setSelectedSort}>
+                            <Combobox.Label className="block text-base font-normal text-[#121212]">
+                              Sort by:
+                            </Combobox.Label>
+                            <div className="relative mt-1">
+                              <Combobox.Input
+                                className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-[#3e60a3] focus:outline-none focus:ring-1 focus:ring-[#3e60a3] sm:text-sm"
+                                onChange={(event) => setQuery(event.target.value)}
+                                displayValue={(sort: { sortBy: string }) => sort.sortBy}
+                              />
+                              <Combobox.Button className="absolute inset-y-0 right-0 flex items-center px-2 rounded-r-md focus:outline-none">
+                                <ChevronDownIcon
+                                  className="w-5 h-5 text-gray-400"
+                                  aria-hidden="true"
+                                />
+                              </Combobox.Button>
+                              {filteredSorts.length > 0 && (
+                                <Combobox.Options className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                  {filteredSorts.map((sort) => (
+                                    <Combobox.Option
+                                      key={sort.id}
+                                      value={sort}
+                                      className={({ active }) =>
+                                        classNames(
+                                          "relative cursor-default select-none py-2 pl-8 pr-4",
+                                          active
+                                            ? "bg-[#3e60a3] text-[#f7f7f7]"
+                                            : "text-[#121212]"
+                                        )
+                                      }
+                                    >
+                                      {({ active, selected }) => (
+                                        <>
+                                          <span
+                                            className={classNames(
+                                              "block truncate",
+                                              selected && "font-semibold"
+                                            )}
+                                          >
+                                            {sort.sortBy}
+                                          </span>
+                                          {selected && (
+                                            <span
+                                              className={classNames(
+                                                "absolute inset-y-0 left-0 flex items-center pl-1.5",
+                                                active ? "text-[#f7f7f7]" : "text-[#3e60a3]"
+                                              )}
+                                            >
+                                              <CheckIcon
+                                                className="w-5 h-5"
+                                                aria-hidden="true"
+                                              />
+                                            </span>
+                                          )}
+                                        </>
+                                      )}
+                                    </Combobox.Option>
+                                  ))}
+                                </Combobox.Options>
+                              )}
+                            </div>
+                          </Combobox>
                         </div>
                       </div>
                     </div>
-                    <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                      <button
+                    <div className="mt-5 gap-3 sm:mt-4 sm:flex sm:flex-row-reverse">
+                      <a
+                        href="MainPage"
+                        className="flex select-none items-center cursor-pointer justify-center rounded-lg  bg-[#5f7fbf] border-2 border-[#5f7fbf] px-4 py-2 mt-3
+                                    text-base font-bold text-white align-middle transition-all duration-700 hover:bg-[#3e60a3] hover:border-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+                                    disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none sm:mt-0 sm:w-auto"
                         type="button"
-                        className="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                        data-ripple-dark="true"
                         onClick={() => setOpen(false)}
                       >
-                        Deactivate
-                      </button>
-                      <button
+                        Show Projects
+                      </a>
+                      <a
+                        className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf] cursor-pointer shadow-md hover:shadow-xl
+                                    px-4 py-2 mt-3 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
+                                  hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 sm:mt-0 sm:w-auto"
                         type="button"
-                        className="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
                         onClick={() => setOpen(false)}
                       >
                         Cancel
-                      </button>
+                      </a>
                     </div>
                   </Dialog.Panel>
                 </Transition.Child>
@@ -273,71 +336,6 @@ export default function Main() {
             </div>
           </Dialog>
         </Transition.Root>
-
-        <div>
-          <Combobox as="div" value={selectedSort} onChange={setSelectedSort}>
-            <Combobox.Label className="block text-base font-normal text-[#bfa260]">
-              Sort by:
-            </Combobox.Label>
-            <div className="relative mt-1">
-              <Combobox.Input
-                className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-[#3e60a3] focus:outline-none focus:ring-1 focus:ring-[#3e60a3] sm:text-sm"
-                onChange={(event) => setQuery(event.target.value)}
-                displayValue={(sort: { sortBy: string }) => sort.sortBy}
-              />
-              <Combobox.Button className="absolute inset-y-0 right-0 flex items-center px-2 rounded-r-md focus:outline-none">
-                <ChevronDownIcon
-                  className="w-5 h-5 text-gray-400"
-                  aria-hidden="true"
-                />
-              </Combobox.Button>
-              {filteredSorts.length > 0 && (
-                <Combobox.Options className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                  {filteredSorts.map((sort) => (
-                    <Combobox.Option
-                      key={sort.id}
-                      value={sort}
-                      className={({ active }) =>
-                        classNames(
-                          "relative cursor-default select-none py-2 pl-8 pr-4",
-                          active
-                            ? "bg-[#3e60a3] text-[#f7f7f7]"
-                            : "text-[#121212]"
-                        )
-                      }
-                    >
-                      {({ active, selected }) => (
-                        <>
-                          <span
-                            className={classNames(
-                              "block truncate",
-                              selected && "font-semibold"
-                            )}
-                          >
-                            {sort.sortBy}
-                          </span>
-                          {selected && (
-                            <span
-                              className={classNames(
-                                "absolute inset-y-0 left-0 flex items-center pl-1.5",
-                                active ? "text-[#f7f7f7]" : "text-[#3e60a3]"
-                              )}
-                            >
-                              <CheckIcon
-                                className="w-5 h-5"
-                                aria-hidden="true"
-                              />
-                            </span>
-                          )}
-                        </>
-                      )}
-                    </Combobox.Option>
-                  ))}
-                </Combobox.Options>
-              )}
-            </div>
-          </Combobox>
-        </div>
       </div>
 
       {/* Projects Section */}
