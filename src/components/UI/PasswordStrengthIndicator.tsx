@@ -18,7 +18,7 @@ const PasswordStrengthIndicator: React.FC<PasswordStrengthIndicatorProps> = ({
   const getWidth = (strength: number): string => `${strength * 25}%`;
 
   return (
-    <div className="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
+    <div className="w-1/2 bg-gray-300 rounded-full h-2.5">
       <div
         className={`h-2.5 rounded-full ${getColor(strength)}`}
         style={{ width: getWidth(strength) }}
