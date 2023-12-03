@@ -1,5 +1,5 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 
 export default function SignIn() {
   return (
@@ -225,7 +225,7 @@ export default function SignIn() {
                   <div className="flex">
                     <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
                       <i className="text-lg text-gray-400 mdi mdi-email-outline">
-                        {/* <FontAwesomeIcon icon={faEnvelope} /> */}
+                        <FontAwesomeIcon icon={faEnvelope} />
                       </i>
                     </div>
                     <input
@@ -243,7 +243,7 @@ export default function SignIn() {
                   <div className="flex">
                     <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
                       <i className="text-lg text-gray-400 mdi mdi-lock-outline">
-                        {/* <FontAwesomeIcon icon={faLock} /> */}
+                        <FontAwesomeIcon icon={faLock} />
                       </i>
                     </div>
                     <input

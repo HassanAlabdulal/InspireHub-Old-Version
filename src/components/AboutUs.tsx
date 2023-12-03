@@ -1,12 +1,12 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faGithub,
-//   faXTwitter,
-//   faLinkedin,
-// } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faXTwitter,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 type AccordionSectionProps = {
   title: string;
@@ -76,31 +76,31 @@ export const TableComponent = () => (
                   ALI ALSHAIKH
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://www.linkedin.com/in/" target="_blank">
+                  <a href="https://www.linkedin.com/in/" target="_blank">
                     <FontAwesomeIcon
                       title="linkedin"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
                       icon={faLinkedin}
                     />
-                  </a> */}
+                  </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://twitter.com/" target="_blank">
+                  <a href="https://twitter.com/" target="_blank">
                     <FontAwesomeIcon
                       title="X"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                       icon={faXTwitter}
                     />
-                  </a> */}
+                  </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://github.com/" target="_blank">
+                  <a href="https://github.com/" target="_blank">
                     <FontAwesomeIcon
                       title="GitHub"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                       icon={faGithub}
                     />
-                  </a> */}
+                  </a>
                 </td>
               </tr>
               <tr>
@@ -108,7 +108,7 @@ export const TableComponent = () => (
                   ABDULLAH AL MATAWAH
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a
+                  <a
                     href="https://www.linkedin.com/in/abdullah-al-matawah-b6036a231/"
                     target="_blank"
                   >
@@ -117,25 +117,25 @@ export const TableComponent = () => (
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
                       icon={faLinkedin}
                     />
-                  </a> */}
+                  </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://twitter.com/aamhaamm" target="_blank">
+                  <a href="https://twitter.com/aamhaamm" target="_blank">
                     <FontAwesomeIcon
                       title="X"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                       icon={faXTwitter}
                     />
-                  </a> */}
+                  </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://github.com/aamhaamm" target="_blank">
+                  <a href="https://github.com/aamhaamm" target="_blank">
                     <FontAwesomeIcon
                       title="GitHub"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                       icon={faGithub}
                     />
-                  </a> */}
+                  </a>
                 </td>
               </tr>
               <tr>
@@ -143,31 +143,31 @@ export const TableComponent = () => (
                   HASSAN ALABDULAL
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://www.linkedin.com/in/" target="_blank">
+                  <a href="https://www.linkedin.com/in/" target="_blank">
                     <FontAwesomeIcon
                       title="linkedin"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
                       icon={faLinkedin}
                     />
-                  </a> */}
+                  </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://twitter.com/7assan_abdulaal" target="_blank">
+                  <a href="https://twitter.com/7assan_abdulaal" target="_blank">
                     <FontAwesomeIcon
                       title="X"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                       icon={faXTwitter}
                     />
-                  </a> */}
+                  </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://github.com/HassanAlabdulal" target="_blank">
+                  <a href="https://github.com/HassanAlabdulal" target="_blank">
                     <FontAwesomeIcon
                       title="GitHub"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                       icon={faGithub}
                     />
-                  </a> */}
+                  </a>
                 </td>
               </tr>
               <tr>
@@ -175,31 +175,31 @@ export const TableComponent = () => (
                   ALI ALABDULAAL
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://www.linkedin.com/in/" target="_blank">
+                  <a href="https://www.linkedin.com/in/" target="_blank">
                     <FontAwesomeIcon
                       title="linkedin"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
                       icon={faLinkedin}
                     />
-                  </a> */}
+                  </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://twitter.com/l3b3al" target="_blank">
+                  <a href="https://twitter.com/l3b3al" target="_blank">
                     <FontAwesomeIcon
                       title="X"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                       icon={faXTwitter}
                     />
-                  </a> */}
+                  </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://github.com/l3b3al" target="_blank">
+                  <a href="https://github.com/l3b3al" target="_blank">
                     <FontAwesomeIcon
                       title="GitHub"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                       icon={faGithub}
                     />
-                  </a> */}
+                  </a>
                 </td>
               </tr>
               <tr>
@@ -207,31 +207,31 @@ export const TableComponent = () => (
                   HUSSAIN ALZAYER
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://www.linkedin.com/in/" target="_blank">
+                  <a href="https://www.linkedin.com/in/" target="_blank">
                     <FontAwesomeIcon
                       title="linkedin"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
                       icon={faLinkedin}
                     />
-                  </a> */}
+                  </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://twitter.com/7ussainLz" target="_blank">
+                  <a href="https://twitter.com/7ussainLz" target="_blank">
                     <FontAwesomeIcon
                       title="X"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                       icon={faXTwitter}
                     />
-                  </a> */}
+                  </a>
                 </td>
                 <td className="p-2 text-center align-middle whitespace-nowrap">
-                  {/* <a href="https://github.com/7ussainLZ" target="_blank">
+                  <a href="https://github.com/7ussainLZ" target="_blank">
                     <FontAwesomeIcon
                       title="GitHub"
                       className="inline-block w-6 h-6 transition-all duration-700 hover:scale-110"
                       icon={faGithub}
                     />
-                  </a> */}
+                  </a>
                 </td>
               </tr>
             </tbody>

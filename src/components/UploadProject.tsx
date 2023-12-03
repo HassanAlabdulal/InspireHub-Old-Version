@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faCircleXmark,
-//   faCloudArrowUp,
-//   faPlus,
-//   faFileUpload,
-//   faTimesCircle,
-//   faCheck,
-// } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleXmark,
+  faCloudArrowUp,
+  faPlus,
+  faFileUpload,
+  faTimesCircle,
+  faCheck,
+} from "@fortawesome/free-solid-svg-icons";
 
 interface TeamMember {
   name: string;
@@ -190,7 +190,7 @@ export default function AddProject() {
                   onClick={() => removeImage(index)}
                   className="absolute inset-0 flex items-center justify-center m-auto text-red-700"
                 >
-                  {/* <FontAwesomeIcon icon={faCircleXmark} size="2xl" /> */}
+                  <FontAwesomeIcon icon={faCircleXmark} size="2xl" />
                 </button>
               </div>
             ))}
@@ -200,7 +200,7 @@ export default function AddProject() {
               style={{ width: "100px", height: "100px" }}
             >
               <div className="text-center text-[#3e60a3] hover:scale-110 transition-all duration-700 ">
-                {/* <FontAwesomeIcon icon={faCloudArrowUp} size="2x" /> */}
+                <FontAwesomeIcon icon={faCloudArrowUp} size="2x" />
               </div>
             </label>
             <input
@@ -327,7 +327,7 @@ export default function AddProject() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    {/* <FontAwesomeIcon icon={faPlus} /> */}
+                    <FontAwesomeIcon icon={faPlus} />
                   </motion.button>
                 ) : (
                   <motion.button
@@ -337,7 +337,7 @@ export default function AddProject() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    {/* <FontAwesomeIcon icon={faTimesCircle} size="2xl" /> */}
+                    <FontAwesomeIcon icon={faTimesCircle} size="2xl" />
                   </motion.button>
                 )}
               </motion.div>
@@ -380,10 +380,10 @@ export default function AddProject() {
                 htmlFor="file-upload"
                 className="flex items-center cursor-pointer"
               >
-                {/* <FontAwesomeIcon
+                <FontAwesomeIcon
                   icon={faFileUpload}
                   className="mr-2 text-[#3e60a3]"
-                /> */}
+                />
                 <span className="text-sm">{fileName || "Choose File"}</span>
               </label>
               {fileName && (
@@ -393,7 +393,7 @@ export default function AddProject() {
                   className="ml-2 text-red-600"
                   title="Remove file"
                 >
-                  {/* <FontAwesomeIcon icon={faTimesCircle} /> */}
+                  <FontAwesomeIcon icon={faTimesCircle} />
                 </button>
               )}
               <input
@@ -432,11 +432,11 @@ export default function AddProject() {
                   transition={{ duration: 0.5 }}
                   className="flex flex-col items-center mt-4"
                 >
-                  {/* <FontAwesomeIcon
+                  <FontAwesomeIcon
                     icon={faCheck}
                     size="xl"
                     className="text-green-500"
-                  /> */}
+                  />
                   <motion.span
                     className="mt-2 text-green-600 text-md"
                     variants={checkmarkVariants}

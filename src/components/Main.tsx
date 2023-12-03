@@ -1,6 +1,6 @@
 import { renderStars } from "../utils/renderStars";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faArrowRight, faSliders } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { Fragment, useState } from "react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Combobox, Dialog, Transition } from "@headlessui/react";
@@ -154,7 +154,7 @@ export default function Main() {
                 className="shadow-sm focus:ring-[#3e60a3] focus:border-[#3e60a3] block w-60 sm:w-80 md:w-96 h-12 text-base border-gray-300 pl-4 pr-14 rounded-full"
                 placeholder="Project"
               />
-              {/* <a
+              <a
                 className="bg-[#5f7fbf] pt-2 pl-[10px] w-10 h-10 rounded-full absolute right-0 mr-1 -mt-11
               transition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl cursor-pointer"
               >
@@ -163,10 +163,10 @@ export default function Main() {
                   size="lg"
                   className="text-[#f7f7f7]"
                 />
-              </a> */}
+              </a>
             </div>
             <div>
-              {/* <a
+              <a
                 className="w-10 h-10 px-2 py-2 rounded-full border-2 border-[#5f7fbf] transition-all duration-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 cursor-pointer shadow-md hover:shadow-xl"
                 onClick={() => setOpen(true)}
               >
@@ -175,7 +175,7 @@ export default function Main() {
                   size="lg"
                   className="text-[#5f7fbf]"
                 />
-              </a> */}
+              </a>
             </div>
           </div>
         </div>
@@ -228,13 +228,13 @@ export default function Main() {
                       </button>
                     </div>
                     <div className="sm:flex sm:items-start">
-                      {/* <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
+                      <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
                         <FontAwesomeIcon
                           icon={faSliders}
                           className="w-6 h-6 text-red-600"
                           aria-hidden="true"
                         />
-                      </div> */}
+                      </div>
                       <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                         <Dialog.Title
                           as="h3"

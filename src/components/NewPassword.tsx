@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 interface PasswordStrengthIndicatorProps {
   strength: number;
@@ -27,8 +27,8 @@ const PasswordStrengthIndicator: React.FC<PasswordStrengthIndicatorProps> = ({
   );
 };
 
-// const ShowIcon = () => <FontAwesomeIcon icon={faEye} />;
-// const HideIcon = () => <FontAwesomeIcon icon={faEyeSlash} />;
+const ShowIcon = () => <FontAwesomeIcon icon={faEye} />;
+const HideIcon = () => <FontAwesomeIcon icon={faEyeSlash} />;
 
 const NewPassword: React.FC = () => {
   const [newPassword, setNewPassword] = useState<string>("");
@@ -94,7 +94,7 @@ const NewPassword: React.FC = () => {
                     className="absolute inset-y-0 right-0 flex items-center px-3 text-sm leading-5"
                     type="button"
                   >
-                    {/* {showNewPassword ? <HideIcon /> : <ShowIcon />} */}
+                    {showNewPassword ? <HideIcon /> : <ShowIcon />}
                   </button>
                 </div>
                 <div className="w-1/2 mt-2">
@@ -122,7 +122,7 @@ const NewPassword: React.FC = () => {
                     className="absolute inset-y-0 right-0 flex items-center px-3 text-sm leading-5"
                     type="button"
                   >
-                    {/* {showConfirmPassword ? <HideIcon /> : <ShowIcon />} */}
+                    {showConfirmPassword ? <HideIcon /> : <ShowIcon />}
                   </button>
                 </div>
               </div>
