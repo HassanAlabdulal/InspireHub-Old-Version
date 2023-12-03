@@ -1,13 +1,6 @@
 import { renderStars } from "../utils/renderStars";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faStar as solidStar,
-  faStarHalfAlt,
-  faArrowRight,
-  faSliders,
-} from "@fortawesome/free-solid-svg-icons";
-import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
-import React from "react";
+import { faArrowRight, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Combobox } from "@headlessui/react";
@@ -48,7 +41,7 @@ export default function Main() {
       id: 2,
       title: "AI-Powered Chatbot Development",
       date: "2023-08-20",
-      rate: 4.2,
+      rate: 3.4,
       creator: "Jane Smith",
       description:
         "Develop an AI-powered chatbot to provide instant customer support, answer inquiries, and streamline communication.",
@@ -68,7 +61,7 @@ export default function Main() {
       id: 4,
       title: "Financial Modeling and Forecasting",
       date: "2023-06-30",
-      rate: 4.6,
+      rate: 2.6,
       creator: "Emily Brown",
       description:
         "Create financial models and forecasts to aid in decision-making, budgeting, and financial planning for the next fiscal year.",
