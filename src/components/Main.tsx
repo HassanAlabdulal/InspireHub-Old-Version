@@ -203,13 +203,13 @@ export default function Main() {
       </div>
 
       {/* Projects Section */}
-      <ul role="list" className="grid grid-cols-1 gap-6 mx-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <ul role="list" className="grid grid-cols-1 gap-8 mx-8 sm:gap-12 sm:mx-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {projects.map((project) => (
           <li
             key={project.id}
             onClick={() => navigateToProjectDetails(project.id)}
             className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200 transform transition duration-500 
-            hover:scale-105 cursor-pointer"
+            hover:scale-105 hover:shadow-lg cursor-pointer"
           >
             <div className="flex-1 flex flex-col p-8">
               <img className="w-full h-auto mx-auto rounded-lg" src={project.imageUrl} alt={project.title} />
@@ -218,7 +218,7 @@ export default function Main() {
                 <dt className="sr-only">Creator</dt>
                 <dd className="text-gray-500 text-sm">by {project.creator}</dd>
                 <dt className="sr-only">Description</dt>
-                <dd className="text-gray-500 text-sm">{project.description}</dd>
+                <dd className="text-[#121212] text-sm line-clamp-3">{project.description}</dd>
                 <dt className="sr-only">Rating</dt>
                 <dd className="mt-1">
                   <span className="px-2 py-1 text-[#AA8A41] text-xs font-medium bg-amber-100 rounded-full">
