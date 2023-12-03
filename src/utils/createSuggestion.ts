@@ -1,6 +1,7 @@
+import { zodToJsonSchema } from "zod-to-json-schema";
+
 import { z } from "zod";
 import { openai } from "./openai";
-import { zodToJsonSchema } from "zod-to-json-schema";
 
 const SuggestionInputSchema = z.object({
   areasOfInterest: z.string(),
@@ -14,8 +15,17 @@ const SuggestionInputSchema = z.object({
 });
 
 export async function createSuggestion(
-  input: z.infer<typeof SuggestionInputSchema>,
+  input: z.infer<typeof SuggestionInputSchema>
 ) {
+  // Validate the input using the schema
+  const validationResult = SuggestionInputSchema.safeParse(input);
+  if (!validationResult.success) {
+    // Handle the error appropriately, e.g., throw an error or return a specific message
+    throw new Error("Invalid input for suggestion creation");
+  }
+
+  // If the input is valid, proceed with the API call
+  const validInput = validationResult.data;
   const data = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [
@@ -26,7 +36,7 @@ export async function createSuggestion(
       },
       {
         role: "user",
-        content: JSON.stringify(input),
+        content: JSON.stringify(validInput),
       },
     ],
   });
