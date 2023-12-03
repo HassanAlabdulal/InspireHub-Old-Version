@@ -178,6 +178,17 @@ export default function Main() {
               </a>
             </div>
           </div>
+          <a
+            href="UploadProjectPage"
+            className="flex select-none items-center cursor-pointer justify-center rounded-lg  bg-[#5f7fbf] border-2 border-[#5f7fbf] px-4 py-2 mt-3
+                                    text-base font-bold text-white align-middle transition-all duration-700 hover:bg-[#3e60a3] hover:border-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+                                    disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none sm:mt-0 sm:w-auto"
+            type="button"
+            data-ripple-dark="true"
+            onClick={() => setOpen(false)}
+          >
+            Add Project
+          </a>
         </div>
 
         <Transition.Root show={open} as={Fragment}>
@@ -310,7 +321,6 @@ export default function Main() {
                     </div>
                     <div className="mt-5 gap-3 sm:mt-4 sm:flex sm:flex-row-reverse">
                       <a
-                        href="MainPage"
                         className="flex select-none items-center cursor-pointer justify-center rounded-lg  bg-[#5f7fbf] border-2 border-[#5f7fbf] px-4 py-2 mt-3
                                     text-base font-bold text-white align-middle transition-all duration-700 hover:bg-[#3e60a3] hover:border-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
                                     disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none sm:mt-0 sm:w-auto"

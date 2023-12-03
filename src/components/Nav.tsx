@@ -89,14 +89,17 @@ export default function Nav() {
             className="flex flex-col w-64 gap-4"
           >
             <motion.a
-              className="w-full py-1 text-white  bg-[#5f7fbf] roundedtransition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+              className="flex select-none items-center cursor-pointer justify-center rounded-lg  bg-[#5f7fbf] border-2 border-[#5f7fbf] px-4 py-2 mt-3
+              text-base font-bold text-white align-middle transition-all duration-700 hover:bg-[#3e60a3] hover:border-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
               disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               href="SignInPage"
             >
               Sign in
             </motion.a>
             <motion.a
-              className="w-full h-10 tracking-wide text-indigo-500 transition ease-in-out border-2 border-indigo-500 rounded hover:bg-indigo-500 hover:text-white active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300 duration-750"
+              className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf] cursor-pointer shadow-md hover:shadow-xl
+              px-4 py-2 mt-3 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
+            hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
               href="SignUpPage"
             >
               Sign up
