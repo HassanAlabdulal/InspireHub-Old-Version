@@ -1,10 +1,10 @@
 import { renderStars } from "../utils/renderStars";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faSliders } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faArrowRight, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { Fragment, useState } from "react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Combobox, Dialog, Transition } from "@headlessui/react";
-import { XMarkIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 type Project = {
   id: number;
@@ -132,8 +132,8 @@ export default function Main() {
     query === ""
       ? Sorts
       : Sorts.filter((Sorts) => {
-        return Sorts.sortBy.toLowerCase().includes(query.toLowerCase());
-      });
+          return Sorts.sortBy.toLowerCase().includes(query.toLowerCase());
+        });
 
   return (
     <div className="bg-[#f7f7f7] pt-20 flex flex-col items-center min-h-screen font-roboto gap-12">
@@ -154,7 +154,7 @@ export default function Main() {
                 className="shadow-sm focus:ring-[#3e60a3] focus:border-[#3e60a3] block w-60 sm:w-80 md:w-96 h-12 text-base border-gray-300 pl-4 pr-14 rounded-full"
                 placeholder="Project"
               />
-              <a
+              {/* <a
                 className="bg-[#5f7fbf] pt-2 pl-[10px] w-10 h-10 rounded-full absolute right-0 mr-1 -mt-11
               transition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl cursor-pointer"
               >
@@ -163,23 +163,29 @@ export default function Main() {
                   size="lg"
                   className="text-[#f7f7f7]"
                 />
-              </a>
+              </a> */}
             </div>
             <div>
-              <a className="w-10 h-10 px-2 py-2 rounded-full border-2 border-[#5f7fbf] transition-all duration-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 cursor-pointer shadow-md hover:shadow-xl"
-                onClick={() => setOpen(true)}>
+              {/* <a
+                className="w-10 h-10 px-2 py-2 rounded-full border-2 border-[#5f7fbf] transition-all duration-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 cursor-pointer shadow-md hover:shadow-xl"
+                onClick={() => setOpen(true)}
+              >
                 <FontAwesomeIcon
                   icon={faSliders}
                   size="lg"
                   className="text-[#5f7fbf]"
                 />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
 
         <Transition.Root show={open} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
+          <Dialog
+            as="div"
+            className="relative z-10"
+            onClose={() => setOpen(false)}
+          >
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -189,13 +195,16 @@ export default function Main() {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+              <div className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" />
             </Transition.Child>
 
-            <div className="fixed z-10 inset-0 overflow-y-auto">
-              <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+              <div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
                 {/* This element is to trick the browser into centering the modal contents. */}
-                <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
+                <span
+                  className="hidden sm:inline-block sm:align-middle sm:h-screen"
+                  aria-hidden="true"
+                >
                   &#8203;
                 </span>
                 <Transition.Child
@@ -207,29 +216,37 @@ export default function Main() {
                   leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
-                  <Dialog.Panel className="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
-                    <div className="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
+                  <Dialog.Panel className="relative inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                    <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
                       <button
                         type="button"
-                        className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="text-gray-400 bg-white rounded-md hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         onClick={() => setOpen(false)}
                       >
                         <span className="sr-only">Close</span>
-                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                        <XMarkIcon className="w-6 h-6" aria-hidden="true" />
                       </button>
                     </div>
                     <div className="sm:flex sm:items-start">
-                      <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                        <FontAwesomeIcon icon={faSliders} className="h-6 w-6 text-red-600" aria-hidden="true" />
-                      </div>
+                      {/* <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
+                        <FontAwesomeIcon
+                          icon={faSliders}
+                          className="w-6 h-6 text-red-600"
+                          aria-hidden="true"
+                        />
+                      </div> */}
                       <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                        <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
+                        <Dialog.Title
+                          as="h3"
+                          className="text-lg font-medium leading-6 text-gray-900"
+                        >
                           Deactivate account
                         </Dialog.Title>
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
-                            Are you sure you want to deactivate your account? All of your data will be permanently removed
-                            from our servers forever. This action cannot be undone.
+                            Are you sure you want to deactivate your account?
+                            All of your data will be permanently removed from
+                            our servers forever. This action cannot be undone.
                           </p>
                         </div>
                       </div>
@@ -237,14 +254,14 @@ export default function Main() {
                     <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                       <button
                         type="button"
-                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                        className="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
                         onClick={() => setOpen(false)}
                       >
                         Deactivate
                       </button>
                       <button
                         type="button"
-                        className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
+                        className="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
                         onClick={() => setOpen(false)}
                       >
                         Cancel
@@ -345,7 +362,10 @@ export default function Main() {
               </h3>
               <dl className="flex flex-col justify-between flex-grow gap-3 mt-1">
                 <dt className="sr-only">Creator</dt>
-                <dd className="text-sm text-gray-500">by <em className="text-gray-600">{project.creator}</em> on {project.date}</dd>
+                <dd className="text-sm text-gray-500">
+                  by <em className="text-gray-600">{project.creator}</em> on{" "}
+                  {project.date}
+                </dd>
                 <dt className="sr-only">Description</dt>
                 <dd className="text-[#121212] text-sm line-clamp-2">
                   {project.description}

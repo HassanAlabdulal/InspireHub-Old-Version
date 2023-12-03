@@ -2,21 +2,21 @@ import { useState } from "react";
 import Policy from "../components/Policy.tsx";
 import PasswordStrengthIndicator from "..//components/UI/PasswordStrengthIndicator";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faLock,
-  faUser,
-  faBook,
-  faChevronLeft,
-  faEye,
-  faEyeSlash,
-} from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faEnvelope,
+//   faLock,
+//   faUser,
+//   faBook,
+//   faChevronLeft,
+//   faEye,
+//   faEyeSlash,
+// } from "@fortawesome/free-solid-svg-icons";
 
 import { createSupabaseBrowser } from "../utils/supabase.ts";
 
-const ShowIcon = () => <FontAwesomeIcon icon={faEye} />;
-const HideIcon = () => <FontAwesomeIcon icon={faEyeSlash} />;
+// const ShowIcon = () => <FontAwesomeIcon icon={faEye} />;
+// const HideIcon = () => <FontAwesomeIcon icon={faEyeSlash} />;
 const MAX_STEPS = 4;
 
 const SignUp = () => {
@@ -134,7 +134,7 @@ const SignUp = () => {
                     type="button"
                     className="w-6 text-gray-400 transition-all duration-200 hover:text-gray-600"
                   >
-                    <FontAwesomeIcon icon={faChevronLeft} />
+                    {/* <FontAwesomeIcon icon={faChevronLeft} /> */}
                   </button>
                 )}
                 <p className="mr-2 text-sm text-gray-700 ">
@@ -153,7 +153,7 @@ const SignUp = () => {
                 <div className="flex mb-3">
                   <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
                     <i className="text-lg text-gray-400 mdi mdi-email-outline">
-                      <FontAwesomeIcon icon={faUser} />
+                      {/* <FontAwesomeIcon icon={faUser} /> */}
                     </i>
                   </div>
                   <input
@@ -168,7 +168,7 @@ const SignUp = () => {
                 <div className="flex">
                   <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
                     <i className="text-lg text-gray-400 mdi mdi-email-outline">
-                      <FontAwesomeIcon icon={faUser} />
+                      {/* <FontAwesomeIcon icon={faUser} /> */}
                     </i>
                   </div>
                   <input
@@ -189,7 +189,7 @@ const SignUp = () => {
                 <div className="flex mb-3">
                   <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
                     <i className="text-lg text-gray-400 mdi mdi-email-outline">
-                      <FontAwesomeIcon icon={faEnvelope} />
+                      {/* <FontAwesomeIcon icon={faEnvelope} /> */}
                     </i>
                   </div>
                   <input
@@ -205,7 +205,7 @@ const SignUp = () => {
                 </label>
                 <div className="relative flex mb-3">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <FontAwesomeIcon icon={faLock} className="text-gray-400" />
+                    {/* <FontAwesomeIcon icon={faLock} className="text-gray-400" /> */}
                   </div>
                   <input
                     type={showPassword ? "text" : "password"}
@@ -219,14 +219,14 @@ const SignUp = () => {
                     className="absolute inset-y-0 right-0 flex items-center pr-3"
                     type="button"
                   >
-                    {showPassword ? (
+                    {/* {showPassword ? (
                       <FontAwesomeIcon
                         icon={faEyeSlash}
                         className="text-gray-400"
                       />
                     ) : (
                       <FontAwesomeIcon icon={faEye} className="text-gray-400" />
-                    )}
+                    )} */}
                   </button>
                 </div>
                 <PasswordStrengthIndicator strength={passwordStrength} />
@@ -238,7 +238,7 @@ const SignUp = () => {
                 </label>
                 <div className="relative flex mb-3">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <FontAwesomeIcon icon={faLock} className="text-gray-400" />
+                    {/* <FontAwesomeIcon icon={faLock} className="text-gray-400" /> */}
                   </div>
                   <input
                     type={showConfirmPassword ? "text" : "password"}
@@ -253,14 +253,14 @@ const SignUp = () => {
                     className="absolute inset-y-0 right-0 flex items-center pr-3"
                     type="button"
                   >
-                    {showConfirmPassword ? (
+                    {/* {showConfirmPassword ? (
                       <FontAwesomeIcon
                         icon={faEyeSlash}
                         className="text-gray-400"
                       />
                     ) : (
                       <FontAwesomeIcon icon={faEye} className="text-gray-400" />
-                    )}
+                    )} */}
                   </button>
                 </div>
               </section>
@@ -275,7 +275,7 @@ const SignUp = () => {
                 <div className="flex mb-4">
                   <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
                     <i className="text-lg text-gray-400 mdi mdi-email-outline">
-                      <FontAwesomeIcon icon={faBook} />
+                      {/* <FontAwesomeIcon icon={faBook} /> */}
                     </i>
                   </div>
                   <input

@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { renderStars } from "../utils/renderStars";
 import CardWithImage from "../components/UI/Card.tsx";
 import AccordionItem from "../components/UI/Accordion.tsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleLeft,
-  faAngleRight,
-  faScrewdriverWrench,
-  faPeopleGroup,
-  faBook,
-  faTags,
-} from "@fortawesome/free-solid-svg-icons";
-import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faAngleLeft,
+//   faAngleRight,
+//   faScrewdriverWrench,
+//   faPeopleGroup,
+//   faBook,
+//   faTags,
+// } from "@fortawesome/free-solid-svg-icons";
+// import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 // TeamMember interface
 interface TeamMember {
@@ -149,12 +149,12 @@ const ShowProject: React.FC = () => {
             <AccordionItem
               id={1}
               header="Team Members"
-              icon={
-                <FontAwesomeIcon
-                  icon={faPeopleGroup}
-                  className="text-[#121212] mr-2"
-                />
-              }
+              // icon={
+              //   <FontAwesomeIcon
+              //     icon={faPeopleGroup}
+              //     className="text-[#121212] mr-2"
+              //   />
+              // }
             >
               <div className="space-y-4">
                 {" "}
@@ -171,7 +171,7 @@ const ShowProject: React.FC = () => {
                         className="mx-2 text-xl text-gray-800 hover:text-[#121212] transition-all duration-300"
                         rel="noopener noreferrer"
                       >
-                        <FontAwesomeIcon icon={faXTwitter} size="lg" />
+                        {/* <FontAwesomeIcon icon={faXTwitter} size="lg" /> */}
                       </a>
                       <a
                         href={`https://www.linkedin.com/in/${member.linkedIn}`}
@@ -179,7 +179,7 @@ const ShowProject: React.FC = () => {
                         className="mx-2 text-xl text-[#5f7fbf] hover:text-[#3a60a3] transition-all duration-300"
                         rel="noopener noreferrer"
                       >
-                        <FontAwesomeIcon icon={faLinkedin} size="lg" />
+                        {/* <FontAwesomeIcon icon={faLinkedin} size="lg" /> */}
                       </a>
                     </div>
                   </div>
@@ -206,7 +206,7 @@ const ShowProject: React.FC = () => {
                 ))}
 
                 {/* Slider Controls */}
-                <FontAwesomeIcon
+                {/* <FontAwesomeIcon
                   icon={faAngleLeft}
                   onClick={goToPrevious}
                   className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] bg-opacity-50 hover:bg-opacity-100 transition-all duration-200 cursor-pointer rounded-xl left-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
@@ -217,88 +217,89 @@ const ShowProject: React.FC = () => {
                   onClick={goToNext}
                   className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] hover:bg-opacity-100 transition-all duration-200 bg-opacity-50 cursor-pointer rounded-xl right-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
                 />
-              </div>
+              </div> */}
 
-              {/* Dots Indicator */}
-              <div className="flex justify-center mt-4 space-x-2">
-                {slides.map((_, index) => (
-                  <span
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`inline-block cursor-pointer rounded-full p-2 ${
-                      index === currentIndex ? "bg-[#5f7fbf]" : "bg-white"
-                    }`}
-                  ></span>
-                ))}
-              </div>
-              <hr className="h-px my-8 bg-gray-300 border-0" />
-            </div>
-
-            <div className="flex flex-col justify-center">
-              <div className="pb-12">
-                <div className="grid items-stretch min-h-0 grid-cols-1 gap-10 md:grid-cols-3">
-                  <CardWithImage
-                    image="src/assets/Description.png"
-                    title="Description"
-                    description={projectData.description}
-                  />
-                  <CardWithImage
-                    image="src/assets/Motivation.png"
-                    title="Motivation"
-                    description={projectData.motivation}
-                  />
-                  <CardWithImage
-                    image="src/assets/Features.png"
-                    title="Features"
-                    description={projectData.features}
-                  />
+                {/* Dots Indicator */}
+                <div className="flex justify-center mt-4 space-x-2">
+                  {slides.map((_, index) => (
+                    <span
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`inline-block cursor-pointer rounded-full p-2 ${
+                        index === currentIndex ? "bg-[#5f7fbf]" : "bg-white"
+                      }`}
+                    ></span>
+                  ))}
                 </div>
+                <hr className="h-px my-8 bg-gray-300 border-0" />
               </div>
 
-              <hr className="h-px my-8 bg-gray-300 border-0" />
-            </div>
-            <div className="text-[#121212] font-bold flex flex-col">
-              <div className="flex items-center justify-center">
-                <AccordionItem
-                  id={1}
-                  header="Tools"
-                  icon={
-                    <FontAwesomeIcon
-                      icon={faScrewdriverWrench}
-                      className="text-[#121212] mr-2"
+              <div className="flex flex-col justify-center">
+                <div className="pb-12">
+                  <div className="grid items-stretch min-h-0 grid-cols-1 gap-10 md:grid-cols-3">
+                    <CardWithImage
+                      image="src/assets/Description.png"
+                      title="Description"
+                      description={projectData.description}
                     />
-                  }
-                >
-                  <h1>{projectData.tools}</h1>
-                </AccordionItem>
+                    <CardWithImage
+                      image="src/assets/Motivation.png"
+                      title="Motivation"
+                      description={projectData.motivation}
+                    />
+                    <CardWithImage
+                      image="src/assets/Features.png"
+                      title="Features"
+                      description={projectData.features}
+                    />
+                  </div>
+                </div>
+
+                <hr className="h-px my-8 bg-gray-300 border-0" />
               </div>
-              <div className="flex items-center justify-center">
-                <AccordionItem
-                  id={1}
-                  header="Resources"
-                  icon={
-                    <FontAwesomeIcon
-                      icon={faBook}
-                      className="text-[#121212] mr-2"
-                    />
-                  }
-                >
-                  <h1>{projectData.resources}</h1>
-                </AccordionItem>
-              </div>
-              <div className="flex items-center justify-center">
-                <AccordionItem
-                  id={1}
-                  header="Others"
-                  icon={
-                    <FontAwesomeIcon
-                      icon={faTags}
-                      className="text-[#121212] mr-2"
-                    />
-                  }
-                >
-                  <h1>{projectData.others}</h1>
-                </AccordionItem>
+              <div className="text-[#121212] font-bold flex flex-col">
+                <div className="flex items-center justify-center">
+                  <AccordionItem
+                    id={1}
+                    header="Tools"
+                    // icon={
+                    //   <FontAwesomeIcon
+                    //     icon={faScrewdriverWrench}
+                    //     className="text-[#121212] mr-2"
+                    //   />
+                    // }
+                  >
+                    <h1>{projectData.tools}</h1>
+                  </AccordionItem>
+                </div>
+                <div className="flex items-center justify-center">
+                  <AccordionItem
+                    id={1}
+                    header="Resources"
+                    // icon={
+                    //   <FontAwesomeIcon
+                    //     icon={faBook}
+                    //     className="text-[#121212] mr-2"
+                    //   />
+                    // }
+                  >
+                    <h1>{projectData.resources}</h1>
+                  </AccordionItem>
+                </div>
+                <div className="flex items-center justify-center">
+                  <AccordionItem
+                    id={1}
+                    header="Others"
+                    // icon={
+                    //   <FontAwesomeIcon
+                    //     icon={faTags}
+                    //     className="text-[#121212] mr-2"
+                    //   />
+                    // }
+                  >
+                    <h1>{projectData.others}</h1>
+                  </AccordionItem>
+                </div>
               </div>
             </div>
           </div>
