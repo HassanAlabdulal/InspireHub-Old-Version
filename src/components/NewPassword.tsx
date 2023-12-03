@@ -27,7 +27,6 @@ const PasswordStrengthIndicator: React.FC<PasswordStrengthIndicatorProps> = ({
   );
 };
 
-// Placeholder icons. Replace these with actual icon components from your icon library.
 const ShowIcon = () => <FontAwesomeIcon icon={faEye} />;
 const HideIcon = () => <FontAwesomeIcon icon={faEyeSlash} />;
 
@@ -68,7 +67,6 @@ const NewPassword: React.FC = () => {
       <div className="w-2/3 overflow-hidden text-gray-500 bg-gray-100 shadow-xl rounded-3xl">
         <div className="w-full md:flex">
           <div className="hidden w-1/2 bg-[#5f7fbf] md:block">
-            {/* Image src should be updated to the correct path */}
             <img src="src/assets/Reset password.png" alt="Reset Password" />
           </div>
           <div className="w-full px-5 py-36 md:w-1/2 md:px-10">
