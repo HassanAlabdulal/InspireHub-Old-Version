@@ -27,6 +27,8 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [passwordStrength, setPasswordStrength] = useState<number>(0);
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
 
   const checkPasswordStrength = (password: string): number => {
     let strength = 0;
@@ -202,47 +204,64 @@ const SignUp = () => {
                   Password
                 </label>
                 <div className="relative flex mb-3">
-                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
-                    <FontAwesomeIcon icon={faLock} />
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <FontAwesomeIcon icon={faLock} className="text-gray-400" />
                   </div>
                   <input
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={handlePasswordChange}
-                    className="w-full py-2 pl-10 pr-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    className="w-full py-2 pl-10 pr-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf] placeholder-gray-500"
                     placeholder="********"
                   />
                   <button
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 flex items-center px-3 text-sm leading-5"
+                    className="absolute inset-y-0 right-0 flex items-center pr-3"
                     type="button"
                   >
                     {showPassword ? (
-                      <FontAwesomeIcon icon={faEyeSlash} />
+                      <FontAwesomeIcon
+                        icon={faEyeSlash}
+                        className="text-gray-400"
+                      />
                     ) : (
-                      <FontAwesomeIcon icon={faEye} />
+                      <FontAwesomeIcon icon={faEye} className="text-gray-400" />
                     )}
                   </button>
                 </div>
                 <PasswordStrengthIndicator strength={passwordStrength} />
-                <p className="text-xs text-gray-600">
+                <p className="mb-2 text-xs text-gray-600">
                   Password strength indicator
                 </p>
-
                 <label className="px-1 mb-2 text-xs font-semibold">
                   Confirm Password
                 </label>
-                <div className="flex">
-                  <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
-                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
-                      <FontAwesomeIcon icon={faLock} />
-                    </i>
+                <div className="relative flex mb-3">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <FontAwesomeIcon icon={faLock} className="text-gray-400" />
                   </div>
                   <input
-                    type="password"
-                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    type={showConfirmPassword ? "text" : "password"}
+                    // Assuming you have a state to hold the confirm password value
+                    // value={confirmPassword}
+                    // onChange={handleConfirmPasswordChange}
+                    className="w-full py-2 pl-10 pr-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf] placeholder-gray-500"
                     placeholder="********"
                   />
+                  <button
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute inset-y-0 right-0 flex items-center pr-3"
+                    type="button"
+                  >
+                    {showConfirmPassword ? (
+                      <FontAwesomeIcon
+                        icon={faEyeSlash}
+                        className="text-gray-400"
+                      />
+                    ) : (
+                      <FontAwesomeIcon icon={faEye} className="text-gray-400" />
+                    )}
+                  </button>
                 </div>
               </section>
             )}
