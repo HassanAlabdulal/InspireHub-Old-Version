@@ -34,7 +34,8 @@ const NewPassword: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [passwordStrength, setPasswordStrength] = useState<number>(0);
   const [showNewPassword, setShowNewPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
 
   const checkPasswordStrength = (password: string): number => {
     let strength = 0;

@@ -1,8 +1,6 @@
 import { useState } from "react";
 import Policy from "../components/Policy.tsx";
 
-const MAX_STEPS = 4;
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
@@ -10,8 +8,15 @@ import {
   faUser,
   faBook,
   faChevronLeft,
+  faEye,
+  faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
+
 import { createSupabaseBrowser } from "../utils/supabase.ts";
+
+const ShowIcon = () => <FontAwesomeIcon icon={faEye} />;
+const HideIcon = () => <FontAwesomeIcon icon={faEyeSlash} />;
+const MAX_STEPS = 4;
 
 const SignUp = () => {
   const [formStep, setFormStep] = useState(0);
@@ -19,6 +24,24 @@ const SignUp = () => {
   const [showReturnButton, setShowReturnButton] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordStrength, setPasswordStrength] = useState<number>(0);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const checkPasswordStrength = (password: string): number => {
+    let strength = 0;
+    if (password.length >= 8) strength += 1;
+    if (password.match(/(?=.*[0-9])/)) strength += 1;
+    if (password.match(/(?=.*[!@#$%^&*])/)) strength += 1;
+    if (password.match(/(?=.*[a-z])/)) strength += 1;
+    if (password.match(/(?=.*[A-Z])/)) strength += 1;
+    return strength;
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const password = event.target.value;
+    setPassword(password);
+    setPasswordStrength(checkPasswordStrength(password));
+  };
 
   const handleSignUp = async () => {
     const supabase = createSupabaseBrowser();
