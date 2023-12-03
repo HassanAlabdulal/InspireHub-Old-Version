@@ -154,7 +154,8 @@ export default function Main() {
           <li
             key={project.id}
             onClick={() => navigateToProjectDetails(project.id)}
-            className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200"
+            className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200 transform transition duration-500 
+            hover:scale-105 cursor-pointer"
           >
             <div className="flex-1 flex flex-col p-8">
               <img className="w-full h-auto mx-auto rounded-lg" src={project.imageUrl} alt={project.title} />
