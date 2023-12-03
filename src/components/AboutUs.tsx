@@ -14,7 +14,10 @@ type AccordionSectionProps = {
   children: ReactNode;
 };
 
-export const AccordionSection = ({ title, children }: AccordionSectionProps) => {
+export const AccordionSection = ({
+  title,
+  children,
+}: AccordionSectionProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Variants for animating the open/close state
@@ -26,7 +29,7 @@ export const AccordionSection = ({ title, children }: AccordionSectionProps) => 
   return (
     <div>
       <button
-        className="flex items-center text-[#bfa260] font-roboto font-semibold text-xl mb-2 text-left focus:outline-none"
+        className="flex items-center text-[#bfa260] font-roboto font-semibold text-2xl mb-4 text-left focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
         <motion.span
@@ -239,4 +242,3 @@ export const TableComponent = () => (
     </div>
   </div>
 );
-
