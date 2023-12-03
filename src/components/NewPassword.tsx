@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 interface PasswordStrengthIndicatorProps {
   strength: number;
@@ -26,15 +28,16 @@ const PasswordStrengthIndicator: React.FC<PasswordStrengthIndicatorProps> = ({
 };
 
 // Placeholder icons. Replace these with actual icon components from your icon library.
-const ShowIcon = () => <span>👁️</span>;
-const HideIcon = () => <span>🚫</span>;
+const ShowIcon = () => <FontAwesomeIcon icon={faEye} />;
+const HideIcon = () => <FontAwesomeIcon icon={faEyeSlash} />;
 
 const NewPassword: React.FC = () => {
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [passwordStrength, setPasswordStrength] = useState<number>(0);
   const [showNewPassword, setShowNewPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
 
   const checkPasswordStrength = (password: string): number => {
     let strength = 0;
@@ -90,7 +93,7 @@ const NewPassword: React.FC = () => {
                   />
                   <button
                     onClick={() => setShowNewPassword(!showNewPassword)}
-                    className="absolute inset-y-0 right-0 px-3 flex items-center text-sm leading-5"
+                    className="absolute inset-y-0 right-0 flex items-center px-3 text-sm leading-5"
                     type="button"
                   >
                     {showNewPassword ? <HideIcon /> : <ShowIcon />}
@@ -118,7 +121,7 @@ const NewPassword: React.FC = () => {
                   />
                   <button
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute inset-y-0 right-0 px-3 flex items-center text-sm leading-5"
+                    className="absolute inset-y-0 right-0 flex items-center px-3 text-sm leading-5"
                     type="button"
                   >
                     {showConfirmPassword ? <HideIcon /> : <ShowIcon />}
