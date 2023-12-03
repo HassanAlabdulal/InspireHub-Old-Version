@@ -17,7 +17,7 @@ type Project = {
   title: string;
   date: string;
   rate: number;
-  author: string;
+  creator: string;
   description: string;
   imageUrl: string;
 };
@@ -39,7 +39,7 @@ export default function Main() {
       title: "InspireHub",
       date: "2023-12-15",
       rate: 5,
-      author: "Hassan Alabdulal",
+      creator: "Hassan Alabdulal",
       description: "It is a website that is a hub... ",
       imageUrl: "src/assets/ContactUs.png",
     },
@@ -48,7 +48,7 @@ export default function Main() {
       title: "Second Project",
       date: "2023-11-23",
       rate: 1.5,
-      author: "Omar Hammad",
+      creator: "Omar Hammad",
       description: "This is the my project description...",
       imageUrl: "src/assets/Git_icon.png",
     },
@@ -153,18 +153,19 @@ export default function Main() {
         {projects.map((project) => (
           <li
             key={project.id}
+            onClick={() => navigateToProjectDetails(project.id)}
             className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200"
           >
             <div className="flex-1 flex flex-col p-8">
               <img className="w-full h-auto mx-auto rounded-lg" src={project.imageUrl} alt={project.title} />
-              <h3 className="mt-6 text-gray-900 text-sm font-medium">{project.author}</h3>
+              <h3 className="mt-6 text-gray-900 text-sm font-medium">{project.creator}</h3>
               <dl className="mt-1 flex-grow flex flex-col justify-between">
                 <dt className="sr-only">Title</dt>
                 <dd className="text-gray-500 text-sm">{project.title}</dd>
                 <dt className="sr-only">Role</dt>
                 <dd className="mt-3">
                   <span className="px-2 py-1 text-[#AA8A41] text-xs font-medium bg-amber-100 rounded-full">
-                    {renderStars(project.rate)} {project.rate} of 5
+                    {renderStars(project.rate)} {project.rate} / 5
                   </span>
                 </dd>
               </dl>
@@ -172,37 +173,6 @@ export default function Main() {
           </li>
         ))}
       </ul>
-
-      <div className="flex flex-wrap justify-center w-full px-6">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="border p-4 m-2 rounded-lg w-[calc(25%-1rem)] relative"
-          >
-            <img
-              src={project.imageUrl}
-              alt={project.title}
-              className="w-full h-auto"
-            />
-            <h3 className="text-lg font-bold text-[#bfa260]">
-              {project.title}
-            </h3>
-            <p>Date: {project.date}</p>
-            <div className="flex items-center">
-              Rate: {renderStars(project.rate)}
-              <span className="ml-1">{project.rate} of 5</span>
-            </div>
-            <p>Author: {project.author}</p>
-            <p>Description: {project.description}</p>
-            <button
-              onClick={() => navigateToProjectDetails(project.id)}
-              className="absolute bottom-2 right-2"
-            >
-              <FontAwesomeIcon icon={faArrowRight} className="text-gray-700" />
-            </button>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
