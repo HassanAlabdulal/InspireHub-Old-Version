@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Policy from "../components/Policy.tsx";
+import PasswordStrengthIndicator from "..//components/UI/PasswordStrengthIndicator";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -200,20 +201,34 @@ const SignUp = () => {
                 <label className="px-1 mb-2 text-xs font-semibold">
                   Password
                 </label>
-                <div className="flex mb-3">
+                <div className="relative flex mb-3">
                   <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none">
-                    <i className="text-lg text-gray-400 mdi mdi-email-outline">
-                      <FontAwesomeIcon icon={faLock} />
-                    </i>
+                    <FontAwesomeIcon icon={faLock} />
                   </div>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
+                    onChange={handlePasswordChange}
+                    className="w-full py-2 pl-10 pr-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="********"
                   />
+                  <button
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 flex items-center px-3 text-sm leading-5"
+                    type="button"
+                  >
+                    {showPassword ? (
+                      <FontAwesomeIcon icon={faEyeSlash} />
+                    ) : (
+                      <FontAwesomeIcon icon={faEye} />
+                    )}
+                  </button>
                 </div>
+                <PasswordStrengthIndicator strength={passwordStrength} />
+                <p className="text-xs text-gray-600">
+                  Password strength indicator
+                </p>
+
                 <label className="px-1 mb-2 text-xs font-semibold">
                   Confirm Password
                 </label>
