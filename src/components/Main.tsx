@@ -118,7 +118,7 @@ export default function Main() {
 
   const navigateToProjectDetails = (projectId: number) => {
     // console.log(`Navigate to details of project with id: ${projectId}`);
-    window.location.href = "/ShowProjectPage/";
+    window.location.href = "/ShowProjectPage";
   };
 
   const [query, setQuery] = useState("");
