@@ -1,6 +1,6 @@
 interface PolicyProps {
-  onClose: () => void;
-  showReturnButton: boolean;
+  onClose?: () => void;
+  showReturnButton?: boolean;
 }
 
 export default function Policy({ onClose, showReturnButton }: PolicyProps) {
