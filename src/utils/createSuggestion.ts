@@ -27,6 +27,7 @@ export async function createSuggestion(
   // If the input is valid, proceed with the API call
   const validInput = validationResult.data;
   const data = await openai.chat.completions.create({
+    // model: "gpt-3.5-turbo",
     model: "gpt-3.5-turbo",
     messages: [
       {
