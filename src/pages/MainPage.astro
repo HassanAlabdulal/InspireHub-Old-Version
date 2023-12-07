@@ -1,8 +1,105 @@
 ---
-import MainLayout from "../layouts/main-layout.astro"
-import Main from "../components/Main.tsx"
+import MainLayout from "../layouts/main-layout.astro";
+import Main from "../components/Main.tsx";
+import { createSupabaseServer } from "../utils/supabase";
+
+const supabase = createSupabaseServer(Astro.cookies);
+const { data: projects, error } = await supabase
+  .from("projectdetails")
+  .select("*");
+
+// const projects: Project[] = [
+//   {
+//     id: 1,
+//     title: "E-commerce Website Redesign",
+//     date: "2023-05-15",
+//     rate: 4.5,
+//     creator: "John Doe",
+//     description:
+//       "Redesign and modernize our e-commerce platform to improve user experience, increase conversion rates, and enhance security.",
+//     imageUrl: "src/assets/ContactUs.png",
+//     category: "Tech",
+//   },
+//   {
+//     id: 2,
+//     title: "AI-Powered Chatbot Development",
+//     date: "2023-08-20",
+//     rate: 3.4,
+//     creator: "Jane Smith",
+//     description:
+//       "Develop an AI-powered chatbot to provide instant customer support, answer inquiries, and streamline communication.",
+//     imageUrl: "src/assets/ContactUs.png",
+//     category: "Tech",
+//   },
+//   {
+//     id: 3,
+//     title: "Market Expansion Strategy",
+//     date: "2023-04-10",
+//     rate: 4.8,
+//     creator: "Michael Johnson",
+//     description:
+//       "Develop a comprehensive strategy to expand our market presence in emerging economies, focusing on growth and profitability.",
+//     imageUrl: "src/assets/ContactUs.png",
+//     category: "Business",
+//   },
+//   {
+//     id: 4,
+//     title: "Financial Modeling and Forecasting",
+//     date: "2023-06-30",
+//     rate: 2.6,
+//     creator: "Emily Brown",
+//     description:
+//       "Create financial models and forecasts to aid in decision-making, budgeting, and financial planning for the next fiscal year.",
+//     imageUrl: "src/assets/ContactUs.png",
+//     category: "Business",
+//   },
+//   {
+//     id: 5,
+//     title: "Bridge Rehabilitation Project",
+//     date: "2023-09-25",
+//     rate: 4.9,
+//     creator: "David Wilson",
+//     description:
+//       "Rehabilitate an aging bridge to ensure structural integrity, safety, and longevity, incorporating modern engineering practices.",
+//     imageUrl: "src/assets/ContactUs.png",
+//     category: "Engineering",
+//   },
+//   {
+//     id: 6,
+//     title: "Advanced Robotics System Design",
+//     date: "2023-07-12",
+//     rate: 4.7,
+//     creator: "Sophia Lee",
+//     description:
+//       "Design and develop advanced robotics systems for industrial automation, improving efficiency and reducing production costs.",
+//     imageUrl: "src/assets/ContactUs.png",
+//     category: "Engineering",
+//   },
+//   {
+//     id: 7,
+//     title: "Brand Identity Redesign",
+//     date: "2023-03-02",
+//     rate: 4.4,
+//     creator: "Daniel Clark",
+//     description:
+//       "Redesign the brand identity, including logo, color scheme, and visual elements, to reflect our evolving brand image.",
+//     imageUrl: "src/assets/ContactUs.png",
+//     category: "Design",
+//   },
+//   {
+//     id: 8,
+//     title: "User Interface (UI) Redesign",
+//     date: "2023-10-15",
+//     rate: 4.3,
+//     creator: "Olivia Taylor",
+//     description:
+//       "Revamp the user interface of our mobile app to enhance user-friendliness, aesthetics, and overall user satisfaction.",
+//     imageUrl: "src/assets/ContactUs.png",
+//     category: "Design",
+//   },
+// ];
 ---
 
 <MainLayout title="Main Page">
-  <Main client:load/>
+  <Main projects={projects!} client:load />
 </MainLayout>

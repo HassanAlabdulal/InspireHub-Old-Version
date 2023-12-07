@@ -31,7 +31,14 @@ export interface Database {
             columns: ["projectID"]
             isOneToOne: false
             referencedRelation: "Project"
-            referencedColumns: ["projectID"]
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Awards_projectID_fkey"
+            columns: ["projectID"]
+            isOneToOne: false
+            referencedRelation: "projectdetails"
+            referencedColumns: ["id"]
           }
         ]
       }
@@ -77,7 +84,14 @@ export interface Database {
             columns: ["projectID"]
             isOneToOne: false
             referencedRelation: "Project"
-            referencedColumns: ["projectID"]
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Features_projectID_fkey"
+            columns: ["projectID"]
+            isOneToOne: false
+            referencedRelation: "projectdetails"
+            referencedColumns: ["id"]
           }
         ]
       }
@@ -100,7 +114,14 @@ export interface Database {
             columns: ["projectID"]
             isOneToOne: false
             referencedRelation: "Project"
-            referencedColumns: ["projectID"]
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Fields_projectID_fkey"
+            columns: ["projectID"]
+            isOneToOne: false
+            referencedRelation: "projectdetails"
+            referencedColumns: ["id"]
           }
         ]
       }
@@ -171,13 +192,20 @@ export interface Database {
             columns: ["projectID"]
             isOneToOne: false
             referencedRelation: "Project"
-            referencedColumns: ["projectID"]
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Pictures_projectID_fkey"
+            columns: ["projectID"]
+            isOneToOne: false
+            referencedRelation: "projectdetails"
+            referencedColumns: ["id"]
           }
         ]
       }
       profiles: {
         Row: {
-          acadimic_level: string | null
+          academic_level: string | null
           avatar_url: string | null
           full_name: string | null
           id: string
@@ -187,7 +215,7 @@ export interface Database {
           website: string | null
         }
         Insert: {
-          acadimic_level?: string | null
+          academic_level?: string | null
           avatar_url?: string | null
           full_name?: string | null
           id: string
@@ -197,7 +225,7 @@ export interface Database {
           website?: string | null
         }
         Update: {
-          acadimic_level?: string | null
+          academic_level?: string | null
           avatar_url?: string | null
           full_name?: string | null
           id?: string
@@ -218,32 +246,38 @@ export interface Database {
       }
       Project: {
         Row: {
+          category: string | null
           created_at: string
           CreatorID: string
-          findMoreURL: string | null
+          description: string | null
+          id: string
+          image_url: string | null
           motivation: string | null
           problem: string
-          projectID: string
           solution: string
           title: string
         }
         Insert: {
+          category?: string | null
           created_at?: string
           CreatorID: string
-          findMoreURL?: string | null
+          description?: string | null
+          id: string
+          image_url?: string | null
           motivation?: string | null
           problem: string
-          projectID: string
           solution: string
           title: string
         }
         Update: {
+          category?: string | null
           created_at?: string
           CreatorID?: string
-          findMoreURL?: string | null
+          description?: string | null
+          id?: string
+          image_url?: string | null
           motivation?: string | null
           problem?: string
-          projectID?: string
           solution?: string
           title?: string
         }
@@ -305,7 +339,14 @@ export interface Database {
             columns: ["projectID"]
             isOneToOne: false
             referencedRelation: "Project"
-            referencedColumns: ["projectID"]
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Ratings_projectID_fkey"
+            columns: ["projectID"]
+            isOneToOne: false
+            referencedRelation: "projectdetails"
+            referencedColumns: ["id"]
           },
           {
             foreignKeyName: "Ratings_UserID_fkey"
@@ -347,13 +388,44 @@ export interface Database {
             columns: ["projectID"]
             isOneToOne: true
             referencedRelation: "Project"
-            referencedColumns: ["projectID"]
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "TeamMembers_projectID_fkey"
+            columns: ["projectID"]
+            isOneToOne: true
+            referencedRelation: "projectdetails"
+            referencedColumns: ["id"]
           }
         ]
       }
     }
     Views: {
-      [_ in never]: never
+      projectdetails: {
+        Row: {
+          average_rate: number | null
+          category: string | null
+          created_at: string | null
+          creator_name: string | null
+          CreatorID: string | null
+          description: string | null
+          id: string | null
+          image_url: string | null
+          motivation: string | null
+          problem: string | null
+          solution: string | null
+          title: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "Project_CreatorID_fkey"
+            columns: ["CreatorID"]
+            isOneToOne: false
+            referencedRelation: "ProjectCreator"
+            referencedColumns: ["CreatorID"]
+          }
+        ]
+      }
     }
     Functions: {
       [_ in never]: never

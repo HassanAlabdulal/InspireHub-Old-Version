@@ -2,20 +2,17 @@ import { renderStars } from "../utils/renderStars";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { Fragment, useState } from "react";
-import { CheckIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/24/solid";
 import { Combobox, Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import type { Database } from "../../types/supabase";
 
-type Project = {
-  id: number;
-  title: string;
-  date: string;
-  rate: number;
-  creator: string;
-  description: string;
-  imageUrl: string;
-  category: string;
-};
+type Project = Database["public"]["Views"]["projectdetails"]["Row"];
 
 const Sorts = [
   { id: 1, sortBy: "None" },
@@ -35,99 +32,9 @@ function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Main() {
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: "E-commerce Website Redesign",
-      date: "2023-05-15",
-      rate: 4.5,
-      creator: "John Doe",
-      description:
-        "Redesign and modernize our e-commerce platform to improve user experience, increase conversion rates, and enhance security.",
-      imageUrl: "src/assets/ContactUs.png",
-      category: "Tech",
-    },
-    {
-      id: 2,
-      title: "AI-Powered Chatbot Development",
-      date: "2023-08-20",
-      rate: 3.4,
-      creator: "Jane Smith",
-      description:
-        "Develop an AI-powered chatbot to provide instant customer support, answer inquiries, and streamline communication.",
-      imageUrl: "src/assets/ContactUs.png",
-      category: "Tech",
-    },
-    {
-      id: 3,
-      title: "Market Expansion Strategy",
-      date: "2023-04-10",
-      rate: 4.8,
-      creator: "Michael Johnson",
-      description:
-        "Develop a comprehensive strategy to expand our market presence in emerging economies, focusing on growth and profitability.",
-      imageUrl: "src/assets/ContactUs.png",
-      category: "Business",
-    },
-    {
-      id: 4,
-      title: "Financial Modeling and Forecasting",
-      date: "2023-06-30",
-      rate: 2.6,
-      creator: "Emily Brown",
-      description:
-        "Create financial models and forecasts to aid in decision-making, budgeting, and financial planning for the next fiscal year.",
-      imageUrl: "src/assets/ContactUs.png",
-      category: "Business",
-    },
-    {
-      id: 5,
-      title: "Bridge Rehabilitation Project",
-      date: "2023-09-25",
-      rate: 4.9,
-      creator: "David Wilson",
-      description:
-        "Rehabilitate an aging bridge to ensure structural integrity, safety, and longevity, incorporating modern engineering practices.",
-      imageUrl: "src/assets/ContactUs.png",
-      category: "Engineering",
-    },
-    {
-      id: 6,
-      title: "Advanced Robotics System Design",
-      date: "2023-07-12",
-      rate: 4.7,
-      creator: "Sophia Lee",
-      description:
-        "Design and develop advanced robotics systems for industrial automation, improving efficiency and reducing production costs.",
-      imageUrl: "src/assets/ContactUs.png",
-      category: "Engineering",
-    },
-    {
-      id: 7,
-      title: "Brand Identity Redesign",
-      date: "2023-03-02",
-      rate: 4.4,
-      creator: "Daniel Clark",
-      description:
-        "Redesign the brand identity, including logo, color scheme, and visual elements, to reflect our evolving brand image.",
-      imageUrl: "src/assets/ContactUs.png",
-      category: "Design",
-    },
-    {
-      id: 8,
-      title: "User Interface (UI) Redesign",
-      date: "2023-10-15",
-      rate: 4.3,
-      creator: "Olivia Taylor",
-      description:
-        "Revamp the user interface of our mobile app to enhance user-friendliness, aesthetics, and overall user satisfaction.",
-      imageUrl: "src/assets/ContactUs.png",
-      category: "Design",
-    },
-  ];
-
-  const navigateToProjectDetails = (projectId: number) => {
+type Props = { projects: Project[] };
+export default function Main({ projects }: Props) {
+  const navigateToProjectDetails = (projectId: string) => {
     // console.log(`Navigate to details of project with id: ${projectId}`);
     window.location.href = "/ShowProjectPage";
   };
@@ -141,15 +48,17 @@ export default function Main() {
     query === ""
       ? Sorts
       : Sorts.filter((Sorts) => {
-        return Sorts.sortBy.toLowerCase().includes(query.toLowerCase());
-      });
+          return Sorts.sortBy.toLowerCase().includes(query.toLowerCase());
+        });
 
   const filteredCategories =
     query === ""
       ? Categories
       : Categories.filter((Categories) => {
-        return Categories.category.toLowerCase().includes(query.toLowerCase());
-      });
+          return Categories.category
+            .toLowerCase()
+            .includes(query.toLowerCase());
+        });
 
   return (
     <div className="bg-[#f7f7f7] pt-20 flex flex-col items-center min-h-screen font-roboto gap-12">
@@ -270,15 +179,23 @@ export default function Main() {
                           Apply Filters
                         </Dialog.Title>
                         <div className="my-12 space-y-8">
-                          <Combobox as="div" value={selectedSort} onChange={setSelectedSort}>
+                          <Combobox
+                            as="div"
+                            value={selectedSort}
+                            onChange={setSelectedSort}
+                          >
                             <Combobox.Label className="block text-base font-normal text-[#121212]">
                               Sort by:
                             </Combobox.Label>
                             <div className="relative mt-1">
                               <Combobox.Input
                                 className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-[#3e60a3] focus:outline-none focus:ring-1 focus:ring-[#3e60a3] sm:text-sm"
-                                onChange={(event) => setQuery(event.target.value)}
-                                displayValue={(sort: { sortBy: string }) => sort.sortBy}
+                                onChange={(event) =>
+                                  setQuery(event.target.value)
+                                }
+                                displayValue={(sort: { sortBy: string }) =>
+                                  sort.sortBy
+                                }
                               />
                               <Combobox.Button className="absolute inset-y-0 right-0 flex items-center px-2 rounded-r-md focus:outline-none">
                                 <ChevronDownIcon
@@ -315,7 +232,9 @@ export default function Main() {
                                             <span
                                               className={classNames(
                                                 "absolute inset-y-0 left-0 flex items-center pl-1.5",
-                                                active ? "text-[#f7f7f7]" : "text-[#3e60a3]"
+                                                active
+                                                  ? "text-[#f7f7f7]"
+                                                  : "text-[#3e60a3]"
                                               )}
                                             >
                                               <CheckIcon
@@ -332,15 +251,23 @@ export default function Main() {
                               )}
                             </div>
                           </Combobox>
-                          <Combobox as="div" value={selectedCategory} onChange={setSelectedCategory}>
+                          <Combobox
+                            as="div"
+                            value={selectedCategory}
+                            onChange={setSelectedCategory}
+                          >
                             <Combobox.Label className="block text-base font-normal text-[#121212]">
                               Select Category:
                             </Combobox.Label>
                             <div className="relative mt-1">
                               <Combobox.Input
                                 className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-[#3e60a3] focus:outline-none focus:ring-1 focus:ring-[#3e60a3] sm:text-sm"
-                                onChange={(event) => setQuery(event.target.value)}
-                                displayValue={(category: { category: string }) => category.category}
+                                onChange={(event) =>
+                                  setQuery(event.target.value)
+                                }
+                                displayValue={(category: {
+                                  category: string;
+                                }) => category.category}
                               />
                               <Combobox.Button className="absolute inset-y-0 right-0 flex items-center px-2 rounded-r-md focus:outline-none">
                                 <ChevronDownIcon
@@ -377,7 +304,9 @@ export default function Main() {
                                             <span
                                               className={classNames(
                                                 "absolute inset-y-0 left-0 flex items-center pl-1.5",
-                                                active ? "text-[#f7f7f7]" : "text-[#3e60a3]"
+                                                active
+                                                  ? "text-[#f7f7f7]"
+                                                  : "text-[#3e60a3]"
                                               )}
                                             >
                                               <CheckIcon
@@ -434,14 +363,14 @@ export default function Main() {
         {projects.map((project) => (
           <li
             key={project.id}
-            onClick={() => navigateToProjectDetails(project.id)}
+            onClick={() => navigateToProjectDetails(project.id!)}
             className="flex flex-col col-span-1 text-center transition duration-500 transform bg-white divide-y divide-gray-200 rounded-lg shadow cursor-pointer hover:scale-105 hover:shadow-lg"
           >
             <div className="flex flex-col flex-1 p-8">
               <img
                 className="w-3/4 h-auto mx-auto rounded-lg"
-                src={project.imageUrl}
-                alt={project.title}
+                src={project.image_url!}
+                alt={project.title!}
               />
               <h3 className="mt-6 text-[#bfa260] text-base font-nunito font-bold">
                 {project.title}
@@ -449,8 +378,8 @@ export default function Main() {
               <dl className="flex flex-col justify-between flex-grow gap-3 mt-1">
                 <dt className="sr-only">Creator</dt>
                 <dd className="text-sm text-gray-500">
-                  by <em className="text-gray-600">{project.creator}</em> on{" "}
-                  {project.date}
+                  by <em className="text-gray-600">{project.creator_name}</em> on{" "}
+                  {project.created_at}
                 </dd>
                 <dt className="sr-only">Description</dt>
                 <dd className="text-[#121212] text-sm line-clamp-2">
@@ -465,7 +394,7 @@ export default function Main() {
                 <dt className="sr-only">Rating</dt>
                 <dd className="mt-1">
                   <span className="px-2 py-1 text-[#AA8A41] text-xs font-medium bg-amber-100 rounded-full">
-                    {renderStars(project.rate)} {project.rate} / 5
+                    {renderStars(project.average_rate!)} {project.average_rate} / 5
                   </span>
                 </dd>
               </dl>
@@ -492,12 +421,16 @@ export default function Main() {
         <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
           <div>
             <p className="text-sm text-gray-700">
-              Showing <span className="font-medium">1</span> to <span className="font-medium">10</span> of{' '}
+              Showing <span className="font-medium">1</span> to{" "}
+              <span className="font-medium">10</span> of{" "}
               <span className="font-medium">97</span> results
             </p>
           </div>
           <div>
-            <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+            <nav
+              className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
+              aria-label="Pagination"
+            >
               <a
                 href="#"
                 className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
