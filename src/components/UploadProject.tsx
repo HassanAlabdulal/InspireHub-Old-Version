@@ -110,7 +110,7 @@ export default function AddProject() {
     visible: {
       x: 0,
       opacity: 1,
-      transition: { type: "spring", stiffness: 120 },
+      transition: { type: "spring", stiffness: 90 },
     },
   };
 
@@ -135,13 +135,13 @@ export default function AddProject() {
 
   return (
     <motion.div
-      className="bg-[#f7f7f7] mt-16 px-4 sm:px-10 md:pl-10 md:pr-10 flex justify-center items-start h-auto min-h-screen"
+      className="bg-[#f7f7f7] mt-16 px-4 sm:px-10 flex justify-center items-start h-auto min-h-screen"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <div className="bg-[#f7f7f7] p-10 shadow-2xl rounded max-w-4xl w-full">
-        <h1 className="text-[#bfa260] font-roboto font-bold text-3xl mb-6 text-center">
+      <div className="bg-[#f7f7f7] my-8 p-10 shadow-2xl rounded-lg max-w-5xl w-full">
+        <h1 className="text-[#bfa260] font-nunito font-bold text-2xl md:text-3xl mb-6 text-center">
           Upload Project
         </h1>
 
