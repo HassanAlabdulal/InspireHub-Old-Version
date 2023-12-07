@@ -1,8 +1,8 @@
 ---
-import MainLayout from "../layouts/main-layout.astro"
-import UploadProject from "../components/UploadProject.tsx"
+import MainLayout from "../layouts/main-layout.astro";
+import UploadProject from "../components/UploadProject.tsx";
 ---
 
 <MainLayout title="Upload Project">
-  <UploadProject client:load/>
+  <UploadProject client:only />
 </MainLayout>

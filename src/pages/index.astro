@@ -5,7 +5,7 @@ import LearnMore from "../components/LearnMore.tsx"
 ---
 
 <MainLayout title="Homepage">
-  <!-- <HomePage client:load/> -->
-  <!-- <LearnMore client:load/>  -->
+  <HomePage client:only/> 
+   <LearnMore client:only/> 
   hello
 </MainLayout>

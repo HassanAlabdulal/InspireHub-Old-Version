@@ -39,6 +39,13 @@ export interface Database {
             isOneToOne: false
             referencedRelation: "projectdetails"
             referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Awards_projectID_fkey"
+            columns: ["projectID"]
+            isOneToOne: false
+            referencedRelation: "projectdetails_extended"
+            referencedColumns: ["id"]
           }
         ]
       }
@@ -92,6 +99,13 @@ export interface Database {
             isOneToOne: false
             referencedRelation: "projectdetails"
             referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Features_projectID_fkey"
+            columns: ["projectID"]
+            isOneToOne: false
+            referencedRelation: "projectdetails_extended"
+            referencedColumns: ["id"]
           }
         ]
       }
@@ -121,6 +135,13 @@ export interface Database {
             columns: ["projectID"]
             isOneToOne: false
             referencedRelation: "projectdetails"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Fields_projectID_fkey"
+            columns: ["projectID"]
+            isOneToOne: false
+            referencedRelation: "projectdetails_extended"
             referencedColumns: ["id"]
           }
         ]
@@ -199,6 +220,13 @@ export interface Database {
             columns: ["projectID"]
             isOneToOne: false
             referencedRelation: "projectdetails"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Pictures_projectID_fkey"
+            columns: ["projectID"]
+            isOneToOne: false
+            referencedRelation: "projectdetails_extended"
             referencedColumns: ["id"]
           }
         ]
@@ -349,6 +377,13 @@ export interface Database {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "Ratings_projectID_fkey"
+            columns: ["projectID"]
+            isOneToOne: false
+            referencedRelation: "projectdetails_extended"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "Ratings_UserID_fkey"
             columns: ["UserID"]
             isOneToOne: false
@@ -360,41 +395,91 @@ export interface Database {
       TeamMembers: {
         Row: {
           created_at: string
+          id: string
           LinkedIn: string | null
           name: string
           photo: string | null
-          projectID: string
+          project_id: string
           Twitter: string | null
         }
         Insert: {
           created_at?: string
+          id?: string
           LinkedIn?: string | null
           name: string
           photo?: string | null
-          projectID: string
+          project_id: string
           Twitter?: string | null
         }
         Update: {
           created_at?: string
+          id?: string
           LinkedIn?: string | null
           name?: string
           photo?: string | null
-          projectID?: string
+          project_id?: string
           Twitter?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "TeamMembers_projectID_fkey"
-            columns: ["projectID"]
-            isOneToOne: true
+            foreignKeyName: "TeamMembers_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
             referencedRelation: "Project"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "TeamMembers_projectID_fkey"
-            columns: ["projectID"]
-            isOneToOne: true
+            foreignKeyName: "TeamMembers_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
             referencedRelation: "projectdetails"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "TeamMembers_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projectdetails_extended"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      "Tools ": {
+        Row: {
+          id: string
+          project_id: string
+          tool: string
+        }
+        Insert: {
+          id?: string
+          project_id: string
+          tool: string
+        }
+        Update: {
+          id?: string
+          project_id?: string
+          tool?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "Tools _project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "Project"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Tools _project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projectdetails"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "Tools _project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projectdetails_extended"
             referencedColumns: ["id"]
           }
         ]
@@ -409,6 +494,34 @@ export interface Database {
           creator_name: string | null
           CreatorID: string | null
           description: string | null
+          id: string | null
+          image_url: string | null
+          motivation: string | null
+          problem: string | null
+          solution: string | null
+          title: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "Project_CreatorID_fkey"
+            columns: ["CreatorID"]
+            isOneToOne: false
+            referencedRelation: "ProjectCreator"
+            referencedColumns: ["CreatorID"]
+          }
+        ]
+      }
+      projectdetails_extended: {
+        Row: {
+          average_rate: number | null
+          category: string | null
+          created_at: string | null
+          creator_name: string | null
+          CreatorID: string | null
+          description: string | null
+          feature: string | null
+          featureDescription: string | null
+          field: string | null
           id: string | null
           image_url: string | null
           motivation: string | null

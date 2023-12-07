@@ -12,57 +12,58 @@ import {
   faTags,
 } from "@fortawesome/free-solid-svg-icons";
 import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import type { Database } from "../../types/supabase.ts";
 
 // TeamMember interface
-interface TeamMember {
-  name: string;
-  linkedIn: string;
-  twitter: string;
-}
+// interface TeamMember {
+//   name: string;
+//   linkedIn: string;
+//   twitter: string;
+// }
 
-interface ProjectData {
-  title: string;
-  images: string[];
-  date: string;
-  rate: number;
-  category: string;
-  budget: string;
-  currency: string;
-  description: string;
-  motivation: string;
-  teamMembers: TeamMember[];
-  features: string;
-  resources: string;
-  tools: string;
-  others: string;
-}
+// interface project {
+//   title: string;
+//   images: string[];
+//   date: string;
+//   rate: number;
+//   category: string;
+//   budget: string;
+//   currency: string;
+//   description: string;
+//   motivation: string;
+//   teamMembers: TeamMember[];
+//   features: string;
+//   resources: string;
+//   tools: string;
+//   others: string;
+// }
 
-const projectData: ProjectData = {
-  title: "InspireHub",
-  images: ["src/assets/ContactUs.png"],
-  date: "2023-01-01",
-  rate: 3.5,
-  category: "Technology",
-  budget: "5000",
-  currency: "SAR",
-  description:
-    "It is a website that is a hub for inspiring and innovative project ideas...",
-  motivation:
-    "The primary motivation behind InspireHub is to address a significant challenge...",
-  teamMembers: [
-    { name: "Abdullah Almatawah", linkedIn: "aamhaamm", twitter: "aamhaamm" },
-    {
-      name: "Hassan Alabdulal",
-      linkedIn: "HassanAlabdulal",
-      twitter: "HassanAlabdulal",
-    },
-  ],
-  features: "Easy to use, Suitable for everyone ...",
-  resources: "https://github.com/InspireHub",
-  tools: "React, Astro ...",
-  others:
-    "This is the first version, we are working to update it as soon as depending on your suggestions...",
-};
+// const project: project = {
+//   title: "InspireHub",
+//   images: ["src/assets/ContactUs.png"],
+//   date: "2023-01-01",
+//   rate: 3.5,
+//   category: "Technology",
+//   budget: "5000",
+//   currency: "SAR",
+//   description:
+//     "It is a website that is a hub for inspiring and innovative project ideas...",
+//   motivation:
+//     "The primary motivation behind InspireHub is to address a significant challenge...",
+//   teamMembers: [
+//     { name: "Abdullah Almatawah", linkedIn: "aamhaamm", twitter: "aamhaamm" },
+//     {
+//       name: "Hassan Alabdulal",
+//       linkedIn: "HassanAlabdulal",
+//       twitter: "HassanAlabdulal",
+//     },
+//   ],
+//   features: "Easy to use, Suitable for everyone ...",
+//   resources: "https://github.com/InspireHub",
+//   tools: "React, Astro ...",
+//   others:
+//     "This is the first version, we are working to update it as soon as depending on your suggestions...",
+// };
 type Slide = {
   url: string;
 };
@@ -79,7 +80,13 @@ const slides: Slide[] = [
   },
 ];
 
-const ShowProject: React.FC = () => {
+type Props = {
+  project: Database["public"]["Views"]["projectdetails_extended"]["Row"];
+  teamMembers: Database["public"]["Tables"]["TeamMembers"]["Row"][];
+  tools: Database["public"]["Tables"]["Tools "]["Row"][];
+};
+
+const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const goToPrevious = (): void => {
@@ -110,16 +117,18 @@ const ShowProject: React.FC = () => {
         <section className="w-1/4 min-h-screen pt-5 bg-gray-100 rounded-lg shadow-md max-md:w-full ">
           <header className="mb-5 text-center">
             <h1 className="mb-6 text-4xl font-bold text-[#bfa260]">
-              {projectData.title}
+              {project.title}
             </h1>
             <hr className="h-px my-8 bg-gray-300 border-0" />
           </header>
 
           <div className="flex flex-col items-center justify-center gap-2 mb-32 text-xl">
             <span className="flex items-center ml-2">
-              {renderStars(projectData.rate)}
+              {renderStars(project.average_rate!)}
             </span>
-            <span className="ml-1 text-gray-600">{projectData.rate} of 5</span>
+            <span className="ml-1 text-gray-600">
+              {project.average_rate!} of 5
+            </span>
           </div>
 
           <dl className="max-w-md mx-auto mt-10 text-gray-900 divide-y divide-gray-300">
@@ -127,21 +136,21 @@ const ShowProject: React.FC = () => {
               <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
                 Category
               </dt>
-              <dd className="text-lg font-semibold">{projectData.category}</dd>
+              <dd className="text-lg font-semibold">{project.category}</dd>
             </div>
             <div className="flex flex-col items-center py-12">
               <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
                 Budget
               </dt>
               <dd className="text-lg font-semibold">
-                {projectData.budget} <span>{projectData.currency}</span>
+                {/* {project.budget} <span>{project.currency}</span> */}
               </dd>
             </div>
             <div className="flex flex-col items-center pt-12">
               <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
                 Date
               </dt>
-              <dd className="text-lg font-semibold">{projectData.date}</dd>
+              <dd className="text-lg font-semibold">{project.created_at}</dd>
             </div>
           </dl>
 
@@ -158,7 +167,7 @@ const ShowProject: React.FC = () => {
             >
               <div className="space-y-4">
                 {" "}
-                {projectData.teamMembers.map((member, index) => (
+                {teamMembers.map((member, index) => (
                   <div
                     key={index}
                     className="flex items-center justify-between"
@@ -166,7 +175,7 @@ const ShowProject: React.FC = () => {
                     <span>{member.name}</span>
                     <div>
                       <a
-                        href={`https://twitter.com/${member.twitter}`}
+                        href={`https://twitter.com/${member.Twitter}`}
                         target="_blank"
                         className="mx-2 text-xl text-gray-800 hover:text-[#121212] transition-all duration-300"
                         rel="noopener noreferrer"
@@ -174,7 +183,7 @@ const ShowProject: React.FC = () => {
                         <FontAwesomeIcon icon={faXTwitter} size="lg" />
                       </a>
                       <a
-                        href={`https://www.linkedin.com/in/${member.linkedIn}`}
+                        href={`https://www.linkedin.com/in/${member.LinkedIn}`}
                         target="_blank"
                         className="mx-2 text-xl text-[#5f7fbf] hover:text-[#3a60a3] transition-all duration-300"
                         rel="noopener noreferrer"
@@ -240,17 +249,17 @@ const ShowProject: React.FC = () => {
                   <CardWithImage
                     image="src/assets/Description.png"
                     title="Description"
-                    description={projectData.description}
+                    description={project.description!}
                   />
                   <CardWithImage
                     image="src/assets/Motivation.png"
                     title="Motivation"
-                    description={projectData.motivation}
+                    description={project.motivation!}
                   />
                   <CardWithImage
                     image="src/assets/Features.png"
                     title="Features"
-                    description={projectData.features}
+                    description={project.featureDescription!}
                   />
                 </div>
               </div>
@@ -269,11 +278,13 @@ const ShowProject: React.FC = () => {
                     />
                   }
                 >
-                  <h1>{projectData.tools}</h1>
+                  {tools.map((t) => (
+                    <li key={t.tool}>{t.tool}</li>
+                  ))}
                 </AccordionItem>
               </div>
               <div className="flex items-center justify-center">
-                <AccordionItem
+                {/* <AccordionItem
                   id={1}
                   header="Resources"
                   icon={
@@ -283,8 +294,8 @@ const ShowProject: React.FC = () => {
                     />
                   }
                 >
-                  <h1>{projectData.resources}</h1>
-                </AccordionItem>
+                  <h1>{project.resources}</h1>
+                </AccordionItem> */}
               </div>
               <div className="flex items-center justify-center">
                 <AccordionItem
@@ -297,7 +308,7 @@ const ShowProject: React.FC = () => {
                     />
                   }
                 >
-                  <h1>{projectData.others}</h1>
+                  {/* <h1>{project.others}</h1> */}
                 </AccordionItem>
               </div>
             </div>

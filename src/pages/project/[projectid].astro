@@ -1,0 +1,38 @@
+---
+import type { Database } from "../../../types/supabase";
+import ShowProject from "../../components/ShowProject.tsx";
+import MainLayout from "../../layouts/main-layout.astro";
+import { createSupabaseServer } from "../../utils/supabase.ts";
+
+const supabase = createSupabaseServer(Astro.cookies);
+
+const { projectid } = Astro.params;
+
+const { data: project, error: projectError } = await supabase
+  .from("projectdetails_extended")
+  .select("*")
+  .eq("id", projectid!)
+  .single();
+
+const { data: teamMembers, error: membersError } = await supabase
+  .from("TeamMembers")
+  .select("*")
+  .eq("project_id", project!.id!);
+
+const { data: tools, error: toolsError } = await supabase
+  .from("Tools")
+  .select("*")
+  .eq("project_id", project?.id);
+
+
+  
+---
+
+<MainLayout title="Show Project">
+  <ShowProject
+    project={project!}
+    teamMembers={teamMembers || []}
+    tools={tools || []}
+    client:only
+  />
+</MainLayout>
