@@ -83,6 +83,7 @@ const NewPassword: React.FC = () => {
                 </label>
                 <div className="relative">
                   <input
+                    name="newPassword"
                     type={showNewPassword ? "text" : "password"}
                     className="w-full py-2 pl-3 pr-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="New Password"
@@ -111,6 +112,7 @@ const NewPassword: React.FC = () => {
                 </label>
                 <div className="relative">
                   <input
+                    name="confirmPassword"
                     type={showConfirmPassword ? "text" : "password"}
                     className="w-full py-2 pl-3 pr-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="Confirm New Password"

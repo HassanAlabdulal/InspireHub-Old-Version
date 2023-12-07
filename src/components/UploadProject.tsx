@@ -158,15 +158,18 @@ export default function AddProject() {
                 className="absolute top-0 left-0 object-contain w-full h-full"
               />
             ) : (
-              <span className="text-center font-roboto m-16">Click on the upload button to upload and display an image</span>
+              <span className="m-16 text-center font-roboto">
+                Click on the upload button to upload and display an image
+              </span>
             )}
             {/* Dot indicators */}
             <div className="absolute bottom-0 left-0 right-0 flex justify-center p-2">
               {images.map((_, index) => (
                 <span
                   key={index}
-                  className={`inline-block h-4 w-4 mx-1 rounded-full cursor-pointer ${selectedIndex === index ? "bg-[#5F7FBF]" : "bg-white"
-                    }`}
+                  className={`inline-block h-4 w-4 mx-1 rounded-full cursor-pointer ${
+                    selectedIndex === index ? "bg-[#5F7FBF]" : "bg-white"
+                  }`}
                   onClick={() => setSelectedIndex(index)}
                 ></span>
               ))}
@@ -201,10 +204,15 @@ export default function AddProject() {
               style={{ width: "100px", height: "100px" }}
             >
               <div className="text-center text-[#f7f7f7]">
-                <FontAwesomeIcon icon={faCloudArrowUp} size="2xl" className="group-hover:scale-110 transition-all duration-700"/>
+                <FontAwesomeIcon
+                  icon={faCloudArrowUp}
+                  size="2xl"
+                  className="transition-all duration-700 group-hover:scale-110"
+                />
               </div>
             </label>
             <input
+              name="imageUpload"
               id="image-upload"
               type="file"
               className="hidden"
@@ -217,6 +225,7 @@ export default function AddProject() {
           <div>
             <label className="block text-[#bfa260] mb-2">Title:</label>
             <input
+              name="tilte"
               type="text"
               placeholder="InspireHub"
               className="w-full px-4 py-2 transition-all duration-300 border rounded focus:px-5 focus:outline-0"
@@ -228,7 +237,11 @@ export default function AddProject() {
               <label className="block text-[#bfa260] mb-2">
                 Date of project:
               </label>
-              <input type="date" className="w-full px-4 py-2 border rounded" />
+              <input
+                type="date"
+                name="date"
+                className="w-full px-4 py-2 border rounded"
+              />
             </div>
 
             <div className="flex-1 ml-2">
@@ -247,6 +260,7 @@ export default function AddProject() {
             <label className="block text-[#bfa260] mb-2">Budget:</label>
             <div className="flex">
               <input
+                name="budget"
                 type="number"
                 placeholder="5000"
                 className="flex-1 px-4 py-2 transition-all duration-300 border rounded rounded-l focus:px-5 focus:outline-0"
@@ -288,6 +302,7 @@ export default function AddProject() {
                 className="flex items-center mb-2"
               >
                 <input
+                  name="member"
                   type="text"
                   placeholder="Name"
                   className="flex-1 px-4 py-2 border rounded outline-0"
@@ -299,6 +314,7 @@ export default function AddProject() {
                   }}
                 />
                 <input
+                  name="linkedIn"
                   type="text"
                   placeholder="LinkedIn"
                   className="flex-1 px-4 py-2 border rounded outline-0"
@@ -310,6 +326,7 @@ export default function AddProject() {
                   }}
                 />
                 <input
+                  name="twitter"
                   type="text"
                   placeholder="Twitter"
                   className="flex-1 px-4 py-2 border rounded outline-0"
@@ -398,6 +415,7 @@ export default function AddProject() {
                 </button>
               )}
               <input
+                name="document"
                 type="file"
                 className="hidden"
                 onChange={handleFileChange}

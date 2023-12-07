@@ -157,6 +157,7 @@ const SignUp = () => {
                     </i>
                   </div>
                   <input
+                    name="firstName"
                     type="text"
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="Hassan"
@@ -172,6 +173,7 @@ const SignUp = () => {
                     </i>
                   </div>
                   <input
+                    name="lastName"
                     type="text"
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="Alabdulal"
@@ -193,6 +195,7 @@ const SignUp = () => {
                     </i>
                   </div>
                   <input
+                    name="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -208,6 +211,7 @@ const SignUp = () => {
                     <FontAwesomeIcon icon={faLock} className="text-gray-400" />
                   </div>
                   <input
+                    name="password"
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={handlePasswordChange}
@@ -241,6 +245,7 @@ const SignUp = () => {
                     <FontAwesomeIcon icon={faLock} className="text-gray-400" />
                   </div>
                   <input
+                    name="confirmPassword"
                     type={showConfirmPassword ? "text" : "password"}
                     // Assuming you have a state to hold the confirm password value
                     // value={confirmPassword}
@@ -279,6 +284,7 @@ const SignUp = () => {
                     </i>
                   </div>
                   <input
+                    name="major"
                     type="text"
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="Software Engineering"
@@ -333,7 +339,7 @@ const SignUp = () => {
                   Legal Information
                 </h2>
                 <div className="flex items-center">
-                  <input type="radio" />
+                  <input type="radio" name="agreeToPolicy" />
 
                   <span className="ml-2">
                     I agree with{" "}
