@@ -18,9 +18,17 @@ type Project = {
 };
 
 const Sorts = [
-  { id: 1, sortBy: "Highest Rating" },
-  { id: 2, sortBy: "Highest Budget" },
-  { id: 3, sortBy: "Lowest Budget" },
+  { id: 1, sortBy: "None" },
+  { id: 2, sortBy: "Project Rating" },
+  { id: 3, sortBy: "Releasing Date" },
+];
+
+const Categories = [
+  { id: 1, category: "None" },
+  { id: 2, category: "Tech" },
+  { id: 3, category: "Business" },
+  { id: 4, category: "Engineering" },
+  { id: 5, category: "Design" },
 ];
 
 function classNames(...classes: any[]) {
@@ -126,6 +134,7 @@ export default function Main() {
 
   const [query, setQuery] = useState("");
   const [selectedSort, setSelectedSort] = useState();
+  const [selectedCategory, setSelectedCategory] = useState();
   const [open, setOpen] = useState(false);
 
   const filteredSorts =
@@ -133,6 +142,13 @@ export default function Main() {
       ? Sorts
       : Sorts.filter((Sorts) => {
         return Sorts.sortBy.toLowerCase().includes(query.toLowerCase());
+      });
+
+  const filteredCategories =
+    query === ""
+      ? Categories
+      : Categories.filter((Categories) => {
+        return Categories.category.toLowerCase().includes(query.toLowerCase());
       });
 
   return (
@@ -253,7 +269,7 @@ export default function Main() {
                         >
                           Apply Filters
                         </Dialog.Title>
-                        <div className="my-12">
+                        <div className="my-12 space-y-8">
                           <Combobox as="div" value={selectedSort} onChange={setSelectedSort}>
                             <Combobox.Label className="block text-base font-normal text-[#121212]">
                               Sort by:
@@ -271,7 +287,7 @@ export default function Main() {
                                 />
                               </Combobox.Button>
                               {filteredSorts.length > 0 && (
-                                <Combobox.Options className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                <Combobox.Options className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-28 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                   {filteredSorts.map((sort) => (
                                     <Combobox.Option
                                       key={sort.id}
@@ -294,6 +310,68 @@ export default function Main() {
                                             )}
                                           >
                                             {sort.sortBy}
+                                          </span>
+                                          {selected && (
+                                            <span
+                                              className={classNames(
+                                                "absolute inset-y-0 left-0 flex items-center pl-1.5",
+                                                active ? "text-[#f7f7f7]" : "text-[#3e60a3]"
+                                              )}
+                                            >
+                                              <CheckIcon
+                                                className="w-5 h-5"
+                                                aria-hidden="true"
+                                              />
+                                            </span>
+                                          )}
+                                        </>
+                                      )}
+                                    </Combobox.Option>
+                                  ))}
+                                </Combobox.Options>
+                              )}
+                            </div>
+                          </Combobox>
+                          <Combobox as="div" value={selectedCategory} onChange={setSelectedCategory}>
+                            <Combobox.Label className="block text-base font-normal text-[#121212]">
+                              Select Category:
+                            </Combobox.Label>
+                            <div className="relative mt-1">
+                              <Combobox.Input
+                                className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-[#3e60a3] focus:outline-none focus:ring-1 focus:ring-[#3e60a3] sm:text-sm"
+                                onChange={(event) => setQuery(event.target.value)}
+                                displayValue={(category: { category: string }) => category.category}
+                              />
+                              <Combobox.Button className="absolute inset-y-0 right-0 flex items-center px-2 rounded-r-md focus:outline-none">
+                                <ChevronDownIcon
+                                  className="w-5 h-5 text-gray-400"
+                                  aria-hidden="true"
+                                />
+                              </Combobox.Button>
+                              {filteredCategories.length > 0 && (
+                                <Combobox.Options className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-28 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                  {filteredCategories.map((category) => (
+                                    <Combobox.Option
+                                      key={category.id}
+                                      value={category}
+                                      className={({ active }) =>
+                                        classNames(
+                                          "relative cursor-default select-none py-2 pl-8 pr-4",
+                                          active
+                                            ? "bg-[#3e60a3] text-[#f7f7f7]"
+                                            : "text-[#121212]"
+                                        )
+                                      }
+                                    >
+                                      {({ active, selected }) => (
+                                        <>
+                                          <span
+                                            className={classNames(
+                                              "block truncate",
+                                              selected && "font-semibold"
+                                            )}
+                                          >
+                                            {category.category}
                                           </span>
                                           {selected && (
                                             <span
@@ -431,7 +509,7 @@ export default function Main() {
               <a
                 href="#"
                 aria-current="page"
-                className="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                className="z-10 bg-blue-100 border-[#3E60A3] text-[#3E60A3] relative inline-flex items-center px-4 py-2 border text-sm font-medium"
               >
                 1
               </a>
