@@ -7,7 +7,7 @@ const SuggestionInputSchema = z.object({
   areasOfInterest: z.string(),
   skillsOrTechnologies: z.string(),
   IndustryRelevance: z.string(),
-  projectType: z.string(),
+  projectField: z.string(),
   timeCommitment: z.string(),
   PreferredTools: z.string(),
   CollaborationPreference: z.string(),

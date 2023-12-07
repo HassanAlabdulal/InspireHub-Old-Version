@@ -70,7 +70,7 @@ const AI: React.FC = () => {
     areasOfInterest: "",
     skillsOrTechnologies: "",
     IndustryRelevance: "",
-    projectType: "",
+    projectField: "",
   });
   const [preferences, setPreferences] = useState({
     timeCommitment: "",
@@ -157,8 +157,8 @@ const AI: React.FC = () => {
             />
 
             <Dropdown
-              name="projectType"
-              label="Project Type"
+              name="projectField"
+              label="Project Feild"
               options={[
                 { value: "development", label: "Development" },
                 { value: "research", label: "Research" },
@@ -194,7 +194,7 @@ const AI: React.FC = () => {
                 { value: "policy_development", label: "Policy Development" },
               ]}
               onSelect={(value) =>
-                setInterests({ ...interests, projectType: value })
+                setInterests({ ...interests, projectField: value })
               }
             />
           </div>
