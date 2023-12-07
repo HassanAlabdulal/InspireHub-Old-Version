@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Policy from "../components/Policy.tsx";
 import PasswordStrengthIndicator from "..//components/UI/PasswordStrengthIndicator";
 
@@ -48,7 +48,7 @@ const SignUp = () => {
 
   const handleSignUp = async () => {
     try {
-      const response = await fetch("/api/signup.json", {
+      const response = await fetch("/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

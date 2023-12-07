@@ -123,7 +123,7 @@ export default function Nav() {
                 className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf] cursor-pointer shadow-md hover:shadow-xl
               px-4 py-2 mt-3 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
             hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
-                href="SignUpPage"
+                href="signup"
               >
                 Sign up
               </motion.a>
