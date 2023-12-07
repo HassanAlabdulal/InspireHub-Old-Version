@@ -6,15 +6,25 @@ import { createSuggestion } from "../utils/createSuggestion";
 interface InputProps {
   label: string;
   placeholder: string;
+  name: string;
   onChange: (value: string) => void;
 }
 
-const Input: React.FC<InputProps> = ({ label, placeholder, onChange }) => (
+const Input: React.FC<InputProps> = ({
+  label,
+  placeholder,
+  onChange,
+  name,
+}) => (
   <div className="mb-4">
-    <label className="block mb-2 text-sm font-bold text-gray-700">
+    <label
+      htmlFor={name}
+      className="block mb-2 text-sm font-bold text-gray-700"
+    >
       {label}
     </label>
     <input
+      name={name}
       type="text"
       placeholder={placeholder}
       onChange={(e) => onChange(e.target.value)}
@@ -22,19 +32,28 @@ const Input: React.FC<InputProps> = ({ label, placeholder, onChange }) => (
     />
   </div>
 );
-
 interface DropdownProps {
   label: string;
+  name: string;
   options: { value: string; label: string }[];
   onSelect: (value: string) => void;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ label, options, onSelect }) => (
+const Dropdown: React.FC<DropdownProps> = ({
+  label,
+  options,
+  onSelect,
+  name,
+}) => (
   <div className="mb-4">
-    <label className="block mb-2 text-sm font-bold text-gray-700">
+    <label
+      htmlFor={name}
+      className="block mb-2 text-sm font-bold text-gray-700"
+    >
       {label}
     </label>
     <select
+      name={name}
       onChange={(e) => onSelect(e.target.value)}
       className="block w-full px-4 py-2 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline"
     >
@@ -46,7 +65,6 @@ const Dropdown: React.FC<DropdownProps> = ({ label, options, onSelect }) => (
     </select>
   </div>
 );
-
 const AI: React.FC = () => {
   const [interests, setInterests] = useState({
     areasOfInterest: "",
@@ -84,6 +102,7 @@ const AI: React.FC = () => {
               User Interests
             </h2>
             <Input
+              name="areasOfInterest"
               label="Areas of Interest"
               placeholder="Interest areas (e.g., tech, health)"
               onChange={(value) =>
@@ -91,6 +110,7 @@ const AI: React.FC = () => {
               }
             />
             <Input
+              name="skillsOrTechnologies"
               label="Skills or Technologies"
               placeholder="Skills/interests (e.g., project management, education)"
               onChange={(value) =>
@@ -100,6 +120,7 @@ const AI: React.FC = () => {
 
             <Dropdown
               label="Industry Relevance"
+              name="IndustryRelevance"
               options={[
                 { value: "technology", label: "Technology" },
                 { value: "healthcare", label: "Healthcare" },
@@ -136,6 +157,7 @@ const AI: React.FC = () => {
             />
 
             <Dropdown
+              name="projectType"
               label="Project Type"
               options={[
                 { value: "development", label: "Development" },
@@ -204,6 +226,7 @@ const AI: React.FC = () => {
             </h2>
 
             <Input
+              name="preferredTools"
               label="Preferred Tools"
               placeholder="Preferred tools/frameworks"
               onChange={(value) =>
@@ -211,6 +234,7 @@ const AI: React.FC = () => {
               }
             />
             <Dropdown
+              name="timeCommitment"
               label="Time Commitment"
               options={[
                 { value: "weeks", label: "Weeks" },
@@ -224,6 +248,7 @@ const AI: React.FC = () => {
             />
 
             <Dropdown
+              name="DifficultyLevel"
               label="Difficulty Level"
               options={[
                 { value: "easy", label: "Easy" },
@@ -236,6 +261,7 @@ const AI: React.FC = () => {
               }
             />
             <Dropdown
+              name="CollaborationPreference"
               label="Collaboration Preference:"
               options={[
                 { value: "solo", label: "Solo" },
