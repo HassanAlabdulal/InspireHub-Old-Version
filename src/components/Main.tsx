@@ -140,7 +140,7 @@ export default function Main() {
       <div className="flex flex-col items-center w-full gap-6">
         <div className="flex flex-col gap-3">
           <label
-            htmlFor="name"
+            htmlFor="projectSearch"
             className="text-center block text-xl font-bold font-nunito text-[#bfa260]"
           >
             Search Projects
@@ -149,9 +149,9 @@ export default function Main() {
             <div className="relative w-full">
               <input
                 type="text"
-                name="name"
-                id="name"
-                className="shadow-sm focus:ring-[#3e60a3] focus:border-[#3e60a3] block w-60 sm:w-80 md:w-96 h-12 text-base border-gray-300 pl-4 pr-14 rounded-full"
+                name="projectSearch"
+                id="projectSearch"
+                className="shadow-sm duration-300 focus:px-5 focus:ring-[#3e60a3] block w-60 sm:w-80 md:w-96 h-12 text-base border-gray-300 pl-4 pr-14 rounded-full"
                 placeholder="Project"
               />
               <a
