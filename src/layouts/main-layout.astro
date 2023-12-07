@@ -1,6 +1,6 @@
 ---
-const { title } = Astro.props
-import Nav from "../components/Nav.tsx"
+const { title } = Astro.props;
+import Nav from "../components/Nav.tsx";
 import Footer from "../components/Footer";
 ---
 
@@ -8,32 +8,29 @@ import Footer from "../components/Footer";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content=", "
-    />
+    <meta name="description" content=", " />
     <meta title={title} />
   </head>
-  <body >
+  <body>
     <main class="main-page">
       <Nav client:load />
       <slot />
-      
-     
     </main>
     <Footer client:load />
   </body>
+
+  <script>
+    import { createSupabaseBrowser } from "../utils/supabase";
+    createSupabaseBrowser(Astro.cookies);
+  </script>
 </html>
 
-
 <style>
-
- html {
+  html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
     width: 100%;
- }
-
+  }
 </style>
