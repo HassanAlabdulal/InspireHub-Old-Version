@@ -66,6 +66,15 @@ const SignUp = () => {
     } catch (error: any) {
       console.error("Error during sign up:", error.message);
       // Handle the error here
+    } finally {
+      $userCred.set({
+        password: "",
+        academicLevel: "",
+        email: "",
+        firstName: "",
+        lastName: "",
+        major: "",
+      });
     }
   };
 
