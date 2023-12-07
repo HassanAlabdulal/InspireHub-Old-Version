@@ -158,16 +158,15 @@ export default function AddProject() {
                 className="absolute top-0 left-0 object-contain w-full h-full"
               />
             ) : (
-              <span>Click on a + card to upload and display an image</span>
+              <span className="text-center font-roboto m-16">Click on the upload button to upload and display an image</span>
             )}
             {/* Dot indicators */}
             <div className="absolute bottom-0 left-0 right-0 flex justify-center p-2">
               {images.map((_, index) => (
                 <span
                   key={index}
-                  className={`inline-block h-4 w-4 mx-1 rounded-full cursor-pointer ${
-                    selectedIndex === index ? "bg-blue-500" : "bg-white"
-                  }`}
+                  className={`inline-block h-4 w-4 mx-1 rounded-full cursor-pointer ${selectedIndex === index ? "bg-[#5F7FBF]" : "bg-white"
+                    }`}
                   onClick={() => setSelectedIndex(index)}
                 ></span>
               ))}
@@ -196,11 +195,13 @@ export default function AddProject() {
             ))}
             <label
               htmlFor="image-upload"
-              className="flex items-center justify-center p-1 border border-gray-400 rounded cursor-pointer"
+              className="group flex items-center justify-center p-1 bg-[#5f7fbf] border-2 border-[#5f7fbf] rounded cursor-pointer
+                        transition-all duration-700 hover:bg-[#3e60a3] hover:border-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+                        disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               style={{ width: "100px", height: "100px" }}
             >
-              <div className="text-center text-[#3e60a3] hover:scale-110 transition-all duration-700 ">
-                <FontAwesomeIcon icon={faCloudArrowUp} size="2x" />
+              <div className="text-center text-[#f7f7f7]">
+                <FontAwesomeIcon icon={faCloudArrowUp} size="2xl" className="group-hover:scale-110 transition-all duration-700"/>
               </div>
             </label>
             <input
