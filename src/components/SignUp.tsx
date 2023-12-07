@@ -12,22 +12,18 @@ import {
   faEye,
   faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
+import { useStore } from "@nanostores/react";
+import { $userCred } from "./signup/userCred.ts";
 
 const ShowIcon = () => <FontAwesomeIcon icon={faEye} />;
 const HideIcon = () => <FontAwesomeIcon icon={faEyeSlash} />;
 const MAX_STEPS = 4;
 
 const SignUp = () => {
+  const store = useStore($userCred);
   const [formStep, setFormStep] = useState(0);
   const [showPolicy, setShowPolicy] = useState(false);
   const [showReturnButton, setShowReturnButton] = useState(false);
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [major, setMajor] = useState("");
-  const [academicLevel, setAcademicLevel] = useState("");
 
   const [passwordStrength, setPasswordStrength] = useState<number>(0);
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -46,7 +42,7 @@ const SignUp = () => {
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const password = event.target.value;
-    setPassword(password);
+    $userCred.setKey("password", password);
     setPasswordStrength(checkPasswordStrength(password));
   };
 
@@ -57,7 +53,7 @@ const SignUp = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password, firstName, lastName, academicLevel, major }),
+        body: JSON.stringify(store),
       });
 
       const data = await response.json();
@@ -178,8 +174,10 @@ const SignUp = () => {
                   </div>
                   <input
                     name="firstName"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
+                    value={store.firstName}
+                    onChange={(e) =>
+                      $userCred.setKey("firstName", e.target.value)
+                    }
                     type="text"
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="Hassan"
@@ -197,8 +195,10 @@ const SignUp = () => {
                   <input
                     name="lastName"
                     type="text"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
+                    value={store.lastName}
+                    onChange={(e) =>
+                      $userCred.setKey("lastName", e.target.value)
+                    }
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="Alabdulal"
                   />
@@ -221,8 +221,8 @@ const SignUp = () => {
                   <input
                     name="email"
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={store.email}
+                    onChange={(e) => $userCred.setKey("email", e.target.value)}
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="inspirehub@example.com"
                   />
@@ -237,7 +237,7 @@ const SignUp = () => {
                   <input
                     name="password"
                     type={showPassword ? "text" : "password"}
-                    value={password}
+                    value={store.password}
                     onChange={handlePasswordChange}
                     className="w-full py-2 pl-10 pr-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf] placeholder-gray-500"
                     placeholder="********"
@@ -310,8 +310,8 @@ const SignUp = () => {
                   <input
                     name="major"
                     type="text"
-                    value={major}
-                    onChange={(e) => setMajor(e.target.value)}
+                    value={store.major}
+                    onChange={(e) => $userCred.setKey("major", e.target.value)}
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="Software Engineering"
                   />
@@ -326,7 +326,9 @@ const SignUp = () => {
                       name="academicLevel"
                       value="Undergraduate"
                       id="undergraduate"
-                      onChange={(e) => setAcademicLevel(e.target.value)}
+                      onChange={(e) =>
+                        $userCred.setKey("academicLevel", e.target.value)
+                      }
                     />
                     <label htmlFor="undergraduate" className="ml-2">
                       Undergraduate
@@ -339,7 +341,9 @@ const SignUp = () => {
                       name="academicLevel"
                       value="Graduate"
                       id="graduate"
-                      onChange={(e) => setAcademicLevel(e.target.value)}
+                      onChange={(e) =>
+                        $userCred.setKey("academicLevel", e.target.value)
+                      }
                     />
                     <label htmlFor="graduate" className="ml-2">
                       Graduate
@@ -352,7 +356,9 @@ const SignUp = () => {
                       name="academicLevel"
                       value="Employer"
                       id="employer"
-                      onChange={(e) => setAcademicLevel(e.target.value)}
+                      onChange={(e) =>
+                        $userCred.setKey("academicLevel", e.target.value)
+                      }
                     />
                     <label htmlFor="employer" className="ml-2">
                       Employer
