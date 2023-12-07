@@ -13,8 +13,6 @@ import {
   faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { createSupabaseBrowser } from "../utils/supabase.ts";
-
 const ShowIcon = () => <FontAwesomeIcon icon={faEye} />;
 const HideIcon = () => <FontAwesomeIcon icon={faEyeSlash} />;
 const MAX_STEPS = 4;
