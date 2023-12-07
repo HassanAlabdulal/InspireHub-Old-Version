@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Policy from "../components/Policy.tsx";
 import PasswordStrengthIndicator from "..//components/UI/PasswordStrengthIndicator";
 
@@ -23,8 +23,14 @@ const SignUp = () => {
   const [formStep, setFormStep] = useState(0);
   const [showPolicy, setShowPolicy] = useState(false);
   const [showReturnButton, setShowReturnButton] = useState(false);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [major, setMajor] = useState("");
+  const [academicLevel, setAcademicLevel] = useState("");
+
   const [passwordStrength, setPasswordStrength] = useState<number>(0);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] =
@@ -47,10 +53,26 @@ const SignUp = () => {
   };
 
   const handleSignUp = async () => {
-    const supabase = createSupabaseBrowser();
-    const { data, error } = await supabase.auth.signUp({ email, password });
-    if (error) return console.error(error);
-    if (data) return console.log(data);
+    try {
+      const response = await fetch("/api/signup.json", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password, firstName, lastName, academicLevel, major }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong during sign up");
+      }
+
+      return data; // Handle the successful response here
+    } catch (error: any) {
+      console.error("Error during sign up:", error.message);
+      // Handle the error here
+    }
   };
 
   const handlePolicyClick = () => {
@@ -158,6 +180,8 @@ const SignUp = () => {
                   </div>
                   <input
                     name="firstName"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
                     type="text"
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="Hassan"
@@ -175,6 +199,8 @@ const SignUp = () => {
                   <input
                     name="lastName"
                     type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="Alabdulal"
                   />
@@ -286,6 +312,8 @@ const SignUp = () => {
                   <input
                     name="major"
                     type="text"
+                    value={major}
+                    onChange={(e) => setMajor(e.target.value)}
                     className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-[#5f7fbf]"
                     placeholder="Software Engineering"
                   />
@@ -293,13 +321,14 @@ const SignUp = () => {
                 <label className="px-1 mb-2 text-xs font-semibold">
                   Academic Level
                 </label>
-                <div className="flex flex-col gap-4 md:flex-row">
+                <fieldset className="flex flex-col gap-4 md:flex-row">
                   <div className="flex items-center">
                     <input
                       type="radio"
                       name="academicLevel"
                       value="Undergraduate"
                       id="undergraduate"
+                      onChange={(e) => setAcademicLevel(e.target.value)}
                     />
                     <label htmlFor="undergraduate" className="ml-2">
                       Undergraduate
@@ -312,6 +341,7 @@ const SignUp = () => {
                       name="academicLevel"
                       value="Graduate"
                       id="graduate"
+                      onChange={(e) => setAcademicLevel(e.target.value)}
                     />
                     <label htmlFor="graduate" className="ml-2">
                       Graduate
@@ -324,12 +354,13 @@ const SignUp = () => {
                       name="academicLevel"
                       value="Employer"
                       id="employer"
+                      onChange={(e) => setAcademicLevel(e.target.value)}
                     />
                     <label htmlFor="employer" className="ml-2">
                       Employer
                     </label>
                   </div>
-                </div>
+                </fieldset>
               </section>
             )}
 
