@@ -36,7 +36,7 @@ type Props = { projects: Project[] };
 export default function Main({ projects }: Props) {
   const navigateToProjectDetails = (projectId: string) => {
     // console.log(`Navigate to details of project with id: ${projectId}`);
-    window.location.href = "/ShowProjectPage";
+    window.location.href = "/project/" + projectId;
   };
 
   const [query, setQuery] = useState("");
@@ -378,8 +378,8 @@ export default function Main({ projects }: Props) {
               <dl className="flex flex-col justify-between flex-grow gap-3 mt-1">
                 <dt className="sr-only">Creator</dt>
                 <dd className="text-sm text-gray-500">
-                  by <em className="text-gray-600">{project.creator_name}</em> on{" "}
-                  {project.created_at}
+                  by <em className="text-gray-600">{project.creator_name}</em>{" "}
+                  on {project.created_at}
                 </dd>
                 <dt className="sr-only">Description</dt>
                 <dd className="text-[#121212] text-sm line-clamp-2">
@@ -394,7 +394,8 @@ export default function Main({ projects }: Props) {
                 <dt className="sr-only">Rating</dt>
                 <dd className="mt-1">
                   <span className="px-2 py-1 text-[#AA8A41] text-xs font-medium bg-amber-100 rounded-full">
-                    {renderStars(project.average_rate!)} {project.average_rate} / 5
+                    {renderStars(project.average_rate!)} {project.average_rate}{" "}
+                    / 5
                   </span>
                 </dd>
               </dl>
