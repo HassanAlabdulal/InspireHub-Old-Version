@@ -66,7 +66,7 @@ export default function Nav() {
       setUser(user);
       console.log(user);
     }
-    
+
     getUser();
   }, []);
 
