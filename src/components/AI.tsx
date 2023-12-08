@@ -97,7 +97,7 @@ const AI: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f7f7f7] flex justify-center items-center">
       <div className="container p-8 mx-auto bg-[#f7f7f7] rounded-lg">
-        <div className="flex flex-col gap-5 mt-16">
+        <div className="flex flex-col gap-6 mt-16">
           <div className="flex flex-col items-center mx-6 lg:flex-row md:mx-12 lg:mx-24 xl:mx-48">
             <div className="w-1/2 h-1/2 lg:w-4/5 lg:h-4/5">
               <Lottie animationData={animationData} />
@@ -174,9 +174,9 @@ const AI: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-center w-full gap-5 my-6 lg:flex-row">
-            <div className="flex flex-col justify-center w-full p-6 bg-white rounded-lg shadow-md md:w-1/2">
-              <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center">
+          <div className="flex flex-col items-center justify-center w-full gap-12 my-6 lg:flex-row">
+            <div className="flex flex-col justify-center w-full p-6 bg-white rounded-lg shadow-lg lg:w-1/2 gap-2">
+              <h2 className="mb-4 md:mb-12 text-2xl font-nunito font-bold text-[#bfa260] text-center">
                 User Interests
               </h2>
               <Input
@@ -279,8 +279,8 @@ const AI: React.FC = () => {
                 }
               />
             </div>
-            <div className="flex flex-col justify-center w-full p-6 bg-white rounded-lg shadow-md md:w-1/2">
-              <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center ">
+            <div className="flex flex-col justify-center w-full p-6 bg-white rounded-lg shadow-lg lg:w-1/2 gap-2">
+              <h2 className="mb-4 md:mb-12 text-2xl font-nunito font-bold text-[#bfa260] text-center ">
                 User Preferences
               </h2>
 
@@ -334,22 +334,32 @@ const AI: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md">
+          <div className="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-lg">
             <textarea
               value={generatedIdeas}
               onChange={(e) => setGeneratedIdeas(e.target.value)}
-              className="w-full h-40 p-4 border rounded shadow resize-none"
+              className="w-full h-80 p-4 border rounded shadow resize-none lg:w-4/5"
               placeholder="Generated project ideas will appear here..."
             />
-            <button
-              onClick={getProjectIdeas}
-              className="px-4 py-2 mt-6 font-bold text-white  disabled:bg-gray-400 disabled:cursor-not-allowed 
-              cursor-pointer rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] text-xl transition-all
+            <div className="flex items-center gap-3 mt-6">
+              <button
+                onClick={getProjectIdeas}
+                className="px-4 py-2 font-bold text-white  disabled:bg-gray-400 disabled:cursor-not-allowed 
+              cursor-pointer rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf] text-base transition-all
                duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
                disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            >
-              Get Project Ideas
-            </button>
+              >
+                Get Project Ideas
+              </button>
+              <a
+                className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf]
+                            px-4 py-2 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
+                          hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
+                href="AIPage"
+              >
+                Restart
+              </a>
+            </div>
           </div>
         </div>
       </div>
