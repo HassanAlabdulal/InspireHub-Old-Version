@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Lottie from "lottie-react";
 import animationData from "../assets/Animations/AI-Animation.json";
 import { createSuggestion } from "../utils/createSuggestion";
+import { motion } from "framer-motion";
 
 interface InputProps {
   label: string;
@@ -95,9 +96,44 @@ const AI: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] flex justify-center items-center">
-      <div className="container p-8 mx-auto bg-white rounded-lg md:mt-9 ">
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 max-md:mt-16">
-          <div className="p-6 bg-[#f7f7f7] rounded-lg shadow-md flex flex-col justify-center order-1">
+      <div className="container p-8 mx-auto bg-[#f7f7f7] rounded-lg">
+        <div className="flex flex-col gap-5 mt-16">
+          <div className="flex flex-col lg:flex-row items-center">
+            <div className="w-1/2 h-1/2 max-xl:w-80 max-xl:h-80 lg:w-1/3 lg:h-1/3">
+              <Lottie animationData={animationData} />
+            </div>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.02,
+                  },
+                },
+                hidden: {},
+              }}
+              className="my-6 mx-6 text-2xl max-w-2xl sm:text-3xl sm:max-w-3xl sm:mx-12 md:18
+           font-black leading-none tracking-tight text-center text-[#bfa260] font-nunito"
+            >
+              {Array.from(
+                "Hello I am SparkIdeator, your creative companion."
+              ).map((char, index) => (
+                <motion.span
+                  key={index}
+                  variants={{
+                    visible: { opacity: 1, y: 0 },
+                    hidden: { opacity: 0, y: 50 },
+                  }}
+                  transition={{ type: "spring", stiffness: 50 }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </motion.div>
+          </div>
+
+          <div className="p-6 bg-white rounded-lg shadow-md flex flex-col justify-center order-1">
             <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center ">
               User Interests
             </h2>
@@ -200,9 +236,6 @@ const AI: React.FC = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center p-6 bg-[#f7f7f7] rounded-lg shadow-md md:order-2 order-3">
-            <div className="w-full h-full max-xl:w-80 max-xl:h-80">
-              <Lottie animationData={animationData} />
-            </div>
             <textarea
               value={generatedIdeas}
               onChange={(e) => setGeneratedIdeas(e.target.value)}
