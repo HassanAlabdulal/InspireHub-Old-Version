@@ -98,11 +98,11 @@ const AI: React.FC = () => {
     <div className="min-h-screen bg-[#f7f7f7] flex justify-center items-center">
       <div className="container p-8 mx-auto bg-[#f7f7f7] rounded-lg">
         <div className="flex flex-col gap-5 mt-16">
-          <div className="flex flex-col lg:flex-row items-center mx-6 md:mx-12 lg:mx-24 xl:mx-48">
+          <div className="flex flex-col items-center mx-6 lg:flex-row md:mx-12 lg:mx-24 xl:mx-48">
             <div className="w-1/2 h-1/2 lg:w-4/5 lg:h-4/5">
               <Lottie animationData={animationData} />
             </div>
-            <div className="flex flex-col space-y-1 my-6 items-center">
+            <div className="flex flex-col items-center my-6 space-y-1">
               <motion.div
                 initial="hidden"
                 animate="visible"
@@ -118,7 +118,9 @@ const AI: React.FC = () => {
               >
                 {Array.from("Hello, I'm SparkIdeator").map((char, index) => {
                   // Check if the current character is part of the word "SparkIdeator"
-                  const isPartOfName = "Hello I am ".length <= index && index < "Hello I am SparkIdeator".length;
+                  const isPartOfName =
+                    "Hello I am ".length <= index &&
+                    index < "Hello I am SparkIdeator".length;
 
                   return (
                     <motion.span
@@ -129,7 +131,7 @@ const AI: React.FC = () => {
                       }}
                       transition={{ type: "spring", stiffness: 50 }}
                       // Apply additional styles if the character is part of "SparkIdeator"
-                      style={isPartOfName ? { fontStyle: 'italic' } : {}}
+                      style={isPartOfName ? { fontStyle: "italic" } : {}}
                     >
                       {char}
                     </motion.span>
@@ -165,13 +167,15 @@ const AI: React.FC = () => {
                 })}
               </motion.div>
               <span className="text-center font-roboto text-base text-[#121212] md:text-lg lg:text-xl pt-4">
-                I'am here to help you discover exciting project ideas tailored to your interests and preferences. Let's embark on a journey of inspiration and innovation together!
+                I'am here to help you discover exciting project ideas tailored
+                to your interests and preferences. Let's embark on a journey of
+                inspiration and innovation together!
               </span>
             </div>
           </div>
 
-          <div className="flex flex-col m-6 w-auto justify-center lg:flex-row">
-            <div className="p-6 bg-white rounded-lg shadow-md flex flex-col justify-center">
+          <div className="flex flex-col items-center justify-center w-full gap-5 my-6 lg:flex-row">
+            <div className="flex flex-col justify-center w-1/2 p-6 bg-white rounded-lg shadow-md">
               <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center">
                 User Interests
               </h2>
@@ -250,7 +254,10 @@ const AI: React.FC = () => {
                     value: "environmental_conservation",
                     label: "Environmental Conservation",
                   },
-                  { value: "health_and_wellness", label: "Health and Wellness" },
+                  {
+                    value: "health_and_wellness",
+                    label: "Health and Wellness",
+                  },
                   { value: "data_analysis", label: "Data Analysis" },
                   {
                     value: "software_development",
@@ -272,7 +279,7 @@ const AI: React.FC = () => {
                 }
               />
             </div>
-            <div className="p-6 bg-white rounded-lg shadow-md flex flex-col justify-center">
+            <div className="flex flex-col justify-center w-1/2 p-6 bg-white rounded-lg shadow-md">
               <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center ">
                 User Preferences
               </h2>
