@@ -98,39 +98,76 @@ const AI: React.FC = () => {
     <div className="min-h-screen bg-[#f7f7f7] flex justify-center items-center">
       <div className="container p-8 mx-auto bg-[#f7f7f7] rounded-lg">
         <div className="flex flex-col gap-5 mt-16">
-          <div className="flex flex-col lg:flex-row items-center">
-            <div className="w-1/2 h-1/2 max-xl:w-80 max-xl:h-80 lg:w-1/3 lg:h-1/3">
+          <div className="flex flex-col lg:flex-row items-center mx-6 md:mx-12 lg:mx-24 xl:mx-48">
+            <div className="w-1/2 h-1/2 lg:w-4/5 lg:h-4/5">
               <Lottie animationData={animationData} />
             </div>
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={{
-                visible: {
-                  transition: {
-                    staggerChildren: 0.02,
+            <div className="flex flex-col space-y-1 my-6 items-center">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.02,
+                    },
                   },
-                },
-                hidden: {},
-              }}
-              className="my-6 mx-6 text-2xl max-w-2xl sm:text-3xl sm:max-w-3xl sm:mx-12 md:18
-           font-black leading-none tracking-tight text-center text-[#bfa260] font-nunito"
-            >
-              {Array.from(
-                "Hello I am SparkIdeator, your creative companion."
-              ).map((char, index) => (
-                <motion.span
-                  key={index}
-                  variants={{
-                    visible: { opacity: 1, y: 0 },
-                    hidden: { opacity: 0, y: 50 },
-                  }}
-                  transition={{ type: "spring", stiffness: 50 }}
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </motion.div>
+                  hidden: {},
+                }}
+                className="text-2xl max-w-2xl sm:text-3xl sm:max-w-3xl sm:mx-12 md:18 font-bold leading-none tracking-tight text-center text-[#bfa260] font-nunito"
+              >
+                {Array.from("Hello, I'm SparkIdeator").map((char, index) => {
+                  // Check if the current character is part of the word "SparkIdeator"
+                  const isPartOfName = "Hello I am ".length <= index && index < "Hello I am SparkIdeator".length;
+
+                  return (
+                    <motion.span
+                      key={index}
+                      variants={{
+                        visible: { opacity: 1, y: 0 },
+                        hidden: { opacity: 0, y: 50 },
+                      }}
+                      transition={{ type: "spring", stiffness: 50 }}
+                      // Apply additional styles if the character is part of "SparkIdeator"
+                      style={isPartOfName ? { fontStyle: 'italic' } : {}}
+                    >
+                      {char}
+                    </motion.span>
+                  );
+                })}
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.02,
+                    },
+                  },
+                  hidden: {},
+                }}
+                className="text-xl max-w-1xl sm:text-2xl sm:max-w-2xl sm:mx-12 md:18 font-semibold leading-none tracking-tight text-center text-[#bfa260] font-nunito"
+              >
+                {Array.from("Your creative companion").map((char, index) => {
+                  return (
+                    <motion.span
+                      key={index}
+                      variants={{
+                        visible: { opacity: 1, y: 0 },
+                        hidden: { opacity: 0, y: 50 },
+                      }}
+                      transition={{ type: "spring", stiffness: 50 }}
+                    >
+                      {char}
+                    </motion.span>
+                  );
+                })}
+              </motion.div>
+              <span className="text-center font-roboto text-base text-[#121212] md:text-lg lg:text-xl pt-4">
+                I'am here to help you discover exciting project ideas tailored to your interests and preferences. Let's embark on a journey of inspiration and innovation together!
+              </span>
+            </div>
           </div>
 
           <div className="p-6 bg-white rounded-lg shadow-md flex flex-col justify-center order-1">
