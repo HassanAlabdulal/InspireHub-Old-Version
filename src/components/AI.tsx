@@ -175,7 +175,7 @@ const AI: React.FC = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center w-full gap-5 my-6 lg:flex-row">
-            <div className="flex flex-col justify-center w-1/2 p-6 bg-white rounded-lg shadow-md">
+            <div className="flex flex-col justify-center w-full p-6 bg-white rounded-lg shadow-md md:w-1/2">
               <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center">
                 User Interests
               </h2>
@@ -279,7 +279,7 @@ const AI: React.FC = () => {
                 }
               />
             </div>
-            <div className="flex flex-col justify-center w-1/2 p-6 bg-white rounded-lg shadow-md">
+            <div className="flex flex-col justify-center w-full p-6 bg-white rounded-lg shadow-md md:w-1/2">
               <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center ">
                 User Preferences
               </h2>
