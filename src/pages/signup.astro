@@ -1,7 +1,7 @@
 ---
 import SignUp from "../components/SignUp.tsx";
-import MainLayout from "../layouts/main-layout.astro";
-import { createSupabaseServer } from "../utils/supabase";
+import MainLayout from "../layouts/main-layout.astro.tsx";
+import { createSupabaseServer } from "../utils/supabase.ts";
 
 if (Astro.request.method === "POST") {
   const supabase = createSupabaseServer(Astro.cookies);
