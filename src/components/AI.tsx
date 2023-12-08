@@ -170,109 +170,164 @@ const AI: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-6 bg-white rounded-lg shadow-md flex flex-col justify-center order-1">
-            <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center ">
-              User Interests
-            </h2>
-            <Input
-              name="areasOfInterest"
-              label="Areas of Interest"
-              placeholder="Interest areas (e.g., tech, health)"
-              onChange={(value) =>
-                setInterests({ ...interests, areasOfInterest: value })
-              }
-            />
-            <Input
-              name="skillsOrTechnologies"
-              label="Skills or Technologies"
-              placeholder="Skills/interests (e.g., project management, education)"
-              onChange={(value) =>
-                setInterests({ ...interests, skillsOrTechnologies: value })
-              }
-            />
+          <div className="flex flex-col m-6 w-auto justify-center lg:flex-row">
+            <div className="p-6 bg-white rounded-lg shadow-md flex flex-col justify-center">
+              <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center">
+                User Interests
+              </h2>
+              <Input
+                name="areasOfInterest"
+                label="Areas of Interest"
+                placeholder="Interest areas (e.g., tech, health)"
+                onChange={(value) =>
+                  setInterests({ ...interests, areasOfInterest: value })
+                }
+              />
+              <Input
+                name="skillsOrTechnologies"
+                label="Skills or Technologies"
+                placeholder="Skills/interests (e.g., project management, education)"
+                onChange={(value) =>
+                  setInterests({ ...interests, skillsOrTechnologies: value })
+                }
+              />
 
-            <Dropdown
-              label="Industry Relevance"
-              name="IndustryRelevance"
-              options={[
-                { value: "technology", label: "Technology" },
-                { value: "healthcare", label: "Healthcare" },
-                { value: "education", label: "Education" },
-                { value: "finance", label: "Finance" },
-                { value: "automotive", label: "Automotive" },
-                { value: "entertainment", label: "Entertainment" },
-                { value: "manufacturing", label: "Manufacturing" },
-                { value: "agriculture", label: "Agriculture" },
-                { value: "retail", label: "Retail" },
-                { value: "energy", label: "Energy" },
-                { value: "environment", label: "Environment" },
-                { value: "food_and_beverage", label: "Food & Beverage" },
-                {
-                  value: "government_and_public_sector",
-                  label: "Government & Public Sector",
-                },
-                { value: "real_estate", label: "Real Estate" },
-                {
-                  value: "transportation_and_logistics",
-                  label: "Transportation & Logistics",
-                },
-                { value: "telecommunications", label: "Telecommunications" },
-                { value: "pharmaceuticals", label: "Pharmaceuticals" },
-                { value: "space", label: "Space" },
-                { value: "cyber_security", label: "Cyber Security" },
-                { value: "art_and_design", label: "Art & Design" },
+              <Dropdown
+                label="Industry Relevance"
+                name="IndustryRelevance"
+                options={[
+                  { value: "technology", label: "Technology" },
+                  { value: "healthcare", label: "Healthcare" },
+                  { value: "education", label: "Education" },
+                  { value: "finance", label: "Finance" },
+                  { value: "automotive", label: "Automotive" },
+                  { value: "entertainment", label: "Entertainment" },
+                  { value: "manufacturing", label: "Manufacturing" },
+                  { value: "agriculture", label: "Agriculture" },
+                  { value: "retail", label: "Retail" },
+                  { value: "energy", label: "Energy" },
+                  { value: "environment", label: "Environment" },
+                  { value: "food_and_beverage", label: "Food & Beverage" },
+                  {
+                    value: "government_and_public_sector",
+                    label: "Government & Public Sector",
+                  },
+                  { value: "real_estate", label: "Real Estate" },
+                  {
+                    value: "transportation_and_logistics",
+                    label: "Transportation & Logistics",
+                  },
+                  { value: "telecommunications", label: "Telecommunications" },
+                  { value: "pharmaceuticals", label: "Pharmaceuticals" },
+                  { value: "space", label: "Space" },
+                  { value: "cyber_security", label: "Cyber Security" },
+                  { value: "art_and_design", label: "Art & Design" },
 
-                // More options...
-              ]}
-              onSelect={(value) =>
-                setInterests({ ...interests, IndustryRelevance: value })
-              }
-            />
+                  // More options...
+                ]}
+                onSelect={(value) =>
+                  setInterests({ ...interests, IndustryRelevance: value })
+                }
+              />
 
-            <Dropdown
-              name="projectField"
-              label="Project Feild"
-              options={[
-                { value: "development", label: "Development" },
-                { value: "research", label: "Research" },
-                { value: "entrepreneurship", label: "Entrepreneurship" },
-                { value: "social_impact", label: "Social Impact" },
-                { value: "educational", label: "Educational" },
-                { value: "creative_arts", label: "Creative Arts" },
-                {
-                  value: "technology_innovation",
-                  label: "Technology Innovation",
-                },
-                { value: "scientific_inquiry", label: "Scientific Inquiry" },
-                { value: "community_service", label: "Community Service" },
-                {
-                  value: "environmental_conservation",
-                  label: "Environmental Conservation",
-                },
-                { value: "health_and_wellness", label: "Health and Wellness" },
-                { value: "data_analysis", label: "Data Analysis" },
-                {
-                  value: "software_development",
-                  label: "Software Development",
-                },
-                { value: "product_design", label: "Product Design" },
-                { value: "market_research", label: "Market Research" },
-                { value: "business_strategy", label: "Business Strategy" },
-                { value: "engineering", label: "Engineering" },
-                {
-                  value: "multimedia_production",
-                  label: "Multimedia Production",
-                },
-                { value: "event_planning", label: "Event Planning" },
-                { value: "policy_development", label: "Policy Development" },
-              ]}
-              onSelect={(value) =>
-                setInterests({ ...interests, projectField: value })
-              }
-            />
+              <Dropdown
+                name="projectField"
+                label="Project Feild"
+                options={[
+                  { value: "development", label: "Development" },
+                  { value: "research", label: "Research" },
+                  { value: "entrepreneurship", label: "Entrepreneurship" },
+                  { value: "social_impact", label: "Social Impact" },
+                  { value: "educational", label: "Educational" },
+                  { value: "creative_arts", label: "Creative Arts" },
+                  {
+                    value: "technology_innovation",
+                    label: "Technology Innovation",
+                  },
+                  { value: "scientific_inquiry", label: "Scientific Inquiry" },
+                  { value: "community_service", label: "Community Service" },
+                  {
+                    value: "environmental_conservation",
+                    label: "Environmental Conservation",
+                  },
+                  { value: "health_and_wellness", label: "Health and Wellness" },
+                  { value: "data_analysis", label: "Data Analysis" },
+                  {
+                    value: "software_development",
+                    label: "Software Development",
+                  },
+                  { value: "product_design", label: "Product Design" },
+                  { value: "market_research", label: "Market Research" },
+                  { value: "business_strategy", label: "Business Strategy" },
+                  { value: "engineering", label: "Engineering" },
+                  {
+                    value: "multimedia_production",
+                    label: "Multimedia Production",
+                  },
+                  { value: "event_planning", label: "Event Planning" },
+                  { value: "policy_development", label: "Policy Development" },
+                ]}
+                onSelect={(value) =>
+                  setInterests({ ...interests, projectField: value })
+                }
+              />
+            </div>
+            <div className="p-6 bg-white rounded-lg shadow-md flex flex-col justify-center">
+              <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center ">
+                User Preferences
+              </h2>
+
+              <Input
+                name="preferredTools"
+                label="Preferred Tools"
+                placeholder="Preferred tools/frameworks"
+                onChange={(value) =>
+                  setPreferences({ ...preferences, PreferredTools: value })
+                }
+              />
+              <Dropdown
+                name="timeCommitment"
+                label="Time Commitment"
+                options={[
+                  { value: "weeks", label: "Weeks" },
+                  { value: "months", label: "Months" },
+                  { value: "ongoing", label: "Ongoing" },
+                  // More options...
+                ]}
+                onSelect={(value) =>
+                  setPreferences({ ...preferences, timeCommitment: value })
+                }
+              />
+
+              <Dropdown
+                name="DifficultyLevel"
+                label="Difficulty Level"
+                options={[
+                  { value: "easy", label: "Easy" },
+                  { value: "medium", label: "Medium" },
+                  { value: "hard", label: "Hard" },
+                  // More options...
+                ]}
+                onSelect={(value) =>
+                  setPreferences({ ...preferences, DifficultyLevel: value })
+                }
+              />
+              <Dropdown
+                name="CollaborationPreference"
+                label="Collaboration Preference:"
+                options={[
+                  { value: "solo", label: "Solo" },
+                  { value: "team", label: "Team" },
+                  // More options...
+                ]}
+                onSelect={(value) =>
+                  setPreferences({ ...preferences, DifficultyLevel: value })
+                }
+              />
+            </div>
           </div>
 
-          <div className="flex flex-col items-center justify-center p-6 bg-[#f7f7f7] rounded-lg shadow-md md:order-2 order-3">
+          <div className="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md">
             <textarea
               value={generatedIdeas}
               onChange={(e) => setGeneratedIdeas(e.target.value)}
@@ -288,60 +343,6 @@ const AI: React.FC = () => {
             >
               Get Project Ideas
             </button>
-          </div>
-
-          <div className="p-6 bg-[#f7f7f7] rounded-lg shadow-md flex flex-col justify-center md:order-3 order-2">
-            <h2 className="mb-4 md:mb-12 text-2xl font-bold text-[#bfa260] text-center ">
-              User Preferences
-            </h2>
-
-            <Input
-              name="preferredTools"
-              label="Preferred Tools"
-              placeholder="Preferred tools/frameworks"
-              onChange={(value) =>
-                setPreferences({ ...preferences, PreferredTools: value })
-              }
-            />
-            <Dropdown
-              name="timeCommitment"
-              label="Time Commitment"
-              options={[
-                { value: "weeks", label: "Weeks" },
-                { value: "months", label: "Months" },
-                { value: "ongoing", label: "Ongoing" },
-                // More options...
-              ]}
-              onSelect={(value) =>
-                setPreferences({ ...preferences, timeCommitment: value })
-              }
-            />
-
-            <Dropdown
-              name="DifficultyLevel"
-              label="Difficulty Level"
-              options={[
-                { value: "easy", label: "Easy" },
-                { value: "medium", label: "Medium" },
-                { value: "hard", label: "Hard" },
-                // More options...
-              ]}
-              onSelect={(value) =>
-                setPreferences({ ...preferences, DifficultyLevel: value })
-              }
-            />
-            <Dropdown
-              name="CollaborationPreference"
-              label="Collaboration Preference:"
-              options={[
-                { value: "solo", label: "Solo" },
-                { value: "team", label: "Team" },
-                // More options...
-              ]}
-              onSelect={(value) =>
-                setPreferences({ ...preferences, DifficultyLevel: value })
-              }
-            />
           </div>
         </div>
       </div>
