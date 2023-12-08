@@ -123,7 +123,7 @@ export default function Nav() {
                 className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf] cursor-pointer shadow-md hover:shadow-xl
               px-4 py-2 mt-3 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
             hover:bg-gray-100 focus:ring-4 focus:ring-gray-400"
-                href="SignUp"
+                href="SignUpPage"
               >
                 Sign up
               </motion.a>
@@ -148,7 +148,7 @@ export default function Nav() {
         className="flex gap-3 max-xl:hidden max-lg:hidden lg:flex lg:items-center lg:justify-center lg:text-sm "
       >
         <a
-          href="SignUp"
+          href="SignUpPage"
           className="middle none center rounded-lg bg-[#5f7fbf] border-2 border-[#5f7fbf]  py-2 px-4.5 lg:py-1.5 lg:px-3.5 text-md font-bold font-nunito  text-white 
            roundedtransition-all duration-700 hover:bg-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
            disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none cursor-pointer"
