@@ -140,25 +140,28 @@ export default function AddProject() {
 
     You can choose etherways to implement it.
     */
-    // const supabase = createSupabaseBrowser();
+    const supabase = createSupabaseBrowser();
     // const { error } =  await supabase.storage.createBucket()
     // const { data } = await supabase.storage.from().upload()
     // const imageUrl = data?.path
+
+    const {data} = await supabase.auth.getUser();
+    const creatorID = data.user?.id
 
     // TODO: Complete this function
     // This function is ready to insert the project. Note that it is not tested yet!
     
     // insertProject({
     //   title, 
-    //   problem: ,
+    //   problem: "problem",
     //   motivation,
-    //   solution: ,
-    //   creatorID:,
-    //   imageURL:,
+    //   solution: "solution",
+    //   creatorID?,
+    //   imageURL: imageUrl,
     //   description,
     //   category,
-    //   tools:,
-    //   teamMembers:,
+    //   tools,
+    //   teamMembers,
     // })
 
     setIsSubmitted(true);
