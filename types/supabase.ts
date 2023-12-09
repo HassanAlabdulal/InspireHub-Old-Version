@@ -290,7 +290,7 @@ export interface Database {
           created_at?: string
           CreatorID: string
           description?: string | null
-          id: string
+          id?: string
           image_url?: string | null
           motivation?: string | null
           problem: string
@@ -444,7 +444,7 @@ export interface Database {
           }
         ]
       }
-      "Tools ": {
+      Tools: {
         Row: {
           id: string
           project_id: string
@@ -462,21 +462,21 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "Tools _project_id_fkey"
+            foreignKeyName: "Tools_project_id_fkey"
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "Project"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "Tools _project_id_fkey"
+            foreignKeyName: "Tools_project_id_fkey"
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "projectdetails"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "Tools _project_id_fkey"
+            foreignKeyName: "Tools_project_id_fkey"
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "projectdetails_extended"
@@ -541,13 +541,48 @@ export interface Database {
       }
     }
     Functions: {
-      [_ in never]: never
+      insertprojectwithtoolsandteammembers:
+        | {
+            Args: {
+              _title: string
+              _problem: string
+              _motivation: string
+              _solution: string
+              _creatorid: string
+              _imageurl: string
+              _description: string
+              _category: string
+              _tools: string[]
+              _teammembers: Database["public"]["CompositeTypes"]["team_member_type"][]
+            }
+            Returns: undefined
+          }
+        | {
+            Args: {
+              _title: string
+              _problem: string
+              _motivation: string
+              _solution: string
+              _creatorid: string
+              _imageurl: string
+              _description: string
+              _category: string
+              _tools: string[]
+              _teammembers: Json[]
+            }
+            Returns: undefined
+          }
     }
     Enums: {
       [_ in never]: never
     }
     CompositeTypes: {
-      [_ in never]: never
+      team_member_type: {
+        name: string
+        linkedin: string
+        photo: string
+        twitter: string
+      }
     }
   }
 }

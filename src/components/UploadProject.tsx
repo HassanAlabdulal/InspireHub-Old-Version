@@ -10,6 +10,8 @@ import {
   faTimesCircle,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
+import { createSupabaseBrowser } from "../utils/supabase";
+import { insertProject } from "../utils/uploadProject";
 
 interface TeamMember {
   name: string;
@@ -117,6 +119,22 @@ export default function AddProject() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Perform the submit logic here
+
+    // TODO: Upload the pics to supabase
+    /** The function is almost ready, just we need to create a bucket for each project, and uplead the picture(s). Then get the url and put it in the project insertion.
+    
+    Please note that: You can do the reverse also by uploading the entire project first then uploading the picture and update the table. 
+
+    You can choose etherways to implement it.
+    */
+    // const supabase = createSupabaseBrowser();
+    // const { error } =  await supabase.storage.createBucket()
+    // const { data } = await supabase.storage.from().upload()
+    // const imageUrl = data?.path
+
+    // TODO: Complete this function
+    // This function is ready to insert the project. Note that it is not tested yet!
+    // insertProject({})
     setIsSubmitted(true);
     setSubmitMessage("Thank you! Your project has been uploaded successfully.");
 
