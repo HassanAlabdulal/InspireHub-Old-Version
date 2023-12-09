@@ -387,13 +387,13 @@ export default function Main({ projects }: Props) {
                 </dd>
                 <dt className="sr-only">Category</dt>
                 <dd className="mt-1">
-                  <span className="px-2 py-1 text-[#3e60a3] text-xs font-medium bg-blue-100 rounded-full">
+                  <span className="px-2 py-1 text-[#3e60a3] text-xs font-medium bg-blue-100 rounded-full border-[1px] border-[#3e60a3]">
                     {project.category}
                   </span>
                 </dd>
                 <dt className="sr-only">Rating</dt>
                 <dd className="mt-1">
-                  <span className="px-2 py-1 text-[#AA8A41] text-xs font-medium bg-amber-100 rounded-full">
+                  <span className="px-2 py-1 text-[#AA8A41] text-xs font-medium bg-amber-100 rounded-full border-[1px] border-[#AA8A41]">
                     {renderStars(project.average_rate!)} {project.average_rate}{" "}
                     / 5
                   </span>

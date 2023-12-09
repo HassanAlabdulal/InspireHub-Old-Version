@@ -83,7 +83,7 @@ const slides: Slide[] = [
 type Props = {
   project: Database["public"]["Views"]["projectdetails_extended"]["Row"];
   teamMembers: Database["public"]["Tables"]["TeamMembers"]["Row"][];
-  tools: Database["public"]["Tables"]["Tools "]["Row"][];
+  tools: Database["public"]["Tables"]["Tools"]["Row"][];
 };
 
 const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
