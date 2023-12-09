@@ -1,6 +1,10 @@
 ---
 import MainLayout from "../layouts/main-layout.astro";
 import UploadProject from "../components/UploadProject.tsx";
+
+import { createSupabaseServer } from "../utils/supabase";
+
+const supabase = createSupabaseServer(Astro.cookies);
 ---
 
 <MainLayout title="Upload Project">
