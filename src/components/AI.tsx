@@ -116,11 +116,11 @@ const AI: React.FC = () => {
                 }}
                 className="text-2xl max-w-2xl sm:text-3xl sm:max-w-3xl sm:mx-12 md:18 font-bold leading-none tracking-tight text-center text-[#bfa260] font-nunito"
               >
-                {Array.from("Hello, I'm SparkIdeator").map((char, index) => {
+                {Array.from("Hello, I'm Spark").map((char, index) => {
                   // Check if the current character is part of the word "SparkIdeator"
                   const isPartOfName =
                     "Hello I am ".length <= index &&
-                    index < "Hello I am SparkIdeator".length;
+                    index < "Hello I am Spark".length;
 
                   return (
                     <motion.span
@@ -131,7 +131,7 @@ const AI: React.FC = () => {
                       }}
                       transition={{ type: "spring", stiffness: 50 }}
                       // Apply additional styles if the character is part of "SparkIdeator"
-                      style={isPartOfName ? { fontStyle: "italic" } : {}}
+                      style={isPartOfName ? {fontWeight: "bolder" } : {}}
                     >
                       {char}
                     </motion.span>
