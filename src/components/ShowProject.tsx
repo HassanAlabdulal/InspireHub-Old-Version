@@ -114,7 +114,7 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
   return (
     <div className="min-h-screen p-6 mx-auto bg-[#f7f7f7] text-[#121212]">
       <div className="flex gap-8 mt-12 max-md:flex-col">
-        <section className="w-1/4 min-h-screen pt-5 bg-gray-100 rounded-lg shadow-md max-md:w-full ">
+        <section className="w-1/4 min-h-screen pt-5 bg-[#fafafa] rounded-lg shadow-md max-md:w-full ">
           <header className="mb-5 text-center">
             <h1 className="mb-6 text-4xl font-bold text-[#bfa260]">
               {project.title}
@@ -127,7 +127,7 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
               {renderStars(project.average_rate!)}
             </span>
             <span className="ml-1 text-gray-600">
-              {project.average_rate!} of 5
+              {project.average_rate!} out of 5
             </span>
           </div>
 
@@ -198,7 +198,7 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
           </div>
         </section>
 
-        <section className="flex items-center justify-center w-3/4 min-h-screen pt-5 bg-gray-100 rounded-lg shadow-md max-md:w-full ">
+        <section className="flex items-center justify-center w-3/4 min-h-screen pt-5 bg-[#fafafa] rounded-lg shadow-md max-md:w-full ">
           <div className="w-2/3 ">
             <div>
               <div className="relative w-full h-64 md:h-96">
@@ -235,7 +235,7 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     className={`inline-block cursor-pointer rounded-full p-2 ${
-                      index === currentIndex ? "bg-[#5f7fbf]" : "bg-white"
+                      index === currentIndex ? "bg-[#5f7fbf]" : "bg-[#c4c4c4]"
                     }`}
                   ></span>
                 ))}

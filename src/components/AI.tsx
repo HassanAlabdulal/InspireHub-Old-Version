@@ -175,7 +175,7 @@ const AI: React.FC = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center w-full gap-12 my-6 lg:flex-row">
-            <div className="flex flex-col justify-center w-full p-6 bg-white rounded-lg shadow-lg lg:w-1/2 gap-2">
+            <div className="flex flex-col justify-center w-full p-6 bg-[#fafafa] rounded-lg shadow-lg lg:w-1/2 gap-2">
               <h2 className="mb-4 md:mb-12 text-2xl font-nunito font-bold text-[#bfa260] text-center">
                 User Interests
               </h2>
@@ -279,7 +279,7 @@ const AI: React.FC = () => {
                 }
               />
             </div>
-            <div className="flex flex-col justify-center w-full p-6 bg-white rounded-lg shadow-lg lg:w-1/2 gap-2">
+            <div className="flex flex-col justify-center w-full p-6 bg-[#fafafa] rounded-lg shadow-lg lg:w-1/2 gap-2">
               <h2 className="mb-4 md:mb-12 text-2xl font-nunito font-bold text-[#bfa260] text-center ">
                 User Preferences
               </h2>
@@ -334,7 +334,7 @@ const AI: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-lg">
+          <div className="flex flex-col items-center justify-center p-6 bg-[#fafafa] rounded-lg shadow-lg">
             <textarea
               value={generatedIdeas}
               onChange={(e) => setGeneratedIdeas(e.target.value)}
