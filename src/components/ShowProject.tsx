@@ -112,94 +112,105 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
   };
 
   return (
-    <div className="min-h-screen p-6 mx-auto bg-[#f7f7f7] text-[#121212]">
-      <div className="flex gap-8 mt-12 max-md:flex-col">
-        <section className="w-1/4 min-h-screen pt-5 bg-[#fafafa] rounded-lg shadow-md max-md:w-full ">
-          <header className="mb-5 text-center">
-            <h1 className="mb-6 text-4xl font-bold text-[#bfa260]">
-              {project.title}
-            </h1>
-            <hr className="h-px my-8 bg-gray-300 border-0" />
-          </header>
-
-          <div className="flex flex-col items-center justify-center gap-2 mb-32 text-xl">
-            <span className="flex items-center ml-2">
-              {renderStars(project.average_rate!)}
-            </span>
-            <span className="ml-1 text-gray-600">
-              {project.average_rate!} out of 5
-            </span>
-          </div>
-
-          <dl className="max-w-md mx-auto mt-10 text-gray-900 divide-y divide-gray-300">
-            <div className="flex flex-col items-center pb-12">
-              <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
+    <div className="min-h-screen px-8 py-12 mx-auto bg-[#f7f7f7] text-[#121212]">
+      <div className="flex flex-col-reverse gap-6 mt-12 lg:flex-row">
+        <section className="w-1/4 min-h-screen pt-5 bg-[#fafafa] rounded-lg shadow-md max-lg:w-full ">
+          <div className="flex flex-col items-center justify-center max-w-md mx-auto my-6 text-[#121212] font-roboto divide-y divide-[#c4c4c4]">
+            <div className="flex flex-col items-center justify-center gap-2 pt-6 pb-12 w-full">
+              <p className="mb-2 text-base font-medium tracking-wider text-[#2b2b2b] uppercase">
+                Rating
+              </p>
+              <span className="text-[#5e5e5e]">
+                {project.average_rate!} out of 5
+              </span>
+              <span className="flex items-center">
+                {renderStars(project.average_rate!)}
+              </span>
+              <div className="mt-6">
+                <a
+                  className="flex select-none items-center cursor-pointer justify-center rounded-lg  bg-[#5f7fbf] border-2 border-[#5f7fbf] px-4 py-2
+                                    text-base font-bold text-white align-middle transition-all duration-700 hover:bg-[#3e60a3] hover:border-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+                                    disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                  type="button"
+                  data-ripple-dark="true"
+                >
+                  Rate Project
+                </a>
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-center gap-2 py-12 w-full">
+              <p className="mb-2 text-base font-medium tracking-wider text-[#2b2b2b] uppercase">
                 Category
-              </dt>
-              <dd className="text-lg font-semibold">{project.category}</dd>
+              </p>
+              <p className="text-base font-medium text-[#5e5e5e]">{project.category}</p>
             </div>
-            <div className="flex flex-col items-center py-12">
-              <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
+            <div className="flex flex-col items-center justify-center gap-2 py-12 w-full">
+              <p className="mb-2 text-base font-medium tracking-wider text-[#2b2b2b] uppercase">
                 Budget
-              </dt>
-              <dd className="text-lg font-semibold">
+              </p>
+              <p className="text-base font-medium text-[#5e5e5e]">
                 {/* {project.budget} <span>{project.currency}</span> */}
-              </dd>
+              </p>
             </div>
-            <div className="flex flex-col items-center pt-12">
-              <dt className="mb-2 text-sm font-medium tracking-wider text-gray-500 uppercase">
+            <div className="flex flex-col items-center justify-center gap-2 py-12 w-full">
+              <dt className="mb-2 text-base font-medium tracking-wider text-[#2b2b2b] uppercase">
                 Date
               </dt>
-              <dd className="text-lg font-semibold">{project.created_at}</dd>
+              <dd className="text-base font-medium text-[#5e5e5e]">{project.created_at}</dd>
             </div>
-          </dl>
-
-          <div className="flex flex-col items-center justify-center px-20 mt-36 ">
-            <AccordionItem
-              id={1}
-              header="Team Members"
-              icon={
-                <FontAwesomeIcon
-                  icon={faPeopleGroup}
-                  className="text-[#121212] mr-2"
-                />
-              }
-            >
-              <div className="space-y-4">
-                {" "}
-                {teamMembers.map((member, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between"
-                  >
-                    <span>{member.name}</span>
-                    <div>
-                      <a
-                        href={`https://twitter.com/${member.Twitter}`}
-                        target="_blank"
-                        className="mx-2 text-xl text-gray-800 hover:text-[#121212] transition-all duration-300"
-                        rel="noopener noreferrer"
-                      >
-                        <FontAwesomeIcon icon={faXTwitter} size="lg" />
-                      </a>
-                      <a
-                        href={`https://www.linkedin.com/in/${member.LinkedIn}`}
-                        target="_blank"
-                        className="mx-2 text-xl text-[#5f7fbf] hover:text-[#3a60a3] transition-all duration-300"
-                        rel="noopener noreferrer"
-                      >
-                        <FontAwesomeIcon icon={faLinkedin} size="lg" />
-                      </a>
+            <div className="flex flex-col items-center justify-center gap-2 px-16 py-12 w-full">
+              <AccordionItem
+                id={1}
+                header="Team Members"
+                icon={
+                  <FontAwesomeIcon
+                    icon={faPeopleGroup}
+                    className="text-[#121212] mr-2"
+                  />
+                }
+              >
+                <div className="space-y-4">
+                  {" "}
+                  {teamMembers.map((member, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between"
+                    >
+                      <span>{member.name}</span>
+                      <div>
+                        <a
+                          href={`https://twitter.com/${member.Twitter}`}
+                          target="_blank"
+                          className="mx-2 text-xl text-gray-800 hover:text-[#121212] transition-all duration-300"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={faXTwitter} size="lg" />
+                        </a>
+                        <a
+                          href={`https://www.linkedin.com/in/${member.LinkedIn}`}
+                          target="_blank"
+                          className="mx-2 text-xl text-[#5f7fbf] hover:text-[#3a60a3] transition-all duration-300"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={faLinkedin} size="lg" />
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </AccordionItem>
+                  ))}
+                </div>
+              </AccordionItem>
+            </div>
           </div>
         </section>
 
-        <section className="flex items-center justify-center w-3/4 min-h-screen pt-5 bg-[#fafafa] rounded-lg shadow-md max-md:w-full ">
-          <div className="w-2/3 ">
+        <section className="flex items-center justify-center w-3/4 min-h-screen py-6 bg-[#fafafa] rounded-lg shadow-md max-lg:w-full ">
+          <div className="w-5/6">
+            <header className="my-6 text-center">
+              <h1 className="mb-6 text-4xl font-bold font-nunito text-[#bfa260]">
+                {project.title}
+              </h1>
+            </header>
+            <hr className="h-px my-8 bg-[#c4c4c4] border-0" />
             <div>
               <div className="relative w-full h-64 md:h-96">
                 {/* Slider Images */}
@@ -208,9 +219,8 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
                     key={slide.url}
                     src={slide.url}
                     alt={`Slide ${index}`}
-                    className={`w-full h-full object-contain rounded-xl absolute transition-opacity duration-700 ease-in-out ${
-                      index === currentIndex ? "opacity-100" : "opacity-0"
-                    }`}
+                    className={`w-full h-full object-contain rounded-xl absolute transition-opacity duration-700 ease-in-out ${index === currentIndex ? "opacity-100" : "opacity-0"
+                      }`}
                   />
                 ))}
 
@@ -218,13 +228,13 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
                 <FontAwesomeIcon
                   icon={faAngleLeft}
                   onClick={goToPrevious}
-                  className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] bg-opacity-50 hover:bg-opacity-100 transition-all duration-200 cursor-pointer rounded-xl left-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
+                  className="absolute p-2 transform -translate-y-1/2 bg-[#c4c4c4] text-[#f7f7f7] hover:bg-[#5e5e5e] transition-all duration-200 cursor-pointer rounded-xl left-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
                 />
 
                 <FontAwesomeIcon
                   icon={faAngleRight}
                   onClick={goToNext}
-                  className="absolute p-2 transform -translate-y-1/2 bg-[#121212] text-[#f7f7f7] hover:bg-opacity-100 transition-all duration-200 bg-opacity-50 cursor-pointer rounded-xl right-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
+                  className="absolute p-2 transform -translate-y-1/2 bg-[#c4c4c4] text-[#f7f7f7] hover:bg-[#5e5e5e] transition-all duration-200 cursor-pointer rounded-xl right-1 top-1/2 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-white"
                 />
               </div>
 
@@ -234,18 +244,16 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
                   <span
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`inline-block cursor-pointer rounded-full p-2 ${
-                      index === currentIndex ? "bg-[#5f7fbf]" : "bg-[#c4c4c4]"
-                    }`}
+                    className={`inline-block cursor-pointer rounded-full p-2 ${index === currentIndex ? "bg-[#5f7fbf]" : "bg-[#c4c4c4]"
+                      }`}
                   ></span>
                 ))}
               </div>
-              <hr className="h-px my-8 bg-gray-300 border-0" />
             </div>
-
+            <hr className="h-px my-8 bg-[#c4c4c4] border-0" />
             <div className="flex flex-col justify-center">
-              <div className="pb-12">
-                <div className="grid items-stretch min-h-0 grid-cols-1 gap-10 md:grid-cols-3">
+              <div className="py-6">
+                <div className="grid items-stretch min-h-0 grid-cols-1 gap-6 md:grid-cols-3">
                   <CardWithImage
                     image="src/assets/Description.png"
                     title="Description"
@@ -263,9 +271,8 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
                   />
                 </div>
               </div>
-
-              <hr className="h-px my-8 bg-gray-300 border-0" />
             </div>
+            <hr className="h-px my-8 bg-[#c4c4c4] border-0" />
             <div className="text-[#121212] font-bold flex flex-col">
               <div className="flex items-center justify-center">
                 <AccordionItem
