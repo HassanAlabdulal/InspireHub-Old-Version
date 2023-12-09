@@ -29,6 +29,19 @@ export default function AddProject() {
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([
     { name: "", linkedIn: "", twitter: "" },
   ]);
+  
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
+  const [category, setCategory] = useState("");
+  const [description , setDescription] = useState("");
+  const [motivation , setMotivation] = useState("");
+  const [features , setFeatures] = useState("");
+  const [resources , setResources] = useState("");
+  const [tools , setTools] = useState("");
+  const [others , setOthers] = useState("");
+  
+
+
   const [images, setImages] = useState<string[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [fileName, setFileName] = useState<string>("");
@@ -134,7 +147,20 @@ export default function AddProject() {
 
     // TODO: Complete this function
     // This function is ready to insert the project. Note that it is not tested yet!
-    // insertProject({})
+    
+    // insertProject({
+    //   title, 
+    //   problem: ,
+    //   motivation,
+    //   solution: ,
+    //   creatorID:,
+    //   imageURL:,
+    //   description,
+    //   category,
+    //   tools:,
+    //   teamMembers:,
+    // })
+
     setIsSubmitted(true);
     setSubmitMessage("Thank you! Your project has been uploaded successfully.");
 
@@ -247,6 +273,8 @@ export default function AddProject() {
               type="text"
               placeholder="InspireHub"
               className="w-full px-4 py-2 transition-all duration-300 border rounded focus:px-5 focus:outline-0"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
             />
           </div>
 
@@ -295,6 +323,8 @@ export default function AddProject() {
             <textarea
               placeholder="It is a website that is a hub for inspiring and innovative project ideas..."
               className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
+              value={description}
+              onChange={e => setDescription(e.target.value)}
             ></textarea>
           </div>
 
@@ -303,6 +333,8 @@ export default function AddProject() {
             <textarea
               placeholder="The primary motivation behind InspireHub is to address a significant challenge..."
               className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
+              value={motivation}
+              onChange={e => setMotivation(e.target.value)}
             ></textarea>
           </div>
 
@@ -385,6 +417,8 @@ export default function AddProject() {
             <textarea
               placeholder="Easy to use, Suitable for everyone ..."
               className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
+              value={features}
+              onChange={e => setFeatures(e.target.value)}
             ></textarea>
           </div>
 
@@ -393,6 +427,8 @@ export default function AddProject() {
             <textarea
               placeholder="https://github.com/InspireHub"
               className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
+              value={resources}
+              onChange={e => setResources(e.target.value)}
             ></textarea>
           </div>
 
@@ -401,6 +437,8 @@ export default function AddProject() {
             <textarea
               placeholder="React, Astro ..."
               className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
+              value={tools}
+              onChange={e => setTools(e.target.value)}
             ></textarea>
           </div>
 
@@ -447,6 +485,8 @@ export default function AddProject() {
             <textarea
               placeholder="This is the first version, we are working to update it as soon as depending on your suggestions..."
               className="w-full px-4 py-2 transition-all duration-300 border rounded resize-none focus:px-5 focus:outline-0"
+              value={others}
+              onChange={e => setOthers(e.target.value)}
             ></textarea>
           </div>
 
