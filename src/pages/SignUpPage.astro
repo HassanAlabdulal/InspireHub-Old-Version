@@ -1,6 +1,6 @@
 ---
-import SignUp from "../components/SignUp.tsx";
-import MainLayout from "../layouts/main-layout.astro.tsx";
+import SignUp from "../components/SignUp";
+import MainLayout from "../layouts/main-layout.astro";
 import { createSupabaseServer } from "../utils/supabase.ts";
 
 if (Astro.request.method === "POST") {
@@ -11,6 +11,8 @@ if (Astro.request.method === "POST") {
       await Astro.request.json();
 
     // Sign up the user
+    console.log(password);
+    
     const { data, error } = await supabase.auth.signUp({ email, password });
     if (error) throw error;
 
@@ -19,7 +21,7 @@ if (Astro.request.method === "POST") {
 
     // Insert profile data
     const { error: profileError } = await supabase.from("profiles").upsert({
-      id: user.id,
+      id: user.id ?? "cefec7c1-e966-47d0-9535-a57ac2abf0f3",
       full_name: `${firstName} ${lastName}`,
       major,
       academic_level: academicLevel,
@@ -32,13 +34,14 @@ if (Astro.request.method === "POST") {
     //   headers: { "Content-Type": "application/json" },
     //   status: 200,
     // });
-    return Astro.redirect("/")
+    return Astro.redirect("/MainPage")
   } catch (error: any) {
+    Astro.redirect("/SignUpPage")
     // Return error response
-    return new Response(JSON.stringify({ error: error.message }), {
-      headers: { "Content-Type": "application/json" },
-      status: 500,
-    });
+    // return new Response(JSON.stringify({ error: error.message }), {
+    //   headers: { "Content-Type": "application/json" },
+    //   status: 500,
+    // });
   }
 }
 ---

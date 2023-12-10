@@ -194,37 +194,40 @@ export interface Database {
       Pictures: {
         Row: {
           created_at: string
-          picture: string
-          projectID: string
+          id: string | null
+          picture_url: string
+          project_id: string
         }
         Insert: {
           created_at?: string
-          picture: string
-          projectID: string
+          id?: string | null
+          picture_url: string
+          project_id: string
         }
         Update: {
           created_at?: string
-          picture?: string
-          projectID?: string
+          id?: string | null
+          picture_url?: string
+          project_id?: string
         }
         Relationships: [
           {
-            foreignKeyName: "Pictures_projectID_fkey"
-            columns: ["projectID"]
+            foreignKeyName: "Pictures_project_id_fkey"
+            columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "Project"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "Pictures_projectID_fkey"
-            columns: ["projectID"]
+            foreignKeyName: "Pictures_project_id_fkey"
+            columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "projectdetails"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "Pictures_projectID_fkey"
-            columns: ["projectID"]
+            foreignKeyName: "Pictures_project_id_fkey"
+            columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "projectdetails_extended"
             referencedColumns: ["id"]

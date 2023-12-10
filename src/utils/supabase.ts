@@ -30,7 +30,7 @@ export function createSupabaseServer(cookies: AstroCookies) {
 
 let supabaseClient: SupabaseClient | undefined = undefined;
 
-export function createSupabaseBrowser(cookies?: AstroCookies): SupabaseClient {
+export function createSupabaseBrowser(cookies?: AstroCookies): SupabaseClient<Database> {
   if (typeof supabaseClient === "undefined") {
     supabaseClient = createBrowserClient<Database>(
       import.meta.env.PUBLIC_SUPABASE_URL,

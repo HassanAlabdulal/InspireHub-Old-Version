@@ -141,6 +141,7 @@ export default function AddProject() {
     You can choose etherways to implement it.
     */
     const supabase = createSupabaseBrowser();
+    
     const { data: fileData } = await supabase.storage
       .from("projects")
       .upload(title + "_mainimage", file!);
@@ -163,7 +164,7 @@ export default function AddProject() {
       imageURL: imageUrl ?? "",
       description,
       category,
-      tools: tools.split(" "),
+      tools: tools,
       teamMembers: teamMembers.map((member) => ({
         LinkedIn: member.linkedIn,
         name: member.name,

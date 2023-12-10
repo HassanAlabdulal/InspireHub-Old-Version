@@ -48,7 +48,7 @@ const SignUp = () => {
 
   const handleSignUp = async () => {
     try {
-      const response = await fetch("/signup", {
+      const response = await fetch("/SignUpPage", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
