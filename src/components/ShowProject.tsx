@@ -14,12 +14,11 @@ import {
 import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import type { Database } from "../../types/supabase.ts";
 import { Dialog, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon, CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import { withStyles } from '@material-ui/core/styles';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 // TeamMember interface
 // interface TeamMember {
@@ -98,14 +97,17 @@ const StyledRating = withStyles({
     color: '#aa8a41',
   },
   iconHover: {
-   
+
   },
 })(Rating);
 
 const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = React.useState<number | null>(0);
+  const [open, setOpen] = useState(false); // Rating Modal State
+  const [ratingValue, setRatingValue] = useState<number | null>(null); // Track rating value
+  const [hasRated, setHasRated] = useState(false); // Track if the user has rated
+  const [showSuccessfulRatingMessage, setShowSuccessfulRatingMessage] = useState(false); // Show message if user rated successfully
+  const [showRepeatedRatingMessage, setShowRepeatedRatingMessage] = useState(false); // Show message if user has already rated
 
   const goToPrevious = (): void => {
     const isFirstSlide: boolean = currentIndex === 0;
@@ -127,6 +129,20 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
     const isLastSlide: boolean = currentIndex === slides.length - 1;
     const newIndex: number = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
+  };
+
+  const handleRateButtonClick = () => {
+    if (hasRated) {
+      // Show message if user has already rated
+      setShowRepeatedRatingMessage(true);
+      return;
+    }
+
+    console.log('Rating Value:', ratingValue);
+    // Logic to save the rating
+    setHasRated(true); // Set hasRated to true after rating
+    setShowSuccessfulRatingMessage(true);
+    setOpen(false);
   };
 
   return (
@@ -284,25 +300,24 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
                                   name="rating"
                                   precision={0.5}
                                   size="large"
-                                  onChange={(event, newValue) => {
-                                    setValue(newValue);
-                                  }}
+                                  onChange={(event, newValue) => setRatingValue(newValue)}
                                 />
                               </Box>
                             </div>
                           </div>
                         </div>
                         <div className="mt-5 gap-3 sm:mt-4 sm:flex sm:flex-row-reverse">
-                          <a
+                          <button
                             className="flex select-none items-center cursor-pointer justify-center rounded-lg  bg-[#5f7fbf] border-2 border-[#5f7fbf] px-4 py-2 mt-3
                                     text-base font-bold text-white align-middle transition-all duration-700 hover:bg-[#3e60a3] hover:border-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
                                     disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none sm:mt-0 sm:w-auto"
                             type="button"
                             data-ripple-dark="true"
-                            onClick={() => setOpen(false)}
+                            onClick={handleRateButtonClick}
+                            disabled={ratingValue == null}
                           >
                             Rate
-                          </a>
+                          </button>
                           <a
                             className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf] cursor-pointer shadow-md hover:shadow-xl
                                     px-4 py-2 mt-3 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
@@ -319,6 +334,94 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
                 </div>
               </Dialog>
             </Transition.Root>
+
+            <div
+              aria-live="assertive"
+              className="fixed inset-0 flex items-end px-4 py-6 mt-12 pointer-events-none sm:p-6 sm:items-start"
+            >
+              <div className="w-full flex flex-col items-center space-y-4 sm:items-end">
+                {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
+                <Transition
+                  show={showSuccessfulRatingMessage}
+                  as={Fragment}
+                  enter="transform ease-out duration-300 transition"
+                  enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+                  enterTo="translate-y-0 opacity-100 sm:translate-x-0"
+                  leave="transition ease-in duration-100"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div className="p-4">
+                      <div className="flex items-start">
+                        <div className="flex-shrink-0">
+                          <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
+                        </div>
+                        <div className="ml-3 w-0 flex-1 pt-0.5">
+                          <p className="text-sm font-medium text-gray-900">Thank You!</p>
+                          <p className="mt-1 text-sm text-gray-500">Your feedback has been successfully recorded.</p>
+                        </div>
+                        <div className="ml-4 flex-shrink-0 flex">
+                          <button
+                            className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            onClick={() => {
+                              setShowSuccessfulRatingMessage(false)
+                            }}
+                          >
+                            <span className="sr-only">Close</span>
+                            <XMarkIcon className="h-5 w-5" aria-hidden="true" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Transition>
+              </div>
+            </div>
+
+            <div
+              aria-live="assertive"
+              className="fixed inset-0 flex items-end px-4 py-6 mt-12 pointer-events-none sm:p-6 sm:items-start"
+            >
+              <div className="w-full flex flex-col items-center space-y-4 sm:items-end">
+                {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
+                <Transition
+                  show={showRepeatedRatingMessage}
+                  as={Fragment}
+                  enter="transform ease-out duration-300 transition"
+                  enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+                  enterTo="translate-y-0 opacity-100 sm:translate-x-0"
+                  leave="transition ease-in duration-100"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div className="p-4">
+                      <div className="flex items-start">
+                        <div className="flex-shrink-0">
+                          <XCircleIcon className="h-6 w-6 text-red-400" aria-hidden="true" />
+                        </div>
+                        <div className="ml-3 w-0 flex-1 pt-0.5">
+                          <p className="text-sm font-medium text-gray-900">Warning!</p>
+                          <p className="mt-1 text-sm text-gray-500">You have already rated this project.</p>
+                        </div>
+                        <div className="ml-4 flex-shrink-0 flex">
+                          <button
+                            className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            onClick={() => {
+                              setShowRepeatedRatingMessage(false)
+                            }}
+                          >
+                            <span className="sr-only">Close</span>
+                            <XMarkIcon className="h-5 w-5" aria-hidden="true" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Transition>
+              </div>
+            </div>
           </div>
         </section>
 
