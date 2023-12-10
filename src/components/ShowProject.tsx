@@ -433,6 +433,7 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
                       className="text-[#121212] mr-2"
                     />
                   }
+                  children={undefined}
                 >
                   {/* <h1>{project.others}</h1> */}
                 </AccordionItem>
