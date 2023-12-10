@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { renderStars } from "../utils/renderStars";
 import CardWithImage from "../components/UI/Card.tsx";
 import AccordionItem from "../components/UI/Accordion.tsx";
@@ -13,6 +13,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faXTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import type { Database } from "../../types/supabase.ts";
+import { Dialog, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/24/solid";
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
+import { withStyles } from '@material-ui/core/styles';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 // TeamMember interface
 // interface TeamMember {
@@ -86,8 +93,19 @@ type Props = {
   tools: Database["public"]["Tables"]["Tools"]["Row"][];
 };
 
+const StyledRating = withStyles({
+  iconFilled: {
+    color: '#aa8a41',
+  },
+  iconHover: {
+   
+  },
+})(Rating);
+
 const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = React.useState<number | null>(0);
 
   const goToPrevious = (): void => {
     const isFirstSlide: boolean = currentIndex === 0;
@@ -133,6 +151,7 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
                                     disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                   type="button"
                   data-ripple-dark="true"
+                  onClick={() => setOpen(true)}
                 >
                   Rate Project
                 </a>
@@ -200,6 +219,106 @@ const ShowProject: React.FC<Props> = ({ project, teamMembers, tools }) => {
                 </div>
               </AccordionItem>
             </div>
+
+            <Transition.Root show={open} as={Fragment}>
+              <Dialog
+                as="div"
+                className="relative z-10"
+                onClose={() => setOpen(false)}
+              >
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <div className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" />
+                </Transition.Child>
+
+                <div className="fixed inset-0 z-10 overflow-y-auto">
+                  <div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+                    {/* This element is to trick the browser into centering the modal contents. */}
+                    <span
+                      className="hidden sm:inline-block sm:align-middle sm:h-screen"
+                      aria-hidden="true"
+                    >
+                      &#8203;
+                    </span>
+                    <Transition.Child
+                      as={Fragment}
+                      enter="ease-out duration-300"
+                      enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                      enterTo="opacity-100 translate-y-0 sm:scale-100"
+                      leave="ease-in duration-200"
+                      leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                      leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    >
+                      <Dialog.Panel className="relative inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                        <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                          <button
+                            type="button"
+                            className="text-gray-400 bg-white rounded-md hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3e60a3]"
+                            onClick={() => setOpen(false)}
+                          >
+                            <span className="sr-only">Close</span>
+                            <XMarkIcon className="w-6 h-6" aria-hidden="true" />
+                          </button>
+                        </div>
+                        <div className="sm:flex sm:items-start">
+                          <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-blue-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
+                            <StarIcon className="w-6 h-6 text-[#3e60a3]" aria-hidden="true" />
+                          </div>
+                          <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <Dialog.Title
+                              as="h3"
+                              className="text-lg font-medium leading-6 text-gray-900"
+                            >
+                              Rate Project
+                            </Dialog.Title>
+                            <div className="my-12 space-y-8">
+                              <Box component="fieldset" mb={3} borderColor="transparent">
+                                <StyledRating
+                                  name="rating"
+                                  precision={0.5}
+                                  size="large"
+                                  onChange={(event, newValue) => {
+                                    setValue(newValue);
+                                  }}
+                                />
+                              </Box>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mt-5 gap-3 sm:mt-4 sm:flex sm:flex-row-reverse">
+                          <a
+                            className="flex select-none items-center cursor-pointer justify-center rounded-lg  bg-[#5f7fbf] border-2 border-[#5f7fbf] px-4 py-2 mt-3
+                                    text-base font-bold text-white align-middle transition-all duration-700 hover:bg-[#3e60a3] hover:border-[#3e60a3] focus:outline-none shadow-md hover:shadow-xl
+                                    disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none sm:mt-0 sm:w-auto"
+                            type="button"
+                            data-ripple-dark="true"
+                            onClick={() => setOpen(false)}
+                          >
+                            Rate
+                          </a>
+                          <a
+                            className="flex select-none items-center justify-center rounded-lg border-2 border-[#5f7fbf] cursor-pointer shadow-md hover:shadow-xl
+                                    px-4 py-2 mt-3 text-base font-bold text-[#5f7fbf] align-middle transition-all duration-500
+                                  hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 sm:mt-0 sm:w-auto"
+                            type="button"
+                            onClick={() => setOpen(false)}
+                          >
+                            Cancel
+                          </a>
+                        </div>
+                      </Dialog.Panel>
+                    </Transition.Child>
+                  </div>
+                </div>
+              </Dialog>
+            </Transition.Root>
           </div>
         </section>
 
