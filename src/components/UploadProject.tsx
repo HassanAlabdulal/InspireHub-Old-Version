@@ -129,8 +129,84 @@ export default function AddProject() {
     },
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+  
+    // Simple form validation as an example
+    if (!title || !description) {
+      setSubmitMessage('Please fill in all required fields.');
+      return;
+    }
+  
+    setIsSubmitted(false);
+    setSubmitMessage("");
+  
+    try {
+      // Initialize Supabase client
+      const supabase = createSupabaseBrowser();
+  
+      let imageUrl = "";
+      if (file) {
+        // Upload the image to Supabase storage
+        const fileExt = file.name.split('.').pop();
+        const filePath = `${title.replace(/\s+/g, '_').toLowerCase()}_mainimage.${fileExt}`;
+        const { data: fileData, error: uploadError } = await supabase.storage
+          .from('projects')
+          .upload(filePath, file);
+  
+        if (uploadError) {
+          throw new Error(uploadError.message);
+        }
+  
+        // Construct the URL to access the file
+        // Note: Adjust this based on how your Supabase URL structure is set up
+        imageUrl = `${supabase.storage.getUrl('projects')}/${filePath}`;
+      }
+  
+      // Insert project data into the database
+      const { error: insertError } = await insertProject({
+        title,
+        date,
+        category,
+        description,
+        motivation,
+        features,
+        resources,
+        tools,
+        imageUrl, // URL of the uploaded image
+        teamMembers: teamMembers.map(member => ({
+          LinkedIn: member.linkedIn,
+          name: member.name,
+          Twitter: member.twitter,
+          photo: "", // If you have photos for team members, handle their upload here as well
+        })),
+        // ...any other project details that need to be submitted
+      });
+  
+      if (insertError) {
+        throw new Error(insertError.message);
+      }
+  
+      // Set submission state and display a success message
+      setIsSubmitted(true);
+      setSubmitMessage("Your project has been uploaded successfully.");
+  
+      // Reset form fields and state after successful upload
+      setTitle('');
+      setDescription('');
+      // ...reset other state variables
+  
+    } catch (error) {
+      // Handle any errors during the upload process
+      setSubmitMessage(`An error occurred: ${error.message}`);
+    }
+  
+    // Remove the submit message after a delay
+    setTimeout(() => {
+      setSubmitMessage("");
+    }, 5000); // Adjust the delay as needed
+  };
+  
     // Perform the submit logic here
 
     // TODO: Upload the pics to supabase
