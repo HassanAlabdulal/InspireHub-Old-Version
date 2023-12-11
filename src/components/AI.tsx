@@ -1,7 +1,4 @@
-import * as React from 'react';
-import CircularProgress from '@mui/material/CircularProgress';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import React, { useState} from 'react';
 import Lottie from "lottie-react";
 import animationData from "../assets/Animations/AI-Animation.json";
 import { createSuggestion } from "../utils/createSuggestion";
@@ -70,29 +67,51 @@ const Dropdown: React.FC<DropdownProps> = ({
   </div>
 );
 
-function CircularProgressWithLabel(props) {
+const CircularProgressBar = ({ progress }) => {
+  // Calculate the circumference of the circle
+  const radius = 50; // radius of the circle
+  const stroke = 4; // stroke width of the circle
+  const normalizedRadius = radius - stroke * 2;
+  const circumference = normalizedRadius * 2 * Math.PI;
+
+  // Calculate the stroke dash offset
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
+
   return (
-    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-      <CircularProgress variant="determinate" {...props} />
-      <Box
-        sx={{
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-          position: 'absolute',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Typography variant="caption" component="div" color="text.secondary">
-          {`${Math.round(props.value)}%`}
-        </Typography>
-      </Box>
-    </Box>
+    <div className="flex justify-center items-center">
+      <svg height={radius * 2} width={radius * 2}>
+        <circle
+          stroke="lightgray"
+          fill="transparent"
+          strokeWidth={stroke}
+          r={normalizedRadius}
+          cx={radius}
+          cy={radius}
+        />
+        <circle
+          stroke="blue"
+          fill="transparent"
+          strokeWidth={stroke}
+          strokeDasharray={circumference + ' ' + circumference}
+          style={{ strokeDashoffset }}
+          r={normalizedRadius}
+          cx={radius}
+          cy={radius}
+        />
+        <text
+          x="50%"
+          y="50%"
+          textAnchor="middle"
+          stroke="#51c5cf"
+          dy=".3em"
+          fontSize="40" // Adjust font size as needed
+        >
+          {`${Math.round(progress)}%`} {/* Round to the nearest whole number */}
+        </text>
+      </svg>
+    </div>
   );
-}
+};
 
 const AI: React.FC = () => {
   const [interests, setInterests] = useState({
@@ -108,68 +127,56 @@ const AI: React.FC = () => {
     DifficultyLevel: "",
   });
   const [generatedIdeas, setGeneratedIdeas] = useState<string>("");
-
-  const ProgressBar = ({ progress }) => (
-    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-      <div
-        className="bg-blue-600 h-2.5 rounded-full"
-        style={{ width: `${progress}%` }}
-      ></div>
-    </div>
-  );  
-
-  const [progress, setProgress] = React.useState(0);
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [progress, setProgress] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Mock function to simulate progress
   const simulateProgress = () => {
     setProgress(0);
     const interval = setInterval(() => {
       setProgress((oldProgress) => {
-        if (oldProgress === 100) {
+        const newProgress = oldProgress + 1;
+        if (newProgress >= 100) {
           clearInterval(interval);
           return 100;
         }
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 100);
+        return newProgress;
       });
-    }, 500);
+    }, 500); // You can adjust the interval time as needed
   };
 
 
   const getProjectIdeas = async () => {
     setIsLoading(true); // Start loading
-    simulateProgress(0); // Start simulating progress
-
-        // Simulate a loading state
-        const timer = setInterval(() => {
-          setProgress((prevProgress) => {
-            const newProgress = prevProgress + 10;
-            if (newProgress >= 100) {
-              clearInterval(timer);
-              setIsLoading(false); // Hide loading indicator when complete
-              return 100;
-            }
-            return newProgress;
-          });
-        }, 800);
-
+  
+    // Assume it takes approximately 5 seconds for createSuggestion to complete
+    const expectedDuration = 10000; // in milliseconds
+    let elapsedTime = 0; // time since the operation started
+    const intervalTime = 100; // update progress every 100 milliseconds
+  
+    const interval = setInterval(() => {
+      elapsedTime += intervalTime;
+      // Calculate progress as the percentage of the expected duration
+      const calculatedProgress = (elapsedTime / expectedDuration) * 100;
+      // Ensure progress doesn't exceed 100%
+      setProgress(Math.min(calculatedProgress, 100));
+    }, intervalTime);
+  
     try {
       const suggestion = await createSuggestion({
         ...preferences,
         ...interests,
       });
-      setGeneratedIdeas(suggestion!);
-      setProgress(100); // End progress
+      setGeneratedIdeas(suggestion);
+      setProgress(100); // Directly set to 100% when done
     } catch (error) {
       console.error("Failed to get project ideas:", error);
-      setProgress(100); // End progress
-      // Handle the error appropriately in your UI
     } finally {
+      clearInterval(interval); // Stop the interval when the operation is done
       setIsLoading(false); // Stop loading regardless of success or error
-      setTimeout(() => setProgress(0), 500);
     }
   };
+  
   
 
   return (
@@ -441,11 +448,10 @@ const AI: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* Show loading indicator with progress */}
       {isLoading && (
-        <Box sx={{ position: 'absolute', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <CircularProgressWithLabel value={progress} />
-        </Box>
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50">
+          <CircularProgressBar progress={progress} />
+        </div>
       )}
     </div>
   );
