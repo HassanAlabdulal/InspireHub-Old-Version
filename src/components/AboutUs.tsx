@@ -8,6 +8,12 @@ type AccordionSectionProps = {
   children: ReactNode;
 };
 
+// Adjust the transition timing here
+const transition = {
+  duration: 0.3, // Reduced duration for a faster transition
+  ease: "easeInOut", // This can be adjusted to other easing options
+};
+
 export const AccordionSection = ({
   title,
   children,
@@ -19,19 +25,22 @@ export const AccordionSection = ({
     collapsed: { opacity: 0, height: 0 },
   };
 
+  // Updated styles for the button
+  const buttonStyles = `flex items-center w-2/3 justify-between text-[#bfa260] font-roboto font-semibold 
+  text-2xl mb-4 px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#bfa260]`;
+
   return (
-    <div>
-      <button
-        className="flex items-center text-[#bfa260] font-roboto font-semibold text-2xl mb-4 text-left focus:outline-none"
-        onClick={() => setIsOpen(!isOpen)}
-      >
+    <div className="flex flex-col items-center justify-center w-full">
+      <button className={buttonStyles} onClick={() => setIsOpen(!isOpen)}>
+        <span>{title}</span>
         <motion.span
-          className="mr-2 transition-transform transform duration-400"
-          animate={{ rotate: isOpen ? 1 : 0 }}
+          className="mr-2"
+          initial={false} // Disable initial animation
+          animate={{ rotate: isOpen ? 90 : 0 }} // Adjust rotation degrees if needed
+          transition={transition}
         >
-          {isOpen ? "▼" : "►"}
+          {isOpen ? "-" : "+"}
         </motion.span>
-        {title}
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -40,12 +49,12 @@ export const AccordionSection = ({
             animate="open"
             exit="collapsed"
             variants={variants}
-            transition={{ duration: 0.7 }}
-            className="overflow-hidden"
+            transition={transition}
+            className={"overflow-hidden w-2/3"}
+            // Key prop is important for AnimatePresence to track the component's presence in the DOM
+            key={title}
           >
-            <div className="p-4 mb-4 rounded-md bg-[#f7f7f7] shadow-sm hover:shadow-md transition-all duration-700">
-              {children}
-            </div>
+            {children}
           </motion.div>
         )}
       </AnimatePresence>
@@ -67,12 +76,13 @@ export const TableComponent = () => (
         />
         <DeveloperCard
           imagePath="src/assets/photo.png"
-          name="Ali Alshaikh"
-          title="Backend Developer"
-          linkedInUrl="https://www.linkedin.com/in/janesmith"
-          twitterUrl="https://twitter.com/janesmith"
-          githubUrl="https://github.com/janesmith"
+          name="Abdullah Almatawah"
+          title="Frontend Developer"
+          linkedInUrl="https://www.linkedin.com/in/michaelbrown"
+          twitterUrl="https://twitter.com/michaelbrown"
+          githubUrl="https://github.com/michaelbrown"
         />
+
         <DeveloperCard
           imagePath="src/assets/photo.png"
           name="Ali Alabdulaal"
@@ -85,11 +95,11 @@ export const TableComponent = () => (
       <div className="flex justify-center w-full mb-10 gap-7">
         <DeveloperCard
           imagePath="src/assets/photo.png"
-          name="Abdullah Almatawah"
-          title="Frontend Developer"
-          linkedInUrl="https://www.linkedin.com/in/michaelbrown"
-          twitterUrl="https://twitter.com/michaelbrown"
-          githubUrl="https://github.com/michaelbrown"
+          name="Ali Alshaikh"
+          title="Backend Developer"
+          linkedInUrl="https://www.linkedin.com/in/janesmith"
+          twitterUrl="https://twitter.com/janesmith"
+          githubUrl="https://github.com/janesmith"
         />
         <DeveloperCard
           imagePath="src/assets/photo.png"

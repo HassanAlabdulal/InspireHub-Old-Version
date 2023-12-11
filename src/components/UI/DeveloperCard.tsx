@@ -31,8 +31,8 @@ const DeveloperCard: React.FC<DeveloperCardProps> = ({
           src={imagePath}
           alt={`${name} image`}
         />
-        <h5 className="mb-1 text-xl font-medium text-gray-900">{name}</h5>
-        <span className="text-sm text-gray-500 dark:text-gray-400">
+        <h5 className="mb-1 text-xl font-medium text-[#bfa260]">{name}</h5>
+        <span className="text-sm text-gray-500 dark:text-gray-400 ">
           {title}
         </span>
         <div className="flex mt-4 md:mt-6">

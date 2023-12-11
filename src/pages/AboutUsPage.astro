@@ -1,6 +1,8 @@
 ---
 import { AccordionSection, TableComponent } from "../components/AboutUs";
 import MainLayout from "../layouts/main-layout.astro";
+
+const style = "p-4 mb-4 font-normal text-black font-roboto rounded-md bg-[#f7f7f7] shadow-sm hover:shadow-md transition-all duration-300 ease-in-out"
 ---
 
 <MainLayout title="About Us">
@@ -9,13 +11,13 @@ import MainLayout from "../layouts/main-layout.astro";
   >
     <div class="flex flex-col flex-1 pr-8 space-y-6">
       <h1
-        class="text-[#bfa260] font-roboto font-bold text-3xl mb-4 text-center"
+        class="text-[#bfa260] font-roboto font-bold text-3xl mb-10 mt-5 text-center "
       >
         About Us
       </h1>
 
       <AccordionSection client:only title="Inspirehub: A Journey of Passion and Innovation">
-        <p class="font-normal text-black font-roboto">
+        <p class={style}>
           We are a team of dreamers, innovators, and educators united by a
           common passion: to empower and inspire the next generation of creative
           minds. Our journey began with a simple yet powerful idea – to create a
@@ -25,7 +27,7 @@ import MainLayout from "../layouts/main-layout.astro";
       </AccordionSection>
 
       <AccordionSection client:only title="Our Inspiration">
-        <p class="font-normal text-black font-roboto">
+        <p class={style}>
           Each member of our team has walked the path of discovery, facing
           challenges and embracing opportunities. We've experienced firsthand
           the power of collaboration and the impact of sharing knowledge. That's
@@ -35,7 +37,7 @@ import MainLayout from "../layouts/main-layout.astro";
       </AccordionSection>
 
       <AccordionSection client:only title="Our Commitment">
-        <p class="font-normal text-black font-roboto">
+        <p class={style}>
           At Inspirehub, we are committed to fostering a nurturing environment.
           We believe in the power of feedback, the importance of community, and
           the potential of every idea. Our mission goes beyond providing a
@@ -45,7 +47,7 @@ import MainLayout from "../layouts/main-layout.astro";
       </AccordionSection>
 
       <AccordionSection client:only title="Our Values">
-        <p class="font-normal text-black font-roboto">
+        <p class={style}>
           Empathy and Support: We understand the journey of innovation and
           strive to offer the support and guidance needed to navigate it.
           <br />
@@ -59,7 +61,7 @@ import MainLayout from "../layouts/main-layout.astro";
       </AccordionSection>
 
       <AccordionSection client:only title="Join Our Story">
-        <p class="font-normal text-black font-roboto">
+        <p class={style}>
           Every member of our community, every user who shares a project, and
           every feedback given adds a page to the Inspirehub story. We invite
           you to be a part of this journey. Share your projects, your ideas, and
