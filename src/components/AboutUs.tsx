@@ -8,10 +8,9 @@ type AccordionSectionProps = {
   children: ReactNode;
 };
 
-// Adjust the transition timing here
 const transition = {
-  duration: 0.3, // Reduced duration for a faster transition
-  ease: "easeInOut", // This can be adjusted to other easing options
+  duration: 0.3,
+  ease: "easeInOut",
 };
 
 export const AccordionSection = ({
@@ -25,7 +24,6 @@ export const AccordionSection = ({
     collapsed: { opacity: 0, height: 0 },
   };
 
-  // Updated styles for the button
   const buttonStyles = `flex items-center w-2/3 justify-between text-[#bfa260] font-roboto font-semibold 
   text-2xl mb-4 px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#bfa260]`;
 
@@ -35,8 +33,8 @@ export const AccordionSection = ({
         <span>{title}</span>
         <motion.span
           className="mr-2"
-          initial={false} // Disable initial animation
-          animate={{ rotate: isOpen ? 90 : 0 }} // Adjust rotation degrees if needed
+          initial={false}
+          animate={{ rotate: isOpen ? 90 : 0 }}
           transition={transition}
         >
           {isOpen ? "-" : "+"}
