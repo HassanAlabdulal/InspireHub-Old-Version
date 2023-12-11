@@ -248,9 +248,9 @@ export const TableComponent = () => (
           imagePath="src/assets/photo.png"
           name="Hassan Alabdulal"
           title="Frontend Developer"
-          linkedInUrl="https://www.linkedin.com/in/johndoe"
-          twitterUrl="https://twitter.com/johndoe"
-          githubUrl="https://github.com/johndoe"
+          linkedInUrl="https://www.linkedin.com/in/"
+          twitterUrl="https://twitter.com/7assan_abdulaal"
+          githubUrl="https://github.com/HassanAlabdulal"
         />
         <DeveloperCard
           imagePath="src/assets/photo.png"

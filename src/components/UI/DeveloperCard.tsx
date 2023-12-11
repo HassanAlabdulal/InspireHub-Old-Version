@@ -38,6 +38,7 @@ const DeveloperCard: React.FC<DeveloperCardProps> = ({
         <div className="flex mt-4 md:mt-6">
           <a
             href={githubUrl}
+            target="_blank"
             className="p-2 text-center align-middle rounded-full"
           >
             <FontAwesomeIcon
@@ -48,6 +49,7 @@ const DeveloperCard: React.FC<DeveloperCardProps> = ({
           </a>
           <a
             href={linkedInUrl}
+            target="_blank"
             className="p-2 text-center align-middle rounded-full"
           >
             <FontAwesomeIcon
@@ -58,6 +60,7 @@ const DeveloperCard: React.FC<DeveloperCardProps> = ({
           </a>
           <a
             href={twitterUrl}
+            target="_blank"
             className="p-2 text-center align-middle rounded-full"
           >
             <FontAwesomeIcon
