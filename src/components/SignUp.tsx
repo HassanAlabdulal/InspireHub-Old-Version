@@ -128,7 +128,7 @@ const SignUp = () => {
     setFormStep((currentStep) => currentStep - 1);
   };
   return (
-    <div className="relative flex flex-col items-start min-h-screen antialiased text-[#121212] bg-[#f7f7f7]">
+    <div className="relative flex flex-col items-start min-h-screen  antialiased text-[#121212] bg-[#f7f7f7]">
       <div
         style={{
           clipPath: "polygon(0 0, 100% 0, 100% 80%, 0% 100%)",
@@ -149,10 +149,10 @@ const SignUp = () => {
           showPolicy ? "opacity-100" : "opacity-100"
         }`}
       >
-        <div className="px-16 py-10">
-          <form>
+        <div className="px-16 py-10 max-md:px-8 ">
+          <form className="max-md:w-full">
             {formStep < MAX_STEPS && (
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 ">
                 {formStep > 0 && (
                   <button
                     onClick={goToPreviousStep}
@@ -168,7 +168,7 @@ const SignUp = () => {
               </div>
             )}
             {formStep === 0 && (
-              <section className="flex flex-col">
+              <section className="flex flex-col ">
                 <h2 className="mb-8 text-3xl font-semibold ">
                   Personal Information
                 </h2>
