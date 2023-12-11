@@ -60,8 +60,8 @@ export const AccordionSection = ({
 };
 
 export const TableComponent = () => (
-  <div className="w-full lg:w-1/3 bg-[#f7f7f7]">
-    <div className="border border-gray-200 rounded-sm shadow-lg ">
+  <div className="w-full lg:w-2/3 bg-[#f7f7f7]">
+    {/* <div className="border border-gray-200 rounded-sm shadow-lg ">
       <header className="px-5 py-4 border-b">
         <h2 className="font-semibold text-[#bfa260] text-center">
           Developers Team
@@ -236,6 +236,47 @@ export const TableComponent = () => (
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </div> */}
+
+    <div className="w-full max-w-sm transition-all duration-500 bg-white border border-gray-200 shadow-md rounded-xl hover:bg-gray-50 ">
+      <div className="flex flex-col items-center pb-8">
+        <img
+          className="w-32 h-32 mt-10 mb-3 border-2 border-black rounded-full shadow-lg"
+          src="src/assets/photo.png"
+          alt="Bonnie image"
+        />
+        <h5 className="mb-1 text-xl font-medium text-gray-900 ">
+          Bonnie Green
+        </h5>
+        <span className="text-sm text-gray-500 dark:text-gray-400">
+          Visual Designer
+        </span>
+
+        <div className="flex mt-4 md:mt-6">
+          <a href="#" className="p-2 text-center align-middle rounded-full ">
+            <FontAwesomeIcon
+              title="GitHub"
+              className="inline-block w-8 h-8 transition-all duration-700 hover:scale-110"
+              icon={faGithub}
+            />
+          </a>
+
+          <a href="#" className="p-2 text-center align-middle rounded-full ">
+            <FontAwesomeIcon
+              title="linkedin"
+              className="inline-block w-8 h-8 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
+              icon={faLinkedin}
+            />
+          </a>
+          <a href="#" className="p-2 text-center align-middle rounded-full ">
+            <FontAwesomeIcon
+              title="X"
+              className="inline-block w-8 h-8 transition-all duration-700 hover:scale-110"
+              icon={faXTwitter}
+            />
+          </a>
         </div>
       </div>
     </div>
