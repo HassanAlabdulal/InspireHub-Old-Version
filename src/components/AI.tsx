@@ -81,18 +81,54 @@ const AI: React.FC = () => {
   });
   const [generatedIdeas, setGeneratedIdeas] = useState<string>("");
 
+  const ProgressBar = ({ progress }) => (
+    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+      <div
+        className="bg-blue-600 h-2.5 rounded-full"
+        style={{ width: `${progress}%` }}
+      ></div>
+    </div>
+  );  
+
+  const [progress, setProgress] = useState(0);
+
+  // Mock function to simulate progress
+  const simulateProgress = () => {
+    setProgress(0);
+    const interval = setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress === 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        const diff = Math.random() * 10;
+        return Math.min(oldProgress + diff, 100);
+      });
+    }, 500);
+  };
+
+  const [isLoading, setIsLoading] = useState(false); // New loading state
+
   const getProjectIdeas = async () => {
+    setIsLoading(true); // Start loading
+    simulateProgress(); // Start simulating progress
     try {
       const suggestion = await createSuggestion({
         ...preferences,
         ...interests,
       });
       setGeneratedIdeas(suggestion!);
+      setProgress(100); // End progress
     } catch (error) {
       console.error("Failed to get project ideas:", error);
+      setProgress(100); // End progress
       // Handle the error appropriately in your UI
+    } finally {
+      setIsLoading(false); // Stop loading regardless of success or error
+      setTimeout(() => setProgress(0), 500);
     }
   };
+  
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] flex justify-center items-center">
@@ -363,6 +399,14 @@ const AI: React.FC = () => {
           </div>
         </div>
       </div>
+        {/* Loading Indicator with ProgressBar */}
+      {isLoading && (
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50">
+          <div className="w-1/3 px-4 py-2"> {/* This container will control the size */}
+            <ProgressBar progress={progress} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
