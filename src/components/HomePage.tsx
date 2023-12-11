@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <main className="flex items-center justify-center w-full h-screen gap-3 max-md:mt-30 bg-[#f7f7f7]">
       <div className="flex flex-col items-center justify-center">
-        <div className="w-1/2 h-1/2 lg:w-2/5 lg:h-2/5">
+        <div className="w-5/6 h-5/6 lg:w-2/5 lg:h-2/5">
           <Lottie animationData={animationData} />
         </div>
         <motion.div
