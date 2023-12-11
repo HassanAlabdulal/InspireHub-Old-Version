@@ -8,6 +8,8 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
+import DeveloperCard from "../components/UI/DeveloperCard";
+
 type AccordionSectionProps = {
   title: string;
   children: ReactNode;
@@ -239,45 +241,52 @@ export const TableComponent = () => (
         </div>
       </div>
     </div> */}
-
-    <div className="w-full max-w-sm transition-all duration-500 bg-white border border-gray-200 shadow-md rounded-xl hover:bg-gray-50 ">
-      <div className="flex flex-col items-center pb-8">
-        <img
-          className="w-32 h-32 mt-10 mb-3 border-2 border-black rounded-full shadow-lg"
-          src="src/assets/photo.png"
-          alt="Bonnie image"
+    <div className="flex flex-wrap justify-center gap-7">
+      <div className="flex justify-center w-full gap-5 mb-5">
+        {/* Three cards in the top row */}
+        <DeveloperCard
+          imagePath="src/assets/photo1.png"
+          name="John Doe"
+          title="Frontend Developer"
+          linkedInUrl="https://www.linkedin.com/in/johndoe"
+          twitterUrl="https://twitter.com/johndoe"
+          githubUrl="https://github.com/johndoe"
         />
-        <h5 className="mb-1 text-xl font-medium text-gray-900 ">
-          Bonnie Green
-        </h5>
-        <span className="text-sm text-gray-500 dark:text-gray-400">
-          Visual Designer
-        </span>
-
-        <div className="flex mt-4 md:mt-6">
-          <a href="#" className="p-2 text-center align-middle rounded-full ">
-            <FontAwesomeIcon
-              title="GitHub"
-              className="inline-block w-8 h-8 transition-all duration-700 hover:scale-110"
-              icon={faGithub}
-            />
-          </a>
-
-          <a href="#" className="p-2 text-center align-middle rounded-full ">
-            <FontAwesomeIcon
-              title="linkedin"
-              className="inline-block w-8 h-8 transition-all duration-700 hover:scale-110 text-[#3e60a3]"
-              icon={faLinkedin}
-            />
-          </a>
-          <a href="#" className="p-2 text-center align-middle rounded-full ">
-            <FontAwesomeIcon
-              title="X"
-              className="inline-block w-8 h-8 transition-all duration-700 hover:scale-110"
-              icon={faXTwitter}
-            />
-          </a>
-        </div>
+        <DeveloperCard
+          imagePath="src/assets/photo2.png"
+          name="Jane Smith"
+          title="Backend Developer"
+          linkedInUrl="https://www.linkedin.com/in/janesmith"
+          twitterUrl="https://twitter.com/janesmith"
+          githubUrl="https://github.com/janesmith"
+        />
+        <DeveloperCard
+          imagePath="src/assets/photo3.png"
+          name="Emily Johnson"
+          title="UI/UX Designer"
+          linkedInUrl="https://www.linkedin.com/in/emilyjohnson"
+          twitterUrl="https://twitter.com/emilyjohnson"
+          githubUrl="https://github.com/emilyjohnson"
+        />
+      </div>
+      <div className="flex justify-center w-full mb-10 gap-7">
+        {/* Two cards in the bottom row */}
+        <DeveloperCard
+          imagePath="src/assets/photo4.png"
+          name="Michael Brown"
+          title="Project Manager"
+          linkedInUrl="https://www.linkedin.com/in/michaelbrown"
+          twitterUrl="https://twitter.com/michaelbrown"
+          githubUrl="https://github.com/michaelbrown"
+        />
+        <DeveloperCard
+          imagePath="src/assets/photo5.png"
+          name="Sarah Davis"
+          title="Data Scientist"
+          linkedInUrl="https://www.linkedin.com/in/sarahdavis"
+          twitterUrl="https://twitter.com/sarahdavis"
+          githubUrl="https://github.com/sarahdavis"
+        />
       </div>
     </div>
   </div>

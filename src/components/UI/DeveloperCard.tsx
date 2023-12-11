@@ -24,7 +24,7 @@ const DeveloperCard: React.FC<DeveloperCardProps> = ({
   githubUrl,
 }) => {
   return (
-    <div className="w-full max-w-sm transition-all duration-500 bg-white border border-gray-200 shadow-md rounded-xl hover:bg-gray-50">
+    <div className="w-full max-w-sm transition-all duration-500 bg-white border border-gray-200 shadow-md rounded-xl hover:bg-gray-50 hover:scale-105">
       <div className="flex flex-col items-center pb-8">
         <img
           className="w-32 h-32 mt-10 mb-3 border-2 border-black rounded-full shadow-lg"
