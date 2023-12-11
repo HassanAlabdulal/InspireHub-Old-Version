@@ -242,27 +242,27 @@ export const TableComponent = () => (
       </div>
     </div> */}
     <div className="flex flex-wrap justify-center gap-7">
-      <div className="flex justify-center w-full gap-5 mb-5">
+      <div className="flex justify-center w-full mb-5 gap-7">
         {/* Three cards in the top row */}
         <DeveloperCard
-          imagePath="src/assets/photo1.png"
-          name="John Doe"
+          imagePath="src/assets/photo.png"
+          name="Hassan Alabdulal"
           title="Frontend Developer"
           linkedInUrl="https://www.linkedin.com/in/johndoe"
           twitterUrl="https://twitter.com/johndoe"
           githubUrl="https://github.com/johndoe"
         />
         <DeveloperCard
-          imagePath="src/assets/photo2.png"
-          name="Jane Smith"
+          imagePath="src/assets/photo.png"
+          name="Ali Alshaikh"
           title="Backend Developer"
           linkedInUrl="https://www.linkedin.com/in/janesmith"
           twitterUrl="https://twitter.com/janesmith"
           githubUrl="https://github.com/janesmith"
         />
         <DeveloperCard
-          imagePath="src/assets/photo3.png"
-          name="Emily Johnson"
+          imagePath="src/assets/photo.png"
+          name="Ali Alabdulaal"
           title="UI/UX Designer"
           linkedInUrl="https://www.linkedin.com/in/emilyjohnson"
           twitterUrl="https://twitter.com/emilyjohnson"
@@ -272,16 +272,16 @@ export const TableComponent = () => (
       <div className="flex justify-center w-full mb-10 gap-7">
         {/* Two cards in the bottom row */}
         <DeveloperCard
-          imagePath="src/assets/photo4.png"
-          name="Michael Brown"
-          title="Project Manager"
+          imagePath="src/assets/photo.png"
+          name="Abdullah Almatawah"
+          title="Frontend Developer"
           linkedInUrl="https://www.linkedin.com/in/michaelbrown"
           twitterUrl="https://twitter.com/michaelbrown"
           githubUrl="https://github.com/michaelbrown"
         />
         <DeveloperCard
-          imagePath="src/assets/photo5.png"
-          name="Sarah Davis"
+          imagePath="src/assets/photo.png"
+          name="Hussain Alzayer"
           title="Data Scientist"
           linkedInUrl="https://www.linkedin.com/in/sarahdavis"
           twitterUrl="https://twitter.com/sarahdavis"

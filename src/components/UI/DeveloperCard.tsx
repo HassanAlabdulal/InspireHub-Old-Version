@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
   faLinkedin,
-  faTwitter,
+  faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
 type DeveloperCardProps = {
@@ -63,7 +63,7 @@ const DeveloperCard: React.FC<DeveloperCardProps> = ({
             <FontAwesomeIcon
               title="Twitter"
               className="inline-block w-8 h-8 transition-all duration-700 hover:scale-110"
-              icon={faTwitter}
+              icon={faXTwitter}
             />
           </a>
         </div>
