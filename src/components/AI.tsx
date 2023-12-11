@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import * as React from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import Lottie from "lottie-react";
 import animationData from "../assets/Animations/AI-Animation.json";
 import { createSuggestion } from "../utils/createSuggestion";
@@ -66,6 +69,31 @@ const Dropdown: React.FC<DropdownProps> = ({
     </select>
   </div>
 );
+
+function CircularProgressWithLabel(props) {
+  return (
+    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+      <CircularProgress variant="determinate" {...props} />
+      <Box
+        sx={{
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: 'absolute',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Typography variant="caption" component="div" color="text.secondary">
+          {`${Math.round(props.value)}%`}
+        </Typography>
+      </Box>
+    </Box>
+  );
+}
+
 const AI: React.FC = () => {
   const [interests, setInterests] = useState({
     areasOfInterest: "",
@@ -90,7 +118,8 @@ const AI: React.FC = () => {
     </div>
   );  
 
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = React.useState(0);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   // Mock function to simulate progress
   const simulateProgress = () => {
@@ -107,11 +136,24 @@ const AI: React.FC = () => {
     }, 500);
   };
 
-  const [isLoading, setIsLoading] = useState(false); // New loading state
 
   const getProjectIdeas = async () => {
     setIsLoading(true); // Start loading
-    simulateProgress(); // Start simulating progress
+    simulateProgress(0); // Start simulating progress
+
+        // Simulate a loading state
+        const timer = setInterval(() => {
+          setProgress((prevProgress) => {
+            const newProgress = prevProgress + 10;
+            if (newProgress >= 100) {
+              clearInterval(timer);
+              setIsLoading(false); // Hide loading indicator when complete
+              return 100;
+            }
+            return newProgress;
+          });
+        }, 800);
+
     try {
       const suggestion = await createSuggestion({
         ...preferences,
@@ -399,13 +441,11 @@ const AI: React.FC = () => {
           </div>
         </div>
       </div>
-        {/* Loading Indicator with ProgressBar */}
+      {/* Show loading indicator with progress */}
       {isLoading && (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50">
-          <div className="w-1/3 px-4 py-2"> {/* This container will control the size */}
-            <ProgressBar progress={progress} />
-          </div>
-        </div>
+        <Box sx={{ position: 'absolute', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <CircularProgressWithLabel value={progress} />
+        </Box>
       )}
     </div>
   );
