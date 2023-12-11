@@ -14,7 +14,6 @@ export const AccordionSection = ({
 }: AccordionSectionProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Variants for animating the open/close state
   const variants = {
     open: { opacity: 1, height: "auto" },
     collapsed: { opacity: 0, height: 0 },
@@ -58,7 +57,6 @@ export const TableComponent = () => (
   <div className="w-full lg:w-2/3 bg-[#f7f7f7]">
     <div className="flex flex-wrap justify-center gap-7">
       <div className="flex justify-center w-full mb-5 gap-7">
-        {/* Three cards in the top row */}
         <DeveloperCard
           imagePath="src/assets/photo.png"
           name="Hassan Alabdulal"
@@ -85,7 +83,6 @@ export const TableComponent = () => (
         />
       </div>
       <div className="flex justify-center w-full mb-10 gap-7">
-        {/* Two cards in the bottom row */}
         <DeveloperCard
           imagePath="src/assets/photo.png"
           name="Abdullah Almatawah"
