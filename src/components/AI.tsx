@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from "react";
 import Lottie from "lottie-react";
 import animationData from "../assets/Animations/AI-Animation.json";
 import { createSuggestion } from "../utils/createSuggestion";
@@ -78,7 +78,7 @@ const CircularProgressBar = ({ progress }) => {
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex items-center justify-center">
       <svg height={radius * 2} width={radius * 2}>
         <circle
           stroke="lightgray"
@@ -89,10 +89,10 @@ const CircularProgressBar = ({ progress }) => {
           cy={radius}
         />
         <circle
-          stroke="blue"
+          stroke="#3a60a3"
           fill="transparent"
           strokeWidth={stroke}
-          strokeDasharray={circumference + ' ' + circumference}
+          strokeDasharray={circumference + " " + circumference}
           style={{ strokeDashoffset }}
           r={normalizedRadius}
           cx={radius}
@@ -102,9 +102,9 @@ const CircularProgressBar = ({ progress }) => {
           x="50%"
           y="50%"
           textAnchor="middle"
-          stroke="#51c5cf"
+          stroke="#5f7fbf"
           dy=".3em"
-          fontSize="40" // Adjust font size as needed
+          fontSize="30" // Adjust font size as needed
         >
           {`${Math.round(progress)}%`} {/* Round to the nearest whole number */}
         </text>
@@ -145,15 +145,14 @@ const AI: React.FC = () => {
     }, 500); // You can adjust the interval time as needed
   };
 
-
   const getProjectIdeas = async () => {
     setIsLoading(true); // Start loading
-  
+
     // Assume it takes approximately 5 seconds for createSuggestion to complete
-    const expectedDuration = 10000; // in milliseconds
+    const expectedDuration = 12000; // in milliseconds
     let elapsedTime = 0; // time since the operation started
     const intervalTime = 100; // update progress every 100 milliseconds
-  
+
     const interval = setInterval(() => {
       elapsedTime += intervalTime;
       // Calculate progress as the percentage of the expected duration
@@ -161,7 +160,7 @@ const AI: React.FC = () => {
       // Ensure progress doesn't exceed 100%
       setProgress(Math.min(calculatedProgress, 100));
     }, intervalTime);
-  
+
     try {
       const suggestion = await createSuggestion({
         ...preferences,
@@ -176,8 +175,6 @@ const AI: React.FC = () => {
       setIsLoading(false); // Stop loading regardless of success or error
     }
   };
-  
-  
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] flex justify-center items-center">
@@ -216,7 +213,7 @@ const AI: React.FC = () => {
                       }}
                       transition={{ type: "spring", stiffness: 50 }}
                       // Apply additional styles if the character is part of "SparkIdeator"
-                      style={isPartOfName ? {fontWeight: "bolder" } : {}}
+                      style={isPartOfName ? { fontWeight: "bolder" } : {}}
                     >
                       {char}
                     </motion.span>
@@ -423,7 +420,7 @@ const AI: React.FC = () => {
             <textarea
               value={generatedIdeas}
               onChange={(e) => setGeneratedIdeas(e.target.value)}
-              className="w-full h-80 p-4 border rounded shadow resize-none lg:w-4/5"
+              className="w-full p-4 border rounded shadow resize-none h-80 lg:w-4/5"
               placeholder="Generated project ideas will appear here..."
             />
             <div className="flex items-center gap-3 mt-6">
@@ -449,7 +446,7 @@ const AI: React.FC = () => {
         </div>
       </div>
       {isLoading && (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50">
+        <div className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
           <CircularProgressBar progress={progress} />
         </div>
       )}
