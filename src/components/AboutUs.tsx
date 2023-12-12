@@ -25,7 +25,7 @@ export const AccordionSection = ({
   };
 
   const buttonStyles = `flex items-center w-2/3 justify-between text-[#bfa260] font-roboto font-semibold 
-  text-2xl mb-4 px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#bfa260]`;
+text-2xl mb-4 px-4 py-2 max-md:px-2 max-md:text-lg max-md:w-full max-md:py-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#bfa260]`;
 
   return (
     <div className="flex flex-col items-center justify-center w-full">
@@ -62,8 +62,8 @@ export const AccordionSection = ({
 
 export const TableComponent = () => (
   <div className="w-full lg:w-2/3 bg-[#f7f7f7]">
-    <div className="flex flex-wrap justify-center gap-7">
-      <div className="flex justify-center w-full mb-5 gap-7">
+    <div className="flex flex-wrap justify-center gap-7 ">
+      <div className="flex justify-center w-full mb-5 gap-7 max-md:flex-col">
         <DeveloperCard
           imagePath="src/assets/photo.png"
           name="Hassan Alabdulal"
@@ -90,7 +90,7 @@ export const TableComponent = () => (
           githubUrl="https://github.com/emilyjohnson"
         />
       </div>
-      <div className="flex justify-center w-full mb-10 gap-7">
+      <div className="flex justify-center w-full mb-10 gap-7 max-md:flex-col">
         <DeveloperCard
           imagePath="src/assets/photo.png"
           name="Ali Alshaikh"

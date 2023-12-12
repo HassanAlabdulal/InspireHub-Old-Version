@@ -2,7 +2,7 @@
 import { AccordionSection, TableComponent } from "../components/AboutUs";
 import MainLayout from "../layouts/main-layout.astro";
 
-const style = "p-4 mb-4 font-normal text-black font-roboto rounded-md bg-[#f7f7f7] shadow-sm hover:shadow-md transition-all duration-300 ease-in-out"
+const style = "p-4 mb-4 font-normal text-black max-md:p-1 max-md:m-1 font-roboto rounded-md bg-[#f7f7f7] shadow-sm hover:shadow-md transition-all duration-300 ease-in-out"
 ---
 
 <MainLayout title="About Us">
@@ -16,7 +16,7 @@ const style = "p-4 mb-4 font-normal text-black font-roboto rounded-md bg-[#f7f7f
         About Us
       </h1>
 
-      <AccordionSection client:only title="Inspirehub: A Journey of Passion and Innovation">
+      <AccordionSection client:only title="A Journey of Passion">
         <p class={style}>
           We are a team of dreamers, innovators, and educators united by a
           common passion: to empower and inspire the next generation of creative
